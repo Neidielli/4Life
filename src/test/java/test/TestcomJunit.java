@@ -26,7 +26,7 @@ public class TestcomJunit {
       String nome3 = "life";
       String nome4 = null;	
       
-      int num1 = 10;
+      int num1 = 11;
       int num2 = 7;
       
       assertEquals(nome1, nome2);  //verifica se são iguais
