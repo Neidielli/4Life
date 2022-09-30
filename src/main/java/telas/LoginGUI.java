@@ -158,16 +158,14 @@ public class LoginGUI extends javax.swing.JFrame {
             // recebe o email e a senha
             String email,senha;
             email = campoEmail.getText();
-            senha = campoSenhaa.getText();
-            
-            // iinstancia um objeto usuario
+            senha = String.valueOf(campoSenhaa.getPassword());
+            // instancia um objeto usuario
             UsuarioDAO dao = new UsuarioDAO();
             
             if(dao.login(email, senha)) { // método login irá retornar verdadeiro ou falso.
-                // se validadar login, abrir tela de cadastro MUDAAAR???
-               // JOptionPane.showMessageDialog(null, "entrou no if");
-                UsuarioGUI telausuario = new UsuarioGUI();
-                telausuario.setVisible(true);
+                // se validadar login, abrir tela home
+                HomeGUI telahome = new HomeGUI();
+                telahome.setVisible(true);
                 
                 this.dispose(); // fecha a tela de login
             }else { // se n encontrar o login, exibe msg para o usuario

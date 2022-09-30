@@ -70,7 +70,7 @@ public class UsuarioGUI extends javax.swing.JFrame {
         btnLimpar = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
         campoSenhaCadastro = new javax.swing.JTextField();
-        btnPesquisar = new javax.swing.JButton();
+        btnEditar = new javax.swing.JButton();
         btnExcluir = new javax.swing.JButton();
         campoId = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
@@ -148,14 +148,25 @@ public class UsuarioGUI extends javax.swing.JFrame {
         jLabel7.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel7.setText("Senha");
 
-        btnPesquisar.setBackground(new java.awt.Color(76, 159, 56));
-        btnPesquisar.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        btnPesquisar.setText("Editar");
+        btnEditar.setBackground(new java.awt.Color(76, 159, 56));
+        btnEditar.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        btnEditar.setText("Editar");
+        btnEditar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEditarActionPerformed(evt);
+            }
+        });
 
         btnExcluir.setBackground(new java.awt.Color(76, 159, 56));
         btnExcluir.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         btnExcluir.setText("Excluir");
+        btnExcluir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnExcluirActionPerformed(evt);
+            }
+        });
 
+        campoId.setEditable(false);
         campoId.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         campoId.setSelectionEnd(-1);
         campoId.setSelectionStart(-1);
@@ -202,7 +213,7 @@ public class UsuarioGUI extends javax.swing.JFrame {
                         .addGap(31, 31, 31)
                         .addComponent(btnLimpar, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(30, 30, 30)
-                        .addComponent(btnPesquisar)
+                        .addComponent(btnEditar)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 39, Short.MAX_VALUE)
                         .addComponent(btnExcluir)
                         .addGap(32, 32, 32)
@@ -219,12 +230,13 @@ public class UsuarioGUI extends javax.swing.JFrame {
                             .addComponent(jLabel8))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(campoEmail, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(campoCpf, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(campoNome, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(campoSenhaCadastro, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(campoTelefone, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(campoId, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(campoEmail, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(campoCpf, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(campoNome, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(campoSenhaCadastro, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(campoTelefone, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(campoId, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addContainerGap()
@@ -264,7 +276,7 @@ public class UsuarioGUI extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnCadastrar, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnLimpar, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnPesquisar, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnExcluir, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnSair, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(16, 16, 16))
@@ -318,11 +330,11 @@ public class UsuarioGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_campoNomeActionPerformed
 
     private void btnSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSairActionPerformed
-        System.exit(0);      
-        // TODO add your handling code here:
+        this.dispose();   
     }//GEN-LAST:event_btnSairActionPerformed
 
     private void btnLimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimparActionPerformed
+        campoId.setText("");
         campoNome.setText("");
         campoCpf.setText("");
         campoEmail.setText("");
@@ -335,7 +347,7 @@ public class UsuarioGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_campoEmailActionPerformed
 
     private void btnCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarActionPerformed
-        // instancia a classe Usuario e cria objetos usuarios
+        try {
         Usuario usuarios = new Usuario(); 
   
         usuarios.setNome(campoNome.getText());
@@ -358,6 +370,9 @@ public class UsuarioGUI extends javax.swing.JFrame {
         campoEmail.setText("");
         campoTelefone.setText(""); 
         campoSenhaCadastro.setText("");
+        } catch (Exception erro) {
+            JOptionPane.showMessageDialog(null, "ERRO AO CADASTRAR" + erro);
+        }
     }//GEN-LAST:event_btnCadastrarActionPerformed
 
     private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
@@ -369,7 +384,47 @@ public class UsuarioGUI extends javax.swing.JFrame {
     private void tabelaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabelaMouseClicked
         //Pegando os dados de um cliente na tabela
         campoId.setText(tabela.getValueAt(tabela.getSelectedRow(), 0).toString());
+        campoNome.setText(tabela.getValueAt(tabela.getSelectedRow(), 1).toString());
+        campoCpf.setText(tabela.getValueAt(tabela.getSelectedRow(), 2).toString());
+        campoEmail.setText(tabela.getValueAt(tabela.getSelectedRow(), 3).toString());
+        campoTelefone.setText(tabela.getValueAt(tabela.getSelectedRow(), 4).toString());
+        //campoSenhaCadastro.setText(tabela.getValueAt(tabela.getSelectedRow(), 5).toString());
     }//GEN-LAST:event_tabelaMouseClicked
+
+    private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
+        try {
+            Usuario u = new Usuario();
+            u.setNome(campoNome.getText());
+            u.setCpf(campoCpf.getText());
+            u.setEmail(campoEmail.getText());
+            u.setTelefone(campoTelefone.getText());
+            u.setSenha(campoSenhaCadastro.getText());
+            u.setId(Integer.parseInt(campoId.getText()));
+                    
+            UsuarioDAO dao = new UsuarioDAO();
+            dao.alterar(u);
+            
+            JOptionPane.showMessageDialog(null, "Dados alterado com sucesso!");
+        } catch (Exception erro) {
+            JOptionPane.showMessageDialog(null, "ERRO AO ALTERAR" + erro);
+        }
+        
+    }//GEN-LAST:event_btnEditarActionPerformed
+
+    private void btnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirActionPerformed
+        try {
+            Usuario u = new Usuario();
+            
+            u.setId(Integer.parseInt(campoId.getText()));
+                    
+            UsuarioDAO dao = new UsuarioDAO();
+            dao.excluir(u);
+            
+            JOptionPane.showMessageDialog(null, "Dados excluidos com sucesso!");
+        } catch (Exception erro) {
+            JOptionPane.showMessageDialog(null, "ERRO AO EXCLUIR" + erro);
+        }
+    }//GEN-LAST:event_btnExcluirActionPerformed
 
     /**
      * @param args the command line arguments
@@ -408,9 +463,9 @@ public class UsuarioGUI extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCadastrar;
+    private javax.swing.JButton btnEditar;
     private javax.swing.JButton btnExcluir;
     private javax.swing.JButton btnLimpar;
-    private javax.swing.JButton btnPesquisar;
     private javax.swing.JButton btnSair;
     private java.awt.TextField campoCpf;
     private java.awt.TextField campoEmail;
