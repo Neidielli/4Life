@@ -7,29 +7,13 @@ package model;
  * @author tayna
  */
 public class Funcionario {
-    private int id;
-    private String nome;
-    private String CPF;
-    private String tipo_func;
-    private String telefone;
-    private String email;
-    private String senha;
-    private String especialidade;
-
-    public Funcionario(int id, String nome, String CPF, String tipo_func, String telefone, String email, String senha, String especialidade) {
-        this.id = id;
-        this.nome = nome;
-        this.CPF = CPF;
-        this.tipo_func = tipo_func;
-        this.telefone = telefone;
-        this.email = email;
-        this.senha = senha;
-        this.especialidade = especialidade;
-    }
-
-    public Funcionario() {
-        //throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
+    int id;
+    String nome;
+    String CPF;
+    String tipo_func;
+    String telefone;
+    String email;
+    String especialidade;
 
     public int getId() {
         return id;
@@ -77,14 +61,6 @@ public class Funcionario {
 
     public void setEmail(String email) {
         this.email = email;
-    }
-
-    public String getSenha() {
-        return senha;
-    }
-
-    public void setSenha(String senha) {
-        this.senha = senha;
     }
 
     public String getEspecialidade() {

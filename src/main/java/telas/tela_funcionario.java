@@ -5,7 +5,8 @@
 package telas;
 
 import model.Funcionario;
-import DAO.funcionarioDAO;
+import dao.funcionarioDAO;
+import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableRowSorter;
@@ -15,23 +16,16 @@ import javax.swing.table.TableRowSorter;
  */
 public class tela_funcionario extends javax.swing.JFrame {
 
-    /**
-     * Creates new form tela_funcionario
-     */
-    public tela_funcionario() {
-        initComponents();
-        DefaultTableModel modelo = (DefaultTableModel) tabelaBusca.getModel();
-        tabelaBusca.setRowSorter(new TableRowSorter(modelo));
-        listaFuncionario();
-    }
     
     public void listaFuncionario(){
-        DefaultTableModel modelo = (DefaultTableModel) tabelaBusca.getModel();
-        modelo.setNumRows(0);
-        
-        funcionarioDAO fdao = new funcionarioDAO();
-        
-        for(Funcionario f: fdao.listaFunc()){
+        try{
+            funcionarioDAO dao = new funcionarioDAO();
+            List<Funcionario> fdao = dao.listaFunc();
+            
+            DefaultTableModel modelo = (DefaultTableModel) tabelaBusca.getModel();
+            modelo.setNumRows(0);
+            
+            for(Funcionario f: fdao){
             modelo.addRow(new Object[]{
                 f.getId(),
                 f.getNome(),
@@ -40,7 +34,20 @@ public class tela_funcionario extends javax.swing.JFrame {
                 f.getTipo_func(),
                 f.getEspecialidade()
             });
+            }
         }
+        catch(Exception exc){
+            
+        }
+    }
+    /**
+     * Creates new form tela_funcionario
+     */
+    public tela_funcionario() {
+        initComponents();
+        //DefaultTableModel modelo = (DefaultTableModel) tabelaBusca.getModel();
+        //tabelaBusca.setRowSorter(new TableRowSorter(modelo));
+        //listaFuncionario();
     }
 
     /**
@@ -72,27 +79,31 @@ public class tela_funcionario extends javax.swing.JFrame {
         campoTelefoneFunc = new javax.swing.JFormattedTextField();
         labelEmail = new javax.swing.JLabel();
         txtEmail = new javax.swing.JTextField();
-        labelSenha = new javax.swing.JLabel();
         labelTipo = new javax.swing.JLabel();
         campoTipoFunc = new javax.swing.JComboBox<>();
-        txtSenha = new javax.swing.JPasswordField();
         labelEsp = new javax.swing.JLabel();
         campoEspecialidade = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        Salvar = new javax.swing.JButton();
+        Cancelar = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
         labelNome = new javax.swing.JLabel();
         campoPesquisa = new javax.swing.JTextField();
+        jButton1 = new javax.swing.JButton();
         jPanel5 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tabelaBusca = new javax.swing.JTable();
-        jButton5 = new javax.swing.JButton();
-        jButton6 = new javax.swing.JButton();
+        Editar = new javax.swing.JButton();
+        Excluir = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Tela de Funcionário");
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowActivated(java.awt.event.WindowEvent evt) {
+                formWindowActivated(evt);
+            }
+        });
 
         jLabel1.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 36)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(51, 51, 51));
@@ -151,8 +162,6 @@ public class tela_funcionario extends javax.swing.JFrame {
 
         labelEmail.setText("Email:");
 
-        labelSenha.setText("Senha:");
-
         labelTipo.setText("Tipo:");
 
         campoTipoFunc.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "administrador", "médico", "enfermeiro", "secretária", "recepcionista", "auxiliar de enfermagem" }));
@@ -164,25 +173,25 @@ public class tela_funcionario extends javax.swing.JFrame {
 
         labelEsp.setText("Especialidade:");
 
-        jButton1.setBackground(new java.awt.Color(0, 102, 52));
-        jButton1.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.setIcon(new javax.swing.ImageIcon("C:\\Users\\tayna\\Google Drive\\GRADUAÇÃO\\6º Período\\Oficina de Integração 2\\4Life\\imagens\\icons\\checked.png")); // NOI18N
-        jButton1.setText("Salvar");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        Salvar.setBackground(new java.awt.Color(0, 102, 52));
+        Salvar.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+        Salvar.setForeground(new java.awt.Color(255, 255, 255));
+        Salvar.setIcon(new javax.swing.ImageIcon("C:\\Users\\tayna\\Google Drive\\GRADUAÇÃO\\6º Período\\Oficina de Integração 2\\4Life\\imagens\\icons\\checked.png")); // NOI18N
+        Salvar.setText("Salvar");
+        Salvar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                SalvarActionPerformed(evt);
             }
         });
 
-        jButton3.setBackground(new java.awt.Color(211, 0, 0));
-        jButton3.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
-        jButton3.setForeground(new java.awt.Color(255, 255, 255));
-        jButton3.setIcon(new javax.swing.ImageIcon("C:\\Users\\tayna\\Google Drive\\GRADUAÇÃO\\6º Período\\Oficina de Integração 2\\4Life\\imagens\\icons\\error.png")); // NOI18N
-        jButton3.setText("Cancelar");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        Cancelar.setBackground(new java.awt.Color(211, 0, 0));
+        Cancelar.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+        Cancelar.setForeground(new java.awt.Color(255, 255, 255));
+        Cancelar.setIcon(new javax.swing.ImageIcon("C:\\Users\\tayna\\Google Drive\\GRADUAÇÃO\\6º Período\\Oficina de Integração 2\\4Life\\imagens\\icons\\error.png")); // NOI18N
+        Cancelar.setText("Cancelar");
+        Cancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                CancelarActionPerformed(evt);
             }
         });
 
@@ -212,20 +221,15 @@ public class tela_funcionario extends javax.swing.JFrame {
                             .addComponent(campoTelefoneFunc))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addGroup(jPanel2Layout.createSequentialGroup()
-                                    .addComponent(labelEsp)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(campoEspecialidade))
-                                .addGroup(jPanel2Layout.createSequentialGroup()
-                                    .addComponent(labelSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(txtSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(labelEsp)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(campoEspecialidade, javax.swing.GroupLayout.PREFERRED_SIZE, 228, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addGap(107, 107, 107)
-                                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(Salvar, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
-                                .addComponent(jButton3)))))
+                                .addComponent(Cancelar)))))
                 .addContainerGap(40, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
@@ -238,9 +242,7 @@ public class tela_funcionario extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(labelEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(labelSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -261,8 +263,8 @@ public class tela_funcionario extends javax.swing.JFrame {
                     .addComponent(campoEspecialidade, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 79, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(Salvar)
+                    .addComponent(Cancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(37, 37, 37))
         );
 
@@ -276,6 +278,22 @@ public class tela_funcionario extends javax.swing.JFrame {
             }
         });
 
+        jButton1.setBackground(new java.awt.Color(0, 102, 52));
+        jButton1.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(255, 255, 255));
+        jButton1.setIcon(new javax.swing.ImageIcon("C:\\Users\\tayna\\Google Drive\\GRADUAÇÃO\\6º Período\\Oficina de Integração 2\\4Life\\imagens\\icons\\search.png")); // NOI18N
+        jButton1.setText("Pesquisar");
+        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton1MouseClicked(evt);
+            }
+        });
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
@@ -285,15 +303,18 @@ public class tela_funcionario extends javax.swing.JFrame {
                 .addComponent(labelNome, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(campoPesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, 371, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jButton1)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
-                .addGap(44, 44, 44)
+                .addGap(43, 43, 43)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(labelNome, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(campoPesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(campoPesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(52, Short.MAX_VALUE))
         );
 
@@ -310,27 +331,37 @@ public class tela_funcionario extends javax.swing.JFrame {
                 "ID", "NOME", "CPF", "TELEFONE", "CARGO", "ESPECIALIDADE"
             }
         ));
+        tabelaBusca.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tabelaBuscaMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(tabelaBusca);
 
-        jButton5.setBackground(new java.awt.Color(0, 102, 52));
-        jButton5.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
-        jButton5.setForeground(new java.awt.Color(255, 255, 255));
-        jButton5.setIcon(new javax.swing.ImageIcon("C:\\Users\\tayna\\Google Drive\\GRADUAÇÃO\\6º Período\\Oficina de Integração 2\\4Life\\imagens\\icons\\edit.png")); // NOI18N
-        jButton5.setText("Editar");
-        jButton5.addActionListener(new java.awt.event.ActionListener() {
+        Editar.setBackground(new java.awt.Color(0, 102, 52));
+        Editar.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+        Editar.setForeground(new java.awt.Color(255, 255, 255));
+        Editar.setIcon(new javax.swing.ImageIcon("C:\\Users\\tayna\\Google Drive\\GRADUAÇÃO\\6º Período\\Oficina de Integração 2\\4Life\\imagens\\icons\\edit.png")); // NOI18N
+        Editar.setText("Editar");
+        Editar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                EditarMouseClicked(evt);
+            }
+        });
+        Editar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton5ActionPerformed(evt);
+                EditarActionPerformed(evt);
             }
         });
 
-        jButton6.setBackground(new java.awt.Color(211, 0, 0));
-        jButton6.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
-        jButton6.setForeground(new java.awt.Color(255, 255, 255));
-        jButton6.setIcon(new javax.swing.ImageIcon("C:\\Users\\tayna\\Google Drive\\GRADUAÇÃO\\6º Período\\Oficina de Integração 2\\4Life\\imagens\\icons\\trash.png")); // NOI18N
-        jButton6.setText("Deletar");
-        jButton6.addActionListener(new java.awt.event.ActionListener() {
+        Excluir.setBackground(new java.awt.Color(211, 0, 0));
+        Excluir.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+        Excluir.setForeground(new java.awt.Color(255, 255, 255));
+        Excluir.setIcon(new javax.swing.ImageIcon("C:\\Users\\tayna\\Google Drive\\GRADUAÇÃO\\6º Período\\Oficina de Integração 2\\4Life\\imagens\\icons\\trash.png")); // NOI18N
+        Excluir.setText("Deletar");
+        Excluir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton6ActionPerformed(evt);
+                ExcluirActionPerformed(evt);
             }
         });
 
@@ -344,9 +375,9 @@ public class tela_funcionario extends javax.swing.JFrame {
                 .addContainerGap(34, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(Editar, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton6)
+                .addComponent(Excluir)
                 .addGap(51, 51, 51))
         );
         jPanel5Layout.setVerticalGroup(
@@ -356,8 +387,8 @@ public class tela_funcionario extends javax.swing.JFrame {
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton6))
+                    .addComponent(Editar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Excluir))
                 .addGap(36, 36, 36))
         );
 
@@ -450,60 +481,59 @@ public class tela_funcionario extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_campoTipoFuncActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void SalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SalvarActionPerformed
        // instanciando a classe Usuario do pacote modelo e criando seu objeto usuarios
-        Funcionario funcionario;
-        funcionario = new Funcionario();
-        funcionario.setId(Integer.parseInt(campoIdFunc.getText())); 
-        funcionario.setNome(txtNome.getText());
-        funcionario.setCPF(txtCPF.getText());
-        funcionario.setTipo_func(String.valueOf(campoTipoFunc.getSelectedItem()));
-        funcionario.setTelefone(campoTelefoneFunc.getText());
-        funcionario.setEmail(txtEmail.getText());
-        funcionario.setSenha(String.valueOf(txtSenha.getPassword()));
-        funcionario.setEspecialidade(campoEspecialidade.getText());
+        try{
+          Funcionario funcionario = new Funcionario();
+          //funcionario.setId(Integer.parseInt(campoIdFunc.getText())); 
+          funcionario.setNome(txtNome.getText());
+          funcionario.setCPF(txtCPF.getText());
+          funcionario.setTipo_func(String.valueOf(campoTipoFunc.getSelectedItem()));
+          funcionario.setTelefone(campoTelefoneFunc.getText());
+          funcionario.setEmail(txtEmail.getText());
+          funcionario.setEspecialidade(campoEspecialidade.getText());
 
-        // fazendo a validação dos dados
-        if ((txtNome.getText().isEmpty()) || (txtEmail.getText().isEmpty()) || (txtCPF.getText().isEmpty()) || (campoTelefoneFunc.getText().isEmpty()) || (campoEspecialidade.getText().isEmpty())) {
-           JOptionPane.showMessageDialog(null, "Os campos não podem retornar vazios");
+          // fazendo a validação dos dados
+          if ((txtNome.getText().isEmpty()) || (txtEmail.getText().isEmpty()) || (txtCPF.getText().isEmpty()) || (campoTelefoneFunc.getText().isEmpty()) || (campoEspecialidade.getText().isEmpty())) {
+             JOptionPane.showMessageDialog(null, "Os campos não podem retornar vazios");
+          }
+          else {
+              // instanciando a classe FuncionarioDAO do pacote dao e criando seu objeto dao
+              funcionarioDAO dao = new funcionarioDAO();
+              dao.cadastrar(funcionario);
+              JOptionPane.showMessageDialog(null, "Usuário "+txtNome.getText()+" inserido com sucesso! ");
+
+              //insere os valores na tabela ao cadastrar
+              DefaultTableModel dtmFunc;
+              dtmFunc = (DefaultTableModel) tabelaBusca.getModel();
+              Object[] dados = {campoIdFunc.getText(),txtNome.getText(),txtCPF.getText(),campoTelefoneFunc.getText(),campoTipoFunc.getSelectedItem(),campoEspecialidade.getText()};
+              dtmFunc.addRow(dados);
+          }
+
+          // apaga os dados preenchidos nos campos de texto
+          txtNome.setText("");
+          txtCPF.setText("");
+          campoTelefoneFunc.setText("");
+          txtEmail.setText("");
+          campoEspecialidade.setText("");  // TODO add your handling code here:  
         }
-        else {
-
-            // instanciando a classe FuncionarioDAO do pacote dao e criando seu objeto dao
-            funcionarioDAO dao = new funcionarioDAO();
-            dao.cadastrar(funcionario);
-            listaFuncionario();
-            JOptionPane.showMessageDialog(null, "Usuário "+txtNome.getText()+" inserido com sucesso! ");
-            
-             //insere os valores na tabela ao cadastrar
-            DefaultTableModel dtmFunc;
-            dtmFunc = (DefaultTableModel) tabelaBusca.getModel();
-            Object[] dados = {campoIdFunc.getText(),txtNome.getText(),txtCPF.getText(),campoTelefoneFunc.getText(),campoTipoFunc.getSelectedItem(),campoEspecialidade.getText()};
-            dtmFunc.addRow(dados);
+        catch(Exception exc){
+            JOptionPane.showMessageDialog(null, "ERRO AO CADASTRAR" +exc);
         }
+    }//GEN-LAST:event_SalvarActionPerformed
 
-        // apaga os dados preenchidos nos campos de texto
+    private void CancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CancelarActionPerformed
         txtNome.setText("");
         txtCPF.setText("");
         campoTelefoneFunc.setText("");
         txtEmail.setText("");
-        txtSenha.setText("");
-        campoEspecialidade.setText("");  // TODO add your handling code here:
-       
-    }//GEN-LAST:event_jButton1ActionPerformed
-
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        txtNome.setText("");
-        txtCPF.setText("");
-        campoTelefoneFunc.setText("");
-        txtEmail.setText("");
-        txtSenha.setText("");
         campoEspecialidade.setText("");
 // TODO add your handling code here:
-    }//GEN-LAST:event_jButton3ActionPerformed
+    }//GEN-LAST:event_CancelarActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        System.exit(0);
+    this.dispose();
+    //System.exit(0);
     // TODO add your handling code here:
     }//GEN-LAST:event_jButton4ActionPerformed
 
@@ -515,13 +545,49 @@ public class tela_funcionario extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_campoPesquisaActionPerformed
 
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton5ActionPerformed
+    private void EditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EditarActionPerformed
+        
 
-    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton6ActionPerformed
+    }//GEN-LAST:event_EditarActionPerformed
+
+    private void ExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ExcluirActionPerformed
+        if(tabelaBusca.getSelectedRow() != -1){
+            Funcionario funcionario = new Funcionario();
+            funcionarioDAO dao = new funcionarioDAO();
+            
+            funcionario.setId((int) tabelaBusca.getValueAt(tabelaBusca.getSelectedRow(), 0));
+            
+            dao.deletar(funcionario);
+        }else{
+            JOptionPane.showMessageDialog(null, "Selecione um funcionário para excluir!");
+        }
+    }//GEN-LAST:event_ExcluirActionPerformed
+
+    private void tabelaBuscaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabelaBuscaMouseClicked
+        campoIdFunc.setText(tabelaBusca.getValueAt(tabelaBusca.getSelectedRow(), 0).toString());
+        txtNome.setText(tabelaBusca.getValueAt(tabelaBusca.getSelectedRow(), 1).toString());
+        txtCPF.setText(tabelaBusca.getValueAt(tabelaBusca.getSelectedRow(), 2).toString());
+        campoTelefoneFunc.setText(tabelaBusca.getValueAt(tabelaBusca.getSelectedRow(), 3).toString());
+        campoTipoFunc.setSelectedItem(tabelaBusca.getValueAt(tabelaBusca.getSelectedRow(), 4).toString());
+        campoEspecialidade.setText(tabelaBusca.getValueAt(tabelaBusca.getSelectedRow(), 5).toString());
+// TODO add your handling code here:
+    }//GEN-LAST:event_tabelaBuscaMouseClicked
+
+    private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
+        listaFuncionario();
+    }//GEN-LAST:event_formWindowActivated
+
+    private void EditarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_EditarMouseClicked
+        //jPanel2(); 
+    }//GEN-LAST:event_EditarMouseClicked
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        //TODO add your handling code here:
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
+        //this.search();// TODO add your handling code here:
+    }//GEN-LAST:event_jButton1MouseClicked
 
     /**
      * @param args the command line arguments
@@ -559,6 +625,10 @@ public class tela_funcionario extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton Cancelar;
+    private javax.swing.JButton Editar;
+    private javax.swing.JButton Excluir;
+    private javax.swing.JButton Salvar;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.ButtonGroup buttonGroup2;
     private javax.swing.ButtonGroup buttonGroup3;
@@ -570,10 +640,7 @@ public class tela_funcionario extends javax.swing.JFrame {
     private javax.swing.JFormattedTextField campoTelefoneFunc;
     private javax.swing.JComboBox<String> campoTipoFunc;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -590,12 +657,18 @@ public class tela_funcionario extends javax.swing.JFrame {
     private javax.swing.JLabel labelEmail;
     private javax.swing.JLabel labelEsp;
     private javax.swing.JLabel labelNome;
-    private javax.swing.JLabel labelSenha;
     private javax.swing.JLabel labelTipo;
     private javax.swing.JTable tabelaBusca;
     private javax.swing.JFormattedTextField txtCPF;
     private javax.swing.JTextField txtEmail;
     private javax.swing.JTextField txtNome;
-    private javax.swing.JPasswordField txtSenha;
     // End of variables declaration//GEN-END:variables
+
+    /*private void search() {
+        String busca = this.campoPesquisa.getText();
+        List<Funcionario> lista;
+     
+            this.campoPesquisa.requestFocusInWindow();
+    }
+    */
 }

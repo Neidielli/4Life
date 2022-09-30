@@ -35,7 +35,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
-        <exec.mainClass>com.mycompany.life.4Life</exec.mainClass>
+        <exec.mainClass>factory.TestaConexao</exec.mainClass>
     </properties>
     <name>4Life</name>
 </project>

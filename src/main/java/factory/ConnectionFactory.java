@@ -3,21 +3,18 @@ package factory;
 import java.sql.Connection; 
 import java.sql.DriverManager; 
 import java.sql.SQLException; 
-import java.sql.*;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 public class ConnectionFactory {
 
     public Connection getConnection() {
         try {
-            return DriverManager.getConnection("jdbc:mysql://localhost:3306/4Life", "root", "UTF2022t7Usa");
+            return DriverManager.getConnection("jdbc:mysql://localhost:3306/projetojava", "root", "UTF2022t7Usa");
         } 
         catch (SQLException exc) {
             throw new RuntimeException(exc);
         }
     }
-    
+    /*
     public static void closeConnection(Connection connection){
         
         try {
@@ -56,5 +53,5 @@ public class ConnectionFactory {
                 Logger.getLogger(ConnectionFactory.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
+    */
 }
