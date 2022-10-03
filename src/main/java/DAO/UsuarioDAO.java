@@ -64,13 +64,12 @@ public class UsuarioDAO {
             while(rs.next()){
                
                 Usuario u = new Usuario();
-                u.setId(rs.getInt("id"));
                 
+                u.setId(rs.getInt("id"));
                 u.setNome(rs.getString("nome"));
                 u.setCpf(rs.getString("cpf"));
                 u.setEmail(rs.getString("email"));
-                u.setTelefone(rs.getString("telefone"));
-                    
+                u.setTelefone(rs.getString("telefone"));    
                 lista.add(u);
             }
             return lista;

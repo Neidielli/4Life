@@ -1,60 +1,19 @@
-package factory;
-
+// situa em qual package ou "pacote" está a classe 
+package factory; 
+// faz as importações de classes necessárias para o funcionamento do programa 
 import java.sql.Connection; 
+// conexão SQL para Java 
 import java.sql.DriverManager; 
+// driver de conexão SQL para Java 
 import java.sql.SQLException; 
-import java.sql.*;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
+// classe para tratamento de exceções 
 public class ConnectionFactory {
-
-    public Connection getConnection() {
-        try {
-            return DriverManager.getConnection("jdbc:mysql://localhost:3306/projetojava", "root", "Jackson23+-");
-        } 
-        catch (SQLException exc) {
-            throw new RuntimeException(exc);
-        }
-    }
-    
-    public static void closeConnection(Connection connection){
-        
-        try {
-            if(connection != null){
-                connection.close();
-            }
-        } 
-        catch (SQLException ex) {
-                Logger.getLogger(ConnectionFactory.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }
-    
-    public static void closeConnection(Connection connection, PreparedStatement pdstmt) {
-        
-        closeConnection(connection);
-        try {
-            if(pdstmt != null){
-                pdstmt.close();
-            }
-        } 
-        catch (SQLException ex) {
-                Logger.getLogger(ConnectionFactory.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }
-    
-    public static void closeConnection(Connection connection, PreparedStatement pdstmt, ResultSet rs) {
-        
-        closeConnection(connection, pdstmt);
-        
-        try {
-            if(rs != null){
-                rs.close();
-            }
-        } 
-        catch (SQLException ex) {
-                Logger.getLogger(ConnectionFactory.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }
-    
+     public Connection getConnection() {
+		 try {
+			return DriverManager.getConnection("jdbc:mysql://localhost/projetojava","root","Jackson23+-");
+		 }         
+		 catch(SQLException excecao) {
+			throw new RuntimeException(excecao);
+		 }
+     }
 }
