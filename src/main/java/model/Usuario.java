@@ -9,7 +9,7 @@ package model;
  * @author neidi
  */
 public class Usuario {
-    Long id;
+    int id;
     String nome;
     String cpf;
     String email;
@@ -28,10 +28,10 @@ public class Usuario {
     public void setEmail(String email) {
         this.email = email;
     }
-    public Long getId() {
+    public int getId() {
         return id;
     }
-    public void setId(Long id) {
+    public void setId(int id) {
         this.id = id;
     }
     public String getNome() {
