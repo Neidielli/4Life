@@ -19,7 +19,7 @@ import java.util.List;
  */
 public class UsuarioDAO {
     private Connection connection;
-    int id;
+    Long id;
     String nome;
     String cpf;
     String email;
@@ -38,7 +38,6 @@ public class UsuarioDAO {
             stmt.setString(3, usuario.getEmail());
             stmt.setString(4, usuario.getTelefone());
             stmt.setString(5, usuario.getSenha());
-            //stmt.setInt(6, usuario.getId());
             
             stmt.execute();
             stmt.close();
@@ -62,13 +61,13 @@ public class UsuarioDAO {
             ResultSet rs = stmt.executeQuery();
             // laço de repetição para guardar os registros na lista
             while(rs.next()){
-                //ResultSet id = connection.prepareStatement("select last_insert_id()").executeQuery();
-                Usuario u = new Usuario();    
-                u.setId(rs.getInt("id"));
+                Usuario u = new Usuario();
+                u.setId(rs.getLong("id"));
                 u.setNome(rs.getString("nome"));
                 u.setCpf(rs.getString("cpf"));
                 u.setEmail(rs.getString("email"));
-                u.setTelefone(rs.getString("telefone"));    
+                u.setTelefone(rs.getString("telefone"));
+                    
                 lista.add(u);
             }
             return lista;
@@ -99,37 +98,5 @@ public class UsuarioDAO {
         }
         return false;
     }
-     public void alterar(Usuario usuario) {
-        String sql = "update usuario set nome=?, cpf=?, email=?, telefone=?, senha=? where id=?";
-        try {
-            PreparedStatement stmt = connection.prepareStatement(sql);
-            
-            stmt.setString(1, usuario.getNome());
-            stmt.setString(2, usuario.getCpf());
-            stmt.setString(3, usuario.getEmail());
-            stmt.setString(4, usuario.getTelefone());
-            stmt.setString(5, usuario.getSenha());
-            stmt.setInt(6, usuario.getId());
-            
-            stmt.execute();
-            stmt.close();
-        }
-        catch (SQLException u) {
-            throw new RuntimeException(u);
-        }
-    } // fim do método alterar usuário. 
-    public void excluir(Usuario usuario) {
-        String sql = "delete from usuario where id=?";
-        try {
-            PreparedStatement stmt = connection.prepareStatement(sql);
-
-            stmt.setInt(1, usuario.getId());
-            
-            stmt.execute();
-            stmt.close();
-        }
-        catch (SQLException u) {
-            throw new RuntimeException(u);
-        }
-    } // fim do método excluir usuário.
+        
 }
