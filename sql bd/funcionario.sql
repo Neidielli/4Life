@@ -1,6 +1,3 @@
-create database if not exists projetojava;
-use projetojava;
-
 drop database if exists projetojava;
 
 create database projetojava;
@@ -13,7 +10,6 @@ create table funcionario (
     tipo_func varchar(30) NOT NULL,
     telefone varchar(15) NOT NULL,
     email varchar(40) NOT NULL UNIQUE,
-    senha varchar(30) NOT NULL,
     especialidade varchar(30) NOT NULL,
     PRIMARY KEY(id)
     );

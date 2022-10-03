@@ -12,30 +12,30 @@ import java.sql.*;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 //import java.util.logging.Level;
 //import java.util.logging.Logger;
 import model.Funcionario;
 
 
 public class funcionarioDAO {
-    private Connection connection; //= null;
+    private Connection connection;
     int id;
     String nome;
     String CPF;
     String tipo_func;
     String telefone;
     String email;
-    String senha;
     String especialidade;
     
     public funcionarioDAO(){ 
         this.connection = new ConnectionFactory().getConnection();
     } 
 
-    public void cadastrar(Funcionario funcionario){ 
-        String sql = "INSERT INTO funcionario(nome,CPF,tipo_func,telefone,email,senha,especialidade) VALUES(?,?,?,?,?,?,?)";
+    public boolean cadastrar(Funcionario funcionario){ 
+        String sql = "INSERT INTO funcionario(nome,CPF,tipo_func,telefone,email,especialidade) VALUES(?,?,?,?,?,?)";
+  
         try { 
-            System.out.println("Entrou no try");
             PreparedStatement pdstmt = connection.prepareStatement(sql);
             
             pdstmt.setString(1, funcionario.getNome());
@@ -43,25 +43,29 @@ public class funcionarioDAO {
             pdstmt.setString(3, funcionario.getTipo_func());
             pdstmt.setString(4, funcionario.getTelefone());
             pdstmt.setString(5, funcionario.getEmail());
-            pdstmt.setString(6, funcionario.getSenha());
-            pdstmt.setString(7, funcionario.getEspecialidade());
-            
-            pdstmt.execute();
+            pdstmt.setString(6, funcionario.getEspecialidade());
+            pdstmt.executeUpdate();
             pdstmt.close();
+            
+            return true;
         } 
-        catch (SQLException u) {
-            throw new RuntimeException(u);
-        }
+        catch (SQLException exc) { 
+            System.err.println("Erro ao cadastrar funcionário!"+exc);
+            //throw new RuntimeException(exc);
+            
+            return false;
+        } 
     } 
+    
     public List<Funcionario> listaFunc(){
+        /*this.connection = new ConnectionFactory().getConnection();
+        PreparedStatement pdstmt = null;
+        ResultSet rs = null;*/
         try {
             List<Funcionario> lista = new ArrayList<Funcionario>();
-            
-            String sql = "select * from funcionario";
-            
-            PreparedStatement stmt = connection.prepareStatement(sql);
-            
-            ResultSet rs = stmt.executeQuery();
+            String sql = "SELECT * from funcionario";
+            PreparedStatement pdstmt = connection.prepareStatement(sql);
+            ResultSet rs = pdstmt.executeQuery();
             
             while(rs.next()){
                 Funcionario funcionario = new Funcionario();
@@ -75,8 +79,55 @@ public class funcionarioDAO {
                 lista.add(funcionario);
             }
             return lista;
-        }catch(SQLException erro) {
-            throw new RuntimeException(erro);
         }
+        catch (SQLException exc) {
+            throw new RuntimeException(exc);
+        }
+    }
+    
+    public boolean editar(Funcionario func){ 
+        String upsql = "UPDATE funcionario set nome=?, CPF=?, tipo_func=?, telefone=?, email=?, especialidade=? WHERE id=?";
+  
+        try { 
+            PreparedStatement pdstmt = connection.prepareStatement(upsql);
+            
+            pdstmt.setString(1, func.getNome());
+            pdstmt.setString(2, func.getCPF());
+            pdstmt.setString(3, func.getTipo_func());
+            pdstmt.setString(4, func.getTelefone());
+            pdstmt.setString(5, func.getEmail());
+            pdstmt.setString(6, func.getEspecialidade());
+            pdstmt.setInt(7, func.getId());
+            pdstmt.executeUpdate();
+            pdstmt.close();
+            
+            JOptionPane.showMessageDialog(null, "Atualizado com sucesso!");
+            return true;
+        } 
+        catch (SQLException exc) { 
+            System.err.println("Erro ao atualizar funcionário!"+exc);
+            //throw new RuntimeException(exc); 
+            return false;
+        } 
+    }
+    
+    public boolean deletar(Funcionario func){ 
+        String delsql = "DELETE from funcionario WHERE id=?";
+  
+        try { 
+            PreparedStatement pdstmt = connection.prepareStatement(delsql);
+           
+            pdstmt.setInt(1, func.getId());
+            pdstmt.executeUpdate();
+            pdstmt.close();
+            
+            JOptionPane.showMessageDialog(null, "Excluído com sucesso!");
+            return true;
+        } 
+        catch (SQLException exc) { 
+            System.err.println("Erro ao deletar funcionário!"+exc);
+            //throw new RuntimeException(exc); 
+            return false;
+        } 
     }
 }
