@@ -4,8 +4,6 @@
  */
 package telas;
 
-import javax.swing.JOptionPane;
-
 /**
  *
  * @author neidi
@@ -85,7 +83,7 @@ public class HomeGUI extends javax.swing.JFrame {
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(406, Short.MAX_VALUE)
+                .addContainerGap(400, Short.MAX_VALUE)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 501, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(86, 86, 86))
         );
@@ -107,7 +105,6 @@ public class HomeGUI extends javax.swing.JFrame {
         jMenu4.add(ItemMenuCadastrarUsuario);
 
         ItemMenuEditarUsuario.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        ItemMenuEditarUsuario.setIcon(new javax.swing.ImageIcon("C:\\Users\\neidi\\OneDrive\\Área de Trabalho\\UTFPR\\Oficina 2\\4Life\\imagens\\icons\\editar24.png")); // NOI18N
         ItemMenuEditarUsuario.setText("Editar Usuario");
         ItemMenuEditarUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -143,7 +140,6 @@ public class HomeGUI extends javax.swing.JFrame {
         jMenu5.add(ItemMenuCadastrarFuncionario);
 
         ItemMenuEditarFuncionario.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        ItemMenuEditarFuncionario.setIcon(new javax.swing.ImageIcon("C:\\Users\\neidi\\OneDrive\\Área de Trabalho\\UTFPR\\Oficina 2\\4Life\\imagens\\icons\\editar24.png")); // NOI18N
         ItemMenuEditarFuncionario.setText("Editar Funcionário");
         ItemMenuEditarFuncionario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -179,7 +175,6 @@ public class HomeGUI extends javax.swing.JFrame {
         jMenu6.add(jMenuItem7);
 
         jMenuItem8.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jMenuItem8.setIcon(new javax.swing.ImageIcon("C:\\Users\\neidi\\OneDrive\\Área de Trabalho\\UTFPR\\Oficina 2\\4Life\\imagens\\icons\\editar24.png")); // NOI18N
         jMenuItem8.setText("Editar Paciente ");
         jMenu6.add(jMenuItem8);
 
@@ -264,7 +259,9 @@ public class HomeGUI extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 993, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 987, Short.MAX_VALUE))
         );
 
         jPanel1.getAccessibleContext().setAccessibleName("Home");
@@ -314,17 +311,17 @@ public class HomeGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_ItemMenuSairEntrarActionPerformed
 
     private void ItemMenuCadastrarFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ItemMenuCadastrarFuncionarioActionPerformed
-        telaFuncionario telafuncionario = new telaFuncionario();
+        tela_funcionario telafuncionario = new tela_funcionario();
         telafuncionario.setVisible(true);
     }//GEN-LAST:event_ItemMenuCadastrarFuncionarioActionPerformed
 
     private void ItemMenuEditarFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ItemMenuEditarFuncionarioActionPerformed
-        telaFuncionario telafuncionario = new telaFuncionario();
+        tela_funcionario telafuncionario = new tela_funcionario();
         telafuncionario.setVisible(true);
     }//GEN-LAST:event_ItemMenuEditarFuncionarioActionPerformed
 
     private void ItemFuncionarioExcluirFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ItemFuncionarioExcluirFuncionarioActionPerformed
-        telaFuncionario telafuncionario = new telaFuncionario();
+        tela_funcionario telafuncionario = new tela_funcionario();
         telafuncionario.setVisible(true);
     }//GEN-LAST:event_ItemFuncionarioExcluirFuncionarioActionPerformed
 
