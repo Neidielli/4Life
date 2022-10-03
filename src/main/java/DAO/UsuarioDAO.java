@@ -62,9 +62,8 @@ public class UsuarioDAO {
             ResultSet rs = stmt.executeQuery();
             // laço de repetição para guardar os registros na lista
             while(rs.next()){
-               
-                Usuario u = new Usuario();
-                
+                //ResultSet id = connection.prepareStatement("select last_insert_id()").executeQuery();
+                Usuario u = new Usuario();    
                 u.setId(rs.getInt("id"));
                 u.setNome(rs.getString("nome"));
                 u.setCpf(rs.getString("cpf"));
@@ -78,7 +77,7 @@ public class UsuarioDAO {
         }
     }
     // inicio do método Login.
-    public boolean login(String email, String senha) { // OK
+    public boolean login(String email, String senha) {
         try {
             // comando sql
             String sql = "select * from usuario where email=? and senha=?";
@@ -100,7 +99,7 @@ public class UsuarioDAO {
         }
         return false;
     }
-     public void alterar(Usuario usuario) { // OK
+     public void alterar(Usuario usuario) {
         String sql = "update usuario set nome=?, cpf=?, email=?, telefone=?, senha=? where id=?";
         try {
             PreparedStatement stmt = connection.prepareStatement(sql);
