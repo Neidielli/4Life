@@ -311,17 +311,17 @@ public class HomeGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_ItemMenuSairEntrarActionPerformed
 
     private void ItemMenuCadastrarFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ItemMenuCadastrarFuncionarioActionPerformed
-        tela_funcionario telafuncionario = new tela_funcionario();
+        telaFuncionario telafuncionario = new telaFuncionario();
         telafuncionario.setVisible(true);
     }//GEN-LAST:event_ItemMenuCadastrarFuncionarioActionPerformed
 
     private void ItemMenuEditarFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ItemMenuEditarFuncionarioActionPerformed
-        tela_funcionario telafuncionario = new tela_funcionario();
+        telaFuncionario telafuncionario = new telaFuncionario();
         telafuncionario.setVisible(true);
     }//GEN-LAST:event_ItemMenuEditarFuncionarioActionPerformed
 
     private void ItemFuncionarioExcluirFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ItemFuncionarioExcluirFuncionarioActionPerformed
-        tela_funcionario telafuncionario = new tela_funcionario();
+        telaFuncionario telafuncionario = new telaFuncionario();
         telafuncionario.setVisible(true);
     }//GEN-LAST:event_ItemFuncionarioExcluirFuncionarioActionPerformed
 

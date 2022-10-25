@@ -52,11 +52,14 @@ public class LoginGUI extends javax.swing.JFrame {
         jLabel3.setIcon(new javax.swing.ImageIcon("C:\\Users\\neidi\\OneDrive\\Área de Trabalho\\UTFPR\\Oficina 2\\4Life\\imagens\\icons\\user_1.png")); // NOI18N
         jLabel3.setText("Email:");
 
+        campoEmail.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         campoEmail.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 campoEmailActionPerformed(evt);
             }
         });
+
+        campoSenhaa.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
 
         btnLogar.setBackground(new java.awt.Color(76, 159, 53));
         btnLogar.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N

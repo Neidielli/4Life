@@ -63,7 +63,7 @@ public class UsuarioGUI extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         campoNome = new java.awt.TextField();
-        campoCpf = new java.awt.TextField();
+        campoCpf1 = new java.awt.TextField();
         campoEmail = new java.awt.TextField();
         campoTelefone = new java.awt.TextField();
         btnCadastrar = new javax.swing.JButton();
@@ -77,6 +77,7 @@ public class UsuarioGUI extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         tabela = new javax.swing.JTable();
         btnSair = new javax.swing.JButton();
+        txtCPF = new javax.swing.JFormattedTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
@@ -115,7 +116,12 @@ public class UsuarioGUI extends javax.swing.JFrame {
             }
         });
 
-        campoCpf.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        campoCpf1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        campoCpf1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                campoCpf1ActionPerformed(evt);
+            }
+        });
 
         campoEmail.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         campoEmail.addActionListener(new java.awt.event.ActionListener() {
@@ -148,6 +154,8 @@ public class UsuarioGUI extends javax.swing.JFrame {
         jLabel7.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel7.setText("Senha");
 
+        campoSenhaCadastro.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+
         btnEditar.setBackground(new java.awt.Color(76, 159, 56));
         btnEditar.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         btnEditar.setText("Editar");
@@ -174,6 +182,7 @@ public class UsuarioGUI extends javax.swing.JFrame {
         jLabel8.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel8.setText("Código");
 
+        tabela.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         tabela.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null},
@@ -198,6 +207,17 @@ public class UsuarioGUI extends javax.swing.JFrame {
         btnSair.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSairActionPerformed(evt);
+            }
+        });
+
+        try {
+            txtCPF.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("###.###.###-##")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+        txtCPF.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtCPFActionPerformed(evt);
             }
         });
 
@@ -230,14 +250,17 @@ public class UsuarioGUI extends javax.swing.JFrame {
                             .addComponent(jLabel8))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(campoEmail, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(campoCpf, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(campoNome, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(campoSenhaCadastro, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(campoTelefone, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(campoId, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 0, Short.MAX_VALUE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(campoEmail, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(campoCpf1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(campoNome, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(campoSenhaCadastro, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(campoTelefone, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(campoId, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addComponent(txtCPF)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jScrollPane1)))
@@ -256,9 +279,11 @@ public class UsuarioGUI extends javax.swing.JFrame {
                     .addComponent(jLabel2))
                 .addGap(25, 25, 25)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(campoCpf, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(campoCpf1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.TRAILING))
-                .addGap(41, 41, 41)
+                .addGap(2, 2, 2)
+                .addComponent(txtCPF, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(campoEmail, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING))
@@ -293,10 +318,8 @@ public class UsuarioGUI extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jLabel1)
-
                         .addGap(295, 295, 295)))
-                .addContainerGap(94, Short.MAX_VALUE))
-
+                .addContainerGap(88, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -338,7 +361,7 @@ public class UsuarioGUI extends javax.swing.JFrame {
     private void btnLimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimparActionPerformed
         campoId.setText("");
         campoNome.setText("");
-        campoCpf.setText("");
+        campoCpf1.setText("");
         campoEmail.setText("");
         campoTelefone.setText("");
         campoSenhaCadastro.setText("");        // TODO add your handling code here:
@@ -353,13 +376,13 @@ public class UsuarioGUI extends javax.swing.JFrame {
         Usuario usuarios = new Usuario(); 
   
         usuarios.setNome(campoNome.getText());
-        usuarios.setCpf(campoCpf.getText());
+        usuarios.setCpf(campoCpf1.getText());
         usuarios.setEmail(campoEmail.getText());
         usuarios.setTelefone(campoTelefone.getText());
         usuarios.setSenha(campoSenhaCadastro.getText());
         
         // faz a validação dos dados. Verefica se os 5 campos estão vazios
-        if ((campoNome.getText().isEmpty()) || (campoCpf.getText().isEmpty()) || (campoEmail.getText().isEmpty()) || (campoTelefone.getText().isEmpty()) || (campoSenhaCadastro.getText().isEmpty())) {
+        if ((campoNome.getText().isEmpty()) || (campoCpf1.getText().isEmpty()) || (campoEmail.getText().isEmpty()) || (campoTelefone.getText().isEmpty()) || (campoSenhaCadastro.getText().isEmpty())) {
             JOptionPane.showMessageDialog(null, "Os campos não podem ser vazios");
         } else { // se os campos não estiverem vazios, irá instanciar a classe UsuarioDao e criar seu objeto
             UsuarioDAO dao = new UsuarioDAO();
@@ -368,7 +391,7 @@ public class UsuarioGUI extends javax.swing.JFrame {
         }
         // limpa os campos novamente
         campoNome.setText("");
-        campoCpf.setText("");
+        campoCpf1.setText("");
         campoEmail.setText("");
         campoTelefone.setText(""); 
         campoSenhaCadastro.setText("");
@@ -387,7 +410,7 @@ public class UsuarioGUI extends javax.swing.JFrame {
         //Pegando os dados de um cliente na tabela
         campoId.setText(tabela.getValueAt(tabela.getSelectedRow(), 0).toString());
         campoNome.setText(tabela.getValueAt(tabela.getSelectedRow(), 1).toString());
-        campoCpf.setText(tabela.getValueAt(tabela.getSelectedRow(), 2).toString());
+        campoCpf1.setText(tabela.getValueAt(tabela.getSelectedRow(), 2).toString());
         campoEmail.setText(tabela.getValueAt(tabela.getSelectedRow(), 3).toString());
         campoTelefone.setText(tabela.getValueAt(tabela.getSelectedRow(), 4).toString());
         //campoSenhaCadastro.setText(tabela.getValueAt(tabela.getSelectedRow(), 5).toString());
@@ -397,7 +420,7 @@ public class UsuarioGUI extends javax.swing.JFrame {
         try {
             Usuario u = new Usuario();
             u.setNome(campoNome.getText());
-            u.setCpf(campoCpf.getText());
+            u.setCpf(campoCpf1.getText());
             u.setEmail(campoEmail.getText());
             u.setTelefone(campoTelefone.getText());
             u.setSenha(campoSenhaCadastro.getText());
@@ -427,6 +450,14 @@ public class UsuarioGUI extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "ERRO AO EXCLUIR" + erro);
         }
     }//GEN-LAST:event_btnExcluirActionPerformed
+
+    private void campoCpf1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoCpf1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_campoCpf1ActionPerformed
+
+    private void txtCPFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCPFActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtCPFActionPerformed
 
     /**
      * @param args the command line arguments
@@ -469,7 +500,7 @@ public class UsuarioGUI extends javax.swing.JFrame {
     private javax.swing.JButton btnExcluir;
     private javax.swing.JButton btnLimpar;
     private javax.swing.JButton btnSair;
-    private java.awt.TextField campoCpf;
+    private java.awt.TextField campoCpf1;
     private java.awt.TextField campoEmail;
     private javax.swing.JTextField campoId;
     private java.awt.TextField campoNome;
@@ -486,5 +517,6 @@ public class UsuarioGUI extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tabela;
+    private javax.swing.JFormattedTextField txtCPF;
     // End of variables declaration//GEN-END:variables
 }

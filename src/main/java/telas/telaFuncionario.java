@@ -7,13 +7,14 @@ import model.Funcionario;
 import dao.funcionarioDAO;
 import javax.swing.JOptionPane;
 import java.util.List;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 //import javax.swing.table.TableRowSorter;
 /**
  *
  * @author tayna
  */
-public class tela_funcionario extends javax.swing.JFrame {
+public class telaFuncionario extends javax.swing.JFrame {
 
     
     public void listaFuncionario(){
@@ -34,9 +35,7 @@ public class tela_funcionario extends javax.swing.JFrame {
                 f.getEspecialidade()
             });
             }
-        }
-        } catch (Exception e) {
-        
+        } catch (Exception e) {  
         }
     }
 
@@ -177,7 +176,6 @@ public class tela_funcionario extends javax.swing.JFrame {
         Salvar.setBackground(new java.awt.Color(0, 102, 52));
         Salvar.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
         Salvar.setForeground(new java.awt.Color(255, 255, 255));
-        Salvar.setIcon(new javax.swing.ImageIcon("C:\\Users\\tayna\\Google Drive\\GRADUAÇÃO\\6º Período\\Oficina de Integração 2\\4Life\\imagens\\icons\\checked.png")); // NOI18N
         Salvar.setText("Salvar");
         Salvar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -188,7 +186,6 @@ public class tela_funcionario extends javax.swing.JFrame {
         Cancelar.setBackground(new java.awt.Color(211, 0, 0));
         Cancelar.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
         Cancelar.setForeground(new java.awt.Color(255, 255, 255));
-        Cancelar.setIcon(new javax.swing.ImageIcon("C:\\Users\\tayna\\Google Drive\\GRADUAÇÃO\\6º Período\\Oficina de Integração 2\\4Life\\imagens\\icons\\error.png")); // NOI18N
         Cancelar.setText("Cancelar");
         Cancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -231,7 +228,7 @@ public class tela_funcionario extends javax.swing.JFrame {
                                 .addComponent(Salvar, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
                                 .addComponent(Cancelar)))))
-                .addContainerGap(40, Short.MAX_VALUE))
+                .addContainerGap(157, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -282,7 +279,6 @@ public class tela_funcionario extends javax.swing.JFrame {
         jButton1.setBackground(new java.awt.Color(0, 102, 52));
         jButton1.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
         jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.setIcon(new javax.swing.ImageIcon("C:\\Users\\tayna\\Google Drive\\GRADUAÇÃO\\6º Período\\Oficina de Integração 2\\4Life\\imagens\\icons\\search.png")); // NOI18N
         jButton1.setText("Pesquisar");
         jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -342,7 +338,6 @@ public class tela_funcionario extends javax.swing.JFrame {
         Editar.setBackground(new java.awt.Color(0, 102, 52));
         Editar.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
         Editar.setForeground(new java.awt.Color(255, 255, 255));
-        Editar.setIcon(new javax.swing.ImageIcon("C:\\Users\\tayna\\Google Drive\\GRADUAÇÃO\\6º Período\\Oficina de Integração 2\\4Life\\imagens\\icons\\edit.png")); // NOI18N
         Editar.setText("Editar");
         Editar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -358,7 +353,6 @@ public class tela_funcionario extends javax.swing.JFrame {
         Excluir.setBackground(new java.awt.Color(211, 0, 0));
         Excluir.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
         Excluir.setForeground(new java.awt.Color(255, 255, 255));
-        Excluir.setIcon(new javax.swing.ImageIcon("C:\\Users\\tayna\\Google Drive\\GRADUAÇÃO\\6º Período\\Oficina de Integração 2\\4Life\\imagens\\icons\\trash.png")); // NOI18N
         Excluir.setText("Deletar");
         Excluir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -432,7 +426,7 @@ public class tela_funcionario extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(27, 27, 27))
-            .addComponent(jTabbedPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 809, Short.MAX_VALUE)
+            .addComponent(jTabbedPane2)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -564,7 +558,7 @@ public class tela_funcionario extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_ExcluirActionPerformed
 
-    private void tabelaBuscaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabelaBuscaMouseClicked
+    private void tabelaBuscaMouseClicked(java.awt.event.MouseEvent evt) {                                         
         campoIdFunc.setText(tabelaBusca.getValueAt(tabelaBusca.getSelectedRow(), 0).toString());
         txtNome.setText(tabelaBusca.getValueAt(tabelaBusca.getSelectedRow(), 1).toString());
         txtCPF.setText(tabelaBusca.getValueAt(tabelaBusca.getSelectedRow(), 2).toString());
@@ -572,11 +566,11 @@ public class tela_funcionario extends javax.swing.JFrame {
         campoTipoFunc.setSelectedItem(tabelaBusca.getValueAt(tabelaBusca.getSelectedRow(), 4).toString());
         campoEspecialidade.setText(tabelaBusca.getValueAt(tabelaBusca.getSelectedRow(), 5).toString());
 // TODO add your handling code here:
-    }//GEN-LAST:event_tabelaBuscaMouseClicked
+    }                                        
 
-    private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
+    private void formWindowActivated(java.awt.event.WindowEvent evt) {                                     
         listaFuncionario();
-    }//GEN-LAST:event_formWindowActivated
+    }                                    
 
     private void EditarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_EditarMouseClicked
         //jPanel2(); 
@@ -590,18 +584,6 @@ public class tela_funcionario extends javax.swing.JFrame {
         //this.search();// TODO add your handling code here:
     }//GEN-LAST:event_jButton1MouseClicked
 
-    private void tabelaBuscaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabelaBuscaMouseClicked
-        campoIdFunc.setText(tabelaBusca.getValueAt(tabelaBusca.getSelectedRow(), 0).toString());
-        txtNome.setText(tabelaBusca.getValueAt(tabelaBusca.getSelectedRow(), 1).toString());
-        txtCPF.setText(tabelaBusca.getValueAt(tabelaBusca.getSelectedRow(), 2).toString());
-        campoTelefoneFunc.setText(tabelaBusca.getValueAt(tabelaBusca.getSelectedRow(), 3).toString());
-        campoTipoFunc.setSelectedItem(tabelaBusca.getValueAt(tabelaBusca.getSelectedRow(), 4).toString());
-        campoEspecialidade.setText(tabelaBusca.getValueAt(tabelaBusca.getSelectedRow(), 5).toString());
-    }//GEN-LAST:event_tabelaBuscaMouseClicked
-
-    private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
-       listaFuncionario();
-    }//GEN-LAST:event_formWindowActivated
 
     /**
      * @param args the command line arguments

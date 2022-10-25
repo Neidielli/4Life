@@ -4,9 +4,9 @@
  */
 package DAO;
 
-import dao.UsuarioDAO;
+import dao.funcionarioDAO;
 import java.util.List;
-import model.Usuario;
+import model.Funcionario;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeEach;
@@ -18,9 +18,9 @@ import static org.junit.jupiter.api.Assertions.*;
  *
  * @author neidi
  */
-public class UsuarioDAOTest {
+public class funcionarioDAOTest {
     
-    public UsuarioDAOTest() {
+    public funcionarioDAOTest() {
     }
     
     @BeforeAll
@@ -40,69 +40,59 @@ public class UsuarioDAOTest {
     }
 
     /**
-     * Test of adiciona method, of class UsuarioDAO.
+     * Test of cadastrar method, of class funcionarioDAO.
      */
     @Test
-    public void testAdiciona() {
-        System.out.println("adiciona");
-        Usuario usuario = null;
-        UsuarioDAO instance = new UsuarioDAO();
-        instance.adiciona(usuario);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of listarUsuarios method, of class UsuarioDAO.
-     */
-    @Test
-    public void testListarUsuarios() {
-        System.out.println("listarUsuarios");
-        UsuarioDAO instance = new UsuarioDAO();
-        List<Usuario> expResult = null;
-        List<Usuario> result = instance.listarUsuarios();
+    public void testCadastrar() {
+        System.out.println("cadastrar");
+        Funcionario funcionario = null;
+        funcionarioDAO instance = new funcionarioDAO();
+        boolean expResult = false;
+        boolean result = instance.cadastrar(funcionario);
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
 
     /**
-     * Test of alterar method, of class UsuarioDAO.
+     * Test of listaFunc method, of class funcionarioDAO.
      */
     @Test
-    public void testAlterar() {
-        System.out.println("alterar");
-        Usuario usuario = null;
-        UsuarioDAO instance = new UsuarioDAO();
-        instance.alterar(usuario);
+    public void testListaFunc() {
+        System.out.println("listaFunc");
+        funcionarioDAO instance = new funcionarioDAO();
+        List<Funcionario> expResult = null;
+        List<Funcionario> result = instance.listaFunc();
+        assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
 
     /**
-     * Test of excluir method, of class UsuarioDAO.
+     * Test of editar method, of class funcionarioDAO.
      */
     @Test
-    public void testExcluir() {
-        System.out.println("excluir");
-        Usuario usuario = null;
-        UsuarioDAO instance = new UsuarioDAO();
-        instance.excluir(usuario);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of login method, of class UsuarioDAO.
-     */
-    @Test
-    public void testLogin() {
-        System.out.println("login");
-        String email = "";
-        String senha = "";
-        UsuarioDAO instance = new UsuarioDAO();
+    public void testEditar() {
+        System.out.println("editar");
+        Funcionario func = null;
+        funcionarioDAO instance = new funcionarioDAO();
         boolean expResult = false;
-        boolean result = instance.login(email, senha);
+        boolean result = instance.editar(func);
+        assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
+
+    /**
+     * Test of deletar method, of class funcionarioDAO.
+     */
+    @Test
+    public void testDeletar() {
+        System.out.println("deletar");
+        Funcionario func = null;
+        funcionarioDAO instance = new funcionarioDAO();
+        boolean expResult = false;
+        boolean result = instance.deletar(func);
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
