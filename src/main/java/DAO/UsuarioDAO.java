@@ -32,14 +32,19 @@ public class UsuarioDAO {
     public boolean adiciona(Usuario usuario) {
         try {
             // seleciona os campos da tabela
-            String sqlSelect = "select cpf, email, telefone from usuario"; 
+            String sqlSelect = "select * from usuario where cpf='" + usuario.getCpf() +"'"; 
             PreparedStatement stmtSelect = connection.prepareStatement(sqlSelect);
+            
+            //stmtSelect.setString(1,cpf);
             // o resultado do select será guardado dentro do obj resultSet
             ResultSet rs = stmtSelect.executeQuery();
+            
+            System.out.println(rs.next());
             // condição para verificar se o obj resultSet já existe
             if(rs.next()) {
                 JOptionPane.showMessageDialog(null, "Usuário já cadastrado!",
                     "ERRO!", JOptionPane.ERROR_MESSAGE);
+                System.out.println(rs.next());
                 return false;
             } else {
             
@@ -51,11 +56,13 @@ public class UsuarioDAO {
                 stmt.setString(3, usuario.getEmail());
                 stmt.setString(4, usuario.getTelefone());
                 stmt.setString(5, usuario.getSenha());
-
+                
+                JOptionPane.showMessageDialog(null, "Usuário " + usuario.getNome()+ " cadastrado com sucesso!! ");
                 stmt.execute();
                 stmt.close();
                 return true;
             }
+            
         }
         catch (SQLException u) {
             throw new RuntimeException(u);
