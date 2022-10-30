@@ -71,5 +71,10 @@ public class Funcionario {
         this.especialidade = especialidade;
     }
     
-    
+    // Na classe NovoAgendamento.java é mandado um obj, é preciso dizer qual atributo,
+    // desse obj irá exibir
+    @Override
+    public String toString(){
+        return this.getNome();
+    }
 }
