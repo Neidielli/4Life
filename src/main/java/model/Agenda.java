@@ -16,6 +16,7 @@ public class Agenda {
     private Funcionario funcionario;
     private String data_hora;
     private String tipo_consulta;
+    private String hora;
 
     public int getId_Consulta() {
         return id_Consulta;
@@ -63,6 +64,14 @@ public class Agenda {
 
     public void setTipo_consulta(String tipo_consulta) {
         this.tipo_consulta = tipo_consulta;
+    }
+    
+    public String getHora() {
+        return hora;
+    }
+
+    public void setHora(String hora) {
+        this.hora = hora;
     }
 
 }
