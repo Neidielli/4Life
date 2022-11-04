@@ -97,7 +97,7 @@ public class UsuarioDAO {
             throw new RuntimeException(erro);
         }
     }
-         public void alterar(Usuario usuario) {
+    public void alterar(Usuario usuario) {
         String sql = "update usuario set nome=?, cpf=?, email=?, telefone=?, senha=? where id=?";
         try {
             PreparedStatement stmt = connection.prepareStatement(sql);

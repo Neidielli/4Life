@@ -117,6 +117,16 @@ public class telaFuncionario extends javax.swing.JFrame {
         jTabbedPane2.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jTabbedPane2.setInheritsPopupMenu(true);
 
+        jPanel2.addAncestorListener(new javax.swing.event.AncestorListener() {
+            public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
+            }
+            public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
+            }
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
+                jPanel2AncestorMoved(evt);
+            }
+        });
+
         jLabel3.setText("Nome:");
 
         txtNome.addActionListener(new java.awt.event.ActionListener() {
@@ -541,7 +551,6 @@ public class telaFuncionario extends javax.swing.JFrame {
     }//GEN-LAST:event_campoPesquisaActionPerformed
 
     private void EditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EditarActionPerformed
-        
 
     }//GEN-LAST:event_EditarActionPerformed
 
@@ -583,6 +592,10 @@ public class telaFuncionario extends javax.swing.JFrame {
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
         //this.search();// TODO add your handling code here:
     }//GEN-LAST:event_jButton1MouseClicked
+
+    private void jPanel2AncestorMoved(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_jPanel2AncestorMoved
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jPanel2AncestorMoved
 
 
     /**
