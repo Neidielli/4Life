@@ -15,7 +15,7 @@ public class Paciente {
     String cpf;
     String email;
     String telefone;
-    //String data_nascimento;
+    String data_nascimento;
     String cep, rua, bairro, cidade, estado;
     int num_endereco;
 
@@ -59,13 +59,13 @@ public class Paciente {
         this.telefone = telefone;
     }
 
-    /*public String getData_nascimento() {
+    public String getData_nascimento() {
         return data_nascimento;
     }
 
     public void setData_nascimento(String data_nascimento) {
         this.data_nascimento = data_nascimento;
-    }*/
+    }
 
     public String getCep() {
         return cep;

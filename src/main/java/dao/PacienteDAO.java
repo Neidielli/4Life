@@ -26,7 +26,7 @@ public class PacienteDAO {
     String cpf;
     String email;
     String telefone;
-    //String data_nascimento;
+    String data_nascimento;
     String cep, rua, bairro, cidade, estado;
     int num_endereco;
     
@@ -35,8 +35,8 @@ public class PacienteDAO {
     }
     
     public boolean cadastrar(Paciente paciente){
-        //String sql = "INSERT INTO paciente(nome,cpf,email,telefone,data_nascimento,cep,rua,bairro,cidade,estado,num_endereco) VALUES(?,?,?,?,?,?,?,?,?,?,?)";
-        String sql = "INSERT INTO paciente(nome,cpf,email,telefone,cep,rua,bairro,cidade,estado,num_endereco) VALUES(?,?,?,?,?,?,?,?,?,?)";
+        String sql = "INSERT INTO paciente(nome,cpf,email,telefone,data_nascimento,cep,rua,bairro,cidade,estado,num_endereco) VALUES(?,?,?,?,?,?,?,?,?,?,?)";
+        
         try{
             PreparedStatement pds = connection.prepareStatement(sql);
             
@@ -44,13 +44,13 @@ public class PacienteDAO {
             pds.setString(2, paciente.getCpf());
             pds.setString(3, paciente.getEmail());
             pds.setString(4, paciente.getTelefone());
-            //pds.setString(5, paciente.getData_nascimento());
-            pds.setString(5, paciente.getCep());
-            pds.setString(6, paciente.getRua());
-            pds.setString(7, paciente.getBairro());
-            pds.setString(8, paciente.getCidade());
-            pds.setString(9, paciente.getEstado());
-            pds.setInt(10, paciente.getNum_endereco());
+            pds.setString(5, paciente.getData_nascimento());
+            pds.setString(6, paciente.getCep());
+            pds.setString(7, paciente.getRua());
+            pds.setString(8, paciente.getBairro());
+            pds.setString(9, paciente.getCidade());
+            pds.setString(10, paciente.getEstado());
+            pds.setInt(11, paciente.getNum_endereco());
             
             JOptionPane.showMessageDialog(null, "Paciente " + paciente.getNome()+ " cadastrado com sucesso!! ");
             pds.executeUpdate();
@@ -79,7 +79,7 @@ public class PacienteDAO {
                 paciente.setCpf(rs.getString("cpf"));
                 paciente.setEmail(rs.getString("email"));
                 paciente.setTelefone(rs.getString("telefone"));
-                //paciente.setData_nascimento(rs.getString("data_nascimento"));
+                paciente.setData_nascimento(rs.getString("data_nascimento"));
                 paciente.setCep(rs.getString("cep"));
                 paciente.setRua(rs.getString("rua"));
                 paciente.setBairro(rs.getString("bairro"));
@@ -95,8 +95,7 @@ public class PacienteDAO {
         }
     }
     public void editar(Paciente paciente){
-        //String sql = "UPDATE paciente set nome=?, cpf=?, email=?, telefone=?, data_nascimento=?, cep=?, rua=?, bairro=?, cidade=?, estado=?, num_endereco=? WHERE id=?";
-        String sql = "UPDATE paciente set nome=?, cpf=?, email=?, telefone=?, cep=?, rua=?, bairro=?, cidade=?, estado=?, num_endereco=? WHERE id=?";
+        String sql = "UPDATE paciente set nome=?, cpf=?, email=?, telefone=?, data_nascimento=?, cep=?, rua=?, bairro=?, cidade=?, estado=?, num_endereco=? WHERE id=?";
         
         try { 
             PreparedStatement pds = connection.prepareStatement(sql);
@@ -105,14 +104,14 @@ public class PacienteDAO {
             pds.setString(2, paciente.getCpf());
             pds.setString(3, paciente.getEmail());
             pds.setString(4, paciente.getTelefone());
-            //pds.setString(5, paciente.getData_nascimento());
-            pds.setString(5, paciente.getCep());
-            pds.setString(6, paciente.getRua());
-            pds.setString(7, paciente.getBairro());
-            pds.setString(8, paciente.getCidade());
-            pds.setString(9, paciente.getEstado());
-            pds.setInt(10, paciente.getNum_endereco());
-            pds.setInt(11, paciente.getId());
+            pds.setString(5, paciente.getData_nascimento());
+            pds.setString(6, paciente.getCep());
+            pds.setString(7, paciente.getRua());
+            pds.setString(8, paciente.getBairro());
+            pds.setString(9, paciente.getCidade());
+            pds.setString(10, paciente.getEstado());
+            pds.setInt(11, paciente.getNum_endereco());
+            pds.setInt(12, paciente.getId());
             
             pds.executeUpdate();
             pds.close();

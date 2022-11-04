@@ -3,58 +3,48 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package telas;
-import model.Paciente;
+
 import dao.PacienteDAO;
+import java.text.SimpleDateFormat;
 import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
-import java.util.Date;
-import java.text.DateFormat;
-//import javax.swing.table.TableRowSorter;
+import model.Paciente;
+
 /**
  *
  * @author tayna
  */
 public class telaPaciente extends javax.swing.JFrame {
 
-    
     public void listaPaciente(){
         try{
             PacienteDAO dao = new PacienteDAO();
-            List<Paciente> listP = dao.listaPac();
+            List<Paciente> pac = dao.listaPac();
             
-            DefaultTableModel modelo = (DefaultTableModel) tabelaPac.getModel();
-            modelo.setNumRows(0);
+            DefaultTableModel model = (DefaultTableModel) tabelaPaciente.getModel();
+            model.setNumRows(0);
             
-            for(Paciente p: listP){
-            modelo.addRow(new Object[]{
+            for(Paciente p : pac){
+                model.addRow(new Object []{
                 p.getId(),
                 p.getNome(),
                 p.getCpf(),
-                p.getEmail(),
+                p.getData_nascimento(),
                 p.getTelefone(),
-                //p.getData_nascimento(),
-                p.getCep(),
-                p.getRua(),
-                p.getBairro(),
                 p.getCidade(),
-                p.getEstado(),
-                p.getNum_endereco()
+                p.getEstado()
             });
             }
-        } catch (Exception exc) {  
+            
+        }catch(Exception exc){
             
         }
     }
-
-    /**
-     * Creates new form tela_funcionario
-     */
+    
     public telaPaciente() {
         initComponents();
     }
-    
-
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -65,53 +55,46 @@ public class telaPaciente extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        buttonGroup1 = new javax.swing.ButtonGroup();
-        buttonGroup2 = new javax.swing.ButtonGroup();
-        buttonGroup3 = new javax.swing.ButtonGroup();
-        jPopupMenu1 = new javax.swing.JPopupMenu();
-        buttonGroup4 = new javax.swing.ButtonGroup();
-        buttonGroup5 = new javax.swing.ButtonGroup();
         jPanel1 = new javax.swing.JPanel();
+        jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jTabbedPane2 = new javax.swing.JTabbedPane();
-        telaCadastrar = new javax.swing.JPanel();
-        labelNomePac = new javax.swing.JLabel();
+        buttonSair = new javax.swing.JButton();
+        jTabbedPane1 = new javax.swing.JTabbedPane();
+        jPanelCadastrar = new javax.swing.JPanel();
+        labelNome = new javax.swing.JLabel();
+        labelCPF = new javax.swing.JLabel();
+        labelID = new javax.swing.JLabel();
+        labelTelefone = new javax.swing.JLabel();
+        labelCEP = new javax.swing.JLabel();
+        labelNum = new javax.swing.JLabel();
+        labelCidade = new javax.swing.JLabel();
         txtNomePac = new javax.swing.JTextField();
-        labelidPac = new javax.swing.JLabel();
-        campoIdPac = new javax.swing.JTextField();
-        labelCpfPac = new javax.swing.JLabel();
         txtCpfPac = new javax.swing.JFormattedTextField();
-        jLabelTelefPac = new javax.swing.JLabel();
+        txtIdPac = new javax.swing.JTextField();
         txtTelefonePac = new javax.swing.JFormattedTextField();
-        labelEmailPac = new javax.swing.JLabel();
-        txtEmailPac = new javax.swing.JTextField();
-        labelCep = new javax.swing.JLabel();
-        Salvar = new javax.swing.JButton();
-        CancelarP = new javax.swing.JButton();
-        jLabelDataPac = new javax.swing.JLabel();
-        txtCEP = new javax.swing.JFormattedTextField();
-        jLabelRua = new javax.swing.JLabel();
-        txtRua = new javax.swing.JTextField();
-        jLabelNumeroPac = new javax.swing.JLabel();
-        txtNumeroPac = new javax.swing.JTextField();
-        jLabelBairro = new javax.swing.JLabel();
-        txtBairro = new javax.swing.JTextField();
-        jLabelCidade = new javax.swing.JLabel();
+        txtCepPac = new javax.swing.JFormattedTextField();
+        txtNumPac = new javax.swing.JTextField();
         txtCidade = new javax.swing.JTextField();
+        labelDataPac = new javax.swing.JLabel();
+        LabelEmailPac = new javax.swing.JLabel();
+        LabelRua = new javax.swing.JLabel();
+        LabelBairro = new javax.swing.JLabel();
         jLabelEstado = new javax.swing.JLabel();
-        ComboBoxEstado = new javax.swing.JComboBox<>();
-        txtDataNascPac = new com.toedter.calendar.JDateChooser();
+        txtEmailPac = new javax.swing.JTextField();
+        txtRuaPac = new javax.swing.JTextField();
+        txtBairroPac = new javax.swing.JTextField();
+        comboBoxEstado = new javax.swing.JComboBox<>();
+        buttonSalvarPac = new javax.swing.JButton();
+        buttonCancelarPac = new javax.swing.JButton();
+        txtDateNasPac = new javax.swing.JFormattedTextField();
         jPanel3 = new javax.swing.JPanel();
-        telaBuscar = new javax.swing.JPanel();
-        labelNomePesquisa = new javax.swing.JLabel();
+        jLabelNomePesq = new javax.swing.JLabel();
         txtPesquisaPac = new javax.swing.JTextField();
-        ButtonPesquisaPac = new javax.swing.JButton();
-        jPanel5 = new javax.swing.JPanel();
+        buttonPesquisaPac = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        tabelaPac = new javax.swing.JTable();
-        buttonEditarPac = new javax.swing.JButton();
-        buttonExcluirPac = new javax.swing.JButton();
-        ButtonSairPac = new javax.swing.JButton();
+        tabelaPaciente = new javax.swing.JTable();
+        buttonEditar = new javax.swing.JButton();
+        buttonExcluir = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Tela de Paciente");
@@ -121,288 +104,251 @@ public class telaPaciente extends javax.swing.JFrame {
             }
         });
 
-        jPanel1.setToolTipText("");
-        jPanel1.setName(""); // NOI18N
-
         jLabel1.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 36)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(51, 51, 51));
         jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\tayna\\Google Drive\\GRADUAÇÃO\\6º Período\\Oficina de Integração 2\\4Life\\imagens\\icons\\team.png")); // NOI18N
         jLabel1.setText("PACIENTE");
         jLabel1.setIconTextGap(5);
 
-        jTabbedPane2.setBackground(new java.awt.Color(0, 102, 52));
-        jTabbedPane2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, new java.awt.Color(0, 102, 52), new java.awt.Color(0, 102, 52), null, null));
-        jTabbedPane2.setForeground(new java.awt.Color(255, 255, 255));
-        jTabbedPane2.setFocusCycleRoot(true);
-        jTabbedPane2.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jTabbedPane2.setInheritsPopupMenu(true);
-
-        labelNomePac.setText("Nome:");
-
-        txtNomePac.addActionListener(new java.awt.event.ActionListener() {
+        buttonSair.setBackground(new java.awt.Color(0, 51, 51));
+        buttonSair.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
+        buttonSair.setForeground(new java.awt.Color(255, 255, 255));
+        buttonSair.setText("Sair");
+        buttonSair.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtNomePacActionPerformed(evt);
+                buttonSairActionPerformed(evt);
             }
         });
 
-        labelidPac.setText("ID:");
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 236, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(buttonSair, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(38, 38, 38))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 85, Short.MAX_VALUE)
+                .addComponent(buttonSair))
+        );
 
-        campoIdPac.setEditable(false);
-        campoIdPac.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                campoIdPacActionPerformed(evt);
-            }
-        });
+        jTabbedPane1.setBackground(new java.awt.Color(0, 102, 52));
+        jTabbedPane1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jTabbedPane1.setForeground(new java.awt.Color(255, 255, 255));
+        jTabbedPane1.setFocusCycleRoot(true);
+        jTabbedPane1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jTabbedPane1.setMinimumSize(new java.awt.Dimension(131, 69));
+        jTabbedPane1.setPreferredSize(new java.awt.Dimension(805, 474));
 
-        labelCpfPac.setText("CPF:");
+        labelNome.setText("Nome:");
+
+        labelCPF.setText("CPF:");
+
+        labelID.setText("Código:");
+
+        labelTelefone.setText("Telefone:");
+
+        labelCEP.setText("CEP:");
+
+        labelNum.setText("Número:");
+
+        labelCidade.setText("Cidade:");
 
         try {
             txtCpfPac.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("###.###.###-##")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
-        txtCpfPac.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtCpfPacActionPerformed(evt);
-            }
-        });
 
-        jLabelTelefPac.setText("Telefone:");
+        txtIdPac.setEditable(false);
 
         try {
-            txtTelefonePac.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("(##) #####-####")));
+            txtTelefonePac.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("(##)#####-####")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
-        txtTelefonePac.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtTelefonePacActionPerformed(evt);
-            }
-        });
-
-        labelEmailPac.setText("Email:");
-
-        labelCep.setText("CEP:");
-
-        Salvar.setBackground(new java.awt.Color(0, 102, 52));
-        Salvar.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
-        Salvar.setForeground(new java.awt.Color(255, 255, 255));
-        Salvar.setText("Salvar");
-        Salvar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                SalvarActionPerformed(evt);
-            }
-        });
-
-        CancelarP.setBackground(new java.awt.Color(211, 0, 0));
-        CancelarP.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
-        CancelarP.setForeground(new java.awt.Color(255, 255, 255));
-        CancelarP.setText("Cancelar");
-        CancelarP.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                CancelarPActionPerformed(evt);
-            }
-        });
-
-        jLabelDataPac.setText("Data de Nascimento:");
 
         try {
-            txtCEP.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("#####-###")));
+            txtCepPac.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("#####-###")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
-        txtCEP.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                txtCEPFocusLost(evt);
-            }
-        });
 
-        jLabelRua.setText("Rua:");
+        labelDataPac.setText("Data de nascimento:");
 
-        jLabelNumeroPac.setText("Número:");
+        LabelEmailPac.setText("Email:");
 
-        jLabelBairro.setText("Bairro:");
+        LabelRua.setText("Rua:");
 
-        jLabelCidade.setText("Cidade:");
+        LabelBairro.setText("Bairro:");
 
         jLabelEstado.setText("Estado:");
 
-        ComboBoxEstado.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione um estado", "ACRE", "ALAGOAS", "AMAPÁ", "AMAZONAS", "BAHIA", "CEARÁ", "DISTRITO FEDERAL", "ESPÍRITO SANTO", "GOIÁS", "MARANHÃO", "MATO GROSSO", "MATO GROSSO DO SUL", "MINAS GERAIS", "PARÁ", "PARAÍBA", "PARANÁ", "PERNAMBUCO", "PIAUÍ", "RIO DE JANEIRO", "RIO GRANDE DO NORTE", "RIO GRANDE DO SUL", "RONDÔNIA", "RORAIMA", "SANTA CATARINA", "SÃO PAULO", "SERGIPE", "TOCANTINS" }));
-        ComboBoxEstado.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        comboBoxEstado.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione um estado", "ACRE", "ALAGOAS", "AMAPÁ", "AMAZONAS", "BAHIA", "CEARÁ", "DISTRITO FEDERAL", "ESPÍRITO SANTO", "GOIÁS", "MARANHÃO", "MATO GROSSO", "MATO GROSSO DO SUL", "MINAS GERAIS", "PARÁ", "PARAÍBA", "PARANÁ", "PERNAMBUCO", "PIAUÍ", "RIO DE JANEIRO", "RIO GRANDE DO NORTE", "RIO GRANDE DO SUL", "RONDÔNIA", "RORAIMA", "SANTA CATARINA", "SÃO PAULO", "SERGIPE", "TOCANTINS" }));
 
-        txtDataNascPac.setDateFormatString("dd/MM/yyyy");
+        buttonSalvarPac.setBackground(new java.awt.Color(0, 102, 52));
+        buttonSalvarPac.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+        buttonSalvarPac.setForeground(new java.awt.Color(255, 255, 255));
+        buttonSalvarPac.setText("Salvar");
+        buttonSalvarPac.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonSalvarPacActionPerformed(evt);
+            }
+        });
 
-        javax.swing.GroupLayout telaCadastrarLayout = new javax.swing.GroupLayout(telaCadastrar);
-        telaCadastrar.setLayout(telaCadastrarLayout);
-        telaCadastrarLayout.setHorizontalGroup(
-            telaCadastrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(telaCadastrarLayout.createSequentialGroup()
-                .addGroup(telaCadastrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(telaCadastrarLayout.createSequentialGroup()
-                        .addGap(34, 34, 34)
-                        .addComponent(jLabelCidade, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(txtCidade, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(telaCadastrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(telaCadastrarLayout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(Salvar, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(CancelarP))
-                            .addGroup(telaCadastrarLayout.createSequentialGroup()
-                                .addGap(48, 48, 48)
-                                .addGroup(telaCadastrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLabelBairro, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabelEstado, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(18, 18, 18)
-                                .addGroup(telaCadastrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtBairro)
-                                    .addComponent(ComboBoxEstado, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                .addGap(56, 56, 56))))
-                    .addGroup(telaCadastrarLayout.createSequentialGroup()
-                        .addGroup(telaCadastrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(telaCadastrarLayout.createSequentialGroup()
-                                .addGap(34, 34, 34)
-                                .addGroup(telaCadastrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(labelNomePac, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(labelCpfPac, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(labelidPac, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabelTelefPac, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(labelCep, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE))
+        buttonCancelarPac.setBackground(new java.awt.Color(211, 0, 0));
+        buttonCancelarPac.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+        buttonCancelarPac.setForeground(new java.awt.Color(255, 255, 255));
+        buttonCancelarPac.setText("Cancelar");
+        buttonCancelarPac.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonCancelarPacActionPerformed(evt);
+            }
+        });
+
+        try {
+            txtDateNasPac.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+
+        javax.swing.GroupLayout jPanelCadastrarLayout = new javax.swing.GroupLayout(jPanelCadastrar);
+        jPanelCadastrar.setLayout(jPanelCadastrarLayout);
+        jPanelCadastrarLayout.setHorizontalGroup(
+            jPanelCadastrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelCadastrarLayout.createSequentialGroup()
+                .addGroup(jPanelCadastrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addGroup(jPanelCadastrarLayout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(buttonSalvarPac, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(29, 29, 29)
+                        .addComponent(buttonCancelarPac, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanelCadastrarLayout.createSequentialGroup()
+                        .addGap(44, 44, 44)
+                        .addGroup(jPanelCadastrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(jPanelCadastrarLayout.createSequentialGroup()
+                                .addComponent(labelNome, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(telaCadastrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(campoIdPac, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtTelefonePac, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtCEP, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(telaCadastrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addGroup(telaCadastrarLayout.createSequentialGroup()
-                                            .addComponent(txtCpfPac, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addGap(140, 140, 140)
-                                            .addComponent(jLabelDataPac)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                            .addComponent(txtDataNascPac, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addComponent(txtNomePac, javax.swing.GroupLayout.PREFERRED_SIZE, 598, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, telaCadastrarLayout.createSequentialGroup()
-                                .addContainerGap()
-                                .addGroup(telaCadastrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, telaCadastrarLayout.createSequentialGroup()
-                                        .addComponent(jLabelNumeroPac)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(txtNumeroPac, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(447, 447, 447))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, telaCadastrarLayout.createSequentialGroup()
-                                        .addGroup(telaCadastrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(labelEmailPac, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(jLabelRua, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(txtNomePac, javax.swing.GroupLayout.PREFERRED_SIZE, 628, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanelCadastrarLayout.createSequentialGroup()
+                                .addGroup(jPanelCadastrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addGroup(jPanelCadastrarLayout.createSequentialGroup()
+                                        .addComponent(labelCidade, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addGroup(telaCadastrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addComponent(txtRua, javax.swing.GroupLayout.DEFAULT_SIZE, 341, Short.MAX_VALUE)
-                                            .addComponent(txtEmailPac))))))
-                        .addGap(0, 56, Short.MAX_VALUE)))
-                .addGap(47, 47, 47))
+                                        .addComponent(txtCidade))
+                                    .addGroup(jPanelCadastrarLayout.createSequentialGroup()
+                                        .addComponent(labelNum, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(txtNumPac))
+                                    .addGroup(jPanelCadastrarLayout.createSequentialGroup()
+                                        .addComponent(labelCEP, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(txtCepPac))
+                                    .addGroup(jPanelCadastrarLayout.createSequentialGroup()
+                                        .addComponent(labelTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(txtTelefonePac))
+                                    .addGroup(jPanelCadastrarLayout.createSequentialGroup()
+                                        .addComponent(labelID, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(txtIdPac))
+                                    .addGroup(jPanelCadastrarLayout.createSequentialGroup()
+                                        .addComponent(labelCPF, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(txtCpfPac, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGroup(jPanelCadastrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanelCadastrarLayout.createSequentialGroup()
+                                        .addGap(138, 138, 138)
+                                        .addComponent(labelDataPac, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(txtDateNasPac))
+                                    .addGroup(jPanelCadastrarLayout.createSequentialGroup()
+                                        .addGap(76, 76, 76)
+                                        .addGroup(jPanelCadastrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addGroup(jPanelCadastrarLayout.createSequentialGroup()
+                                                .addComponent(LabelEmailPac, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                .addComponent(txtEmailPac))
+                                            .addGroup(jPanelCadastrarLayout.createSequentialGroup()
+                                                .addGroup(jPanelCadastrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                                    .addComponent(jLabelEstado, javax.swing.GroupLayout.DEFAULT_SIZE, 42, Short.MAX_VALUE)
+                                                    .addComponent(LabelBairro, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                    .addComponent(LabelRua, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                .addGroup(jPanelCadastrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                    .addComponent(txtBairroPac)
+                                                    .addComponent(comboBoxEstado, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                    .addComponent(txtRuaPac))))))))))
+                .addContainerGap(63, Short.MAX_VALUE))
         );
-        telaCadastrarLayout.setVerticalGroup(
-            telaCadastrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(telaCadastrarLayout.createSequentialGroup()
-                .addGap(23, 23, 23)
-                .addGroup(telaCadastrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(labelNomePac, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtNomePac, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(telaCadastrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(telaCadastrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(labelCpfPac, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+        jPanelCadastrarLayout.setVerticalGroup(
+            jPanelCadastrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelCadastrarLayout.createSequentialGroup()
+                .addGap(38, 38, 38)
+                .addGroup(jPanelCadastrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(labelNome, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtNomePac, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanelCadastrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanelCadastrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(labelCPF, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(txtCpfPac, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabelDataPac))
-                    .addComponent(txtDataNascPac, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(18, 18, 18)
-                .addGroup(telaCadastrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(labelidPac, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(campoIdPac, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(labelEmailPac, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(labelDataPac, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtDateNasPac, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanelCadastrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(labelID, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtIdPac, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(LabelEmailPac, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtEmailPac, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(telaCadastrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabelTelefPac, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanelCadastrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(labelTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtTelefonePac, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(17, 17, 17)
-                .addGroup(telaCadastrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtCEP, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(telaCadastrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabelRua, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(txtRua, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(labelCep, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(telaCadastrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabelNumeroPac, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtNumeroPac, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabelBairro, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtBairro, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanelCadastrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(labelCEP, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtCepPac, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(LabelRua, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtRuaPac, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(telaCadastrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(ComboBoxEstado, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(telaCadastrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabelCidade, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(txtCidade, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabelEstado, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(56, 56, 56)
-                .addGroup(telaCadastrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Salvar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(CancelarP, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(37, 37, 37))
-        );
-
-        jTabbedPane2.addTab("Cadastrar Paciente", telaCadastrar);
-
-        labelNomePesquisa.setText("Nome:");
-
-        txtPesquisaPac.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtPesquisaPacActionPerformed(evt);
-            }
-        });
-
-        ButtonPesquisaPac.setBackground(new java.awt.Color(0, 102, 52));
-        ButtonPesquisaPac.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
-        ButtonPesquisaPac.setForeground(new java.awt.Color(255, 255, 255));
-        ButtonPesquisaPac.setText("Pesquisar");
-        ButtonPesquisaPac.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                ButtonPesquisaPacMouseClicked(evt);
-            }
-        });
-        ButtonPesquisaPac.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ButtonPesquisaPacActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout telaBuscarLayout = new javax.swing.GroupLayout(telaBuscar);
-        telaBuscar.setLayout(telaBuscarLayout);
-        telaBuscarLayout.setHorizontalGroup(
-            telaBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(telaBuscarLayout.createSequentialGroup()
-                .addGap(34, 34, 34)
-                .addComponent(labelNomePesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtPesquisaPac, javax.swing.GroupLayout.PREFERRED_SIZE, 371, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanelCadastrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(jPanelCadastrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(labelNum, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtNumPac, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(LabelBairro, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtBairroPac))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(ButtonPesquisaPac)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        telaBuscarLayout.setVerticalGroup(
-            telaBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(telaBuscarLayout.createSequentialGroup()
+                .addGroup(jPanelCadastrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(labelCidade, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanelCadastrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabelEstado, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(comboBoxEstado, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtCidade))
                 .addGap(43, 43, 43)
-                .addGroup(telaBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(labelNomePesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtPesquisaPac, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(ButtonPesquisaPac, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(52, Short.MAX_VALUE))
+                .addGroup(jPanelCadastrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(buttonSalvarPac, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(buttonCancelarPac, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(49, 49, 49))
         );
 
-        tabelaPac.setModel(new javax.swing.table.DefaultTableModel(
+        jTabbedPane1.addTab("Cadastrar Paciente", jPanelCadastrar);
+
+        jLabelNomePesq.setText("Nome:");
+
+        buttonPesquisaPac.setBackground(new java.awt.Color(0, 102, 52));
+        buttonPesquisaPac.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+        buttonPesquisaPac.setForeground(new java.awt.Color(255, 255, 255));
+        buttonPesquisaPac.setText("Pesquisar");
+
+        tabelaPaciente.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
+                {null, null, null, null, null, null, null},
                 {null, null, null, null, null, null, null},
                 {null, null, null, null, null, null, null},
                 {null, null, null, null, null, null, null},
@@ -412,126 +358,95 @@ public class telaPaciente extends javax.swing.JFrame {
                 {null, null, null, null, null, null, null}
             },
             new String [] {
-                "CÓDIGO", "NOME DO PACIENTE", "CPF", "DATA DE NASCIMENTO", "TELEFONE", "CIDADE", "ESTADO"
+                "CÓDIGO", "NOME DO PACIENTE", "CPF", "DATA DE NASC.", "TELEFONE", "CIDADE", "ESTADO"
             }
         ));
-        tabelaPac.addMouseListener(new java.awt.event.MouseAdapter() {
+        tabelaPaciente.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                tabelaPacMouseClicked(evt);
+                tabelaPacienteMouseClicked(evt);
             }
         });
-        jScrollPane1.setViewportView(tabelaPac);
-        if (tabelaPac.getColumnModel().getColumnCount() > 0) {
-            tabelaPac.getColumnModel().getColumn(0).setMaxWidth(190);
-            tabelaPac.getColumnModel().getColumn(1).setPreferredWidth(185);
+        jScrollPane1.setViewportView(tabelaPaciente);
+        if (tabelaPaciente.getColumnModel().getColumnCount() > 0) {
+            tabelaPaciente.getColumnModel().getColumn(0).setMaxWidth(190);
+            tabelaPaciente.getColumnModel().getColumn(1).setPreferredWidth(190);
         }
 
-        buttonEditarPac.setBackground(new java.awt.Color(0, 102, 52));
-        buttonEditarPac.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
-        buttonEditarPac.setForeground(new java.awt.Color(255, 255, 255));
-        buttonEditarPac.setText("Editar");
-        buttonEditarPac.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                buttonEditarPacMouseClicked(evt);
-            }
-        });
-        buttonEditarPac.addActionListener(new java.awt.event.ActionListener() {
+        buttonEditar.setBackground(new java.awt.Color(0, 102, 52));
+        buttonEditar.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+        buttonEditar.setForeground(new java.awt.Color(255, 255, 255));
+        buttonEditar.setText("Editar");
+        buttonEditar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonEditarPacActionPerformed(evt);
+                buttonEditarActionPerformed(evt);
             }
         });
 
-        buttonExcluirPac.setBackground(new java.awt.Color(211, 0, 0));
-        buttonExcluirPac.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
-        buttonExcluirPac.setForeground(new java.awt.Color(255, 255, 255));
-        buttonExcluirPac.setText("Deletar");
-        buttonExcluirPac.addActionListener(new java.awt.event.ActionListener() {
+        buttonExcluir.setBackground(new java.awt.Color(211, 0, 0));
+        buttonExcluir.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+        buttonExcluir.setForeground(new java.awt.Color(255, 255, 255));
+        buttonExcluir.setText("Deletar");
+        buttonExcluir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonExcluirPacActionPerformed(evt);
+                buttonExcluirActionPerformed(evt);
             }
         });
-
-        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
-        jPanel5.setLayout(jPanel5Layout);
-        jPanel5Layout.setHorizontalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel5Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
-                        .addComponent(buttonEditarPac, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(buttonExcluirPac, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(43, 43, 43))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 775, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap())))
-        );
-        jPanel5Layout.setVerticalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel5Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 56, Short.MAX_VALUE)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(buttonEditarPac, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(buttonExcluirPac, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(36, 36, 36))
-        );
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(telaBuscar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(38, 38, 38)
+                .addComponent(jLabelNomePesq, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtPesquisaPac, javax.swing.GroupLayout.PREFERRED_SIZE, 429, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(buttonPesquisaPac)
+                .addContainerGap(176, Short.MAX_VALUE))
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(17, 17, 17)
+                .addComponent(jScrollPane1)
                 .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(buttonEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(buttonExcluir, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(46, 46, 46))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addComponent(telaBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+                .addGap(42, 42, 42)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabelNomePesq, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtPesquisaPac, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(buttonPesquisaPac, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(51, 51, 51)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 44, Short.MAX_VALUE)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(buttonExcluir, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(buttonEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(49, 49, 49))
         );
 
-        jTabbedPane2.addTab("Buscar Paciente", jPanel3);
-
-        ButtonSairPac.setBackground(new java.awt.Color(0, 51, 51));
-        ButtonSairPac.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
-        ButtonSairPac.setForeground(new java.awt.Color(255, 255, 255));
-        ButtonSairPac.setText("Sair");
-        ButtonSairPac.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ButtonSairPacActionPerformed(evt);
-            }
-        });
+        jTabbedPane1.addTab("Buscar Paciente", jPanel3);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 262, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(ButtonSairPac, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(27, 27, 27))
-            .addComponent(jTabbedPane2)
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(26, 26, 26)
-                        .addComponent(ButtonSairPac)))
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTabbedPane2))
+                .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 472, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -542,190 +457,144 @@ public class telaPaciente extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
-        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txtNomePacActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNomePacActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtNomePacActionPerformed
+    private void buttonSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonSairActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_buttonSairActionPerformed
 
-    private void campoIdPacActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoIdPacActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_campoIdPacActionPerformed
-
-    private void txtCpfPacActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCpfPacActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtCpfPacActionPerformed
-
-    private void SalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SalvarActionPerformed
-       // instanciando a classe Paciente do pacote modelo e criando seu objeto paciente
-        try{
-          Paciente paciente = new Paciente();
-   
-          paciente.setNome(txtNomePac.getText());
-          paciente.setCpf(txtCpfPac.getText());
-          paciente.setEmail(txtEmailPac.getText());
-          paciente.setTelefone(txtTelefonePac.getText());
-          //paciente.setData_nascimento(txtDataNascPac.getDateFormatString());
-          paciente.setCep(txtCEP.getText());
-          paciente.setRua(txtRua.getText());
-          paciente.setBairro(txtBairro.getText());
-          paciente.setCidade(txtCidade.getText());
-          paciente.setEstado(String.valueOf(ComboBoxEstado.getSelectedItem()));
-          paciente.setNum_endereco(Integer.parseInt(txtNumeroPac.getText()));
-
-          // fazendo a validação dos dados
-          //if ((txtNomePac.getText().isEmpty()) || (txtCpfPac.getText().isEmpty()) || (txtEmailPac.getText().isEmpty()) || (txtTelefonePac.getText().isEmpty()) || (txtDataNascPac.getDateFormatString().isEmpty()) ||(txtCEP.getText().isEmpty()) || (txtRua.getText().isEmpty()) || (txtBairro.getText().isEmpty()) || (txtCidade.getText().isEmpty()) || (txtNumeroPac.getText().isEmpty()) ) {
-          if ((txtNomePac.getText().isEmpty()) || (txtCpfPac.getText().isEmpty()) || (txtEmailPac.getText().isEmpty()) || (txtTelefonePac.getText().isEmpty()) || (txtCEP.getText().isEmpty()) || (txtRua.getText().isEmpty()) || (txtBairro.getText().isEmpty()) || (txtCidade.getText().isEmpty()) || (txtNumeroPac.getText().isEmpty()) ) {
-            JOptionPane.showMessageDialog(null, "Os campos não podem retornar vazios");
-          }
-          else {
-              // instanciando a classe PacienteDAO do pacote dao e criando seu objeto dao
-              PacienteDAO dao = new PacienteDAO();
-              dao.cadastrar(paciente);
-              //JOptionPane.showMessageDialog(null, "Paciente "+txtNomePac.getText()+" inserido com sucesso! ");
-
-              //insere os valores na tabela ao cadastrar
-              DefaultTableModel dtmPac;
-              dtmPac = (DefaultTableModel) tabelaPac.getModel();
-              Object[] dados = {campoIdPac.getText(),txtNomePac.getText(),txtCpfPac.getText(),txtDataNascPac.getDateFormatString(),txtTelefonePac.getText(),txtCidade.getText(),ComboBoxEstado.getSelectedItem()};
-              dtmPac.addRow(dados);
-              
-          }
-          // apaga os dados preenchidos nos campos de texto
-          campoIdPac.setText("");
-          txtNomePac.setText("");
-          txtCpfPac.setText("");
-          //txtDataNascPac.setText("");
-          txtEmailPac.setText("");
-          txtTelefonePac.setText("");
-          txtCEP.setText("");
-          txtRua.setText("");
-          txtNumeroPac.setText("");
-          txtBairro.setText("");
-          txtCidade.setText("");
-          
-          
-        }catch(Exception exc){
-            JOptionPane.showMessageDialog(null, "ERRO AO CADASTRAR" +exc);
-        }
-        
-    }//GEN-LAST:event_SalvarActionPerformed
-
-    private void CancelarPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CancelarPActionPerformed
-        campoIdPac.setText("");
+    private void buttonCancelarPacActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCancelarPacActionPerformed
+        txtIdPac.setText("");
         txtNomePac.setText("");
         txtCpfPac.setText("");
-        //txtDataNascPac.setText("");
         txtEmailPac.setText("");
         txtTelefonePac.setText("");
-        txtCEP.setText("");
-        txtRua.setText("");
-        txtNumeroPac.setText("");
-        txtBairro.setText("");
+        txtDateNasPac.setText("");
+        txtCepPac.setText("");
+        txtRuaPac.setText("");
+        txtBairroPac.setText("");
         txtCidade.setText("");
-    }//GEN-LAST:event_CancelarPActionPerformed
+        comboBoxEstado.setSelectedItem("Selecione um estado");
+        txtNumPac.setText("");
+    }//GEN-LAST:event_buttonCancelarPacActionPerformed
 
-    private void ButtonSairPacActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonSairPacActionPerformed
-        this.dispose();
-    }//GEN-LAST:event_ButtonSairPacActionPerformed
+    private void buttonSalvarPacActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonSalvarPacActionPerformed
+        try{
+            Paciente paciente = new Paciente();
+            
+            paciente.setNome(txtNomePac.getText());
+            paciente.setCpf(txtCpfPac.getText());
+            paciente.setEmail(txtEmailPac.getText());
+            paciente.setTelefone(txtTelefonePac.getText());
+            paciente.setData_nascimento(txtDateNasPac.getText());
+            paciente.setCep(txtCepPac.getText());
+            paciente.setRua(txtRuaPac.getText());
+            paciente.setBairro(txtBairroPac.getText());
+            paciente.setCidade(txtCidade.getText());
+            paciente.setEstado(String.valueOf(comboBoxEstado.getSelectedItem()));
+            paciente.setNum_endereco(Integer.parseInt(txtNumPac.getText()));
+            
+            //validação dos campos
+            if((txtNomePac.getText().isEmpty()) || (txtCpfPac.getText().isEmpty()) || (txtEmailPac.getText().isEmpty()) || (txtTelefonePac.getText().isEmpty()) || (txtDateNasPac.getText().isEmpty()) || (txtCepPac.getText().isEmpty()) || (txtRuaPac.getText().isEmpty()) || (txtBairroPac.getText().isEmpty()) || (txtCidade.getText().isEmpty()) || (txtNumPac.getText().isEmpty()) ){
+                JOptionPane.showMessageDialog(null, "Os campos não podem retornar vazios!");
+            }else{
+                PacienteDAO dao = new PacienteDAO();
+                dao.cadastrar(paciente);
+                
+                //insere os valores na tabela
+                DefaultTableModel paciet;
+                paciet = (DefaultTableModel) tabelaPaciente.getModel();
+                Object[] dados = {txtNomePac.getText(),txtCpfPac.getText(),txtDateNasPac.getText(),txtTelefonePac.getText(),txtCidade.getText(),comboBoxEstado.getSelectedItem()};
+                paciet.addRow(dados);
+            }
+            //limpa os campos ao salvar paciente.
+            txtIdPac.setText("");
+            txtNomePac.setText("");
+            txtCpfPac.setText("");
+            txtEmailPac.setText("");
+            txtTelefonePac.setText("");
+            txtDateNasPac.setText("");
+            txtCepPac.setText("");
+            txtRuaPac.setText("");
+            txtBairroPac.setText("");
+            txtCidade.setText("");
+            comboBoxEstado.setSelectedItem("Selecione um estado");
+            txtNumPac.setText("");
+            
+        }catch(Exception exc){
+            JOptionPane.showMessageDialog(null, "ERRO AO SALVAR PACIENTE!" +exc);
+        }
+    }//GEN-LAST:event_buttonSalvarPacActionPerformed
 
-    private void txtTelefonePacActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTelefonePacActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtTelefonePacActionPerformed
+    private void tabelaPacienteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabelaPacienteMouseClicked
+        //pega os dados de um paciente na tabela
+        txtIdPac.setText(tabelaPaciente.getValueAt(tabelaPaciente.getSelectedRow(), 0).toString());
+        txtNomePac.setText(tabelaPaciente.getValueAt(tabelaPaciente.getSelectedRow(), 1).toString());
+        txtCpfPac.setText(tabelaPaciente.getValueAt(tabelaPaciente.getSelectedRow(), 2).toString());
+        txtDateNasPac.setText(tabelaPaciente.getValueAt(tabelaPaciente.getSelectedRow(), 3).toString());
+        //SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
+        //txtDateNasPac.setText(sdf.format(tabelaPaciente.getValueAt(tabelaPaciente.getSelectedRow(), 3).toString()));
+        txtTelefonePac.setText(tabelaPaciente.getValueAt(tabelaPaciente.getSelectedRow(), 4).toString());
+        txtCidade.setText(tabelaPaciente.getValueAt(tabelaPaciente.getSelectedRow(), 5).toString());
+        comboBoxEstado.setSelectedItem(tabelaPaciente.getValueAt(tabelaPaciente.getSelectedRow(), 6).toString());
+    }//GEN-LAST:event_tabelaPacienteMouseClicked
 
-    private void txtPesquisaPacActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPesquisaPacActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtPesquisaPacActionPerformed
+    private void buttonExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonExcluirActionPerformed
+        int confirma = JOptionPane.showConfirmDialog(null, "Tem certeza de que deseja excluir paciente?", "CONFIRMAÇÃO DE EXCLUSÃO", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+        
+        if(confirma == JOptionPane.YES_OPTION){
+            if(tabelaPaciente.getSelectedRow() != -1){
+                Paciente paciente = new Paciente();
+                PacienteDAO dao = new PacienteDAO();
+                
+                paciente.setId((int) tabelaPaciente.getValueAt(tabelaPaciente.getSelectedRow(), 0));
+                dao.deletar(paciente);
+            }else{
+                JOptionPane.showMessageDialog(null, "Selecione um paciente para excluir!");
+            }
+        }
+    }//GEN-LAST:event_buttonExcluirActionPerformed
 
-    private void buttonEditarPacActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonEditarPacActionPerformed
-        try {
+    private void buttonEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonEditarActionPerformed
+        try{
             Paciente pac = new Paciente();
-            pac.setId(Integer.parseInt(campoIdPac.getText()));
+            
             pac.setNome(txtNomePac.getText());
             pac.setCpf(txtCpfPac.getText());
-            //pac.setData_nascimento(txtDataNascPac.getText());
             pac.setEmail(txtEmailPac.getText());
             pac.setTelefone(txtTelefonePac.getText());
-            pac.setCep(txtCEP.getText());
-            pac.setRua(txtRua.getText());
-            pac.setNum_endereco(Integer.parseInt(txtNumeroPac.getText()));
-            pac.setBairro(txtBairro.getText());
+            pac.setData_nascimento(txtDateNasPac.getText());
+            pac.setCep(txtCepPac.getText());
+            pac.setRua(txtRuaPac.getText());
+            pac.setBairro(txtBairroPac.getText());
             pac.setCidade(txtCidade.getText());
-            pac.setEstado(String.valueOf(ComboBoxEstado.getSelectedItem()));
-                    
+            pac.setEstado(String.valueOf(comboBoxEstado.getSelectedItem()));
+            pac.setNum_endereco(Integer.parseInt(txtNumPac.getText()));
+            pac.setId(Integer.parseInt(txtIdPac.getText()));
+            
             PacienteDAO dao = new PacienteDAO();
             dao.editar(pac);
             
-            JOptionPane.showMessageDialog(null, "Dados alterados com sucesso!");
-        } catch (Exception erro) {
-            JOptionPane.showMessageDialog(null, "ERRO AO ALTERAR DADOS!" + erro);
-        }
-
-    }//GEN-LAST:event_buttonEditarPacActionPerformed
-
-    private void buttonExcluirPacActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonExcluirPacActionPerformed
-        if(tabelaPac.getSelectedRow() != -1){
-            Paciente pac = new Paciente();
-            PacienteDAO dao = new PacienteDAO();
+            //insere os dados na tabela
+            DefaultTableModel pact;
+            pact = (DefaultTableModel) tabelaPaciente.getModel();
+            Object[] dados = {txtNomePac.getText(),txtCpfPac.getText(),txtDateNasPac.getText(),txtTelefonePac.getText(),txtCidade.getText(),comboBoxEstado.getSelectedItem()};
+            pact.addRow(dados);
             
-            pac.setId((int) tabelaPac.getValueAt(tabelaPac.getSelectedRow(), 0));
+            JOptionPane.showMessageDialog(null, "Paciente atualizado com sucesso!");
             
-            dao.deletar(pac);
-        }else{
-            JOptionPane.showMessageDialog(null, "Selecione um funcionário para excluir!");
+        }catch(Exception erro){
+            JOptionPane.showMessageDialog(null, "Erro ao alterar dados!" + erro);
         }
-    }//GEN-LAST:event_buttonExcluirPacActionPerformed
+    }//GEN-LAST:event_buttonEditarActionPerformed
 
-    private void tabelaPacMouseClicked(java.awt.event.MouseEvent evt) { 
-        //Pega os dados de um paciente na tabela
-        campoIdPac.setText(tabelaPac.getValueAt(tabelaPac.getSelectedRow(), 0).toString());
-        txtNomePac.setText(tabelaPac.getValueAt(tabelaPac.getSelectedRow(), 1).toString());
-        txtCpfPac.setText(tabelaPac.getValueAt(tabelaPac.getSelectedRow(), 2).toString());
-        //txtDataNascPac.setDateFormatString(tabelaPac.getValueAt(tabelaPac.getSelectedRow(), 3).toString());
-        txtTelefonePac.setText(tabelaPac.getValueAt(tabelaPac.getSelectedRow(), 4).toString());
-        txtCidade.setText(tabelaPac.getValueAt(tabelaPac.getSelectedRow(), 5).toString());
-        ComboBoxEstado.setSelectedItem(tabelaPac.getValueAt(tabelaPac.getSelectedRow(), 6).toString());
-
-    }                                        
-
-    private void formWindowActivated(java.awt.event.WindowEvent evt) {                                     
+    private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
         listaPaciente();
-    }                                    
-
-    private void buttonEditarPacMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonEditarPacMouseClicked
-        //jPanel2(); 
-    }//GEN-LAST:event_buttonEditarPacMouseClicked
-
-    private void ButtonPesquisaPacActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonPesquisaPacActionPerformed
-        //TODO add your handling code here:
-    }//GEN-LAST:event_ButtonPesquisaPacActionPerformed
-
-    private void ButtonPesquisaPacMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ButtonPesquisaPacMouseClicked
-        //this.search();// TODO add your handling code here:
-    }//GEN-LAST:event_ButtonPesquisaPacMouseClicked
-
-    private void txtCEPFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtCEPFocusLost
-        /*String cep = txtCEP.getText();
-        WebServiceCep get = WebServiceCep.searchCep(cep);
-        if(!get.isCepNotFound()) {
-            Endereco e = new Endereco();
-            e.setCEP(cep);
-            e.setRua(get.getLogradouro());
-            e.setBairro(get.getBairro());
-            e.setCidade(get.getCidade());
-            e.setEstado(get.getUf());
-            tRua.setText(get.getLogradouro());
-            tBairro.setText(get.getBairro());
-            tCidade.setText(get.getCidade());
-            tEstado.setText(get.getUf());
-        }*/
-    }//GEN-LAST:event_txtCEPFocusLost
-
+    }//GEN-LAST:event_formWindowActivated
 
     /**
      * @param args the command line arguments
@@ -753,13 +622,6 @@ public class telaPaciente extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(telaPaciente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -770,60 +632,45 @@ public class telaPaciente extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton ButtonPesquisaPac;
-    private javax.swing.JButton ButtonSairPac;
-    private javax.swing.JButton CancelarP;
-    private javax.swing.JComboBox<String> ComboBoxEstado;
-    private javax.swing.JButton Salvar;
-    private javax.swing.JButton buttonEditarPac;
-    private javax.swing.JButton buttonExcluirPac;
-    private javax.swing.ButtonGroup buttonGroup1;
-    private javax.swing.ButtonGroup buttonGroup2;
-    private javax.swing.ButtonGroup buttonGroup3;
-    private javax.swing.ButtonGroup buttonGroup4;
-    private javax.swing.ButtonGroup buttonGroup5;
-    private javax.swing.JTextField campoIdPac;
+    private javax.swing.JLabel LabelBairro;
+    private javax.swing.JLabel LabelEmailPac;
+    private javax.swing.JLabel LabelRua;
+    private javax.swing.JButton buttonCancelarPac;
+    private javax.swing.JButton buttonEditar;
+    private javax.swing.JButton buttonExcluir;
+    private javax.swing.JButton buttonPesquisaPac;
+    private javax.swing.JButton buttonSair;
+    private javax.swing.JButton buttonSalvarPac;
+    private javax.swing.JComboBox<String> comboBoxEstado;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabelBairro;
-    private javax.swing.JLabel jLabelCidade;
-    private javax.swing.JLabel jLabelDataPac;
     private javax.swing.JLabel jLabelEstado;
-    private javax.swing.JLabel jLabelNumeroPac;
-    private javax.swing.JLabel jLabelRua;
-    private javax.swing.JLabel jLabelTelefPac;
+    private javax.swing.JLabel jLabelNomePesq;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel5;
-    private javax.swing.JPopupMenu jPopupMenu1;
+    private javax.swing.JPanel jPanelCadastrar;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTabbedPane jTabbedPane2;
-    private javax.swing.JLabel labelCep;
-    private javax.swing.JLabel labelCpfPac;
-    private javax.swing.JLabel labelEmailPac;
-    private javax.swing.JLabel labelNomePac;
-    private javax.swing.JLabel labelNomePesquisa;
-    private javax.swing.JLabel labelidPac;
-    private javax.swing.JTable tabelaPac;
-    private javax.swing.JPanel telaBuscar;
-    private javax.swing.JPanel telaCadastrar;
-    private javax.swing.JTextField txtBairro;
-    private javax.swing.JFormattedTextField txtCEP;
+    private javax.swing.JTabbedPane jTabbedPane1;
+    private javax.swing.JLabel labelCEP;
+    private javax.swing.JLabel labelCPF;
+    private javax.swing.JLabel labelCidade;
+    private javax.swing.JLabel labelDataPac;
+    private javax.swing.JLabel labelID;
+    private javax.swing.JLabel labelNome;
+    private javax.swing.JLabel labelNum;
+    private javax.swing.JLabel labelTelefone;
+    private javax.swing.JTable tabelaPaciente;
+    private javax.swing.JTextField txtBairroPac;
+    private javax.swing.JFormattedTextField txtCepPac;
     private javax.swing.JTextField txtCidade;
     private javax.swing.JFormattedTextField txtCpfPac;
-    private com.toedter.calendar.JDateChooser txtDataNascPac;
+    private javax.swing.JFormattedTextField txtDateNasPac;
     private javax.swing.JTextField txtEmailPac;
+    private javax.swing.JTextField txtIdPac;
     private javax.swing.JTextField txtNomePac;
-    private javax.swing.JTextField txtNumeroPac;
+    private javax.swing.JTextField txtNumPac;
     private javax.swing.JTextField txtPesquisaPac;
-    private javax.swing.JTextField txtRua;
+    private javax.swing.JTextField txtRuaPac;
     private javax.swing.JFormattedTextField txtTelefonePac;
     // End of variables declaration//GEN-END:variables
-
-    /*private void search() {
-        String busca = this.campoPesquisa.getText();
-        List<Funcionario> lista;
-     
-            this.campoPesquisa.requestFocusInWindow();
-    }
-    */
 }
