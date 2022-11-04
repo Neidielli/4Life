@@ -44,6 +44,8 @@ public class funcionarioDAO {
             pdstmt.setString(4, funcionario.getTelefone());
             pdstmt.setString(5, funcionario.getEmail());
             pdstmt.setString(6, funcionario.getEspecialidade());
+            
+            JOptionPane.showMessageDialog(null, "Funcionário " + funcionario.getNome()+ " cadastrado com sucesso!! ");
             pdstmt.executeUpdate();
             pdstmt.close();
             
@@ -98,10 +100,11 @@ public class funcionarioDAO {
             pdstmt.setString(5, func.getEmail());
             pdstmt.setString(6, func.getEspecialidade());
             pdstmt.setInt(7, func.getId());
+            
             pdstmt.executeUpdate();
             pdstmt.close();
             
-            JOptionPane.showMessageDialog(null, "Atualizado com sucesso!");
+            //JOptionPane.showMessageDialog(null, "Atualizado com sucesso!");
             return true;
         } 
         catch (SQLException exc) { 
@@ -121,12 +124,11 @@ public class funcionarioDAO {
             pdstmt.executeUpdate();
             pdstmt.close();
             
-            JOptionPane.showMessageDialog(null, "Excluído com sucesso!");
+            JOptionPane.showMessageDialog(null, "Funcionário excluído com sucesso!");
             return true;
         } 
         catch (SQLException exc) { 
-            System.err.println("Erro ao deletar funcionário!"+exc);
-            //throw new RuntimeException(exc); 
+            System.err.println("Erro ao deletar funcionário!"+exc); 
             return false;
         } 
     }

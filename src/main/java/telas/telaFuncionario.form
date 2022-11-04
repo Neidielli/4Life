@@ -50,9 +50,9 @@
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" attributes="0">
-              <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="9" max="32767" attributes="0"/>
+          <Group type="102" alignment="0" attributes="0">
+              <Component id="jPanel1" max="32767" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -87,7 +87,6 @@
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="jTabbedPane2" min="-2" pref="451" max="-2" attributes="0"/>
-                  <EmptySpace max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -100,6 +99,9 @@
             </Property>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="33" green="33" red="33" type="rgb"/>
+            </Property>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="2" name="C:\Users\tayna\Google Drive\GRADUA&#xc7;&#xc3;O\6&#xba; Per&#xed;odo\Oficina de Integra&#xe7;&#xe3;o 2\4Life\imagens\doctor.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="FUNCION&#xc1;RIO"/>
           </Properties>
@@ -175,15 +177,15 @@
                                           <Component id="campoEspecialidade" min="-2" pref="228" max="-2" attributes="0"/>
                                       </Group>
                                       <Group type="102" alignment="0" attributes="0">
-                                          <EmptySpace min="-2" pref="107" max="-2" attributes="0"/>
-                                          <Component id="Salvar" min="-2" pref="118" max="-2" attributes="0"/>
+                                          <EmptySpace min="-2" pref="140" max="-2" attributes="0"/>
+                                          <Component id="Salvar" min="-2" pref="85" max="-2" attributes="0"/>
                                           <EmptySpace type="separate" max="-2" attributes="0"/>
                                           <Component id="Cancelar" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
                               </Group>
                           </Group>
-                          <EmptySpace pref="157" max="32767" attributes="0"/>
+                          <EmptySpace pref="59" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -224,7 +226,7 @@
                           </Group>
                           <EmptySpace pref="79" max="32767" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="Salvar" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="Salvar" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
                               <Component id="Cancelar" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
@@ -461,14 +463,14 @@
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
                               <Component id="jScrollPane1" min="-2" pref="632" max="-2" attributes="0"/>
-                              <EmptySpace pref="133" max="32767" attributes="0"/>
+                              <EmptySpace pref="25" max="32767" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="1" attributes="0">
                               <EmptySpace max="32767" attributes="0"/>
-                              <Component id="Editar" min="-2" pref="100" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="Excluir" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="51" max="-2" attributes="0"/>
+                              <Component id="Editar" min="-2" pref="88" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="Excluir" min="-2" pref="80" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -480,7 +482,7 @@
                               <EmptySpace pref="33" max="32767" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="Editar" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
-                                  <Component id="Excluir" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="Excluir" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
                           </Group>
@@ -499,7 +501,7 @@
                           <Properties>
                             <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
                               <Table columnCount="6" rowCount="6">
-                                <Column editable="true" title="ID" type="java.lang.Object"/>
+                                <Column editable="true" title="C&#xd3;DIGO" type="java.lang.Object"/>
                                 <Column editable="true" title="NOME" type="java.lang.Object"/>
                                 <Column editable="true" title="CPF" type="java.lang.Object"/>
                                 <Column editable="true" title="TELEFONE" type="java.lang.Object"/>

@@ -5,7 +5,6 @@
 package telas;
 import model.Funcionario;
 import dao.funcionarioDAO;
-import javax.swing.JOptionPane;
 import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -108,6 +107,7 @@ public class telaFuncionario extends javax.swing.JFrame {
 
         jLabel1.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 36)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(51, 51, 51));
+        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\tayna\\Google Drive\\GRADUAÇÃO\\6º Período\\Oficina de Integração 2\\4Life\\imagens\\doctor.png")); // NOI18N
         jLabel1.setText("FUNCIONÁRIO");
 
         jTabbedPane2.setBackground(new java.awt.Color(0, 102, 52));
@@ -234,11 +234,11 @@ public class telaFuncionario extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(campoEspecialidade, javax.swing.GroupLayout.PREFERRED_SIZE, 228, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGap(107, 107, 107)
-                                .addComponent(Salvar, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(140, 140, 140)
+                                .addComponent(Salvar, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
                                 .addComponent(Cancelar)))))
-                .addContainerGap(157, Short.MAX_VALUE))
+                .addContainerGap(59, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -271,7 +271,7 @@ public class telaFuncionario extends javax.swing.JFrame {
                     .addComponent(campoEspecialidade, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 79, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Salvar)
+                    .addComponent(Salvar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(Cancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(37, 37, 37))
         );
@@ -335,7 +335,7 @@ public class telaFuncionario extends javax.swing.JFrame {
                 {null, null, null, null, null, null}
             },
             new String [] {
-                "ID", "NOME", "CPF", "TELEFONE", "CARGO", "ESPECIALIDADE"
+                "CÓDIGO", "NOME", "CPF", "TELEFONE", "CARGO", "ESPECIALIDADE"
             }
         ));
         tabelaBusca.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -377,13 +377,13 @@ public class telaFuncionario extends javax.swing.JFrame {
             .addGroup(jPanel5Layout.createSequentialGroup()
                 .addGap(34, 34, 34)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 632, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(133, Short.MAX_VALUE))
+                .addContainerGap(25, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(Editar, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(Excluir)
-                .addGap(51, 51, 51))
+                .addComponent(Editar, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(Excluir, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(43, 43, 43))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -393,7 +393,7 @@ public class telaFuncionario extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Editar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Excluir))
+                    .addComponent(Excluir, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(36, 36, 36))
         );
 
@@ -449,8 +449,7 @@ public class telaFuncionario extends javax.swing.JFrame {
                         .addGap(26, 26, 26)
                         .addComponent(jButton4)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTabbedPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 451, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jTabbedPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 451, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -462,8 +461,8 @@ public class telaFuncionario extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(9, Short.MAX_VALUE))
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         pack();
@@ -487,7 +486,6 @@ public class telaFuncionario extends javax.swing.JFrame {
     }//GEN-LAST:event_campoTipoFuncActionPerformed
 
     private void SalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SalvarActionPerformed
-       // instanciando a classe Usuario do pacote modelo e criando seu objeto usuarios
         try{
           Funcionario funcionario = new Funcionario();
           //funcionario.setId(Integer.parseInt(campoIdFunc.getText())); 
@@ -506,7 +504,7 @@ public class telaFuncionario extends javax.swing.JFrame {
               // instanciando a classe FuncionarioDAO do pacote dao e criando seu objeto dao
               funcionarioDAO dao = new funcionarioDAO();
               dao.cadastrar(funcionario);
-              JOptionPane.showMessageDialog(null, "Usuário "+txtNome.getText()+" inserido com sucesso! ");
+              //JOptionPane.showMessageDialog(null, "Usuário "+txtNome.getText()+" inserido com sucesso! ");
 
               //insere os valores na tabela ao cadastrar
               DefaultTableModel dtmFunc;
@@ -516,11 +514,12 @@ public class telaFuncionario extends javax.swing.JFrame {
           }
 
           // apaga os dados preenchidos nos campos de texto
+          campoIdFunc.setText("");
           txtNome.setText("");
           txtCPF.setText("");
           campoTelefoneFunc.setText("");
           txtEmail.setText("");
-          campoEspecialidade.setText("");  // TODO add your handling code here:  
+          campoEspecialidade.setText("");   
         }
         catch(Exception exc){
             JOptionPane.showMessageDialog(null, "ERRO AO CADASTRAR" +exc);
@@ -528,12 +527,12 @@ public class telaFuncionario extends javax.swing.JFrame {
     }//GEN-LAST:event_SalvarActionPerformed
 
     private void CancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CancelarActionPerformed
+        campoIdFunc.setText("");
         txtNome.setText("");
         txtCPF.setText("");
         campoTelefoneFunc.setText("");
         txtEmail.setText("");
         campoEspecialidade.setText("");
-// TODO add your handling code here:
     }//GEN-LAST:event_CancelarActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
@@ -555,16 +554,21 @@ public class telaFuncionario extends javax.swing.JFrame {
     }//GEN-LAST:event_EditarActionPerformed
 
     private void ExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ExcluirActionPerformed
-        if(tabelaBusca.getSelectedRow() != -1){
+        int confirma = JOptionPane.showConfirmDialog(null, "Tem certeza de que deseja excluir funcionário?", "Confirmação de Exclusão", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+        
+        if(confirma == JOptionPane.YES_OPTION){
+            if(tabelaBusca.getSelectedRow() != -1){
             Funcionario funcionario = new Funcionario();
             funcionarioDAO dao = new funcionarioDAO();
             
             funcionario.setId((int) tabelaBusca.getValueAt(tabelaBusca.getSelectedRow(), 0));
             
             dao.deletar(funcionario);
-        }else{
+            }else{
             JOptionPane.showMessageDialog(null, "Selecione um funcionário para excluir!");
+            }
         }
+        
     }//GEN-LAST:event_ExcluirActionPerformed
 
     private void tabelaBuscaMouseClicked(java.awt.event.MouseEvent evt) {                                         
@@ -574,7 +578,7 @@ public class telaFuncionario extends javax.swing.JFrame {
         campoTelefoneFunc.setText(tabelaBusca.getValueAt(tabelaBusca.getSelectedRow(), 3).toString());
         campoTipoFunc.setSelectedItem(tabelaBusca.getValueAt(tabelaBusca.getSelectedRow(), 4).toString());
         campoEspecialidade.setText(tabelaBusca.getValueAt(tabelaBusca.getSelectedRow(), 5).toString());
-// TODO add your handling code here:
+
     }                                        
 
     private void formWindowActivated(java.awt.event.WindowEvent evt) {                                     

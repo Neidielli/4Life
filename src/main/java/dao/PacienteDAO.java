@@ -1,0 +1,147 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+package dao;
+
+/**
+ *
+ * @author tayna
+ */
+import factory.ConnectionFactory;
+import java.util.List;
+import java.util.Date;
+import java.text.DateFormat;
+import java.sql.*;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.util.ArrayList;
+import javax.swing.JOptionPane;
+import model.Paciente;
+
+public class PacienteDAO {
+    private Connection connection;
+    int id;
+    String nome;
+    String cpf;
+    String email;
+    String telefone;
+    //String data_nascimento;
+    String cep, rua, bairro, cidade, estado;
+    int num_endereco;
+    
+    public PacienteDAO(){
+        this.connection = new ConnectionFactory().getConnection();
+    }
+    
+    public boolean cadastrar(Paciente paciente){
+        //String sql = "INSERT INTO paciente(nome,cpf,email,telefone,data_nascimento,cep,rua,bairro,cidade,estado,num_endereco) VALUES(?,?,?,?,?,?,?,?,?,?,?)";
+        String sql = "INSERT INTO paciente(nome,cpf,email,telefone,cep,rua,bairro,cidade,estado,num_endereco) VALUES(?,?,?,?,?,?,?,?,?,?)";
+        try{
+            PreparedStatement pds = connection.prepareStatement(sql);
+            
+            pds.setString(1, paciente.getNome());
+            pds.setString(2, paciente.getCpf());
+            pds.setString(3, paciente.getEmail());
+            pds.setString(4, paciente.getTelefone());
+            //pds.setString(5, paciente.getData_nascimento());
+            pds.setString(5, paciente.getCep());
+            pds.setString(6, paciente.getRua());
+            pds.setString(7, paciente.getBairro());
+            pds.setString(8, paciente.getCidade());
+            pds.setString(9, paciente.getEstado());
+            pds.setInt(10, paciente.getNum_endereco());
+            
+            JOptionPane.showMessageDialog(null, "Paciente " + paciente.getNome()+ " cadastrado com sucesso!! ");
+            pds.executeUpdate();
+            pds.close();
+            
+            return true;
+        }
+        catch(SQLException exc){
+            System.err.println("Erro ao cadastrar paciente!"+exc);
+            
+            return false;
+        }
+    }
+    public List<Paciente> listaPac(){
+        try {
+            List<Paciente> lista = new ArrayList<Paciente>();
+            String sql = "SELECT * from paciente";
+            PreparedStatement pds = connection.prepareStatement(sql);
+            ResultSet rs = pds.executeQuery();
+            
+            while(rs.next()){
+                Paciente paciente = new Paciente();
+                
+                paciente.setId(rs.getInt("id"));
+                paciente.setNome(rs.getString("nome"));
+                paciente.setCpf(rs.getString("cpf"));
+                paciente.setEmail(rs.getString("email"));
+                paciente.setTelefone(rs.getString("telefone"));
+                //paciente.setData_nascimento(rs.getString("data_nascimento"));
+                paciente.setCep(rs.getString("cep"));
+                paciente.setRua(rs.getString("rua"));
+                paciente.setBairro(rs.getString("bairro"));
+                paciente.setCidade(rs.getString("cidade"));
+                paciente.setEstado(rs.getString("estado"));
+                paciente.setNum_endereco(rs.getInt("num_endereco"));
+                lista.add(paciente);
+            }
+            return lista;
+        }
+        catch (SQLException exc) {
+            throw new RuntimeException(exc);
+        }
+    }
+    public void editar(Paciente paciente){
+        //String sql = "UPDATE paciente set nome=?, cpf=?, email=?, telefone=?, data_nascimento=?, cep=?, rua=?, bairro=?, cidade=?, estado=?, num_endereco=? WHERE id=?";
+        String sql = "UPDATE paciente set nome=?, cpf=?, email=?, telefone=?, cep=?, rua=?, bairro=?, cidade=?, estado=?, num_endereco=? WHERE id=?";
+        
+        try { 
+            PreparedStatement pds = connection.prepareStatement(sql);
+            
+            pds.setString(1, paciente.getNome());
+            pds.setString(2, paciente.getCpf());
+            pds.setString(3, paciente.getEmail());
+            pds.setString(4, paciente.getTelefone());
+            //pds.setString(5, paciente.getData_nascimento());
+            pds.setString(5, paciente.getCep());
+            pds.setString(6, paciente.getRua());
+            pds.setString(7, paciente.getBairro());
+            pds.setString(8, paciente.getCidade());
+            pds.setString(9, paciente.getEstado());
+            pds.setInt(10, paciente.getNum_endereco());
+            pds.setInt(11, paciente.getId());
+            
+            pds.executeUpdate();
+            pds.close();
+            
+            //JOptionPane.showMessageDialog(null, "Atualizado com sucesso!");
+            //return true;
+        } 
+        catch (SQLException exc) { 
+            //System.err.println("Erro ao atualizar paciente!"+exc);
+            throw new RuntimeException(exc); 
+            //return false;
+        } 
+    }
+    public boolean deletar(Paciente paciente){
+        String del = "DELETE from paciente WHERE id=?";
+  
+        try { 
+            PreparedStatement pds = connection.prepareStatement(del);
+           
+            pds.setInt(1, paciente.getId());
+            pds.executeUpdate();
+            pds.close();
+            
+            JOptionPane.showMessageDialog(null, "Paciente excluído com sucesso!");
+            return true;
+        } 
+        catch (SQLException exc) { 
+            System.err.println("Erro ao deletar paciente!"+exc); 
+            return false;
+        } 
+    }
+}
