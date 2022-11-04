@@ -59,13 +59,13 @@ public class Paciente {
         this.telefone = telefone;
     }
 
-    /*public String getData_nascimento() {
+    public String getData_nascimento() {
         return data_nascimento;
     }
 
     public void setData_nascimento(String data_nascimento) {
         this.data_nascimento = data_nascimento;
-    }*/
+    }
 
     public String getCep() {
         return cep;
