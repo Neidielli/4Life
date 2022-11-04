@@ -550,7 +550,29 @@ public class telaFuncionario extends javax.swing.JFrame {
     }//GEN-LAST:event_campoPesquisaActionPerformed
 
     private void EditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EditarActionPerformed
+           try{
+            Funcionario f = new Funcionario();
+            f.setNome(txtNome.getText());
+            f.setCPF(txtCPF.getText());
+            f.setTipo_func((String)campoTipoFunc.getSelectedItem());
+            f.setTelefone(campoTelefoneFunc.getText());
+            f.setEmail(txtEmail.getText());
+            f.setEspecialidade(campoEspecialidade.getText());
+            f.setId(Integer.parseInt(campoIdFunc.getText()));
 
+            funcionarioDAO dao = new funcionarioDAO();
+            dao.editar(f);
+
+//            //insere os valores na tabela ao cadastrar
+//            DefaultTableModel func;
+//            func = (DefaultTableModel) tabelaBusca.getModel();
+//            Object[] dados = {txtNome.getText(),txtCPF.getText(),campoTelefoneFunc.getText(),campoTipoFunc.getSelectedItem(),campoEspecialidade.getText()};
+//            func.addRow(dados);
+
+            JOptionPane.showMessageDialog(null, "Funcionário alterado com sucesso!");
+        }catch(Exception erro){
+            JOptionPane.showMessageDialog(null, "Erro ao alterar dados!" + erro);
+        }
     }//GEN-LAST:event_EditarActionPerformed
 
     private void ExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ExcluirActionPerformed

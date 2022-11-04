@@ -37,7 +37,7 @@ public class AgendaDAO {
             
             pdstmt.setString(1, agenda.getProcedimento());
             
-            //pdstmt.setInt(2, agenda.getPaciente().getId); //precisa captar o objeto
+            pdstmt.setInt(2, agenda.getPaciente().getId()); //precisa captar o objeto
             pdstmt.setInt(3, agenda.getFuncionario().getId()); // idem
             
             pdstmt.setString(4, agenda.getData_hora());

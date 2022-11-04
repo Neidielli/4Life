@@ -15,7 +15,7 @@ public class Paciente {
     String cpf;
     String email;
     String telefone;
-    //String data_nascimento;
+    String data_nascimento;
     String cep, rua, bairro, cidade, estado;
     int num_endereco;
 
@@ -115,4 +115,11 @@ public class Paciente {
         this.num_endereco = num_endereco;
     }
     
+    
+    // Na classe NovoAgendamento.java é mandado um obj, é preciso dizer qual atributo,
+    // desse obj irá exibir
+    @Override
+    public String toString(){
+        return this.getNome();
+    }
 }

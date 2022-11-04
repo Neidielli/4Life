@@ -12,7 +12,7 @@ public class Agenda {
     
     private int id_Consulta;
     private String procedimento;
-    //private Paciente paciente;
+    private Paciente paciente;
     private Funcionario funcionario;
     private String data_hora;
     private String tipo_consulta;
@@ -34,13 +34,13 @@ public class Agenda {
         this.procedimento = procedimento;
     }
 
-    //public Paciente getPaciente() { // PRECISA DA CLASSE PACIENTE.JAVA
-      //  return paciente;
-    //}
+    public Paciente getPaciente() { 
+        return paciente;
+    }
 
-    //public void setPaciente(Paciente paciente) {
-      //  this.paciente = paciente;
-    //}
+    public void setPaciente(Paciente paciente) {
+        this.paciente = paciente;
+    }
 
     public Funcionario getFuncionario() {
         return funcionario;

@@ -5,10 +5,12 @@
 package telas;
 
 import DAO.AgendaDAO;
+import dao.PacienteDAO;
 import dao.funcionarioDAO;
 import java.util.List;
 import model.Agenda;
 import model.Funcionario;
+import model.Paciente;
 
 /**
  *
@@ -47,7 +49,7 @@ public class NovoAgendamentoGUI extends javax.swing.JFrame {
         campoProcedimento = new java.awt.TextField();
         boxConsulta = new javax.swing.JComboBox<>();
         boxProfissional = new javax.swing.JComboBox();
-        boxPaciente = new javax.swing.JComboBox<>();
+        boxPaciente = new javax.swing.JComboBox();
         btnAgendar = new javax.swing.JButton();
         btnLimpar = new javax.swing.JButton();
         btnSair = new javax.swing.JButton();
@@ -107,16 +109,25 @@ public class NovoAgendamentoGUI extends javax.swing.JFrame {
 
         boxProfissional.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         boxProfissional.addAncestorListener(new javax.swing.event.AncestorListener() {
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
+            }
             public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
                 boxProfissionalAncestorAdded(evt);
             }
             public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
             }
-            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
-            }
         });
 
         boxPaciente.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        boxPaciente.addAncestorListener(new javax.swing.event.AncestorListener() {
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
+            }
+            public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
+                boxPacienteAncestorAdded(evt);
+            }
+            public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
+            }
+        });
         boxPaciente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 boxPacienteActionPerformed(evt);
@@ -267,13 +278,13 @@ public class NovoAgendamentoGUI extends javax.swing.JFrame {
 
     private void btnAgendarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgendarActionPerformed
         Agenda agenda = new Agenda();
-        //Paciente paciente = new Paciente();
+        Paciente paciente = new Paciente();
         Funcionario funcionario = new Funcionario();
         
         agenda.setProcedimento(campoProcedimento.getText());
         // Receber os dados dos combosBox(obj do tipo paciente e do tipo funcionario)
-        //paciente = (Paciente) boxPaciente.getSelectedItem();
-        //agenda.setPaciente(paciente);
+        paciente = (Paciente) boxPaciente.getSelectedItem();
+        agenda.setPaciente(paciente);
         funcionario = (Funcionario) boxProfissional.getSelectedItem();
         agenda.setFuncionario(funcionario);
         agenda.setData_hora(campoData.getDateFormatString());
@@ -311,6 +322,19 @@ public class NovoAgendamentoGUI extends javax.swing.JFrame {
             boxProfissional.addItem(f);
         } 
     }//GEN-LAST:event_boxProfissionalAncestorAdded
+
+    private void boxPacienteAncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_boxPacienteAncestorAdded
+        PacienteDAO dao = new PacienteDAO();
+        List<Paciente> lista = dao.listaPac();
+        
+        // primeiro remove todos os dados da combobox para n duplicados os dados
+        boxPaciente.removeAll();
+        
+        //Para cada item da lista, monta um obj do tipo Funcionario e add na comboBox 
+        for(Paciente p:lista) {
+            boxPaciente.addItem(p);
+        }
+    }//GEN-LAST:event_boxPacienteAncestorAdded
 
     /**
      * @param args the command line arguments
@@ -350,7 +374,7 @@ public class NovoAgendamentoGUI extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> boxConsulta;
-    private javax.swing.JComboBox<String> boxPaciente;
+    private javax.swing.JComboBox boxPaciente;
     private javax.swing.JComboBox boxProfissional;
     private javax.swing.JButton btnAgendar;
     private javax.swing.JButton btnLimpar;

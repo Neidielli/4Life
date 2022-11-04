@@ -104,7 +104,7 @@ public class funcionarioDAO {
             pdstmt.executeUpdate();
             pdstmt.close();
             
-            //JOptionPane.showMessageDialog(null, "Atualizado com sucesso!");
+            JOptionPane.showMessageDialog(null, "Atualizado com sucesso!");
             return true;
         } 
         catch (SQLException exc) { 
