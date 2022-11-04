@@ -91,7 +91,6 @@ public class UsuarioGUI extends javax.swing.JFrame {
         jPanel3.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
 
         jLabel1.setFont(new java.awt.Font("SansSerif", 1, 24)); // NOI18N
-        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\neidi\\OneDrive\\Área de Trabalho\\UTFPR\\Oficina 2\\4Life\\imagens\\icons\\user.png")); // NOI18N
         jLabel1.setText("Cadastro de Usuário");
 
         jPanel1.setBackground(new java.awt.Color(204, 204, 204));
@@ -108,7 +107,7 @@ public class UsuarioGUI extends javax.swing.JFrame {
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel5.setText("Telefone");
 
-        campoNome.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        campoNome.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         campoNome.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         campoNome.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -382,7 +381,7 @@ public class UsuarioGUI extends javax.swing.JFrame {
         
         // faz a validaÃ§Ã£o dos dados. Verefica se os campos estÃ£o vazios
         if ((campoNome.getText().isEmpty()) || (campoCpf.getText().isEmpty()) || (campoEmail.getText().isEmpty()) || (campoTelefone.getText().isEmpty()) || (campoSenhaCadastro.getText().isEmpty())) {
-            JOptionPane.showMessageDialog(null, "Os campos nÃ£o podem ser vazios");
+            JOptionPane.showMessageDialog(null, "Os campos não podem ser vazios");
         } else { // se os campos nÃ£o estiverem vazios, irÃ¡ instanciar a classe UsuarioDao e criar seu objeto
             UsuarioDAO dao = new UsuarioDAO();
             dao.adiciona(usuarios);
@@ -436,6 +435,9 @@ public class UsuarioGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_btnEditarActionPerformed
 
     private void btnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirActionPerformed
+    int confirma = JOptionPane.showConfirmDialog(null, "Tem certeza de que deseja excluir usuário?", "Confirmação de Exclusão", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+    
+    if(confirma == JOptionPane.YES_OPTION){
         try {
             Usuario u = new Usuario();
             
@@ -448,6 +450,8 @@ public class UsuarioGUI extends javax.swing.JFrame {
         } catch (Exception erro) {
             JOptionPane.showMessageDialog(null, "ERRO AO EXCLUIR" + erro);
         }
+    }
+        
     }//GEN-LAST:event_btnExcluirActionPerformed
 
     private void campoCpfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoCpfActionPerformed
