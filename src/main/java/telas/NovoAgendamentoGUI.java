@@ -7,7 +7,13 @@ package telas;
 import DAO.AgendaDAO;
 import dao.PacienteDAO;
 import dao.funcionarioDAO;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import model.Agenda;
 import model.Funcionario;
 import model.Paciente;
@@ -109,23 +115,23 @@ public class NovoAgendamentoGUI extends javax.swing.JFrame {
 
         boxProfissional.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         boxProfissional.addAncestorListener(new javax.swing.event.AncestorListener() {
-            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
-            }
             public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
                 boxProfissionalAncestorAdded(evt);
             }
             public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
             }
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
+            }
         });
 
         boxPaciente.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         boxPaciente.addAncestorListener(new javax.swing.event.AncestorListener() {
-            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
-            }
             public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
                 boxPacienteAncestorAdded(evt);
             }
             public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
+            }
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
             }
         });
         boxPaciente.addActionListener(new java.awt.event.ActionListener() {
@@ -163,6 +169,11 @@ public class NovoAgendamentoGUI extends javax.swing.JFrame {
 
         campoData.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         campoData.setMinimumSize(new java.awt.Dimension(80, 30));
+        campoData.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+            public void propertyChange(java.beans.PropertyChangeEvent evt) {
+                campoDataPropertyChange(evt);
+            }
+        });
 
         campoHora.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         campoHora.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "06:00", "06:30", "07:00", "07:30", "08:00", "08:30", "09:00", "09:30", "10:00", "10:30", "11:00", "11:30", "12:00", "12:30", "13:00", "13:30", "14:00", "14:30", "15:00", "15:30", "16:00", "16:30", "17:00", "17:30", "18:00", "18:30", "19:00", "19:30", "20:00", "20:30", "21:00", "21:30" }));
@@ -174,6 +185,12 @@ public class NovoAgendamentoGUI extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(btnAgendar)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnLimpar, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(26, 26, 26)
+                        .addComponent(btnSair, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
@@ -200,13 +217,7 @@ public class NovoAgendamentoGUI extends javax.swing.JFrame {
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(campoData, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 78, Short.MAX_VALUE)
-                                .addComponent(campoHora, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(btnAgendar)
-                        .addGap(18, 18, 18)
-                        .addComponent(btnLimpar, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(26, 26, 26)
-                        .addComponent(btnSair, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(campoHora, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addContainerGap(95, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
@@ -287,6 +298,11 @@ public class NovoAgendamentoGUI extends javax.swing.JFrame {
         agenda.setPaciente(paciente);
         funcionario = (Funcionario) boxProfissional.getSelectedItem();
         agenda.setFuncionario(funcionario);
+//        try {
+//            agenda.setData_hora(sdf.parse(campoData.getText()));
+//        } catch (ParseException ex) {
+//            System.out.println("Erro ao converter a data" + ex);
+//        }
         agenda.setData_hora(campoData.getDateFormatString());
         agenda.setTipo_consulta(String.valueOf(boxConsulta.getSelectedItem()));
         agenda.setHora(String.valueOf(campoHora.getSelectedItem()));
@@ -335,6 +351,10 @@ public class NovoAgendamentoGUI extends javax.swing.JFrame {
             boxPaciente.addItem(p);
         }
     }//GEN-LAST:event_boxPacienteAncestorAdded
+
+    private void campoDataPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_campoDataPropertyChange
+        if(campoData.getDate() != null)   ;     // TODO add your handling code here:
+    }//GEN-LAST:event_campoDataPropertyChange
 
     /**
      * @param args the command line arguments

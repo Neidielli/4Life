@@ -8,6 +8,7 @@ import factory.ConnectionFactory;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import javax.swing.JOptionPane;
 
 import model.Agenda;
 
@@ -32,8 +33,10 @@ public class AgendaDAO {
     public boolean AgendarConsulta(Agenda agenda){ 
  
         try { 
-            String sql = "INSERT INTO consultas(procedimento,fk_consultas_paciente,fk_consultas_funcionario,data_hora,tipo_consulta,hora) VALUES(?,?,?,?,?,?)";
+            String sql = "INSERT INTO consultas(procedimento,idPaciente,idProfissional,data_hora,tipo_consulta,hora) VALUES(?,?,?,?,?,?)";
+//            fk_consultas_paciente,fk_consultas_funcionario
             PreparedStatement pdstmt = connection.prepareStatement(sql);
+           
             
             pdstmt.setString(1, agenda.getProcedimento());
             
@@ -44,7 +47,8 @@ public class AgendaDAO {
             pdstmt.setString(5, agenda.getTipo_consulta());
             pdstmt.setString(6, agenda.getHora());
             
-            pdstmt.executeUpdate();
+            JOptionPane.showMessageDialog(null, "Consulta cadastrado com sucesso!! ");
+            pdstmt.execute();
             pdstmt.close();
             
             return true;
@@ -54,5 +58,20 @@ public class AgendaDAO {
             
             return false;
         } 
-    } 
+    }
+    
+    public void excluir(Agenda agenda) {
+        String sql = "delete from consultas where id_Consultas=?";
+        try {
+            PreparedStatement stmt = connection.prepareStatement(sql);
+
+            stmt.setInt(1, agenda.getId_Consulta());
+
+            stmt.execute();
+            stmt.close();
+        }
+        catch (SQLException u) {
+            throw new RuntimeException(u);
+        }
+    } // fim do mÃ©todo excluir consulta.
 }
