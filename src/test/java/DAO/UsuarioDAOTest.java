@@ -97,15 +97,35 @@ public class UsuarioDAOTest {
      */
     @Test
     public void testLogin() {
-        System.out.println("login");
-        String email = "";
-        String senha = "";
-        UsuarioDAO instance = new UsuarioDAO();
-        boolean expResult = false;
-        boolean result = instance.login(email, senha);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        
+//        System.out.println("login");
+//        String email = "neidielli@teste.com";
+//        String senha = "senhateste";
+//        UsuarioDAO instance = new UsuarioDAO();
+//        boolean expResult = false;
+//        boolean result = instance.login(email, senha);
+//        assertEquals(expResult, result);
+//        // TODO review the generated test code and remove the default call to fail.
+//        fail("The test case is a prototype.");
+        
+//        UsuarioDAO usuario = new UsuarioDAO();
+//        
+//        String email = "neid@teste.com";
+//        String senha = "senhatest";
+//        String nome = "neidi";
+//        String telefone = "(00)00001-7896";
+//        String cpf = "00000000000";
+//        int id = "98";
+//       
+//        
+//        /*cadastra usuário*/
+//        assertEquals(true, usuario.adiciona(id, nome, telefone, cpf, email, senha));
+//        
+//        /*executa login*/
+//        assertEquals(true, usuario.login(email, senha));
+//        
+//        /*executa login com dados incorretos*/
+//        assertEquals(false, usuario.login("email", "password"));
     }
     
 }
