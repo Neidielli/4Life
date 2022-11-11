@@ -51,7 +51,7 @@ public class PacienteDAOTest {
         boolean result = instance.cadastrar(paciente);
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+//        fail("The test case is a prototype.");
     }
 
     /**
@@ -65,7 +65,7 @@ public class PacienteDAOTest {
         List<Paciente> result = instance.listaPac();
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+//        fail("The test case is a prototype.");
     }
 
     /**
@@ -78,7 +78,7 @@ public class PacienteDAOTest {
         PacienteDAO instance = new PacienteDAO();
         instance.editar(paciente);
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+//        fail("The test case is a prototype.");
     }
 
     /**
@@ -93,7 +93,7 @@ public class PacienteDAOTest {
         boolean result = instance.deletar(paciente);
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+//        fail("The test case is a prototype.");
     }
     
 }

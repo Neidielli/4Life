@@ -49,7 +49,7 @@ public class UsuarioDAOTest {
         UsuarioDAO instance = new UsuarioDAO();
         instance.adiciona(usuario);
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+//        fail("The test case is a prototype.");
     }
 
     /**
@@ -63,7 +63,7 @@ public class UsuarioDAOTest {
         List<Usuario> result = instance.listarUsuarios();
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+//        fail("The test case is a prototype.");
     }
 
     /**
@@ -76,7 +76,7 @@ public class UsuarioDAOTest {
         UsuarioDAO instance = new UsuarioDAO();
         instance.alterar(usuario);
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+//        fail("The test case is a prototype.");
     }
 
     /**
@@ -89,7 +89,7 @@ public class UsuarioDAOTest {
         UsuarioDAO instance = new UsuarioDAO();
         instance.excluir(usuario);
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+//        fail("The test case is a prototype.");
     }
 
     /**

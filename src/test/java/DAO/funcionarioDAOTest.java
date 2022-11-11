@@ -51,7 +51,7 @@ public class funcionarioDAOTest {
         boolean result = instance.cadastrar(funcionario);
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+//        fail("The test case is a prototype.");
     }
 
     /**
@@ -65,7 +65,7 @@ public class funcionarioDAOTest {
         List<Funcionario> result = instance.listaFunc();
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+//        fail("The test case is a prototype.");
     }
 
     /**
@@ -80,7 +80,7 @@ public class funcionarioDAOTest {
         boolean result = instance.editar(func);
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+//        fail("The test case is a prototype.");
     }
 
     /**
@@ -95,7 +95,7 @@ public class funcionarioDAOTest {
         boolean result = instance.deletar(func);
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+//        fail("The test case is a prototype.");
     }
     
 }
