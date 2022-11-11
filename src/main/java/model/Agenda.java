@@ -4,6 +4,8 @@
  */
 package model;
 
+import java.util.Date; // DATE
+
 /**
  *
  * @author neidi
@@ -14,7 +16,7 @@ public class Agenda {
     private String procedimento;
     private Paciente paciente;
     private Funcionario funcionario;
-    private String data_hora;
+    private Date data_hora; // DATE
     private String tipo_consulta;
     private String hora;
 
@@ -50,11 +52,11 @@ public class Agenda {
         this.funcionario = funcionario;
     }
 
-    public String getData_hora() {
+    public Date getData_hora() { // DATE
         return data_hora;
     }
 
-    public void setData_hora(String data_hora) {
+    public void setData_hora(Date data_hora) { // DATE
         this.data_hora = data_hora;
     }
 

@@ -10,6 +10,8 @@ import dao.funcionarioDAO;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.*;
+import java.time.format.DateTimeFormatter;
 import java.util.Date;
 import java.util.List;
 import java.util.logging.Level;
@@ -288,6 +290,8 @@ public class NovoAgendamentoGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_campoProcedimentoActionPerformed
 
     private void btnAgendarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgendarActionPerformed
+////        LocalDate ldNow = LocalDate.now();
+//        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd");
         Agenda agenda = new Agenda();
         Paciente paciente = new Paciente();
         Funcionario funcionario = new Funcionario();
@@ -298,12 +302,7 @@ public class NovoAgendamentoGUI extends javax.swing.JFrame {
         agenda.setPaciente(paciente);
         funcionario = (Funcionario) boxProfissional.getSelectedItem();
         agenda.setFuncionario(funcionario);
-//        try {
-//            agenda.setData_hora(sdf.parse(campoData.getText()));
-//        } catch (ParseException ex) {
-//            System.out.println("Erro ao converter a data" + ex);
-//        }
-        agenda.setData_hora(campoData.getDateFormatString());
+        agenda.setData_hora(campoData.getDate()); // DATE
         agenda.setTipo_consulta(String.valueOf(boxConsulta.getSelectedItem()));
         agenda.setHora(String.valueOf(campoHora.getSelectedItem()));
         
