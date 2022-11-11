@@ -347,8 +347,8 @@ public class HomeGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_ItemMenuBuscarFuncionarioActionPerformed
 
     private void ItemMenuAgendarConsultaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ItemMenuAgendarConsultaActionPerformed
-        NovoAgendamentoGUI novoAgendamento = new NovoAgendamentoGUI();
-        novoAgendamento.setVisible(true);
+        SelecionarMedicoGUI selecionarMedico = new SelecionarMedicoGUI();
+        selecionarMedico.setVisible(true);
     }//GEN-LAST:event_ItemMenuAgendarConsultaActionPerformed
 
     private void ItemMenuEditarPacienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ItemMenuEditarPacienteActionPerformed
@@ -412,6 +412,9 @@ public class HomeGUI extends javax.swing.JFrame {
     private javax.swing.JMenuItem ItemMenuVisualizarAgenda;
     private javax.swing.JMenuItem ItemMenuVisualizarProntPaciente;
     private javax.swing.JMenu MenuSair;
+    private javax.swing.JMenuItem btnVisualizarAgenda;
+    private javax.swing.JMenuItem TelaBuscaPaciente;
+    private javax.swing.JMenuItem TelacadastraPaciente;
     private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JMenu jMenu3;
@@ -420,6 +423,9 @@ public class HomeGUI extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu6;
     private javax.swing.JMenu jMenu7;
     private javax.swing.JMenuBar jMenuBar2;
+    private javax.swing.JMenuItem jMenuItem13;
+    private javax.swing.JMenuItem jMenuItem14;
+    private javax.swing.JMenuItem jMenuItem8;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPopupMenu jPopupMenu1;
     private javax.swing.JPopupMenu jPopupMenu2;

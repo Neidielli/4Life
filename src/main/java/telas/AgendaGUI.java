@@ -93,6 +93,8 @@ public class AgendaGUI extends javax.swing.JFrame {
         campo21h = new javax.swing.JTextField();
         campo21h3 = new javax.swing.JTextField();
         campo6h = new javax.swing.JTextField();
+        btnAgendar = new javax.swing.JButton();
+        btnVoltar = new javax.swing.JButton();
         Animação = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -545,6 +547,25 @@ public class AgendaGUI extends javax.swing.JFrame {
         jLayeredPane1.add(campo6h);
         campo6h.setBounds(120, 320, 380, 35);
 
+        btnAgendar.setBackground(new java.awt.Color(76, 159, 56));
+        btnAgendar.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        btnAgendar.setIcon(new javax.swing.ImageIcon("C:\\Users\\neidi\\OneDrive\\Área de Trabalho\\UTFPR\\Oficina 2\\4Life\\imagens\\icons\\edit.png")); // NOI18N
+        btnAgendar.setText("Agendar Consulta");
+        jLayeredPane1.add(btnAgendar);
+        btnAgendar.setBounds(210, 100, 240, 60);
+
+        btnVoltar.setBackground(new java.awt.Color(204, 204, 204));
+        btnVoltar.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        btnVoltar.setIcon(new javax.swing.ImageIcon("C:\\Users\\neidi\\OneDrive\\Área de Trabalho\\UTFPR\\Oficina 2\\4Life\\imagens\\icons\\logout.png")); // NOI18N
+        btnVoltar.setText("Voltar");
+        btnVoltar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVoltarActionPerformed(evt);
+            }
+        });
+        jLayeredPane1.add(btnVoltar);
+        btnVoltar.setBounds(50, 100, 130, 60);
+
         Animação.setIcon(new javax.swing.ImageIcon("C:\\Users\\neidi\\OneDrive\\Área de Trabalho\\UTFPR\\Oficina 2\\4Life\\imagens\\fundoAgenda2.png")); // NOI18N
         jLayeredPane1.add(Animação);
         Animação.setBounds(0, 0, 1930, 1000);
@@ -608,6 +629,13 @@ public class AgendaGUI extends javax.swing.JFrame {
        campo8h3.setToolTipText(campo8h3.getText());
     }//GEN-LAST:event_campo8h3MouseEntered
 
+    private void btnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarActionPerformed
+        this.dispose(); // fecha tela atual 
+        
+        SelecionarMedicoGUI telaSelecao = new SelecionarMedicoGUI();
+        telaSelecao.setVisible(true);
+    }//GEN-LAST:event_btnVoltarActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -645,6 +673,8 @@ public class AgendaGUI extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Animação;
+    private javax.swing.JButton btnAgendar;
+    private javax.swing.JButton btnVoltar;
     private javax.swing.JTextField campo10h;
     private javax.swing.JTextField campo10h3;
     private javax.swing.JTextField campo11h;
