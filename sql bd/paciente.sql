@@ -13,7 +13,7 @@ create table paciente (
     cpf varchar(15) NOT NULL UNIQUE,
     email varchar(80) NOT NULL UNIQUE,
     telefone varchar(15) NOT NULL,
-    data_nascimento varchar(15) NOT NULL,
+    data_nascimento date NOT NULL,
     cep varchar(11) NOT NULL,
     rua varchar(80) NOT NULL,
     bairro varchar(80) NOT NULL,
