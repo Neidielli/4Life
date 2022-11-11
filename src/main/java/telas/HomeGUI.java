@@ -49,8 +49,7 @@ public class HomeGUI extends javax.swing.JFrame {
         jMenuItem13 = new javax.swing.JMenuItem();
         jMenuItem14 = new javax.swing.JMenuItem();
         jMenu7 = new javax.swing.JMenu();
-        jMenuItem10 = new javax.swing.JMenuItem();
-        jMenuItem11 = new javax.swing.JMenuItem();
+        btnVisualizarAgenda = new javax.swing.JMenuItem();
         MenuSair = new javax.swing.JMenu();
         ItemMenuSairFechar = new javax.swing.JMenuItem();
         ItemMenuSairEntrar = new javax.swing.JMenuItem();
@@ -62,7 +61,6 @@ public class HomeGUI extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setName("Home"); // NOI18N
-        setPreferredSize(new java.awt.Dimension(1920, 1030));
         setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(204, 204, 204));
@@ -209,20 +207,15 @@ public class HomeGUI extends javax.swing.JFrame {
         jMenu7.setText("Agenda");
         jMenu7.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
 
-        jMenuItem10.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jMenuItem10.setIcon(new javax.swing.ImageIcon("C:\\Users\\neidi\\OneDrive\\Área de Trabalho\\UTFPR\\Oficina 2\\4Life\\imagens\\icons\\calendar.png")); // NOI18N
-        jMenuItem10.setText("Visualizar Agenda");
-        jMenu7.add(jMenuItem10);
-
-        jMenuItem11.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jMenuItem11.setIcon(new javax.swing.ImageIcon("C:\\Users\\neidi\\OneDrive\\Área de Trabalho\\UTFPR\\Oficina 2\\4Life\\imagens\\icons\\new24.png")); // NOI18N
-        jMenuItem11.setText("Agendar Consultas");
-        jMenuItem11.addActionListener(new java.awt.event.ActionListener() {
+        btnVisualizarAgenda.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        btnVisualizarAgenda.setIcon(new javax.swing.ImageIcon("C:\\Users\\neidi\\OneDrive\\Área de Trabalho\\UTFPR\\Oficina 2\\4Life\\imagens\\icons\\calendar.png")); // NOI18N
+        btnVisualizarAgenda.setText("Visualizar Agenda");
+        btnVisualizarAgenda.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem11ActionPerformed(evt);
+                btnVisualizarAgendaActionPerformed(evt);
             }
         });
-        jMenu7.add(jMenuItem11);
+        jMenu7.add(btnVisualizarAgenda);
 
         jMenuBar2.add(jMenu7);
 
@@ -327,10 +320,10 @@ public class HomeGUI extends javax.swing.JFrame {
         telafuncionario.setVisible(true);
     }//GEN-LAST:event_ItemFuncionarioExcluirFuncionarioActionPerformed
 
-    private void jMenuItem11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem11ActionPerformed
-        NovoAgendamentoGUI novoAgendamento = new NovoAgendamentoGUI();
-        novoAgendamento.setVisible(true);
-    }//GEN-LAST:event_jMenuItem11ActionPerformed
+    private void btnVisualizarAgendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVisualizarAgendaActionPerformed
+        SelecionarMedicoGUI selecionarMedico = new SelecionarMedicoGUI();
+        selecionarMedico.setVisible(true);
+    }//GEN-LAST:event_btnVisualizarAgendaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -377,6 +370,7 @@ public class HomeGUI extends javax.swing.JFrame {
     private javax.swing.JMenuItem ItemMenuSairEntrar;
     private javax.swing.JMenuItem ItemMenuSairFechar;
     private javax.swing.JMenu MenuSair;
+    private javax.swing.JMenuItem btnVisualizarAgenda;
     private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JMenu jMenu3;
@@ -385,8 +379,6 @@ public class HomeGUI extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu6;
     private javax.swing.JMenu jMenu7;
     private javax.swing.JMenuBar jMenuBar2;
-    private javax.swing.JMenuItem jMenuItem10;
-    private javax.swing.JMenuItem jMenuItem11;
     private javax.swing.JMenuItem jMenuItem13;
     private javax.swing.JMenuItem jMenuItem14;
     private javax.swing.JMenuItem jMenuItem7;

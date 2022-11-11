@@ -7,15 +7,15 @@ package telas;
 import DAO.AgendaDAO;
 import dao.PacienteDAO;
 import dao.funcionarioDAO;
-import java.text.DateFormat;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.time.*;
-import java.time.format.DateTimeFormatter;
-import java.util.Date;
+//import java.text.DateFormat;
+//import java.text.ParseException;
+//import java.text.SimpleDateFormat;
+//import java.time.*;
+//import java.time.format.DateTimeFormatter;
+//import java.util.Date;
+//import java.util.logging.Level;
+//import java.util.logging.Logger;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import model.Agenda;
 import model.Funcionario;
 import model.Paciente;
@@ -123,6 +123,11 @@ public class NovoAgendamentoGUI extends javax.swing.JFrame {
             public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
             }
             public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
+            }
+        });
+        boxProfissional.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                boxProfissionalActionPerformed(evt);
             }
         });
 
@@ -354,6 +359,10 @@ public class NovoAgendamentoGUI extends javax.swing.JFrame {
     private void campoDataPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_campoDataPropertyChange
         if(campoData.getDate() != null)   ;     // TODO add your handling code here:
     }//GEN-LAST:event_campoDataPropertyChange
+
+    private void boxProfissionalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boxProfissionalActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_boxProfissionalActionPerformed
 
     /**
      * @param args the command line arguments
