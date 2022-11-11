@@ -2,11 +2,11 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/UnitTests/JUnit5TestClass.java to edit this template
  */
-package DAO;
+package tests;
 
-import dao.PacienteDAO;
+import DAO.FuncionarioDAO;
 import java.util.List;
-import model.Paciente;
+import model.Funcionario;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeEach;
@@ -18,9 +18,9 @@ import static org.junit.jupiter.api.Assertions.*;
  *
  * @author neidi
  */
-public class PacienteDAOTest {
+public class funcionarioDAOTest {
     
-    public PacienteDAOTest() {
+    public funcionarioDAOTest() {
     }
     
     @BeforeAll
@@ -40,57 +40,59 @@ public class PacienteDAOTest {
     }
 
     /**
-     * Test of cadastrar method, of class PacienteDAO.
+     * Test of cadastrar method, of class FuncionarioDAO.
      */
     @Test
     public void testCadastrar() {
         System.out.println("cadastrar");
-        Paciente paciente = null;
-        PacienteDAO instance = new PacienteDAO();
+        Funcionario funcionario = null;
+        FuncionarioDAO instance = new FuncionarioDAO();
         boolean expResult = false;
-        boolean result = instance.cadastrar(paciente);
+        boolean result = instance.cadastrar(funcionario);
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
 //        fail("The test case is a prototype.");
     }
 
     /**
-     * Test of listaPac method, of class PacienteDAO.
+     * Test of listaFunc method, of class FuncionarioDAO.
      */
     @Test
-    public void testListaPac() {
-        System.out.println("listaPac");
-        PacienteDAO instance = new PacienteDAO();
-        List<Paciente> expResult = null;
-        List<Paciente> result = instance.listaPac();
+    public void testListaFunc() {
+        System.out.println("listaFunc");
+        FuncionarioDAO instance = new FuncionarioDAO();
+        List<Funcionario> expResult = null;
+        List<Funcionario> result = instance.listaFunc();
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
 //        fail("The test case is a prototype.");
     }
 
     /**
-     * Test of editar method, of class PacienteDAO.
+     * Test of editar method, of class FuncionarioDAO.
      */
     @Test
     public void testEditar() {
         System.out.println("editar");
-        Paciente paciente = null;
-        PacienteDAO instance = new PacienteDAO();
-        instance.editar(paciente);
+        Funcionario func = null;
+        FuncionarioDAO instance = new FuncionarioDAO();
+        boolean expResult = false;
+//        boolean result = instance.editar(func);
+//        assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
 //        fail("The test case is a prototype.");
     }
 
     /**
-     * Test of deletar method, of class PacienteDAO.
+     * Test of deletar method, of class FuncionarioDAO.
      */
     @Test
     public void testDeletar() {
         System.out.println("deletar");
-        Paciente paciente = null;
-        PacienteDAO instance = new PacienteDAO();
+        Funcionario func = null;
+        FuncionarioDAO instance = new FuncionarioDAO();
         boolean expResult = false;
-        boolean result = instance.deletar(paciente);
+        boolean result = instance.deletar(func);
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
 //        fail("The test case is a prototype.");

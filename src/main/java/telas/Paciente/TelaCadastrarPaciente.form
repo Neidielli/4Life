@@ -30,8 +30,8 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="edicaoPac" min="-2" pref="370" max="-2" attributes="0"/>
-              <EmptySpace pref="319" max="32767" attributes="0"/>
+              <Component id="edicaoPac" min="-2" pref="406" max="-2" attributes="0"/>
+              <EmptySpace pref="283" max="32767" attributes="0"/>
               <Component id="ButtonSairPac" min="-2" pref="59" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
           </Group>
@@ -63,7 +63,7 @@
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
           <Image iconType="2" name="C:\Users\tayna\Google Drive\GRADUA&#xc7;&#xc3;O\6&#xba; Per&#xed;odo\Oficina de Integra&#xe7;&#xe3;o 2\4Life\imagens\icons\team.png"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Cadastrar Paciente"/>
+        <Property name="text" type="java.lang.String" value="CADASTRAR PACIENTE"/>
         <Property name="iconTextGap" type="int" value="5"/>
       </Properties>
     </Component>

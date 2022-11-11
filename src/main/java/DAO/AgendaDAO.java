@@ -82,7 +82,7 @@ public class AgendaDAO {
         }
     }
     
-    public void excluir(Agenda agenda) {
+    public void deletar(Agenda agenda) {
         String sql = "delete from consultas where id_Consultas=?";
         try {
             PreparedStatement stmt = connection.prepareStatement(sql);
