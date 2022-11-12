@@ -164,6 +164,7 @@ public class LoginGUI extends javax.swing.JFrame {
             senha = String.valueOf(campoSenhaa.getPassword());
             // instancia um objeto usuario
             UsuarioDAO dao = new UsuarioDAO();
+
             
             if(dao.login(email, senha)) { // método login irá retornar verdadeiro ou falso.
                 // se validadar login, abrir tela home

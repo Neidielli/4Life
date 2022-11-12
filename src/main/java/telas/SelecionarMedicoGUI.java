@@ -4,7 +4,7 @@
  */
 package telas;
 
-import dao.funcionarioDAO;
+import DAO.FuncionarioDAO;
 import java.util.List;
 import model.Agenda;
 import model.Funcionario;
@@ -138,7 +138,7 @@ public class SelecionarMedicoGUI extends javax.swing.JFrame {
 
     private void boxProfissionalAncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_boxProfissionalAncestorAdded
         
-        funcionarioDAO dao = new funcionarioDAO();
+        FuncionarioDAO dao = new FuncionarioDAO();
         List<Funcionario> lista = dao.listaFunc(); // metodo lista da classe DAO, e importa a classe model
         
         // primeiro remove todos os dados da combobox para n duplicados os dados
