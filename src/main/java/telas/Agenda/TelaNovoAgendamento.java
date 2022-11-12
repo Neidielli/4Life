@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package telas;
+package telas.Agenda;
 
 import DAO.AgendaDAO;
 import DAO.PacienteDAO;
@@ -22,12 +22,12 @@ import model.Paciente;
  *
  * @author neidi
  */
-public class NovoAgendamentoGUI extends javax.swing.JFrame {
+public class TelaNovoAgendamento extends javax.swing.JFrame {
 
     /**
      * Creates new form NovoAgendamento
      */
-    public NovoAgendamentoGUI() {
+    public TelaNovoAgendamento() {
         initComponents();
     }
 
@@ -74,7 +74,6 @@ public class NovoAgendamentoGUI extends javax.swing.JFrame {
         jLabel8.setText("Código:");
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\neidi\\OneDrive\\Área de Trabalho\\UTFPR\\Oficina 2\\4Life\\imagens\\icons\\doctor.png")); // NOI18N
         jLabel1.setText("Agendamento de Consulta");
 
         jLabel9.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
@@ -102,7 +101,7 @@ public class NovoAgendamentoGUI extends javax.swing.JFrame {
             }
         });
 
-        campoProcedimento.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        campoProcedimento.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         campoProcedimento.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         campoProcedimento.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -118,9 +117,9 @@ public class NovoAgendamentoGUI extends javax.swing.JFrame {
             public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
                 boxProfissionalAncestorAdded(evt);
             }
-            public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
-            }
             public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
+            }
+            public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
             }
         });
         boxProfissional.addActionListener(new java.awt.event.ActionListener() {
@@ -134,9 +133,9 @@ public class NovoAgendamentoGUI extends javax.swing.JFrame {
             public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
                 boxPacienteAncestorAdded(evt);
             }
-            public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
-            }
             public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
+            }
+            public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
             }
         });
         boxPaciente.addActionListener(new java.awt.event.ActionListener() {
@@ -376,21 +375,23 @@ public class NovoAgendamentoGUI extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(NovoAgendamentoGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaNovoAgendamento.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(NovoAgendamentoGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaNovoAgendamento.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(NovoAgendamentoGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaNovoAgendamento.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(NovoAgendamentoGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaNovoAgendamento.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new NovoAgendamentoGUI().setVisible(true);
+                new TelaNovoAgendamento().setVisible(true);
             }
         });
     }

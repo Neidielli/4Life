@@ -10,17 +10,20 @@ import telas.Funcionario.TelaEditarFuncionario;
 import telas.Paciente.TelaBuscarPaciente;
 import telas.Paciente.TelaCadastrarPaciente;
 import telas.Paciente.TelaEditarPaciente;
+import telas.Usuario.TelaBuscarUsuario;
+import telas.Usuario.TelaCadastrarUsuario;
+import telas.Usuario.TelaEditarUsuario;
 
 /**
  *
  * @author neidi
  */
-public class HomeGUI extends javax.swing.JFrame {
+public class TelaHome extends javax.swing.JFrame {
 
     /**
      * Creates new form HomeGUI
      */
-    public HomeGUI() {
+    public TelaHome() {
         initComponents();
     }
 
@@ -44,7 +47,7 @@ public class HomeGUI extends javax.swing.JFrame {
         jMenu4 = new javax.swing.JMenu();
         ItemMenuCadastrarUsuario = new javax.swing.JMenuItem();
         ItemMenuEditarUsuario = new javax.swing.JMenuItem();
-        ItemMenuExcluirUsuario = new javax.swing.JMenuItem();
+        ItemMenuBuscarUsuario = new javax.swing.JMenuItem();
         jMenu5 = new javax.swing.JMenu();
         ItemMenuCadastrarFuncionario = new javax.swing.JMenuItem();
         ItemMenuEditarFuncionario = new javax.swing.JMenuItem();
@@ -75,8 +78,6 @@ public class HomeGUI extends javax.swing.JFrame {
         jPanel1.setName("Home"); // NOI18N
         jPanel1.setPreferredSize(new java.awt.Dimension(1920, 1080));
 
-        jLabel2.setIcon(new javax.swing.ImageIcon("C:\\Users\\neidi\\OneDrive\\Área de Trabalho\\UTFPR\\Oficina 2\\4Life\\imagens\\icons\\home.png")); // NOI18N
-
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -96,12 +97,10 @@ public class HomeGUI extends javax.swing.JFrame {
 
         jMenuBar2.setPreferredSize(new java.awt.Dimension(793, 80));
 
-        jMenu4.setIcon(new javax.swing.ImageIcon("C:\\Users\\neidi\\OneDrive\\Área de Trabalho\\UTFPR\\Oficina 2\\4Life\\imagens\\icons\\user.png")); // NOI18N
         jMenu4.setText("Usuários");
         jMenu4.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
 
         ItemMenuCadastrarUsuario.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        ItemMenuCadastrarUsuario.setIcon(new javax.swing.ImageIcon("C:\\Users\\neidi\\OneDrive\\Área de Trabalho\\UTFPR\\Oficina 2\\4Life\\imagens\\icons\\new24.png")); // NOI18N
         ItemMenuCadastrarUsuario.setText("Cadastrar Usuario");
         ItemMenuCadastrarUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -111,7 +110,6 @@ public class HomeGUI extends javax.swing.JFrame {
         jMenu4.add(ItemMenuCadastrarUsuario);
 
         ItemMenuEditarUsuario.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        ItemMenuEditarUsuario.setIcon(new javax.swing.ImageIcon("C:\\Users\\neidi\\OneDrive\\Área de Trabalho\\UTFPR\\Oficina 2\\4Life\\imagens\\icons\\editar24.png")); // NOI18N
         ItemMenuEditarUsuario.setText("Editar Usuario");
         ItemMenuEditarUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -120,24 +118,21 @@ public class HomeGUI extends javax.swing.JFrame {
         });
         jMenu4.add(ItemMenuEditarUsuario);
 
-        ItemMenuExcluirUsuario.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        ItemMenuExcluirUsuario.setIcon(new javax.swing.ImageIcon("C:\\Users\\neidi\\OneDrive\\Área de Trabalho\\UTFPR\\Oficina 2\\4Life\\imagens\\icons\\sair.png")); // NOI18N
-        ItemMenuExcluirUsuario.setText("Excluir Usuario");
-        ItemMenuExcluirUsuario.addActionListener(new java.awt.event.ActionListener() {
+        ItemMenuBuscarUsuario.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        ItemMenuBuscarUsuario.setText("Buscar Usuario");
+        ItemMenuBuscarUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ItemMenuExcluirUsuarioActionPerformed(evt);
+                ItemMenuBuscarUsuarioActionPerformed(evt);
             }
         });
-        jMenu4.add(ItemMenuExcluirUsuario);
+        jMenu4.add(ItemMenuBuscarUsuario);
 
         jMenuBar2.add(jMenu4);
 
-        jMenu5.setIcon(new javax.swing.ImageIcon("C:\\Users\\neidi\\OneDrive\\Área de Trabalho\\UTFPR\\Oficina 2\\4Life\\imagens\\icons\\team.png")); // NOI18N
         jMenu5.setText("Funcionários");
         jMenu5.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
 
         ItemMenuCadastrarFuncionario.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        ItemMenuCadastrarFuncionario.setIcon(new javax.swing.ImageIcon("C:\\Users\\neidi\\OneDrive\\Área de Trabalho\\UTFPR\\Oficina 2\\4Life\\imagens\\icons\\new24.png")); // NOI18N
         ItemMenuCadastrarFuncionario.setText("Cadastrar Funcionário");
         ItemMenuCadastrarFuncionario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -147,7 +142,6 @@ public class HomeGUI extends javax.swing.JFrame {
         jMenu5.add(ItemMenuCadastrarFuncionario);
 
         ItemMenuEditarFuncionario.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        ItemMenuEditarFuncionario.setIcon(new javax.swing.ImageIcon("C:\\Users\\neidi\\OneDrive\\Área de Trabalho\\UTFPR\\Oficina 2\\4Life\\imagens\\icons\\editar24.png")); // NOI18N
         ItemMenuEditarFuncionario.setText("Editar Funcionário");
         ItemMenuEditarFuncionario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -157,7 +151,6 @@ public class HomeGUI extends javax.swing.JFrame {
         jMenu5.add(ItemMenuEditarFuncionario);
 
         ItemMenuBuscarFuncionario.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        ItemMenuBuscarFuncionario.setIcon(new javax.swing.ImageIcon("C:\\Users\\tayna\\Google Drive\\GRADUAÇÃO\\6º Período\\Oficina de Integração 2\\4Life\\imagens\\icons\\list.png")); // NOI18N
         ItemMenuBuscarFuncionario.setText("Buscar Funcionário");
         ItemMenuBuscarFuncionario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -168,49 +161,39 @@ public class HomeGUI extends javax.swing.JFrame {
 
         jMenuBar2.add(jMenu5);
 
-        jMenu6.setIcon(new javax.swing.ImageIcon("C:\\Users\\neidi\\OneDrive\\Área de Trabalho\\UTFPR\\Oficina 2\\4Life\\imagens\\icons\\user_1.png")); // NOI18N
         jMenu6.setText("Paciente");
         jMenu6.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
 
-        TelacadastraPaciente.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        TelacadastraPaciente.setIcon(new javax.swing.ImageIcon("C:\\Users\\neidi\\OneDrive\\Área de Trabalho\\UTFPR\\Oficina 2\\4Life\\imagens\\icons\\new24.png")); // NOI18N
-        TelacadastraPaciente.setText("Cadastrar Paciente");
-        TelacadastraPaciente.addActionListener(new java.awt.event.ActionListener() {
+        ItemMenuCadastrarPaciente.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        ItemMenuCadastrarPaciente.setText("Cadastrar Paciente");
+        ItemMenuCadastrarPaciente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ItemMenuCadastrarPacienteActionPerformed(evt);
             }
         });
         jMenu6.add(ItemMenuCadastrarPaciente);
 
-        jMenuItem8.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jMenuItem8.setIcon(new javax.swing.ImageIcon("C:\\Users\\neidi\\OneDrive\\Área de Trabalho\\UTFPR\\Oficina 2\\4Life\\imagens\\icons\\editar24.png")); // NOI18N
-        jMenuItem8.setText("Editar Paciente ");
-        jMenuItem8.addActionListener(new java.awt.event.ActionListener() {
+        ItemMenuEditarPaciente.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        ItemMenuEditarPaciente.setText("Editar Paciente ");
+        ItemMenuEditarPaciente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ItemMenuEditarPacienteActionPerformed(evt);
             }
         });
         jMenu6.add(ItemMenuEditarPaciente);
 
-        TelaBuscaPaciente.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        TelaBuscaPaciente.setIcon(new javax.swing.ImageIcon("C:\\Users\\neidi\\OneDrive\\Área de Trabalho\\UTFPR\\Oficina 2\\4Life\\imagens\\icons\\list.png")); // NOI18N
-        TelaBuscaPaciente.setText("Buscar Paciente");
-        TelaBuscaPaciente.addActionListener(new java.awt.event.ActionListener() {
+        ItemMenuBuscarPaciente.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        ItemMenuBuscarPaciente.setText("Buscar Paciente");
+        ItemMenuBuscarPaciente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ItemMenuBuscarPacienteActionPerformed(evt);
             }
         });
         jMenu6.add(ItemMenuBuscarPaciente);
 
-        jMenuItem13.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jMenuItem13.setIcon(new javax.swing.ImageIcon("C:\\Users\\neidi\\OneDrive\\Área de Trabalho\\UTFPR\\Oficina 2\\4Life\\imagens\\icons\\new24.png")); // NOI18N
-        jMenuItem13.setText("Registrar Prontuário");
-        jMenu6.add(jMenuItem13);
-
-        jMenuItem14.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jMenuItem14.setIcon(new javax.swing.ImageIcon("C:\\Users\\neidi\\OneDrive\\Área de Trabalho\\UTFPR\\Oficina 2\\4Life\\imagens\\icons\\check-form.png")); // NOI18N
-        jMenuItem14.setText("Visualizar Prontuário");
-        jMenuItem14.addActionListener(new java.awt.event.ActionListener() {
+        ItemMenuRegistrarProntPaciente.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        ItemMenuRegistrarProntPaciente.setText("Registrar Prontuário");
+        ItemMenuRegistrarProntPaciente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ItemMenuRegistrarProntPacienteActionPerformed(evt);
             }
@@ -218,7 +201,6 @@ public class HomeGUI extends javax.swing.JFrame {
         jMenu6.add(ItemMenuRegistrarProntPaciente);
 
         ItemMenuVisualizarProntPaciente.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        ItemMenuVisualizarProntPaciente.setIcon(new javax.swing.ImageIcon("C:\\Users\\tayna\\Google Drive\\GRADUAÇÃO\\6º Período\\Oficina de Integração 2\\4Life\\imagens\\icons\\check-form.png")); // NOI18N
         ItemMenuVisualizarProntPaciente.setText("Visualizar Prontuário");
         ItemMenuVisualizarProntPaciente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -229,14 +211,17 @@ public class HomeGUI extends javax.swing.JFrame {
 
         jMenuBar2.add(jMenu6);
 
-        jMenu7.setIcon(new javax.swing.ImageIcon("C:\\Users\\neidi\\OneDrive\\Área de Trabalho\\UTFPR\\Oficina 2\\4Life\\imagens\\icons\\calendar.png")); // NOI18N
         jMenu7.setText("Agenda");
         jMenu7.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
 
-        jMenuItem11.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jMenuItem11.setIcon(new javax.swing.ImageIcon("C:\\Users\\neidi\\OneDrive\\Área de Trabalho\\UTFPR\\Oficina 2\\4Life\\imagens\\icons\\calendar.png")); // NOI18N
-        jMenuItem11.setText("Agendar Consultas");
-        jMenuItem11.addActionListener(new java.awt.event.ActionListener() {
+        ItemMenuVisualizarAgenda.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        ItemMenuVisualizarAgenda.setIcon(new javax.swing.ImageIcon("C:\\Users\\tayna\\Google Drive\\GRADUAÇÃO\\6º Período\\Oficina de Integração 2\\4Life\\imagens\\icons\\calendar.png")); // NOI18N
+        ItemMenuVisualizarAgenda.setText("Visualizar Agenda");
+        jMenu7.add(ItemMenuVisualizarAgenda);
+
+        ItemMenuAgendarConsulta.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        ItemMenuAgendarConsulta.setText("Agendar Consultas");
+        ItemMenuAgendarConsulta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ItemMenuAgendarConsultaActionPerformed(evt);
             }
@@ -245,12 +230,10 @@ public class HomeGUI extends javax.swing.JFrame {
 
         jMenuBar2.add(jMenu7);
 
-        MenuSair.setIcon(new javax.swing.ImageIcon("C:\\Users\\neidi\\OneDrive\\Área de Trabalho\\UTFPR\\Oficina 2\\4Life\\imagens\\icons\\logout.png")); // NOI18N
         MenuSair.setText("Sair");
         MenuSair.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
 
         ItemMenuSairFechar.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        ItemMenuSairFechar.setIcon(new javax.swing.ImageIcon("C:\\Users\\neidi\\OneDrive\\Área de Trabalho\\UTFPR\\Oficina 2\\4Life\\imagens\\icons\\sair.png")); // NOI18N
         ItemMenuSairFechar.setText("Sair e Fechar sistema");
         ItemMenuSairFechar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -260,7 +243,6 @@ public class HomeGUI extends javax.swing.JFrame {
         MenuSair.add(ItemMenuSairFechar);
 
         ItemMenuSairEntrar.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        ItemMenuSairEntrar.setIcon(new javax.swing.ImageIcon("C:\\Users\\neidi\\OneDrive\\Área de Trabalho\\UTFPR\\Oficina 2\\4Life\\imagens\\icons\\logout.png")); // NOI18N
         ItemMenuSairEntrar.setText("Sair e Entrar com outro Usuario");
         ItemMenuSairEntrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -290,11 +272,11 @@ public class HomeGUI extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void ItemMenuExcluirUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ItemMenuExcluirUsuarioActionPerformed
-         UsuarioGUI telausuario = new UsuarioGUI();
-         telausuario.setVisible(true);
+    private void ItemMenuBuscarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ItemMenuBuscarUsuarioActionPerformed
+         TelaBuscarUsuario telabusca = new TelaBuscarUsuario();
+         telabusca.setVisible(true);
                 
-    }//GEN-LAST:event_ItemMenuExcluirUsuarioActionPerformed
+    }//GEN-LAST:event_ItemMenuBuscarUsuarioActionPerformed
 
     private void ItemMenuCadastrarPacienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ItemMenuCadastrarPacienteActionPerformed
         TelaCadastrarPaciente telacadastra = new TelaCadastrarPaciente();
@@ -311,14 +293,14 @@ public class HomeGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_ItemMenuVisualizarProntPacienteActionPerformed
 
     private void ItemMenuCadastrarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ItemMenuCadastrarUsuarioActionPerformed
-          UsuarioGUI telausuario = new UsuarioGUI();
-          telausuario.setVisible(true);
+          TelaCadastrarUsuario telacadastra = new TelaCadastrarUsuario();
+          telacadastra.setVisible(true);
                         // TODO add your handling code here:
     }//GEN-LAST:event_ItemMenuCadastrarUsuarioActionPerformed
 
     private void ItemMenuEditarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ItemMenuEditarUsuarioActionPerformed
-         UsuarioGUI telausuario = new UsuarioGUI();
-         telausuario.setVisible(true);
+         TelaEditarUsuario telaedita = new TelaEditarUsuario();
+         telaedita.setVisible(true);
                 
     }//GEN-LAST:event_ItemMenuEditarUsuarioActionPerformed
 
@@ -329,7 +311,7 @@ public class HomeGUI extends javax.swing.JFrame {
     private void ItemMenuSairEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ItemMenuSairEntrarActionPerformed
         this.dispose();
         
-        LoginGUI telalogin = new LoginGUI();
+        TelaLogin telalogin = new TelaLogin();
         telalogin.setVisible(true);
     }//GEN-LAST:event_ItemMenuSairEntrarActionPerformed
 
@@ -349,7 +331,7 @@ public class HomeGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_ItemMenuBuscarFuncionarioActionPerformed
 
     private void ItemMenuAgendarConsultaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ItemMenuAgendarConsultaActionPerformed
-        SelecionarMedicoGUI selecionarMedico = new SelecionarMedicoGUI();
+        TelaSelecionarMedico selecionarMedico = new TelaSelecionarMedico();
         selecionarMedico.setVisible(true);
     }//GEN-LAST:event_ItemMenuAgendarConsultaActionPerformed
 
@@ -363,7 +345,7 @@ public class HomeGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_ItemMenuRegistrarProntPacienteActionPerformed
 
     private void btnVisualizarAgendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVisualizarAgendaActionPerformed
-        SelecionarMedicoGUI selecionarMedico = new SelecionarMedicoGUI();
+        TelaSelecionarMedico selecionarMedico = new TelaSelecionarMedico();
         selecionarMedico.setVisible(true);
     }//GEN-LAST:event_btnVisualizarAgendaActionPerformed
 
@@ -384,20 +366,21 @@ public class HomeGUI extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(HomeGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaHome.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(HomeGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaHome.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(HomeGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaHome.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(HomeGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaHome.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new HomeGUI().setVisible(true);
+                new TelaHome().setVisible(true);
             }
         });
     }
@@ -406,21 +389,19 @@ public class HomeGUI extends javax.swing.JFrame {
     private javax.swing.JMenuItem ItemMenuAgendarConsulta;
     private javax.swing.JMenuItem ItemMenuBuscarFuncionario;
     private javax.swing.JMenuItem ItemMenuBuscarPaciente;
+    private javax.swing.JMenuItem ItemMenuBuscarUsuario;
     private javax.swing.JMenuItem ItemMenuCadastrarFuncionario;
     private javax.swing.JMenuItem ItemMenuCadastrarPaciente;
     private javax.swing.JMenuItem ItemMenuCadastrarUsuario;
     private javax.swing.JMenuItem ItemMenuEditarFuncionario;
     private javax.swing.JMenuItem ItemMenuEditarPaciente;
     private javax.swing.JMenuItem ItemMenuEditarUsuario;
-    private javax.swing.JMenuItem ItemMenuExcluirUsuario;
     private javax.swing.JMenuItem ItemMenuRegistrarProntPaciente;
     private javax.swing.JMenuItem ItemMenuSairEntrar;
     private javax.swing.JMenuItem ItemMenuSairFechar;
     private javax.swing.JMenuItem ItemMenuVisualizarAgenda;
     private javax.swing.JMenuItem ItemMenuVisualizarProntPaciente;
     private javax.swing.JMenu MenuSair;
-    private javax.swing.JMenuItem TelaBuscaPaciente;
-    private javax.swing.JMenuItem TelacadastraPaciente;
     private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JMenu jMenu3;
@@ -429,10 +410,6 @@ public class HomeGUI extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu6;
     private javax.swing.JMenu jMenu7;
     private javax.swing.JMenuBar jMenuBar2;
-    private javax.swing.JMenuItem jMenuItem11;
-    private javax.swing.JMenuItem jMenuItem13;
-    private javax.swing.JMenuItem jMenuItem14;
-    private javax.swing.JMenuItem jMenuItem8;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPopupMenu jPopupMenu1;
     private javax.swing.JPopupMenu jPopupMenu2;

@@ -16,7 +16,7 @@ public class TestaConexao {
         try (Connection connection = new ConnectionFactory().getConnection()) {
             System.out.println("Conexão aberta!");
             
-            LoginGUI telalogin = new LoginGUI();
+            TelaLogin telalogin = new TelaLogin();
             telalogin.setVisible(true);
             
             connection.close();

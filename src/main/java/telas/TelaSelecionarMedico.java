@@ -4,7 +4,7 @@
  */
 package telas;
 
-import dao.funcionarioDAO;
+import DAO.FuncionarioDAO;
 import java.util.List;
 import model.Agenda;
 import model.Funcionario;
@@ -13,12 +13,12 @@ import model.Funcionario;
  *
  * @author neidi
  */
-public class SelecionarMedicoGUI extends javax.swing.JFrame {
+public class TelaSelecionarMedico extends javax.swing.JFrame {
 
     /**
      * Creates new form SelecionarMedicoGUI
      */
-    public SelecionarMedicoGUI() {
+    public TelaSelecionarMedico() {
         initComponents();
     }
 
@@ -40,8 +40,6 @@ public class SelecionarMedicoGUI extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\neidi\\OneDrive\\Área de Trabalho\\UTFPR\\Oficina 2\\4Life\\imagens\\icons\\icon doutor.png")); // NOI18N
-
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel2.setText("Selecione o profissional:");
 
@@ -50,9 +48,9 @@ public class SelecionarMedicoGUI extends javax.swing.JFrame {
             public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
                 boxProfissionalAncestorAdded(evt);
             }
-            public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
-            }
             public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
+            }
+            public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
             }
         });
         boxProfissional.addActionListener(new java.awt.event.ActionListener() {
@@ -63,7 +61,6 @@ public class SelecionarMedicoGUI extends javax.swing.JFrame {
 
         btnVisualizarAgenda.setBackground(new java.awt.Color(76, 159, 56));
         btnVisualizarAgenda.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        btnVisualizarAgenda.setIcon(new javax.swing.ImageIcon("C:\\Users\\neidi\\OneDrive\\Área de Trabalho\\UTFPR\\Oficina 2\\4Life\\imagens\\icons\\calendar.png")); // NOI18N
         btnVisualizarAgenda.setText("Visualizar Agenda");
         btnVisualizarAgenda.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -73,7 +70,6 @@ public class SelecionarMedicoGUI extends javax.swing.JFrame {
 
         btnVoltar.setBackground(new java.awt.Color(204, 204, 204));
         btnVoltar.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        btnVoltar.setIcon(new javax.swing.ImageIcon("C:\\Users\\neidi\\OneDrive\\Área de Trabalho\\UTFPR\\Oficina 2\\4Life\\imagens\\icons\\house-black-building-shape.png")); // NOI18N
         btnVoltar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnVoltarActionPerformed(evt);
@@ -138,7 +134,7 @@ public class SelecionarMedicoGUI extends javax.swing.JFrame {
 
     private void boxProfissionalAncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_boxProfissionalAncestorAdded
         
-        funcionarioDAO dao = new funcionarioDAO();
+        FuncionarioDAO dao = new FuncionarioDAO();
         List<Funcionario> lista = dao.listaFunc(); // metodo lista da classe DAO, e importa a classe model
         
         // primeiro remove todos os dados da combobox para n duplicados os dados
@@ -186,20 +182,21 @@ public class SelecionarMedicoGUI extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(SelecionarMedicoGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaSelecionarMedico.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(SelecionarMedicoGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaSelecionarMedico.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(SelecionarMedicoGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaSelecionarMedico.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(SelecionarMedicoGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaSelecionarMedico.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new SelecionarMedicoGUI().setVisible(true);
+                new TelaSelecionarMedico().setVisible(true);
             }
         });
     }
