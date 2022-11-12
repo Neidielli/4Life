@@ -26,13 +26,15 @@ public class UsuarioDAO {
     String email;
     String telefone;
     String senha;
+    
     public UsuarioDAO(){
         this.connection = new ConnectionFactory().getConnection();
     }
-    public boolean adiciona(Usuario usuario) {
+    
+    public boolean cadastrar(Usuario usuario) {
         try {
             // seleciona os campos da tabela
-            String sqlSelect = "select * from usuario where cpf='" + usuario.getCpf() +"'"; 
+            String sqlSelect = "SELECT * from usuario where cpf='" + usuario.getCpf() +"'"; 
             PreparedStatement stmtSelect = connection.prepareStatement(sqlSelect);
             
             //stmtSelect.setString(1,cpf);
@@ -48,7 +50,7 @@ public class UsuarioDAO {
                 return false;
             } else {
             
-                String sql = "INSERT INTO usuario(nome,cpf,email,telefone,senha)VALUES(?,?,?,?,?)";
+                String sql = "INSERT INTO usuario(nome,cpf,email,telefone,senha) VALUES(?,?,?,?,?)";
                 PreparedStatement stmt = connection.prepareStatement(sql);
 
                 stmt.setString(1, usuario.getNome());
@@ -58,19 +60,19 @@ public class UsuarioDAO {
                 stmt.setString(5, usuario.getSenha());
                 
                 JOptionPane.showMessageDialog(null, "Usuário " + usuario.getNome()+ " cadastrado com sucesso!! ");
-                stmt.execute();
+                stmt.executeUpdate();
                 stmt.close();
+                
                 return true;
-            }
-            
+            }    
         }
-        catch (SQLException u) {
-            throw new RuntimeException(u);
+        catch (SQLException exc) {
+            throw new RuntimeException(exc);
         }
     } // fim do mÃ©todo adiciona usuÃ¡rio.
     
     // MÃ©todo listar todos os clientes
-    public List<Usuario> listarUsuarios(){
+    public List<Usuario> listaUsuarios(){
         try{
             // vetor que armazena os registro do bd
             List<Usuario> lista = new ArrayList<Usuario>();
@@ -97,8 +99,8 @@ public class UsuarioDAO {
             throw new RuntimeException(erro);
         }
     }
-    public void alterar(Usuario usuario) {
-        String sql = "update usuario set nome=?, cpf=?, email=?, telefone=?, senha=? where id=?";
+    public void editar(Usuario usuario) {
+        String sql = "UPDATE usuario set nome=?, cpf=?, email=?, telefone=?, senha=? where id=?";
         try {
             PreparedStatement stmt = connection.prepareStatement(sql);
 
@@ -116,8 +118,8 @@ public class UsuarioDAO {
             throw new RuntimeException(u);
         }
     } // fim do mÃ©todo alterar usuÃ¡rio. 
-    public void excluir(Usuario usuario) {
-        String sql = "delete from usuario where id=?";
+    public void deletar(Usuario usuario) {
+        String sql = "DELETE from usuario where id=?";
         try {
             PreparedStatement stmt = connection.prepareStatement(sql);
 
@@ -134,7 +136,7 @@ public class UsuarioDAO {
     public boolean login(String email, String senha) {
         try {
             // comando sql
-            String sql = "select * from usuario where email=? and senha=?";
+            String sql = "SELECT * from usuario where email=? and senha=?";
             
             PreparedStatement stmt = connection.prepareStatement(sql);
             // indica ao java quem Ã© quem.
@@ -153,5 +155,52 @@ public class UsuarioDAO {
         }
         return false;
     }
+    public boolean pesquisaUser(Usuario user){
+        String sql = "SELECT * from usuario WHERE id=?";
         
+        try{
+            PreparedStatement pstmt = connection.prepareStatement(sql);
+            
+            pstmt.setInt(1, user.getId());
+            ResultSet rs = pstmt.executeQuery();
+            
+            if(rs.next()){
+                user.setNome(rs.getString("nome"));
+                user.setCpf(rs.getString("cpf"));
+                user.setEmail(rs.getString("email"));
+                user.setTelefone(rs.getString("telefone"));
+                user.setSenha(rs.getString("senha"));
+            }
+            return true;
+        }
+        catch(SQLException exc){
+            throw new RuntimeException(exc);
+        }
+    } 
+    public ResultSet carregaTabela(){
+        String sql = "SELECT id,nome,cpf,email,telefone from usuario";
+        
+        try{
+            PreparedStatement pstmt = connection.prepareStatement(sql);
+            ResultSet rs = pstmt.executeQuery();
+            return rs;
+        }
+        catch(SQLException exc){
+            throw new RuntimeException(exc);
+        }
+    }
+    public static ResultSet carregaTabela(String tipo,String arg){
+        String argumento = tipo+" "+"like '"+arg+"%'";
+        String sqlt = "SELECT id,nome,cpf,email,telefone from usuario WHERE "+argumento+""; 
+        
+        try{
+            ConnectionFactory conexao = new ConnectionFactory();
+            PreparedStatement pstmt = conexao.getConnection().prepareStatement(sqlt);
+            ResultSet rs = pstmt.executeQuery();
+            return rs;
+        }
+        catch(SQLException exc){
+            throw new RuntimeException(exc);
+        }
+    }
 }
