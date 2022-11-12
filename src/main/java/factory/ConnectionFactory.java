@@ -10,7 +10,7 @@ import java.sql.SQLException;
 public class ConnectionFactory {
      public Connection getConnection() {
 		 try {
-			return DriverManager.getConnection("jdbc:mysql://localhost/projetojava","root","UTF2022t7Usa");
+			return DriverManager.getConnection("jdbc:mysql://localhost/projetojava","root","Jackson23+-");
 		 }         
 		 catch(SQLException excecao) {
 			throw new RuntimeException(excecao);

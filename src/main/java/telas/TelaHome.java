@@ -59,7 +59,6 @@ public class TelaHome extends javax.swing.JFrame {
         ItemMenuRegistrarProntPaciente = new javax.swing.JMenuItem();
         ItemMenuVisualizarProntPaciente = new javax.swing.JMenuItem();
         jMenu7 = new javax.swing.JMenu();
-        ItemMenuVisualizarAgenda = new javax.swing.JMenuItem();
         ItemMenuAgendarConsulta = new javax.swing.JMenuItem();
         MenuSair = new javax.swing.JMenu();
         ItemMenuSairFechar = new javax.swing.JMenuItem();
@@ -151,6 +150,7 @@ public class TelaHome extends javax.swing.JFrame {
         jMenu5.add(ItemMenuEditarFuncionario);
 
         ItemMenuBuscarFuncionario.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        ItemMenuBuscarFuncionario.setIcon(new javax.swing.ImageIcon("C:\\Users\\neidi\\OneDrive\\Área de Trabalho\\UTFPR\\Oficina 2\\4Life\\imagens\\icons\\list.png")); // NOI18N
         ItemMenuBuscarFuncionario.setText("Buscar Funcionário");
         ItemMenuBuscarFuncionario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -165,6 +165,7 @@ public class TelaHome extends javax.swing.JFrame {
         jMenu6.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
 
         ItemMenuCadastrarPaciente.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        ItemMenuCadastrarPaciente.setIcon(new javax.swing.ImageIcon("C:\\Users\\neidi\\OneDrive\\Área de Trabalho\\UTFPR\\Oficina 2\\4Life\\imagens\\icons\\new24.png")); // NOI18N
         ItemMenuCadastrarPaciente.setText("Cadastrar Paciente");
         ItemMenuCadastrarPaciente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -174,6 +175,7 @@ public class TelaHome extends javax.swing.JFrame {
         jMenu6.add(ItemMenuCadastrarPaciente);
 
         ItemMenuEditarPaciente.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        ItemMenuEditarPaciente.setIcon(new javax.swing.ImageIcon("C:\\Users\\neidi\\OneDrive\\Área de Trabalho\\UTFPR\\Oficina 2\\4Life\\imagens\\icons\\editar24.png")); // NOI18N
         ItemMenuEditarPaciente.setText("Editar Paciente ");
         ItemMenuEditarPaciente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -183,6 +185,7 @@ public class TelaHome extends javax.swing.JFrame {
         jMenu6.add(ItemMenuEditarPaciente);
 
         ItemMenuBuscarPaciente.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        ItemMenuBuscarPaciente.setIcon(new javax.swing.ImageIcon("C:\\Users\\neidi\\OneDrive\\Área de Trabalho\\UTFPR\\Oficina 2\\4Life\\imagens\\icons\\list.png")); // NOI18N
         ItemMenuBuscarPaciente.setText("Buscar Paciente");
         ItemMenuBuscarPaciente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -192,6 +195,7 @@ public class TelaHome extends javax.swing.JFrame {
         jMenu6.add(ItemMenuBuscarPaciente);
 
         ItemMenuRegistrarProntPaciente.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        ItemMenuRegistrarProntPaciente.setIcon(new javax.swing.ImageIcon("C:\\Users\\neidi\\OneDrive\\Área de Trabalho\\UTFPR\\Oficina 2\\4Life\\imagens\\icons\\new24.png")); // NOI18N
         ItemMenuRegistrarProntPaciente.setText("Registrar Prontuário");
         ItemMenuRegistrarProntPaciente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -201,10 +205,11 @@ public class TelaHome extends javax.swing.JFrame {
         jMenu6.add(ItemMenuRegistrarProntPaciente);
 
         ItemMenuVisualizarProntPaciente.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        ItemMenuVisualizarProntPaciente.setIcon(new javax.swing.ImageIcon("C:\\Users\\neidi\\OneDrive\\Área de Trabalho\\UTFPR\\Oficina 2\\4Life\\imagens\\icons\\check-form.png")); // NOI18N
         ItemMenuVisualizarProntPaciente.setText("Visualizar Prontuário");
         ItemMenuVisualizarProntPaciente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ItemMenuVisualizarProntPacienteActionPerformed(evt);
+                
             }
         });
         jMenu6.add(ItemMenuVisualizarProntPaciente);
@@ -214,12 +219,8 @@ public class TelaHome extends javax.swing.JFrame {
         jMenu7.setText("Agenda");
         jMenu7.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
 
-        ItemMenuVisualizarAgenda.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        ItemMenuVisualizarAgenda.setIcon(new javax.swing.ImageIcon("C:\\Users\\tayna\\Google Drive\\GRADUAÇÃO\\6º Período\\Oficina de Integração 2\\4Life\\imagens\\icons\\calendar.png")); // NOI18N
-        ItemMenuVisualizarAgenda.setText("Visualizar Agenda");
-        jMenu7.add(ItemMenuVisualizarAgenda);
-
         ItemMenuAgendarConsulta.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        ItemMenuAgendarConsulta.setIcon(new javax.swing.ImageIcon("C:\\Users\\neidi\\OneDrive\\Área de Trabalho\\UTFPR\\Oficina 2\\4Life\\imagens\\icons\\calendar.png")); // NOI18N
         ItemMenuAgendarConsulta.setText("Agendar Consultas");
         ItemMenuAgendarConsulta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -288,9 +289,7 @@ public class TelaHome extends javax.swing.JFrame {
         telabusca.setVisible(true);
     }//GEN-LAST:event_ItemMenuBuscarPacienteActionPerformed
 
-    private void ItemMenuVisualizarProntPacienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ItemMenuVisualizarProntPacienteActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_ItemMenuVisualizarProntPacienteActionPerformed
+
 
     private void ItemMenuCadastrarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ItemMenuCadastrarUsuarioActionPerformed
           TelaCadastrarUsuario telacadastra = new TelaCadastrarUsuario();
@@ -344,10 +343,6 @@ public class TelaHome extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_ItemMenuRegistrarProntPacienteActionPerformed
 
-    private void btnVisualizarAgendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVisualizarAgendaActionPerformed
-        TelaSelecionarMedico selecionarMedico = new TelaSelecionarMedico();
-        selecionarMedico.setVisible(true);
-    }//GEN-LAST:event_btnVisualizarAgendaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -399,7 +394,6 @@ public class TelaHome extends javax.swing.JFrame {
     private javax.swing.JMenuItem ItemMenuRegistrarProntPaciente;
     private javax.swing.JMenuItem ItemMenuSairEntrar;
     private javax.swing.JMenuItem ItemMenuSairFechar;
-    private javax.swing.JMenuItem ItemMenuVisualizarAgenda;
     private javax.swing.JMenuItem ItemMenuVisualizarProntPaciente;
     private javax.swing.JMenu MenuSair;
     private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem1;
