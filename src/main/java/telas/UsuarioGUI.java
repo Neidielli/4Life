@@ -418,6 +418,7 @@ public class UsuarioGUI extends javax.swing.JFrame {
     private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
         try {
             Usuario u = new Usuario();
+            
             u.setNome(campoNome.getText());
             u.setCpf(campoCpf.getText());
             u.setEmail(campoEmail.getText());

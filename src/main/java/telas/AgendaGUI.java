@@ -5,12 +5,18 @@
 
 package telas;
 
+import model.Funcionario;
+
 /**
  *
  * @author neidi
  */
 public class AgendaGUI extends javax.swing.JFrame {
 
+    public static void recebeNomeMedico(Funcionario func) {
+       textNomeMedico.setText(String.valueOf((func)));
+       textNomeMedico.requestFocus();
+    }
     /** Creates new form AgendaGUI */
     public AgendaGUI() {
         initComponents();
@@ -95,6 +101,7 @@ public class AgendaGUI extends javax.swing.JFrame {
         campo6h = new javax.swing.JTextField();
         btnAgendar = new javax.swing.JButton();
         btnVoltar = new javax.swing.JButton();
+        textNomeMedico = new javax.swing.JTextField();
         Animação = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -566,6 +573,14 @@ public class AgendaGUI extends javax.swing.JFrame {
         jLayeredPane1.add(btnVoltar);
         btnVoltar.setBounds(50, 100, 130, 60);
 
+        textNomeMedico.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                textNomeMedicoActionPerformed(evt);
+            }
+        });
+        jLayeredPane1.add(textNomeMedico);
+        textNomeMedico.setBounds(290, 200, 90, 29);
+
         Animação.setIcon(new javax.swing.ImageIcon("C:\\Users\\neidi\\OneDrive\\Área de Trabalho\\UTFPR\\Oficina 2\\4Life\\imagens\\fundoAgenda2.png")); // NOI18N
         jLayeredPane1.add(Animação);
         Animação.setBounds(0, 0, 1930, 1000);
@@ -635,6 +650,10 @@ public class AgendaGUI extends javax.swing.JFrame {
         SelecionarMedicoGUI telaSelecao = new SelecionarMedicoGUI();
         telaSelecao.setVisible(true);
     }//GEN-LAST:event_btnVoltarActionPerformed
+
+    private void textNomeMedicoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textNomeMedicoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_textNomeMedicoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -743,6 +762,7 @@ public class AgendaGUI extends javax.swing.JFrame {
     private javax.swing.JLabel lb8h3;
     private javax.swing.JLabel lb9h;
     private javax.swing.JLabel lb9h3;
+    static javax.swing.JTextField textNomeMedico;
     // End of variables declaration//GEN-END:variables
 
 }

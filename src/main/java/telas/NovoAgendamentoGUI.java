@@ -295,8 +295,6 @@ public class NovoAgendamentoGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_campoProcedimentoActionPerformed
 
     private void btnAgendarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgendarActionPerformed
-////        LocalDate ldNow = LocalDate.now();
-//        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd");
         Agenda agenda = new Agenda();
         Paciente paciente = new Paciente();
         Funcionario funcionario = new Funcionario();
@@ -319,7 +317,6 @@ public class NovoAgendamentoGUI extends javax.swing.JFrame {
         campoIdConsulta.setText("");
         campoProcedimento.setText("");
         campoHora.setSelectedItem("");
-               // TODO add your handling code here:
     }//GEN-LAST:event_btnLimparActionPerformed
 
     private void btnSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSairActionPerformed

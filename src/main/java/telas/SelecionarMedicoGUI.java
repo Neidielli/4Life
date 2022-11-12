@@ -6,6 +6,7 @@ package telas;
 
 import dao.funcionarioDAO;
 import java.util.List;
+import model.Agenda;
 import model.Funcionario;
 
 /**
@@ -34,7 +35,7 @@ public class SelecionarMedicoGUI extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         boxProfissional = new javax.swing.JComboBox();
-        jButton1 = new javax.swing.JButton();
+        btnVisualizarAgenda = new javax.swing.JButton();
         btnVoltar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -60,10 +61,15 @@ public class SelecionarMedicoGUI extends javax.swing.JFrame {
             }
         });
 
-        jButton1.setBackground(new java.awt.Color(76, 159, 56));
-        jButton1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jButton1.setIcon(new javax.swing.ImageIcon("C:\\Users\\neidi\\OneDrive\\Área de Trabalho\\UTFPR\\Oficina 2\\4Life\\imagens\\icons\\calendar.png")); // NOI18N
-        jButton1.setText("Visualizar Agenda");
+        btnVisualizarAgenda.setBackground(new java.awt.Color(76, 159, 56));
+        btnVisualizarAgenda.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        btnVisualizarAgenda.setIcon(new javax.swing.ImageIcon("C:\\Users\\neidi\\OneDrive\\Área de Trabalho\\UTFPR\\Oficina 2\\4Life\\imagens\\icons\\calendar.png")); // NOI18N
+        btnVisualizarAgenda.setText("Visualizar Agenda");
+        btnVisualizarAgenda.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVisualizarAgendaActionPerformed(evt);
+            }
+        });
 
         btnVoltar.setBackground(new java.awt.Color(204, 204, 204));
         btnVoltar.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
@@ -93,7 +99,7 @@ public class SelecionarMedicoGUI extends javax.swing.JFrame {
                         .addComponent(btnVoltar)
                         .addGap(23, 23, 23))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 246, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnVisualizarAgenda, javax.swing.GroupLayout.PREFERRED_SIZE, 246, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(217, 217, 217))))
         );
         jPanel1Layout.setVerticalGroup(
@@ -110,8 +116,8 @@ public class SelecionarMedicoGUI extends javax.swing.JFrame {
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(65, 65, 65)
                 .addComponent(boxProfissional, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 166, Short.MAX_VALUE)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 165, Short.MAX_VALUE)
+                .addComponent(btnVisualizarAgenda, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(88, 88, 88))
         );
 
@@ -152,6 +158,17 @@ public class SelecionarMedicoGUI extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_btnVoltarActionPerformed
 
+    private void btnVisualizarAgendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVisualizarAgendaActionPerformed
+//        Funcionario medicoSelecionado = new Funcionario();
+//        medicoSelecionado.setNome(String.valueOf(boxProfissional.getSelectedItem()));
+//        
+//        AgendaGUI agendaGUI = new AgendaGUI();
+//        agendaGUI.setVisible(true); 
+//        
+//        AgendaGUI.recebeNomeMedico(medicoSelecionado); // tela de edicão recebe o id do paciente
+//        this.dispose();
+    }//GEN-LAST:event_btnVisualizarAgendaActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -189,8 +206,8 @@ public class SelecionarMedicoGUI extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox boxProfissional;
+    private javax.swing.JButton btnVisualizarAgenda;
     private javax.swing.JButton btnVoltar;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
