@@ -4,7 +4,7 @@
  */
 package telas.Paciente;
 
-import dao.PacienteDAO;
+import DAO.PacienteDAO;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;

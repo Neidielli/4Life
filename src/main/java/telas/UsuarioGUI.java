@@ -4,7 +4,7 @@
  */
 package telas;
 import model.Usuario;
-import dao.UsuarioDAO;
+import DAO.UsuarioDAO;
 import javax.swing.JOptionPane;
 import java.util.List;
 import javax.swing.table.DefaultTableModel;

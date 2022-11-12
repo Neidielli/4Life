@@ -5,16 +5,14 @@
 package telas;
 
 import DAO.AgendaDAO;
-import dao.PacienteDAO;
-import dao.funcionarioDAO;
-//import java.text.DateFormat;
-//import java.text.ParseException;
-//import java.text.SimpleDateFormat;
-//import java.time.*;
-//import java.time.format.DateTimeFormatter;
-//import java.util.Date;
-//import java.util.logging.Level;
-//import java.util.logging.Logger;
+import DAO.PacienteDAO;
+import DAO.FuncionarioDAO;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.time.*;
+import java.time.format.DateTimeFormatter;
+import java.util.Date;
 import java.util.List;
 import model.Agenda;
 import model.Funcionario;
@@ -328,7 +326,7 @@ public class NovoAgendamentoGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_boxPacienteActionPerformed
 
     private void boxProfissionalAncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_boxProfissionalAncestorAdded
-        funcionarioDAO dao = new funcionarioDAO();
+        FuncionarioDAO dao = new FuncionarioDAO();
         List<Funcionario> lista = dao.listaFunc(); // metodo lista da classe DAO, e importa a classe model
         
         // primeiro remove todos os dados da combobox para n duplicados os dados

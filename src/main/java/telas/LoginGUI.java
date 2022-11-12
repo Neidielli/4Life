@@ -3,7 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package telas;
-import dao.UsuarioDAO;
+import DAO.UsuarioDAO;
 import javax.swing.JOptionPane;
 /**
  *

@@ -4,7 +4,7 @@
  */
 package telas.Paciente;
 
-import dao.PacienteDAO;
+import DAO.PacienteDAO;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;

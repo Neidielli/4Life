@@ -4,7 +4,7 @@
  */
 package telas.Paciente;
 
-import dao.PacienteDAO;
+import DAO.PacienteDAO;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -74,7 +74,7 @@ public class TelaCadastrarPaciente extends javax.swing.JFrame {
         edicaoPac.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 36)); // NOI18N
         edicaoPac.setForeground(new java.awt.Color(51, 51, 51));
         edicaoPac.setIcon(new javax.swing.ImageIcon("C:\\Users\\tayna\\Google Drive\\GRADUAÇÃO\\6º Período\\Oficina de Integração 2\\4Life\\imagens\\icons\\team.png")); // NOI18N
-        edicaoPac.setText("Cadastrar Paciente");
+        edicaoPac.setText("CADASTRAR PACIENTE");
         edicaoPac.setIconTextGap(5);
 
         labelNomePac.setText("Nome:");
@@ -301,8 +301,8 @@ public class TelaCadastrarPaciente extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(edicaoPac, javax.swing.GroupLayout.PREFERRED_SIZE, 370, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 319, Short.MAX_VALUE)
+                .addComponent(edicaoPac, javax.swing.GroupLayout.PREFERRED_SIZE, 406, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 283, Short.MAX_VALUE)
                 .addComponent(ButtonSairPac, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(42, 42, 42))
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
