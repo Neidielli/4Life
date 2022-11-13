@@ -5,6 +5,10 @@
 
 package telas;
 
+import DAO.AgendaDAO;
+import java.util.List;
+import javax.swing.table.DefaultTableModel;
+import model.Agenda;
 import model.Funcionario;
 
 /**
@@ -16,6 +20,31 @@ public class AgendaGUI extends javax.swing.JFrame {
     public static void recebeNomeMedico(Funcionario func) {
        textNomeMedico.setText(String.valueOf((func)));
        textNomeMedico.requestFocus();
+    }
+    
+    public void Listar(){
+        try {
+            AgendaDAO dao = new AgendaDAO();
+            
+            List<Agenda> listaconsultas = dao.listarConsultas(); // chama da classe agendadao // retorna uma lista de usuarios
+            // pega a lista e coloca na tabela
+            DefaultTableModel model = (DefaultTableModel)tabelaConsultas.getModel();
+            model.setNumRows(0); // garante que o obj model n tenha nada
+            
+            for(Agenda a : listaconsultas) { // cria um obj do tipo u, e percorre a lista
+                model.addRow(new Object[]{
+                    a.getId_Consulta(),
+                    a.getProcedimento(),
+                    a.getPaciente().getNome(),
+                    a.getFuncionario().getNome(),
+                    a.getData_hora(),
+                    a.getTipo_consulta(),
+                    a.getHora()
+                });
+            }
+        } catch (Exception e) {
+        
+        }
     }
     /** Creates new form AgendaGUI */
     public AgendaGUI() {
@@ -31,535 +60,69 @@ public class AgendaGUI extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
         jLayeredPane1 = new javax.swing.JLayeredPane();
         jLayeredPane2 = new javax.swing.JLayeredPane();
-        jCalendar1 = new com.toedter.calendar.JCalendar();
-        lb8h3 = new javax.swing.JLabel();
-        lb6h3 = new javax.swing.JLabel();
-        lb7h = new javax.swing.JLabel();
-        lb8h = new javax.swing.JLabel();
-        lb6h = new javax.swing.JLabel();
-        lb9h = new javax.swing.JLabel();
-        lb9h3 = new javax.swing.JLabel();
-        lb10h = new javax.swing.JLabel();
-        lb10h3 = new javax.swing.JLabel();
-        lb12h = new javax.swing.JLabel();
-        lb11h3 = new javax.swing.JLabel();
-        lb7h3 = new javax.swing.JLabel();
-        lb12h3 = new javax.swing.JLabel();
-        lb13h = new javax.swing.JLabel();
-        lb13h3 = new javax.swing.JLabel();
-        lb14h = new javax.swing.JLabel();
-        lb14h3 = new javax.swing.JLabel();
-        lb21h3 = new javax.swing.JLabel();
-        lb21h = new javax.swing.JLabel();
-        lb20h = new javax.swing.JLabel();
-        lb19h = new javax.swing.JLabel();
-        lb18h = new javax.swing.JLabel();
-        lb17h = new javax.swing.JLabel();
-        lb16h = new javax.swing.JLabel();
-        lb15h = new javax.swing.JLabel();
-        lb15h3 = new javax.swing.JLabel();
-        lb16h3 = new javax.swing.JLabel();
-        lb17h3 = new javax.swing.JLabel();
-        lb18h3 = new javax.swing.JLabel();
-        lb19h3 = new javax.swing.JLabel();
-        lb20h3 = new javax.swing.JLabel();
-        lb11h = new javax.swing.JLabel();
-        campo6h3 = new javax.swing.JTextField();
-        campo7h = new javax.swing.JTextField();
-        campo7h3 = new javax.swing.JTextField();
-        campo8h = new javax.swing.JTextField();
-        campo8h3 = new javax.swing.JTextField();
-        campo9h = new javax.swing.JTextField();
-        campo9h3 = new javax.swing.JTextField();
-        campo10h = new javax.swing.JTextField();
-        campo10h3 = new javax.swing.JTextField();
-        campo11h = new javax.swing.JTextField();
-        campo11h3 = new javax.swing.JTextField();
-        campo12h = new javax.swing.JTextField();
-        campo13h = new javax.swing.JTextField();
-        campo14h = new javax.swing.JTextField();
-        campo12h3 = new javax.swing.JTextField();
-        campo13h3 = new javax.swing.JTextField();
-        campo14h3 = new javax.swing.JTextField();
-        campo15h = new javax.swing.JTextField();
-        campo15h3 = new javax.swing.JTextField();
-        campo16h = new javax.swing.JTextField();
-        campo16h3 = new javax.swing.JTextField();
-        campo17h = new javax.swing.JTextField();
-        campo17h3 = new javax.swing.JTextField();
-        campo18h = new javax.swing.JTextField();
-        campo18h3 = new javax.swing.JTextField();
-        campo19h = new javax.swing.JTextField();
-        campo19h3 = new javax.swing.JTextField();
-        campo20h = new javax.swing.JTextField();
-        campo20h3 = new javax.swing.JTextField();
-        campo21h = new javax.swing.JTextField();
-        campo21h3 = new javax.swing.JTextField();
-        campo6h = new javax.swing.JTextField();
+        calendarConsulta = new com.toedter.calendar.JCalendar();
         btnAgendar = new javax.swing.JButton();
         btnVoltar = new javax.swing.JButton();
         textNomeMedico = new javax.swing.JTextField();
-        Animação = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tabelaConsultas = new javax.swing.JTable();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setSize(new java.awt.Dimension(1932, 992));
-        getContentPane().setLayout(null);
-
-        jPanel1.setLayout(null);
-        getContentPane().add(jPanel1);
-        jPanel1.setBounds(1632, 0, 0, 0);
+        setSize(new java.awt.Dimension(974, 990));
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowActivated(java.awt.event.WindowEvent evt) {
+                formWindowActivated(evt);
+            }
+        });
 
         jLayeredPane1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         jLayeredPane2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        jCalendar1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jCalendar1.setTodayButtonVisible(true);
+        calendarConsulta.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        calendarConsulta.setTodayButtonVisible(true);
+        calendarConsulta.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+            public void propertyChange(java.beans.PropertyChangeEvent evt) {
+                calendarConsultaPropertyChange(evt);
+            }
+        });
 
-        jLayeredPane2.setLayer(jCalendar1, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane2.setLayer(calendarConsulta, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         javax.swing.GroupLayout jLayeredPane2Layout = new javax.swing.GroupLayout(jLayeredPane2);
         jLayeredPane2.setLayout(jLayeredPane2Layout);
         jLayeredPane2Layout.setHorizontalGroup(
             jLayeredPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jLayeredPane2Layout.createSequentialGroup()
-                .addComponent(jCalendar1, javax.swing.GroupLayout.PREFERRED_SIZE, 462, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 6, Short.MAX_VALUE))
+                .addContainerGap()
+                .addComponent(calendarConsulta, javax.swing.GroupLayout.PREFERRED_SIZE, 465, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(17, Short.MAX_VALUE))
         );
         jLayeredPane2Layout.setVerticalGroup(
             jLayeredPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jCalendar1, javax.swing.GroupLayout.PREFERRED_SIZE, 228, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jLayeredPane2Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(calendarConsulta, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(14, 14, 14))
         );
 
         jLayeredPane1.add(jLayeredPane2);
-        jLayeredPane2.setBounds(470, 20, 470, 230);
-
-        lb8h3.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        lb8h3.setText("08h30:");
-        jLayeredPane1.add(lb8h3);
-        lb8h3.setBounds(520, 490, 100, 20);
-
-        lb6h3.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        lb6h3.setText("06h30:");
-        jLayeredPane1.add(lb6h3);
-        lb6h3.setBounds(520, 330, 90, 29);
-
-        lb7h.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        lb7h.setText("07h00:");
-        jLayeredPane1.add(lb7h);
-        lb7h.setBounds(30, 410, 90, 29);
-
-        lb8h.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        lb8h.setText("08h00:");
-        jLayeredPane1.add(lb8h);
-        lb8h.setBounds(30, 480, 100, 30);
-
-        lb6h.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        lb6h.setText("06h00:");
-        jLayeredPane1.add(lb6h);
-        lb6h.setBounds(30, 330, 100, 30);
-
-        lb9h.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        lb9h.setText("09h00:");
-        jLayeredPane1.add(lb9h);
-        lb9h.setBounds(30, 560, 100, 30);
-
-        lb9h3.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        lb9h3.setText("09h30:");
-        jLayeredPane1.add(lb9h3);
-        lb9h3.setBounds(520, 570, 100, 20);
-
-        lb10h.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        lb10h.setText("10h00:");
-        jLayeredPane1.add(lb10h);
-        lb10h.setBounds(30, 640, 100, 30);
-
-        lb10h3.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        lb10h3.setText("10h30:");
-        jLayeredPane1.add(lb10h3);
-        lb10h3.setBounds(520, 650, 100, 20);
-
-        lb12h.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        lb12h.setText("12h00:");
-        jLayeredPane1.add(lb12h);
-        lb12h.setBounds(30, 800, 100, 30);
-
-        lb11h3.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        lb11h3.setText("11h30:");
-        jLayeredPane1.add(lb11h3);
-        lb11h3.setBounds(520, 720, 100, 30);
-
-        lb7h3.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        lb7h3.setText("07h30:");
-        jLayeredPane1.add(lb7h3);
-        lb7h3.setBounds(520, 410, 100, 30);
-
-        lb12h3.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        lb12h3.setText("12h30:");
-        jLayeredPane1.add(lb12h3);
-        lb12h3.setBounds(520, 800, 100, 30);
-
-        lb13h.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        lb13h.setText("13h00:");
-        jLayeredPane1.add(lb13h);
-        lb13h.setBounds(30, 880, 100, 30);
-
-        lb13h3.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        lb13h3.setText("13h30:");
-        jLayeredPane1.add(lb13h3);
-        lb13h3.setBounds(520, 880, 100, 30);
-
-        lb14h.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        lb14h.setText("14h00:");
-        jLayeredPane1.add(lb14h);
-        lb14h.setBounds(30, 960, 100, 30);
-
-        lb14h3.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        lb14h3.setText("14h30:");
-        jLayeredPane1.add(lb14h3);
-        lb14h3.setBounds(520, 960, 100, 30);
-
-        lb21h3.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        lb21h3.setText("21h30:");
-        jLayeredPane1.add(lb21h3);
-        lb21h3.setBounds(1490, 570, 100, 30);
-
-        lb21h.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        lb21h.setText("21h00:");
-        jLayeredPane1.add(lb21h);
-        lb21h.setBounds(1010, 570, 100, 30);
-
-        lb20h.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        lb20h.setText("20h00:");
-        jLayeredPane1.add(lb20h);
-        lb20h.setBounds(1010, 490, 100, 30);
-
-        lb19h.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        lb19h.setText("19h00:");
-        jLayeredPane1.add(lb19h);
-        lb19h.setBounds(1010, 420, 100, 20);
-
-        lb18h.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        lb18h.setText("18h00:");
-        jLayeredPane1.add(lb18h);
-        lb18h.setBounds(1010, 340, 100, 20);
-
-        lb17h.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        lb17h.setText("17h00:");
-        jLayeredPane1.add(lb17h);
-        lb17h.setBounds(1010, 260, 100, 30);
-
-        lb16h.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        lb16h.setText("16h00:");
-        jLayeredPane1.add(lb16h);
-        lb16h.setBounds(1010, 180, 100, 30);
-
-        lb15h.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        lb15h.setText("15h00:");
-        jLayeredPane1.add(lb15h);
-        lb15h.setBounds(1010, 100, 100, 30);
-
-        lb15h3.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        lb15h3.setText("15h30:");
-        jLayeredPane1.add(lb15h3);
-        lb15h3.setBounds(1490, 100, 100, 30);
-
-        lb16h3.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        lb16h3.setText("16h30:");
-        jLayeredPane1.add(lb16h3);
-        lb16h3.setBounds(1490, 180, 100, 30);
-
-        lb17h3.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        lb17h3.setText("17h30:");
-        jLayeredPane1.add(lb17h3);
-        lb17h3.setBounds(1490, 250, 100, 30);
-
-        lb18h3.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        lb18h3.setText("18h30:");
-        jLayeredPane1.add(lb18h3);
-        lb18h3.setBounds(1490, 330, 100, 30);
-
-        lb19h3.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        lb19h3.setText("19h30:");
-        jLayeredPane1.add(lb19h3);
-        lb19h3.setBounds(1490, 410, 100, 30);
-
-        lb20h3.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        lb20h3.setText("20h30:");
-        jLayeredPane1.add(lb20h3);
-        lb20h3.setBounds(1490, 490, 100, 30);
-
-        lb11h.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        lb11h.setText("11h00:");
-        jLayeredPane1.add(lb11h);
-        lb11h.setBounds(30, 720, 100, 30);
-
-        campo6h3.setEditable(false);
-        campo6h3.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        campo6h3.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        campo6h3.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                campo6h3MouseEntered(evt);
-            }
-        });
-        campo6h3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                campo6h3ActionPerformed(evt);
-            }
-        });
-        jLayeredPane1.add(campo6h3);
-        campo6h3.setBounds(610, 320, 340, 35);
-
-        campo7h.setEditable(false);
-        campo7h.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        campo7h.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        campo7h.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                campo7hMouseEntered(evt);
-            }
-        });
-        jLayeredPane1.add(campo7h);
-        campo7h.setBounds(120, 400, 380, 35);
-
-        campo7h3.setEditable(false);
-        campo7h3.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        campo7h3.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        campo7h3.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                campo7h3MouseEntered(evt);
-            }
-        });
-        campo7h3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                campo7h3ActionPerformed(evt);
-            }
-        });
-        jLayeredPane1.add(campo7h3);
-        campo7h3.setBounds(610, 400, 340, 35);
-
-        campo8h.setEditable(false);
-        campo8h.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        campo8h.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        campo8h.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                campo8hMouseEntered(evt);
-            }
-        });
-        jLayeredPane1.add(campo8h);
-        campo8h.setBounds(120, 480, 380, 35);
-
-        campo8h3.setEditable(false);
-        campo8h3.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        campo8h3.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        campo8h3.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                campo8h3MouseEntered(evt);
-            }
-        });
-        jLayeredPane1.add(campo8h3);
-        campo8h3.setBounds(610, 479, 340, 35);
-
-        campo9h.setEditable(false);
-        campo9h.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        campo9h.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        jLayeredPane1.add(campo9h);
-        campo9h.setBounds(120, 560, 380, 35);
-
-        campo9h3.setEditable(false);
-        campo9h3.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        campo9h3.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        campo9h3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                campo9h3ActionPerformed(evt);
-            }
-        });
-        jLayeredPane1.add(campo9h3);
-        campo9h3.setBounds(610, 559, 340, 35);
-
-        campo10h.setEditable(false);
-        campo10h.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        campo10h.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        jLayeredPane1.add(campo10h);
-        campo10h.setBounds(120, 629, 380, 35);
-
-        campo10h3.setEditable(false);
-        campo10h3.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        campo10h3.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        campo10h3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                campo10h3ActionPerformed(evt);
-            }
-        });
-        jLayeredPane1.add(campo10h3);
-        campo10h3.setBounds(610, 639, 340, 35);
-
-        campo11h.setEditable(false);
-        campo11h.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        campo11h.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        jLayeredPane1.add(campo11h);
-        campo11h.setBounds(120, 709, 380, 35);
-
-        campo11h3.setEditable(false);
-        campo11h3.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        campo11h3.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        campo11h3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                campo11h3ActionPerformed(evt);
-            }
-        });
-        jLayeredPane1.add(campo11h3);
-        campo11h3.setBounds(610, 720, 340, 35);
-
-        campo12h.setEditable(false);
-        campo12h.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        campo12h.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        jLayeredPane1.add(campo12h);
-        campo12h.setBounds(120, 789, 380, 35);
-
-        campo13h.setEditable(false);
-        campo13h.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        campo13h.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        campo13h.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                campo13hActionPerformed(evt);
-            }
-        });
-        jLayeredPane1.add(campo13h);
-        campo13h.setBounds(120, 869, 380, 35);
-
-        campo14h.setEditable(false);
-        campo14h.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        campo14h.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        jLayeredPane1.add(campo14h);
-        campo14h.setBounds(120, 950, 380, 35);
-
-        campo12h3.setEditable(false);
-        campo12h3.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        campo12h3.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        jLayeredPane1.add(campo12h3);
-        campo12h3.setBounds(610, 790, 340, 35);
-
-        campo13h3.setEditable(false);
-        campo13h3.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        campo13h3.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        jLayeredPane1.add(campo13h3);
-        campo13h3.setBounds(610, 879, 340, 35);
-
-        campo14h3.setEditable(false);
-        campo14h3.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        campo14h3.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        jLayeredPane1.add(campo14h3);
-        campo14h3.setBounds(610, 950, 340, 35);
-
-        campo15h.setEditable(false);
-        campo15h.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        campo15h.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        jLayeredPane1.add(campo15h);
-        campo15h.setBounds(1110, 90, 370, 35);
-
-        campo15h3.setEditable(false);
-        campo15h3.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        campo15h3.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        jLayeredPane1.add(campo15h3);
-        campo15h3.setBounds(1580, 89, 340, 35);
-
-        campo16h.setEditable(false);
-        campo16h.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        campo16h.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        jLayeredPane1.add(campo16h);
-        campo16h.setBounds(1110, 169, 370, 35);
-
-        campo16h3.setEditable(false);
-        campo16h3.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        campo16h3.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        jLayeredPane1.add(campo16h3);
-        campo16h3.setBounds(1580, 170, 340, 35);
-
-        campo17h.setEditable(false);
-        campo17h.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        campo17h.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        jLayeredPane1.add(campo17h);
-        campo17h.setBounds(1110, 250, 370, 35);
-
-        campo17h3.setEditable(false);
-        campo17h3.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        campo17h3.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        jLayeredPane1.add(campo17h3);
-        campo17h3.setBounds(1580, 250, 340, 35);
-
-        campo18h.setEditable(false);
-        campo18h.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        campo18h.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        campo18h.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                campo18hActionPerformed(evt);
-            }
-        });
-        jLayeredPane1.add(campo18h);
-        campo18h.setBounds(1110, 320, 370, 35);
-
-        campo18h3.setEditable(false);
-        campo18h3.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        campo18h3.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        jLayeredPane1.add(campo18h3);
-        campo18h3.setBounds(1580, 320, 340, 35);
-
-        campo19h.setEditable(false);
-        campo19h.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        campo19h.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        jLayeredPane1.add(campo19h);
-        campo19h.setBounds(1110, 400, 370, 35);
-
-        campo19h3.setEditable(false);
-        campo19h3.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        campo19h3.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        jLayeredPane1.add(campo19h3);
-        campo19h3.setBounds(1580, 400, 340, 35);
-
-        campo20h.setEditable(false);
-        campo20h.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        campo20h.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        jLayeredPane1.add(campo20h);
-        campo20h.setBounds(1110, 480, 370, 35);
-
-        campo20h3.setEditable(false);
-        campo20h3.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        campo20h3.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        jLayeredPane1.add(campo20h3);
-        campo20h3.setBounds(1580, 480, 340, 35);
-
-        campo21h.setEditable(false);
-        campo21h.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        campo21h.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        jLayeredPane1.add(campo21h);
-        campo21h.setBounds(1110, 559, 370, 35);
-
-        campo21h3.setEditable(false);
-        campo21h3.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        campo21h3.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        jLayeredPane1.add(campo21h3);
-        campo21h3.setBounds(1580, 559, 340, 35);
-
-        campo6h.setEditable(false);
-        campo6h.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        campo6h.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        campo6h.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                campo6hMouseEntered(evt);
-            }
-        });
-        jLayeredPane1.add(campo6h);
-        campo6h.setBounds(120, 320, 380, 35);
+        jLayeredPane2.setBounds(470, 20, 490, 230);
 
         btnAgendar.setBackground(new java.awt.Color(76, 159, 56));
         btnAgendar.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         btnAgendar.setIcon(new javax.swing.ImageIcon("C:\\Users\\neidi\\OneDrive\\Área de Trabalho\\UTFPR\\Oficina 2\\4Life\\imagens\\icons\\edit.png")); // NOI18N
         btnAgendar.setText("Agendar Consulta");
+        btnAgendar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAgendarActionPerformed(evt);
+            }
+        });
         jLayeredPane1.add(btnAgendar);
-        btnAgendar.setBounds(210, 100, 240, 60);
+        btnAgendar.setBounds(210, 190, 240, 60);
 
         btnVoltar.setBackground(new java.awt.Color(204, 204, 204));
         btnVoltar.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
@@ -571,78 +134,65 @@ public class AgendaGUI extends javax.swing.JFrame {
             }
         });
         jLayeredPane1.add(btnVoltar);
-        btnVoltar.setBounds(50, 100, 130, 60);
+        btnVoltar.setBounds(50, 190, 130, 60);
 
+        textNomeMedico.setEditable(false);
+        textNomeMedico.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        textNomeMedico.setOpaque(true);
         textNomeMedico.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 textNomeMedicoActionPerformed(evt);
             }
         });
         jLayeredPane1.add(textNomeMedico);
-        textNomeMedico.setBounds(290, 200, 90, 29);
+        textNomeMedico.setBounds(210, 40, 240, 30);
 
-        Animação.setIcon(new javax.swing.ImageIcon("C:\\Users\\neidi\\OneDrive\\Área de Trabalho\\UTFPR\\Oficina 2\\4Life\\imagens\\fundoAgenda2.png")); // NOI18N
-        jLayeredPane1.add(Animação);
-        Animação.setBounds(0, 0, 1930, 1000);
+        tabelaConsultas.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null}
+            },
+            new String [] {
+                "Código", "Procedimento", "Paciente", "Profissional", "Data", "Tipo de Consulta", "Hora"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false, false
+            };
 
-        getContentPane().add(jLayeredPane1);
-        jLayeredPane1.setBounds(0, 0, 1930, 990);
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        tabelaConsultas.setRowHeight(40);
+        jScrollPane1.setViewportView(tabelaConsultas);
+
+        jLayeredPane1.add(jScrollPane1);
+        jScrollPane1.setBounds(30, 360, 920, 550);
+
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel1.setText("Profissional:");
+        jLayeredPane1.add(jLabel1);
+        jLabel1.setBounds(50, 40, 130, 30);
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jLayeredPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 974, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLayeredPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 990, javax.swing.GroupLayout.PREFERRED_SIZE)
+        );
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-
-    private void campo6h3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campo6h3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_campo6h3ActionPerformed
-
-    private void campo7h3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campo7h3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_campo7h3ActionPerformed
-
-    private void campo9h3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campo9h3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_campo9h3ActionPerformed
-
-    private void campo10h3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campo10h3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_campo10h3ActionPerformed
-
-    private void campo11h3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campo11h3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_campo11h3ActionPerformed
-
-    private void campo13hActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campo13hActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_campo13hActionPerformed
-
-    private void campo18hActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campo18hActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_campo18hActionPerformed
-
-    private void campo6hMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_campo6hMouseEntered
-        campo6h.setToolTipText(campo6h.getText());
-    }//GEN-LAST:event_campo6hMouseEntered
-
-    private void campo6h3MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_campo6h3MouseEntered
-        campo6h3.setToolTipText(campo6h3.getText());
-    }//GEN-LAST:event_campo6h3MouseEntered
-
-    private void campo7hMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_campo7hMouseEntered
-        campo7h.setToolTipText(campo7h.getText());
-    }//GEN-LAST:event_campo7hMouseEntered
-
-    private void campo7h3MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_campo7h3MouseEntered
-        campo7h3.setToolTipText(campo7h3.getText());
-    }//GEN-LAST:event_campo7h3MouseEntered
-
-    private void campo8hMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_campo8hMouseEntered
-        campo8h.setToolTipText(campo8h.getText());
-    }//GEN-LAST:event_campo8hMouseEntered
-
-    private void campo8h3MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_campo8h3MouseEntered
-       campo8h3.setToolTipText(campo8h3.getText());
-    }//GEN-LAST:event_campo8h3MouseEntered
 
     private void btnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarActionPerformed
         this.dispose(); // fecha tela atual 
@@ -654,6 +204,19 @@ public class AgendaGUI extends javax.swing.JFrame {
     private void textNomeMedicoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textNomeMedicoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_textNomeMedicoActionPerformed
+
+    private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
+        Listar();
+    }//GEN-LAST:event_formWindowActivated
+
+    private void btnAgendarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgendarActionPerformed
+        NovoAgendamentoGUI novoAgendamentoGUI = new NovoAgendamentoGUI();
+        novoAgendamentoGUI.setVisible(true);
+    }//GEN-LAST:event_btnAgendarActionPerformed
+
+    private void calendarConsultaPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_calendarConsultaPropertyChange
+        Listar();
+    }//GEN-LAST:event_calendarConsultaPropertyChange
 
     /**
      * @param args the command line arguments
@@ -691,78 +254,15 @@ public class AgendaGUI extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel Animação;
     private javax.swing.JButton btnAgendar;
     private javax.swing.JButton btnVoltar;
-    private javax.swing.JTextField campo10h;
-    private javax.swing.JTextField campo10h3;
-    private javax.swing.JTextField campo11h;
-    private javax.swing.JTextField campo11h3;
-    private javax.swing.JTextField campo12h;
-    private javax.swing.JTextField campo12h3;
-    private javax.swing.JTextField campo13h;
-    private javax.swing.JTextField campo13h3;
-    private javax.swing.JTextField campo14h;
-    private javax.swing.JTextField campo14h3;
-    private javax.swing.JTextField campo15h;
-    private javax.swing.JTextField campo15h3;
-    private javax.swing.JTextField campo16h;
-    private javax.swing.JTextField campo16h3;
-    private javax.swing.JTextField campo17h;
-    private javax.swing.JTextField campo17h3;
-    private javax.swing.JTextField campo18h;
-    private javax.swing.JTextField campo18h3;
-    private javax.swing.JTextField campo19h;
-    private javax.swing.JTextField campo19h3;
-    private javax.swing.JTextField campo20h;
-    private javax.swing.JTextField campo20h3;
-    private javax.swing.JTextField campo21h;
-    private javax.swing.JTextField campo21h3;
-    private javax.swing.JTextField campo6h;
-    private javax.swing.JTextField campo6h3;
-    private javax.swing.JTextField campo7h;
-    private javax.swing.JTextField campo7h3;
-    private javax.swing.JTextField campo8h;
-    private javax.swing.JTextField campo8h3;
-    private javax.swing.JTextField campo9h;
-    private javax.swing.JTextField campo9h3;
-    private com.toedter.calendar.JCalendar jCalendar1;
+    public static com.toedter.calendar.JCalendar calendarConsulta;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLayeredPane jLayeredPane1;
     private javax.swing.JLayeredPane jLayeredPane2;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JLabel lb10h;
-    private javax.swing.JLabel lb10h3;
-    private javax.swing.JLabel lb11h;
-    private javax.swing.JLabel lb11h3;
-    private javax.swing.JLabel lb12h;
-    private javax.swing.JLabel lb12h3;
-    private javax.swing.JLabel lb13h;
-    private javax.swing.JLabel lb13h3;
-    private javax.swing.JLabel lb14h;
-    private javax.swing.JLabel lb14h3;
-    private javax.swing.JLabel lb15h;
-    private javax.swing.JLabel lb15h3;
-    private javax.swing.JLabel lb16h;
-    private javax.swing.JLabel lb16h3;
-    private javax.swing.JLabel lb17h;
-    private javax.swing.JLabel lb17h3;
-    private javax.swing.JLabel lb18h;
-    private javax.swing.JLabel lb18h3;
-    private javax.swing.JLabel lb19h;
-    private javax.swing.JLabel lb19h3;
-    private javax.swing.JLabel lb20h;
-    private javax.swing.JLabel lb20h3;
-    private javax.swing.JLabel lb21h;
-    private javax.swing.JLabel lb21h3;
-    private javax.swing.JLabel lb6h;
-    private javax.swing.JLabel lb6h3;
-    private javax.swing.JLabel lb7h;
-    private javax.swing.JLabel lb7h3;
-    private javax.swing.JLabel lb8h;
-    private javax.swing.JLabel lb8h3;
-    private javax.swing.JLabel lb9h;
-    private javax.swing.JLabel lb9h3;
-    static javax.swing.JTextField textNomeMedico;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable tabelaConsultas;
+    public static javax.swing.JTextField textNomeMedico;
     // End of variables declaration//GEN-END:variables
 
 }

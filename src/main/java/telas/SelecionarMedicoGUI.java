@@ -159,14 +159,14 @@ public class SelecionarMedicoGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_btnVoltarActionPerformed
 
     private void btnVisualizarAgendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVisualizarAgendaActionPerformed
-//        Funcionario medicoSelecionado = new Funcionario();
-//        medicoSelecionado.setNome(String.valueOf(boxProfissional.getSelectedItem()));
-//        
-//        AgendaGUI agendaGUI = new AgendaGUI();
-//        agendaGUI.setVisible(true); 
-//        
-//        AgendaGUI.recebeNomeMedico(medicoSelecionado); // tela de edicão recebe o id do paciente
-//        this.dispose();
+        Funcionario medicoSelecionado = new Funcionario();
+        medicoSelecionado.setNome(String.valueOf(boxProfissional.getSelectedItem()));
+        
+        AgendaGUI agendaGUI = new AgendaGUI();
+        agendaGUI.setVisible(true); 
+        
+        AgendaGUI.recebeNomeMedico(medicoSelecionado); // tela de edicão recebe o id do paciente
+        this.dispose();
     }//GEN-LAST:event_btnVisualizarAgendaActionPerformed
 
     /**

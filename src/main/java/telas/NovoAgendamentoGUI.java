@@ -402,8 +402,8 @@ public class NovoAgendamentoGUI extends javax.swing.JFrame {
     private javax.swing.JButton btnAgendar;
     private javax.swing.JButton btnLimpar;
     private javax.swing.JButton btnSair;
-    private com.toedter.calendar.JDateChooser campoData;
-    private javax.swing.JComboBox<String> campoHora;
+    public static com.toedter.calendar.JDateChooser campoData;
+    public static javax.swing.JComboBox<String> campoHora;
     private javax.swing.JTextField campoIdConsulta;
     private java.awt.TextField campoProcedimento;
     private com.toedter.calendar.JDateChooser jDateChooser1;
