@@ -20,5 +20,5 @@ create table consultas (
 
     alter table consultas ADD CONSTRAINT fk_consultas_funcionario foreign key (idProfissional) references funcionario (id);
     
-    alter table consultas add hora TIME NOT NULL;
+    alter table consultas add hora varchar(15) NOT NULL;
 
