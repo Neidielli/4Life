@@ -89,7 +89,7 @@ public class TelaCadastrarFuncionario extends javax.swing.JFrame {
             }
         });
 
-        jLabel2.setText("ID:");
+        jLabel2.setText("Código:");
 
         campoIdFunc.setEditable(false);
         campoIdFunc.addActionListener(new java.awt.event.ActionListener() {

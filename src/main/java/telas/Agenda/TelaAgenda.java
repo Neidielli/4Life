@@ -3,19 +3,20 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 
-package telas;
+package telas.Agenda;
 
 import DAO.AgendaDAO;
 import java.util.List;
 import javax.swing.table.DefaultTableModel;
 import model.Agenda;
 import model.Funcionario;
+import telas.TelaSelecionarMedico;
 
 /**
  *
  * @author neidi
  */
-public class AgendaGUI extends javax.swing.JFrame {
+public class TelaAgenda extends javax.swing.JFrame {
 
     public static void recebeNomeMedico(Funcionario func) {
        textNomeMedico.setText(String.valueOf((func)));
@@ -47,7 +48,7 @@ public class AgendaGUI extends javax.swing.JFrame {
         }
     }
     /** Creates new form AgendaGUI */
-    public AgendaGUI() {
+    public TelaAgenda() {
         initComponents();
     }
 
@@ -114,7 +115,6 @@ public class AgendaGUI extends javax.swing.JFrame {
 
         btnAgendar.setBackground(new java.awt.Color(76, 159, 56));
         btnAgendar.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        btnAgendar.setIcon(new javax.swing.ImageIcon("C:\\Users\\neidi\\OneDrive\\Área de Trabalho\\UTFPR\\Oficina 2\\4Life\\imagens\\icons\\edit.png")); // NOI18N
         btnAgendar.setText("Agendar Consulta");
         btnAgendar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -126,7 +126,6 @@ public class AgendaGUI extends javax.swing.JFrame {
 
         btnVoltar.setBackground(new java.awt.Color(204, 204, 204));
         btnVoltar.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        btnVoltar.setIcon(new javax.swing.ImageIcon("C:\\Users\\neidi\\OneDrive\\Área de Trabalho\\UTFPR\\Oficina 2\\4Life\\imagens\\icons\\logout.png")); // NOI18N
         btnVoltar.setText("Voltar");
         btnVoltar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -197,7 +196,7 @@ public class AgendaGUI extends javax.swing.JFrame {
     private void btnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarActionPerformed
         this.dispose(); // fecha tela atual 
         
-        SelecionarMedicoGUI telaSelecao = new SelecionarMedicoGUI();
+        TelaSelecionarMedico telaSelecao = new TelaSelecionarMedico();
         telaSelecao.setVisible(true);
     }//GEN-LAST:event_btnVoltarActionPerformed
 
@@ -235,20 +234,21 @@ public class AgendaGUI extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(AgendaGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaAgenda.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(AgendaGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaAgenda.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(AgendaGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaAgenda.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(AgendaGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaAgenda.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new AgendaGUI().setVisible(true);
+                new TelaAgenda().setVisible(true);
             }
         });
     }

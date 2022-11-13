@@ -40,9 +40,6 @@
       <SubComponents>
         <Menu class="javax.swing.JMenu" name="jMenu4">
           <Properties>
-            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="C:\Users\neidi\OneDrive\&#xc1;rea de Trabalho\UTFPR\Oficina 2\4Life\imagens\icons\user.png"/>
-            </Property>
             <Property name="text" type="java.lang.String" value="Usu&#xe1;rios"/>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Tahoma" size="24" style="1"/>
@@ -53,9 +50,6 @@
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Tahoma" size="18" style="1"/>
-                </Property>
-                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="2" name="C:\Users\neidi\OneDrive\&#xc1;rea de Trabalho\UTFPR\Oficina 2\4Life\imagens\icons\new24.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Cadastrar Usuario"/>
               </Properties>
@@ -68,36 +62,27 @@
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Tahoma" size="18" style="1"/>
                 </Property>
-                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="2" name="C:\Users\neidi\OneDrive\&#xc1;rea de Trabalho\UTFPR\Oficina 2\4Life\imagens\icons\editar24.png"/>
-                </Property>
                 <Property name="text" type="java.lang.String" value="Editar Usuario"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ItemMenuEditarUsuarioActionPerformed"/>
               </Events>
             </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="ItemMenuExcluirUsuario">
+            <MenuItem class="javax.swing.JMenuItem" name="ItemMenuBuscarUsuario">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Tahoma" size="18" style="1"/>
                 </Property>
-                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="2" name="C:\Users\neidi\OneDrive\&#xc1;rea de Trabalho\UTFPR\Oficina 2\4Life\imagens\icons\sair.png"/>
-                </Property>
-                <Property name="text" type="java.lang.String" value="Excluir Usuario"/>
+                <Property name="text" type="java.lang.String" value="Buscar Usuario"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ItemMenuExcluirUsuarioActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ItemMenuBuscarUsuarioActionPerformed"/>
               </Events>
             </MenuItem>
           </SubComponents>
         </Menu>
         <Menu class="javax.swing.JMenu" name="jMenu5">
           <Properties>
-            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="C:\Users\neidi\OneDrive\&#xc1;rea de Trabalho\UTFPR\Oficina 2\4Life\imagens\icons\team.png"/>
-            </Property>
             <Property name="text" type="java.lang.String" value="Funcion&#xe1;rios"/>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Tahoma" size="24" style="1"/>
@@ -108,9 +93,6 @@
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Tahoma" size="18" style="1"/>
-                </Property>
-                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="2" name="C:\Users\neidi\OneDrive\&#xc1;rea de Trabalho\UTFPR\Oficina 2\4Life\imagens\icons\new24.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Cadastrar Funcion&#xe1;rio"/>
               </Properties>
@@ -123,9 +105,6 @@
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Tahoma" size="18" style="1"/>
                 </Property>
-                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="2" name="C:\Users\neidi\OneDrive\&#xc1;rea de Trabalho\UTFPR\Oficina 2\4Life\imagens\icons\editar24.png"/>
-                </Property>
                 <Property name="text" type="java.lang.String" value="Editar Funcion&#xe1;rio"/>
               </Properties>
               <Events>
@@ -137,9 +116,6 @@
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Tahoma" size="18" style="1"/>
                 </Property>
-                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="2" name="C:\Users\neidi\OneDrive\&#xc1;rea de Trabalho\UTFPR\Oficina 2\4Life\imagens\icons\list.png"/>
-                </Property>
                 <Property name="text" type="java.lang.String" value="Buscar Funcion&#xe1;rio"/>
               </Properties>
               <Events>
@@ -150,9 +126,6 @@
         </Menu>
         <Menu class="javax.swing.JMenu" name="jMenu6">
           <Properties>
-            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="C:\Users\neidi\OneDrive\&#xc1;rea de Trabalho\UTFPR\Oficina 2\4Life\imagens\icons\user_1.png"/>
-            </Property>
             <Property name="text" type="java.lang.String" value="Paciente"/>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Tahoma" size="24" style="1"/>
@@ -163,9 +136,6 @@
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Tahoma" size="18" style="1"/>
-                </Property>
-                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="2" name="C:\Users\neidi\OneDrive\&#xc1;rea de Trabalho\UTFPR\Oficina 2\4Life\imagens\icons\new24.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Cadastrar Paciente"/>
               </Properties>
@@ -178,9 +148,6 @@
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Tahoma" size="18" style="1"/>
                 </Property>
-                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="2" name="C:\Users\neidi\OneDrive\&#xc1;rea de Trabalho\UTFPR\Oficina 2\4Life\imagens\icons\editar24.png"/>
-                </Property>
                 <Property name="text" type="java.lang.String" value="Editar Paciente "/>
               </Properties>
               <Events>
@@ -191,9 +158,6 @@
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Tahoma" size="18" style="1"/>
-                </Property>
-                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="2" name="C:\Users\neidi\OneDrive\&#xc1;rea de Trabalho\UTFPR\Oficina 2\4Life\imagens\icons\list.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Buscar Paciente"/>
               </Properties>
@@ -206,9 +170,6 @@
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Tahoma" size="18" style="1"/>
                 </Property>
-                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="2" name="C:\Users\neidi\OneDrive\&#xc1;rea de Trabalho\UTFPR\Oficina 2\4Life\imagens\icons\new24.png"/>
-                </Property>
                 <Property name="text" type="java.lang.String" value="Registrar Prontu&#xe1;rio"/>
               </Properties>
               <Events>
@@ -220,9 +181,6 @@
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Tahoma" size="18" style="1"/>
                 </Property>
-                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="2" name="C:\Users\neidi\OneDrive\&#xc1;rea de Trabalho\UTFPR\Oficina 2\4Life\imagens\icons\check-form.png"/>
-                </Property>
                 <Property name="text" type="java.lang.String" value="Visualizar Prontu&#xe1;rio"/>
               </Properties>
               <Events>
@@ -233,9 +191,6 @@
         </Menu>
         <Menu class="javax.swing.JMenu" name="jMenu7">
           <Properties>
-            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="C:\Users\neidi\OneDrive\&#xc1;rea de Trabalho\UTFPR\Oficina 2\4Life\imagens\icons\calendar.png"/>
-            </Property>
             <Property name="text" type="java.lang.String" value="Agenda"/>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Tahoma" size="24" style="1"/>
@@ -247,9 +202,6 @@
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Tahoma" size="18" style="1"/>
                 </Property>
-                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="2" name="C:\Users\neidi\OneDrive\&#xc1;rea de Trabalho\UTFPR\Oficina 2\4Life\imagens\icons\calendar.png"/>
-                </Property>
                 <Property name="text" type="java.lang.String" value="Agendar Consultas"/>
               </Properties>
               <Events>
@@ -260,9 +212,6 @@
         </Menu>
         <Menu class="javax.swing.JMenu" name="MenuSair">
           <Properties>
-            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="C:\Users\neidi\OneDrive\&#xc1;rea de Trabalho\UTFPR\Oficina 2\4Life\imagens\icons\logout.png"/>
-            </Property>
             <Property name="text" type="java.lang.String" value="Sair"/>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Tahoma" size="24" style="1"/>
@@ -274,9 +223,6 @@
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Tahoma" size="18" style="1"/>
                 </Property>
-                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="2" name="C:\Users\neidi\OneDrive\&#xc1;rea de Trabalho\UTFPR\Oficina 2\4Life\imagens\icons\sair.png"/>
-                </Property>
                 <Property name="text" type="java.lang.String" value="Sair e Fechar sistema"/>
               </Properties>
               <Events>
@@ -287,9 +233,6 @@
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Tahoma" size="18" style="1"/>
-                </Property>
-                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="2" name="C:\Users\neidi\OneDrive\&#xc1;rea de Trabalho\UTFPR\Oficina 2\4Life\imagens\icons\logout.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Sair e Entrar com outro Usuario"/>
               </Properties>
@@ -373,11 +316,6 @@
       </Layout>
       <SubComponents>
         <Component class="javax.swing.JLabel" name="jLabel2">
-          <Properties>
-            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="C:\Users\neidi\OneDrive\&#xc1;rea de Trabalho\UTFPR\Oficina 2\4Life\imagens\icons\home.png"/>
-            </Property>
-          </Properties>
         </Component>
       </SubComponents>
     </Container>
