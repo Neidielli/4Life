@@ -209,7 +209,7 @@ public class TelaAgenda extends javax.swing.JFrame {
     }//GEN-LAST:event_formWindowActivated
 
     private void btnAgendarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgendarActionPerformed
-        NovoAgendamentoGUI novoAgendamentoGUI = new NovoAgendamentoGUI();
+        TelaNovoAgendamento novoAgendamentoGUI = new TelaNovoAgendamento();
         novoAgendamentoGUI.setVisible(true);
     }//GEN-LAST:event_btnAgendarActionPerformed
 

@@ -22,8 +22,8 @@ import javax.swing.JOptionPane;
 import model.Agenda;
 import model.Funcionario;
 import model.Paciente;
-import telas.AgendaGUI;
-import telas.NovoAgendamentoGUI;
+import telas.Agenda.TelaAgenda;
+import telas.Agenda.TelaNovoAgendamento;
 
 /**
  *
@@ -47,13 +47,13 @@ public class AgendaDAO {
  
         try { 
             
-            java.util.Date utilDate1 = NovoAgendamentoGUI.campoData.getDate(); // DATE
+            java.util.Date utilDate1 = TelaNovoAgendamento.campoData.getDate(); // DATE
             java.sql.Date sqlDate1 = new java.sql.Date(utilDate1.getTime()); // DATE
             
             // seleciona os campos da tabela
             String sqlSelect = "select * from consultas where idProfissional='" + agenda.getFuncionario().getId() +"'" +
                     "and data_hora = '" + sqlDate1 + "'" +
-                    "and hora = '" + NovoAgendamentoGUI.campoHora.getSelectedItem() + "'"; 
+                    "and hora = '" + TelaNovoAgendamento.campoHora.getSelectedItem() + "'"; 
 //            select * from consultas where idProfissional = 2 and data_hora = '2022-11-15' and hora = "08:30";
             PreparedStatement stmtSelect = connection.prepareStatement(sqlSelect);
             
@@ -101,14 +101,14 @@ public class AgendaDAO {
             // vetor que armazena os registro do bd
             List<Agenda> lista = new ArrayList<Agenda>();
             // comando sql que lista os dados
-            java.util.Date utilDate = AgendaGUI.calendarConsulta.getDate(); // DATE
+            java.util.Date utilDate = TelaAgenda.calendarConsulta.getDate(); // DATE
             java.sql.Date sqlDate = new java.sql.Date(utilDate.getTime()); // DATE
             
             String sql = "SELECT c.id_Consulta, c.procedimento, p.nome, f.nome, c.data_hora, c.tipo_consulta,c.hora " +
             "FROM consultas as c " +
             "JOIN paciente as p on (c.idPaciente = p.id) " +
             "JOIN funcionario as f on (c.idProfissional = f.id)" +
-            "WHERE f.nome ='" + AgendaGUI.textNomeMedico.getText() + "'" +
+            "WHERE f.nome ='" + TelaAgenda.textNomeMedico.getText() + "'" +
                     "and c.data_hora = '" + sqlDate + "'";
             
             System.out.println(sql);

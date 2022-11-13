@@ -22,7 +22,7 @@ public class UsuarioGUI extends javax.swing.JFrame {
         try {
             
             UsuarioDAO dao = new UsuarioDAO();
-            List<Usuario> listausuario = dao.listarUsuarios(); // chama da classe usuariodao // retorna uma lista de usuarios
+            List<Usuario> listausuario = dao.listaUsuarios(); // chama da classe usuariodao // retorna uma lista de usuarios
             // pega a lista e coloca na tabela
             DefaultTableModel model = (DefaultTableModel)tabela.getModel();
             model.setNumRows(0); // garante que o obj model n tenha nada
@@ -393,7 +393,7 @@ public class UsuarioGUI extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Os campos não podem ser vazios");
         } else { // se os campos nÃ£o estiverem vazios, irÃ¡ instanciar a classe UsuarioDao e criar seu objeto
             UsuarioDAO dao = new UsuarioDAO();
-            dao.adiciona(usuarios);
+            dao.cadastrar(usuarios);
             //JOptionPane.showMessageDialog(null, "Usuário " + campoNome.getText()+ " cadastrado com sucesso!! ");
         }
         // limpa os campos novamente
@@ -435,7 +435,7 @@ public class UsuarioGUI extends javax.swing.JFrame {
             u.setId(Integer.parseInt(campoId.getText()));
                     
             UsuarioDAO dao = new UsuarioDAO();
-            dao.alterar(u);
+            dao.editar(u);
             
             JOptionPane.showMessageDialog(null, "Dados alterado com sucesso!");
         } catch (Exception erro) {
@@ -454,7 +454,7 @@ public class UsuarioGUI extends javax.swing.JFrame {
             u.setId(Integer.parseInt(campoId.getText()));
                     
             UsuarioDAO dao = new UsuarioDAO();
-            dao.excluir(u);
+            dao.deletar(u);
             
             JOptionPane.showMessageDialog(null, "Dados excluidos com sucesso!");
         } catch (Exception erro) {

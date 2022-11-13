@@ -8,6 +8,7 @@ import DAO.FuncionarioDAO;
 import java.util.List;
 import model.Agenda;
 import model.Funcionario;
+import telas.Agenda.TelaAgenda;
 
 /**
  *
@@ -163,10 +164,10 @@ public class TelaSelecionarMedico extends javax.swing.JFrame {
         Funcionario medicoSelecionado = new Funcionario();
         medicoSelecionado.setNome(String.valueOf(boxProfissional.getSelectedItem()));
         
-        AgendaGUI agendaGUI = new AgendaGUI();
+        TelaAgenda agendaGUI = new TelaAgenda();
         agendaGUI.setVisible(true); 
         
-        AgendaGUI.recebeNomeMedico(medicoSelecionado); // tela de edicão recebe o id do paciente
+        TelaAgenda.recebeNomeMedico(medicoSelecionado); // tela de edicão recebe o id do paciente
         this.dispose();
     }//GEN-LAST:event_btnVisualizarAgendaActionPerformed
 
