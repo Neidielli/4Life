@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package telas;
+package telas.Agenda;
 
 import DAO.FuncionarioDAO;
 import java.util.List;
@@ -47,10 +47,10 @@ public class TelaSelecionarMedico extends javax.swing.JFrame {
 
         boxProfissional.setFont(new java.awt.Font("Segoe UI Historic", 1, 16)); // NOI18N
         boxProfissional.addAncestorListener(new javax.swing.event.AncestorListener() {
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
+            }
             public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
                 boxProfissionalAncestorAdded(evt);
-            }
-            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
             }
             public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
             }
@@ -64,7 +64,6 @@ public class TelaSelecionarMedico extends javax.swing.JFrame {
         btnVisualizarAgenda.setBackground(new java.awt.Color(204, 255, 204));
         btnVisualizarAgenda.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         btnVisualizarAgenda.setForeground(new java.awt.Color(0, 102, 52));
-        btnVisualizarAgenda.setIcon(new javax.swing.ImageIcon("C:\\Users\\tayna\\Google Drive\\GRADUAÇÃO\\6º Período\\Oficina de Integração 2\\4Life\\imagens\\icons\\calendar.png")); // NOI18N
         btnVisualizarAgenda.setText("Visualizar Agenda");
         btnVisualizarAgenda.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

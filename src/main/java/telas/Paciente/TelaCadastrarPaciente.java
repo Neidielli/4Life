@@ -73,7 +73,6 @@ public class TelaCadastrarPaciente extends javax.swing.JFrame {
 
         edicaoPac.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 36)); // NOI18N
         edicaoPac.setForeground(new java.awt.Color(51, 51, 51));
-        edicaoPac.setIcon(new javax.swing.ImageIcon("C:\\Users\\tayna\\Google Drive\\GRADUAÇÃO\\6º Período\\Oficina de Integração 2\\4Life\\imagens\\icons\\team.png")); // NOI18N
         edicaoPac.setText("CADASTRAR PACIENTE");
         edicaoPac.setIconTextGap(5);
 
@@ -143,8 +142,6 @@ public class TelaCadastrarPaciente extends javax.swing.JFrame {
             }
         });
 
-        dateNasCadPac.setDateFormatString("dd/MM/yyyy");
-
         javax.swing.GroupLayout jPanelCadastrarLayout = new javax.swing.GroupLayout(jPanelCadastrar);
         jPanelCadastrar.setLayout(jPanelCadastrarLayout);
         jPanelCadastrarLayout.setHorizontalGroup(
@@ -195,7 +192,7 @@ public class TelaCadastrarPaciente extends javax.swing.JFrame {
                                         .addGroup(jPanelCadastrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addGroup(jPanelCadastrarLayout.createSequentialGroup()
                                                 .addGroup(jPanelCadastrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                                    .addComponent(jLabelEstado, javax.swing.GroupLayout.DEFAULT_SIZE, 42, Short.MAX_VALUE)
+                                                    .addComponent(jLabelEstado, javax.swing.GroupLayout.PREFERRED_SIZE, 42, Short.MAX_VALUE)
                                                     .addComponent(LabelBairro, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                                     .addComponent(LabelRua, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -317,7 +314,8 @@ public class TelaCadastrarPaciente extends javax.swing.JFrame {
                 .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        setBounds(250, 100, 806, 520);
+        setSize(new java.awt.Dimension(806, 520));
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void ButtonSairPacActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonSairPacActionPerformed

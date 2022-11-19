@@ -57,7 +57,6 @@ public class TelaCadastrarFuncionario extends javax.swing.JFrame {
 
         cadastroFunc.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 36)); // NOI18N
         cadastroFunc.setForeground(new java.awt.Color(51, 51, 51));
-        cadastroFunc.setIcon(new javax.swing.ImageIcon("C:\\Users\\tayna\\Google Drive\\GRADUAÇÃO\\6º Período\\Oficina de Integração 2\\4Life\\imagens\\icons\\doctor.png")); // NOI18N
         cadastroFunc.setText("CADASTRAR FUNCIONÁRIO");
         cadastroFunc.setIconTextGap(5);
 
@@ -72,10 +71,10 @@ public class TelaCadastrarFuncionario extends javax.swing.JFrame {
         });
 
         jPanel2.addAncestorListener(new javax.swing.event.AncestorListener() {
-            public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
-            }
             public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
                 jPanel2AncestorMoved(evt);
+            }
+            public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
             }
             public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
             }
@@ -276,7 +275,8 @@ public class TelaCadastrarFuncionario extends javax.swing.JFrame {
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
-        setBounds(250, 100, 686, 441);
+        setSize(new java.awt.Dimension(686, 441));
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void ButtonSairFuncActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonSairFuncActionPerformed

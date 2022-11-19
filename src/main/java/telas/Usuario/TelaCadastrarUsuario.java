@@ -54,7 +54,6 @@ public class TelaCadastrarUsuario extends javax.swing.JFrame {
 
         cadastroUser.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 36)); // NOI18N
         cadastroUser.setForeground(new java.awt.Color(51, 51, 51));
-        cadastroUser.setIcon(new javax.swing.ImageIcon("C:\\Users\\tayna\\Google Drive\\GRADUAÇÃO\\6º Período\\Oficina de Integração 2\\4Life\\imagens\\icons\\user_1.png")); // NOI18N
         cadastroUser.setText("CADASTRAR USUÁRIO");
         cadastroUser.setIconTextGap(5);
 
@@ -215,7 +214,8 @@ public class TelaCadastrarUsuario extends javax.swing.JFrame {
                 .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        setBounds(250, 100, 686, 441);
+        setSize(new java.awt.Dimension(686, 441));
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void ButtonSairUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonSairUserActionPerformed

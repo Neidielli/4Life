@@ -10,7 +10,6 @@ import java.util.List;
 import javax.swing.table.DefaultTableModel;
 import model.Agenda;
 import model.Funcionario;
-import telas.TelaSelecionarMedico;
 
 /**
  *

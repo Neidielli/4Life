@@ -77,7 +77,6 @@ public class TelaBuscarPaciente extends javax.swing.JFrame {
 
         tituloPag.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 36)); // NOI18N
         tituloPag.setForeground(new java.awt.Color(51, 51, 51));
-        tituloPag.setIcon(new javax.swing.ImageIcon("C:\\Users\\tayna\\Google Drive\\GRADUAÇÃO\\6º Período\\Oficina de Integração 2\\4Life\\imagens\\icons\\team.png")); // NOI18N
         tituloPag.setText("BUSCAR PACIENTE");
         tituloPag.setIconTextGap(5);
 
@@ -232,7 +231,8 @@ public class TelaBuscarPaciente extends javax.swing.JFrame {
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
-        setBounds(260, 115, 834, 510);
+        setSize(new java.awt.Dimension(834, 510));
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void buttonSairPacActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonSairPacActionPerformed

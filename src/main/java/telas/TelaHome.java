@@ -4,6 +4,7 @@
  */
 package telas;
 
+import telas.Agenda.TelaSelecionarMedico;
 import telas.Funcionario.TelaBuscarFuncionario;
 import telas.Funcionario.TelaCadastrarFuncionario;
 import telas.Funcionario.TelaEditarFuncionario;
@@ -42,7 +43,6 @@ public class TelaHome extends javax.swing.JFrame {
         jPopupMenu2 = new javax.swing.JPopupMenu();
         jSeparator1 = new javax.swing.JSeparator();
         jPanel1 = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
         jMenuBar2 = new javax.swing.JMenuBar();
         jMenu4 = new javax.swing.JMenu();
         ItemMenuCadastrarUsuario = new javax.swing.JMenuItem();
@@ -81,25 +81,21 @@ public class TelaHome extends javax.swing.JFrame {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(591, 591, 591)
-                .addComponent(jLabel2)
-                .addContainerGap(1417, Short.MAX_VALUE))
+            .addGap(0, 2674, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(356, Short.MAX_VALUE)
-                .addComponent(jLabel2)
-                .addGap(262, 262, 262))
+            .addGap(0, 993, Short.MAX_VALUE)
         );
 
         jMenuBar2.setPreferredSize(new java.awt.Dimension(793, 80));
 
+        jMenu4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icons/user.png"))); // NOI18N
         jMenu4.setText("Usuários");
         jMenu4.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
 
         ItemMenuCadastrarUsuario.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        ItemMenuCadastrarUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icons/new24.png"))); // NOI18N
         ItemMenuCadastrarUsuario.setText("Cadastrar Usuario");
         ItemMenuCadastrarUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -109,6 +105,7 @@ public class TelaHome extends javax.swing.JFrame {
         jMenu4.add(ItemMenuCadastrarUsuario);
 
         ItemMenuEditarUsuario.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        ItemMenuEditarUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icons/editar24.png"))); // NOI18N
         ItemMenuEditarUsuario.setText("Editar Usuario");
         ItemMenuEditarUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -118,6 +115,7 @@ public class TelaHome extends javax.swing.JFrame {
         jMenu4.add(ItemMenuEditarUsuario);
 
         ItemMenuBuscarUsuario.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        ItemMenuBuscarUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icons/list.png"))); // NOI18N
         ItemMenuBuscarUsuario.setText("Buscar Usuario");
         ItemMenuBuscarUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -128,6 +126,7 @@ public class TelaHome extends javax.swing.JFrame {
 
         jMenuBar2.add(jMenu4);
 
+        jMenu5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icons/doctor.png"))); // NOI18N
         jMenu5.setText("Funcionários");
         jMenu5.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
 
@@ -150,7 +149,6 @@ public class TelaHome extends javax.swing.JFrame {
         jMenu5.add(ItemMenuEditarFuncionario);
 
         ItemMenuBuscarFuncionario.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        ItemMenuBuscarFuncionario.setIcon(new javax.swing.ImageIcon("C:\\Users\\neidi\\OneDrive\\Área de Trabalho\\UTFPR\\Oficina 2\\4Life\\imagens\\icons\\list.png")); // NOI18N
         ItemMenuBuscarFuncionario.setText("Buscar Funcionário");
         ItemMenuBuscarFuncionario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -161,11 +159,11 @@ public class TelaHome extends javax.swing.JFrame {
 
         jMenuBar2.add(jMenu5);
 
+        jMenu6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icons/user_1.png"))); // NOI18N
         jMenu6.setText("Paciente");
         jMenu6.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
 
         ItemMenuCadastrarPaciente.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        ItemMenuCadastrarPaciente.setIcon(new javax.swing.ImageIcon("C:\\Users\\neidi\\OneDrive\\Área de Trabalho\\UTFPR\\Oficina 2\\4Life\\imagens\\icons\\new24.png")); // NOI18N
         ItemMenuCadastrarPaciente.setText("Cadastrar Paciente");
         ItemMenuCadastrarPaciente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -175,7 +173,6 @@ public class TelaHome extends javax.swing.JFrame {
         jMenu6.add(ItemMenuCadastrarPaciente);
 
         ItemMenuEditarPaciente.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        ItemMenuEditarPaciente.setIcon(new javax.swing.ImageIcon("C:\\Users\\neidi\\OneDrive\\Área de Trabalho\\UTFPR\\Oficina 2\\4Life\\imagens\\icons\\editar24.png")); // NOI18N
         ItemMenuEditarPaciente.setText("Editar Paciente ");
         ItemMenuEditarPaciente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -185,7 +182,6 @@ public class TelaHome extends javax.swing.JFrame {
         jMenu6.add(ItemMenuEditarPaciente);
 
         ItemMenuBuscarPaciente.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        ItemMenuBuscarPaciente.setIcon(new javax.swing.ImageIcon("C:\\Users\\neidi\\OneDrive\\Área de Trabalho\\UTFPR\\Oficina 2\\4Life\\imagens\\icons\\list.png")); // NOI18N
         ItemMenuBuscarPaciente.setText("Buscar Paciente");
         ItemMenuBuscarPaciente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -195,7 +191,6 @@ public class TelaHome extends javax.swing.JFrame {
         jMenu6.add(ItemMenuBuscarPaciente);
 
         ItemMenuRegistrarProntPaciente.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        ItemMenuRegistrarProntPaciente.setIcon(new javax.swing.ImageIcon("C:\\Users\\neidi\\OneDrive\\Área de Trabalho\\UTFPR\\Oficina 2\\4Life\\imagens\\icons\\new24.png")); // NOI18N
         ItemMenuRegistrarProntPaciente.setText("Registrar Prontuário");
         ItemMenuRegistrarProntPaciente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -205,22 +200,21 @@ public class TelaHome extends javax.swing.JFrame {
         jMenu6.add(ItemMenuRegistrarProntPaciente);
 
         ItemMenuVisualizarProntPaciente.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        ItemMenuVisualizarProntPaciente.setIcon(new javax.swing.ImageIcon("C:\\Users\\neidi\\OneDrive\\Área de Trabalho\\UTFPR\\Oficina 2\\4Life\\imagens\\icons\\check-form.png")); // NOI18N
         ItemMenuVisualizarProntPaciente.setText("Visualizar Prontuário");
         ItemMenuVisualizarProntPaciente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                
+                ItemMenuVisualizarProntPacienteActionPerformed(evt);
             }
         });
         jMenu6.add(ItemMenuVisualizarProntPaciente);
 
         jMenuBar2.add(jMenu6);
 
+        jMenu7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icons/calendar.png"))); // NOI18N
         jMenu7.setText("Agenda");
         jMenu7.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
 
         ItemMenuAgendarConsulta.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        ItemMenuAgendarConsulta.setIcon(new javax.swing.ImageIcon("C:\\Users\\neidi\\OneDrive\\Área de Trabalho\\UTFPR\\Oficina 2\\4Life\\imagens\\icons\\calendar.png")); // NOI18N
         ItemMenuAgendarConsulta.setText("Agendar Consultas");
         ItemMenuAgendarConsulta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -231,6 +225,7 @@ public class TelaHome extends javax.swing.JFrame {
 
         jMenuBar2.add(jMenu7);
 
+        MenuSair.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icons/logout.png"))); // NOI18N
         MenuSair.setText("Sair");
         MenuSair.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
 
@@ -342,7 +337,9 @@ public class TelaHome extends javax.swing.JFrame {
     private void ItemMenuRegistrarProntPacienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ItemMenuRegistrarProntPacienteActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_ItemMenuRegistrarProntPacienteActionPerformed
-
+     private void ItemMenuVisualizarProntPacienteActionPerformed(java.awt.event.ActionEvent evt) {                                                               
+        // TODO add your handling code here:
+    } 
 
     /**
      * @param args the command line arguments
@@ -397,7 +394,6 @@ public class TelaHome extends javax.swing.JFrame {
     private javax.swing.JMenuItem ItemMenuVisualizarProntPaciente;
     private javax.swing.JMenu MenuSair;
     private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenu jMenu4;
     private javax.swing.JMenu jMenu5;

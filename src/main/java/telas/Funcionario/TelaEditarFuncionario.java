@@ -61,7 +61,6 @@ public class TelaEditarFuncionario extends javax.swing.JFrame {
 
         jLabel1.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 36)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\tayna\\Google Drive\\GRADUAÇÃO\\6º Período\\Oficina de Integração 2\\4Life\\imagens\\icons\\doctor.png")); // NOI18N
         jLabel1.setText("EDITAR FUNCIONÁRIO");
 
         buttonSairFun.setBackground(new java.awt.Color(0, 51, 51));
@@ -75,10 +74,10 @@ public class TelaEditarFuncionario extends javax.swing.JFrame {
         });
 
         jPanel2.addAncestorListener(new javax.swing.event.AncestorListener() {
-            public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
-            }
             public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
                 jPanel2AncestorMoved(evt);
+            }
+            public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
             }
             public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
             }
@@ -157,7 +156,6 @@ public class TelaEditarFuncionario extends javax.swing.JFrame {
         buttonPesqFunc.setBackground(new java.awt.Color(0, 102, 52));
         buttonPesqFunc.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
         buttonPesqFunc.setForeground(new java.awt.Color(255, 255, 255));
-        buttonPesqFunc.setIcon(new javax.swing.ImageIcon("C:\\Users\\tayna\\Google Drive\\GRADUAÇÃO\\6º Período\\Oficina de Integração 2\\4Life\\imagens\\icons\\search.png")); // NOI18N
         buttonPesqFunc.setText("Pesquisar");
         buttonPesqFunc.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -254,7 +252,7 @@ public class TelaEditarFuncionario extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(0, 9, Short.MAX_VALUE)
+                .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -288,7 +286,8 @@ public class TelaEditarFuncionario extends javax.swing.JFrame {
                 .addGap(24, 24, 24))
         );
 
-        setBounds(250, 100, 696, 449);
+        setSize(new java.awt.Dimension(696, 449));
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void buttonSairFunActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonSairFunActionPerformed
