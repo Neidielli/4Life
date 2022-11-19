@@ -61,6 +61,7 @@ public class TelaEditarFuncionario extends javax.swing.JFrame {
 
         jLabel1.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 36)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(51, 51, 51));
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icons/doctor.png"))); // NOI18N
         jLabel1.setText("EDITAR FUNCIONÁRIO");
 
         buttonSairFun.setBackground(new java.awt.Color(0, 51, 51));
@@ -74,10 +75,10 @@ public class TelaEditarFuncionario extends javax.swing.JFrame {
         });
 
         jPanel2.addAncestorListener(new javax.swing.event.AncestorListener() {
+            public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
+            }
             public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
                 jPanel2AncestorMoved(evt);
-            }
-            public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
             }
             public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
             }
@@ -156,6 +157,7 @@ public class TelaEditarFuncionario extends javax.swing.JFrame {
         buttonPesqFunc.setBackground(new java.awt.Color(0, 102, 52));
         buttonPesqFunc.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
         buttonPesqFunc.setForeground(new java.awt.Color(255, 255, 255));
+        buttonPesqFunc.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icons/search.png"))); // NOI18N
         buttonPesqFunc.setText("Pesquisar");
         buttonPesqFunc.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

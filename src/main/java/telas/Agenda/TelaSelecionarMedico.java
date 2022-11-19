@@ -38,6 +38,7 @@ public class TelaSelecionarMedico extends javax.swing.JFrame {
         boxProfissional = new javax.swing.JComboBox();
         btnVisualizarAgenda = new javax.swing.JButton();
         btnVoltar = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Tela de Seleção do Profissional");
@@ -47,10 +48,10 @@ public class TelaSelecionarMedico extends javax.swing.JFrame {
 
         boxProfissional.setFont(new java.awt.Font("Segoe UI Historic", 1, 16)); // NOI18N
         boxProfissional.addAncestorListener(new javax.swing.event.AncestorListener() {
-            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
-            }
             public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
                 boxProfissionalAncestorAdded(evt);
+            }
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
             }
             public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
             }
@@ -64,6 +65,7 @@ public class TelaSelecionarMedico extends javax.swing.JFrame {
         btnVisualizarAgenda.setBackground(new java.awt.Color(204, 255, 204));
         btnVisualizarAgenda.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         btnVisualizarAgenda.setForeground(new java.awt.Color(0, 102, 52));
+        btnVisualizarAgenda.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icons/calendar.png"))); // NOI18N
         btnVisualizarAgenda.setText("Visualizar Agenda");
         btnVisualizarAgenda.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -73,11 +75,15 @@ public class TelaSelecionarMedico extends javax.swing.JFrame {
 
         btnVoltar.setBackground(new java.awt.Color(204, 204, 204));
         btnVoltar.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        btnVoltar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icons/house-black-building-shape.png"))); // NOI18N
         btnVoltar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnVoltarActionPerformed(evt);
             }
         });
+
+        jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icons/icon doutor.png"))); // NOI18N
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -85,41 +91,49 @@ public class TelaSelecionarMedico extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel1)
-                .addGap(242, 242, 242)
-                .addComponent(btnVoltar)
-                .addGap(23, 23, 23))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(0, 93, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel2)
-                        .addGap(188, 188, 188))
+                        .addComponent(jLabel1)
+                        .addGap(295, 295, 295))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(boxProfissional, javax.swing.GroupLayout.PREFERRED_SIZE, 386, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(137, 137, 137))))
+                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(187, 187, 187)
+                        .addComponent(btnVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(24, 24, 24))))
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(188, 188, 188)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(104, 104, 104)
+                        .addComponent(boxProfissional, javax.swing.GroupLayout.PREFERRED_SIZE, 386, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(154, 154, 154)
+                        .addComponent(jLabel2)))
+                .addContainerGap(126, Short.MAX_VALUE))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(189, 189, 189)
                 .addComponent(btnVisualizarAgenda)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addComponent(jLabel1)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(btnVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(58, 58, 58))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
+                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addGap(91, 91, 91)))
+                        .addGap(8, 8, 8)
+                        .addComponent(btnVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(50, 50, 50)
+                .addGap(37, 37, 37)
                 .addComponent(boxProfissional, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(84, 84, 84)
+                .addGap(64, 64, 64)
                 .addComponent(btnVisualizarAgenda, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(116, Short.MAX_VALUE))
+                .addContainerGap(125, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -212,6 +226,7 @@ public class TelaSelecionarMedico extends javax.swing.JFrame {
     private javax.swing.JButton btnVoltar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }

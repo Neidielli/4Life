@@ -186,7 +186,7 @@ public class TelaNovoAgendamento extends javax.swing.JFrame {
 
         agendamentoCons.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 36)); // NOI18N
         agendamentoCons.setForeground(new java.awt.Color(51, 51, 51));
-        agendamentoCons.setIcon(new javax.swing.ImageIcon("C:\\Users\\tayna\\Google Drive\\GRADUAÇÃO\\6º Período\\Oficina de Integração 2\\4Life\\imagens\\icons\\calendar.png")); // NOI18N
+        agendamentoCons.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icons/calendar.png"))); // NOI18N
         agendamentoCons.setText("AGENDAMENTO DE CONSULTA");
         agendamentoCons.setIconTextGap(5);
 
@@ -195,7 +195,7 @@ public class TelaNovoAgendamento extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(18, 18, 18)
+                .addContainerGap()
                 .addComponent(agendamentoCons)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnSair, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)

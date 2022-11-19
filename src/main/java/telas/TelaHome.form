@@ -109,6 +109,9 @@
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Tahoma" size="18" style="1"/>
                 </Property>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/imagens/icons/new24.png"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Cadastrar Funcion&#xe1;rio"/>
               </Properties>
               <Events>
@@ -120,6 +123,9 @@
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Tahoma" size="18" style="1"/>
                 </Property>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/imagens/icons/editar24.png"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Editar Funcion&#xe1;rio"/>
               </Properties>
               <Events>
@@ -130,6 +136,9 @@
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Tahoma" size="18" style="1"/>
+                </Property>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/imagens/icons/list.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Buscar Funcion&#xe1;rio"/>
               </Properties>
@@ -155,6 +164,9 @@
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Tahoma" size="18" style="1"/>
                 </Property>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/imagens/icons/new24.png"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Cadastrar Paciente"/>
               </Properties>
               <Events>
@@ -165,6 +177,9 @@
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Tahoma" size="18" style="1"/>
+                </Property>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/imagens/icons/editar24.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Editar Paciente "/>
               </Properties>
@@ -177,6 +192,9 @@
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Tahoma" size="18" style="1"/>
                 </Property>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/imagens/icons/list.png"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Buscar Paciente"/>
               </Properties>
               <Events>
@@ -188,6 +206,9 @@
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Tahoma" size="18" style="1"/>
                 </Property>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/imagens/icons/new24.png"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Registrar Prontu&#xe1;rio"/>
               </Properties>
               <Events>
@@ -198,6 +219,9 @@
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Tahoma" size="18" style="1"/>
+                </Property>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/imagens/icons/check-form.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Visualizar Prontu&#xe1;rio"/>
               </Properties>
@@ -223,6 +247,9 @@
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Tahoma" size="18" style="1"/>
                 </Property>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/imagens/icons/calendar.png"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Agendar Consultas"/>
               </Properties>
               <Events>
@@ -247,6 +274,9 @@
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Tahoma" size="18" style="1"/>
                 </Property>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/imagens/icons/sair.png"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Sair e Fechar sistema"/>
               </Properties>
               <Events>
@@ -257,6 +287,9 @@
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Tahoma" size="18" style="1"/>
+                </Property>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/imagens/icons/login.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Sair e Entrar com outro Usuario"/>
               </Properties>
@@ -271,6 +304,7 @@
   </NonVisualComponents>
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="3"/>
+    <Property name="title" type="java.lang.String" value="Home"/>
     <Property name="name" type="java.lang.String" value="Home" noResource="true"/>
     <Property name="resizable" type="boolean" value="false"/>
   </Properties>
@@ -294,7 +328,7 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="jPanel1" alignment="0" pref="2674" max="32767" attributes="0"/>
+          <Component id="jPanel1" alignment="1" pref="2674" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
@@ -321,15 +355,32 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <EmptySpace min="0" pref="2674" max="32767" attributes="0"/>
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace min="-2" pref="328" max="-2" attributes="0"/>
+                  <Component id="jLabel1" min="-2" pref="696" max="-2" attributes="0"/>
+                  <EmptySpace pref="1650" max="32767" attributes="0"/>
+              </Group>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
-              <EmptySpace min="0" pref="993" max="32767" attributes="0"/>
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace min="-2" pref="184" max="-2" attributes="0"/>
+                  <Component id="jLabel1" min="-2" pref="223" max="-2" attributes="0"/>
+                  <EmptySpace pref="586" max="32767" attributes="0"/>
+              </Group>
           </Group>
         </DimensionLayout>
       </Layout>
+      <SubComponents>
+        <Component class="javax.swing.JLabel" name="jLabel1">
+          <Properties>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/imagens/icons/home.png"/>
+            </Property>
+          </Properties>
+        </Component>
+      </SubComponents>
     </Container>
   </SubComponents>
 </Form>

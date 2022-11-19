@@ -74,6 +74,7 @@ public class TelaBuscarFuncionario extends javax.swing.JFrame {
 
         buscaFunc.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 36)); // NOI18N
         buscaFunc.setForeground(new java.awt.Color(51, 51, 51));
+        buscaFunc.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icons/doctor.png"))); // NOI18N
         buscaFunc.setText("BUSCAR FUNCIONÁRIO");
         buscaFunc.setIconTextGap(5);
 

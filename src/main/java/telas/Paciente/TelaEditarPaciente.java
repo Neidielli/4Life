@@ -81,7 +81,7 @@ public class TelaEditarPaciente extends javax.swing.JFrame {
 
         edicaoPac.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 36)); // NOI18N
         edicaoPac.setForeground(new java.awt.Color(51, 51, 51));
-        edicaoPac.setIcon(new javax.swing.ImageIcon("C:\\Users\\tayna\\Google Drive\\GRADUAÇÃO\\6º Período\\Oficina de Integração 2\\4Life\\imagens\\icons\\team.png")); // NOI18N
+        edicaoPac.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icons/team.png"))); // NOI18N
         edicaoPac.setText("EDITAR PACIENTE");
         edicaoPac.setIconTextGap(5);
 
@@ -187,7 +187,7 @@ public class TelaEditarPaciente extends javax.swing.JFrame {
         buttonPesquisarPac.setBackground(new java.awt.Color(0, 102, 52));
         buttonPesquisarPac.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
         buttonPesquisarPac.setForeground(new java.awt.Color(255, 255, 255));
-        buttonPesquisarPac.setIcon(new javax.swing.ImageIcon("C:\\Users\\tayna\\Google Drive\\GRADUAÇÃO\\6º Período\\Oficina de Integração 2\\4Life\\imagens\\icons\\search.png")); // NOI18N
+        buttonPesquisarPac.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icons/search.png"))); // NOI18N
         buttonPesquisarPac.setText("Pesquisar");
         buttonPesquisarPac.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

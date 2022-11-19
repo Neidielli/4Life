@@ -59,6 +59,7 @@ public class TelaEditarUsuario extends javax.swing.JFrame {
 
         cadastroUser.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 36)); // NOI18N
         cadastroUser.setForeground(new java.awt.Color(51, 51, 51));
+        cadastroUser.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icons/user_1.png"))); // NOI18N
         cadastroUser.setText("EDITAR USUÁRIO");
         cadastroUser.setIconTextGap(5);
 
@@ -126,6 +127,7 @@ public class TelaEditarUsuario extends javax.swing.JFrame {
         buttonPesquisarUser.setBackground(new java.awt.Color(0, 102, 52));
         buttonPesquisarUser.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
         buttonPesquisarUser.setForeground(new java.awt.Color(255, 255, 255));
+        buttonPesquisarUser.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icons/search.png"))); // NOI18N
         buttonPesquisarUser.setText("Pesquisar");
         buttonPesquisarUser.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

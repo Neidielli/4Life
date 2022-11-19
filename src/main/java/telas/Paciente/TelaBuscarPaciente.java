@@ -77,6 +77,7 @@ public class TelaBuscarPaciente extends javax.swing.JFrame {
 
         tituloPag.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 36)); // NOI18N
         tituloPag.setForeground(new java.awt.Color(51, 51, 51));
+        tituloPag.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icons/team.png"))); // NOI18N
         tituloPag.setText("BUSCAR PACIENTE");
         tituloPag.setIconTextGap(5);
 

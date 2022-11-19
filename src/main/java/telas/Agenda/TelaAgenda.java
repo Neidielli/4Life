@@ -71,6 +71,7 @@ public class TelaAgenda extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Tela de Agendamento");
         setSize(new java.awt.Dimension(974, 990));
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowActivated(java.awt.event.WindowEvent evt) {
@@ -112,8 +113,9 @@ public class TelaAgenda extends javax.swing.JFrame {
         jLayeredPane1.add(jLayeredPane2);
         jLayeredPane2.setBounds(470, 20, 490, 230);
 
-        btnAgendar.setBackground(new java.awt.Color(76, 159, 56));
+        btnAgendar.setBackground(new java.awt.Color(0, 102, 52));
         btnAgendar.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        btnAgendar.setForeground(new java.awt.Color(255, 255, 255));
         btnAgendar.setText("Agendar Consulta");
         btnAgendar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -143,7 +145,7 @@ public class TelaAgenda extends javax.swing.JFrame {
             }
         });
         jLayeredPane1.add(textNomeMedico);
-        textNomeMedico.setBounds(210, 40, 240, 30);
+        textNomeMedico.setBounds(200, 40, 250, 28);
 
         tabelaConsultas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -171,21 +173,24 @@ public class TelaAgenda extends javax.swing.JFrame {
         jScrollPane1.setBounds(30, 360, 920, 550);
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icons/doctor.png"))); // NOI18N
         jLabel1.setText("Profissional:");
         jLayeredPane1.add(jLabel1);
-        jLabel1.setBounds(50, 40, 130, 30);
+        jLabel1.setBounds(50, 40, 140, 30);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jLayeredPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 974, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jLayeredPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 961, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 19, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLayeredPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 990, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addComponent(jLayeredPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 990, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         pack();

@@ -54,6 +54,7 @@ public class TelaCadastrarUsuario extends javax.swing.JFrame {
 
         cadastroUser.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 36)); // NOI18N
         cadastroUser.setForeground(new java.awt.Color(51, 51, 51));
+        cadastroUser.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icons/user_1.png"))); // NOI18N
         cadastroUser.setText("CADASTRAR USUÁRIO");
         cadastroUser.setIconTextGap(5);
 

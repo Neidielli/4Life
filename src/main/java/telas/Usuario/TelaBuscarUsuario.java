@@ -75,6 +75,7 @@ public class TelaBuscarUsuario extends javax.swing.JFrame {
 
         buscaUser.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 36)); // NOI18N
         buscaUser.setForeground(new java.awt.Color(51, 51, 51));
+        buscaUser.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icons/user_1.png"))); // NOI18N
         buscaUser.setText("BUSCAR USUÁRIO");
         buscaUser.setIconTextGap(5);
 
