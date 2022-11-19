@@ -57,7 +57,6 @@ public class AgendaDAO {
 //            select * from consultas where idProfissional = 2 and data_hora = '2022-11-15' and hora = "08:30";
             PreparedStatement stmtSelect = connection.prepareStatement(sqlSelect);
             
-            System.out.println(agenda.getFuncionario());
             // o resultado do select será guardado dentro do obj resultSet
             ResultSet rs = stmtSelect.executeQuery();
             
@@ -65,7 +64,6 @@ public class AgendaDAO {
                 if(rs.next()) {
                     JOptionPane.showMessageDialog(null, "Horário Indisponível",
                         "ERRO!", JOptionPane.ERROR_MESSAGE);
-                    System.out.println("entrooou");
                     return false;
                 } else {
                     String sql = "INSERT INTO consultas(procedimento,idPaciente,idProfissional,data_hora,tipo_consulta,hora) VALUES(?,?,?,?,?,?)";
@@ -87,7 +85,6 @@ public class AgendaDAO {
                     pdstmt.execute();
                     pdstmt.close();
 
-                    System.out.println("entrooou tambeem");
                     return true;
                 }
             
@@ -111,7 +108,7 @@ public class AgendaDAO {
             "WHERE f.nome ='" + TelaAgenda.textNomeMedico.getText() + "'" +
                     "and c.data_hora = '" + sqlDate + "'";
             
-            System.out.println(sql);
+//            System.out.println(sql);
             
             PreparedStatement stmt = connection.prepareStatement(sql);
             
@@ -147,7 +144,7 @@ public class AgendaDAO {
     }
     
     public void deletar(Agenda agenda) {
-        String sql = "delete from consultas where id_Consultas=?";
+        String sql = "delete from consultas where id_Consulta=?";
         try {
             PreparedStatement stmt = connection.prepareStatement(sql);
 

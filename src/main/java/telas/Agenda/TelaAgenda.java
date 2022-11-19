@@ -7,6 +7,7 @@ package telas.Agenda;
 
 import DAO.AgendaDAO;
 import java.util.List;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import model.Agenda;
 import model.Funcionario;
@@ -64,11 +65,11 @@ public class TelaAgenda extends javax.swing.JFrame {
         jLayeredPane2 = new javax.swing.JLayeredPane();
         calendarConsulta = new com.toedter.calendar.JCalendar();
         btnAgendar = new javax.swing.JButton();
-        btnVoltar = new javax.swing.JButton();
         textNomeMedico = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         tabelaConsultas = new javax.swing.JTable();
-        jLabel1 = new javax.swing.JLabel();
+        btnProfissional = new javax.swing.JButton();
+        btnExcluirConsulta = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Tela de Agendamento");
@@ -111,11 +112,12 @@ public class TelaAgenda extends javax.swing.JFrame {
         );
 
         jLayeredPane1.add(jLayeredPane2);
-        jLayeredPane2.setBounds(470, 20, 490, 230);
+        jLayeredPane2.setBounds(480, 20, 490, 230);
 
         btnAgendar.setBackground(new java.awt.Color(0, 102, 52));
-        btnAgendar.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        btnAgendar.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         btnAgendar.setForeground(new java.awt.Color(255, 255, 255));
+        btnAgendar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icons/plus-black-symbol.png"))); // NOI18N
         btnAgendar.setText("Agendar Consulta");
         btnAgendar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -123,21 +125,10 @@ public class TelaAgenda extends javax.swing.JFrame {
             }
         });
         jLayeredPane1.add(btnAgendar);
-        btnAgendar.setBounds(210, 190, 240, 60);
-
-        btnVoltar.setBackground(new java.awt.Color(204, 204, 204));
-        btnVoltar.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        btnVoltar.setText("Voltar");
-        btnVoltar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnVoltarActionPerformed(evt);
-            }
-        });
-        jLayeredPane1.add(btnVoltar);
-        btnVoltar.setBounds(50, 190, 130, 60);
+        btnAgendar.setBounds(230, 190, 240, 50);
 
         textNomeMedico.setEditable(false);
-        textNomeMedico.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        textNomeMedico.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         textNomeMedico.setOpaque(true);
         textNomeMedico.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -145,7 +136,7 @@ public class TelaAgenda extends javax.swing.JFrame {
             }
         });
         jLayeredPane1.add(textNomeMedico);
-        textNomeMedico.setBounds(200, 40, 250, 28);
+        textNomeMedico.setBounds(230, 30, 240, 50);
 
         tabelaConsultas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -172,19 +163,37 @@ public class TelaAgenda extends javax.swing.JFrame {
         jLayeredPane1.add(jScrollPane1);
         jScrollPane1.setBounds(30, 360, 920, 550);
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icons/doctor.png"))); // NOI18N
-        jLabel1.setText("Profissional:");
-        jLayeredPane1.add(jLabel1);
-        jLabel1.setBounds(50, 40, 140, 30);
+        btnProfissional.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        btnProfissional.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icons/doctor.png"))); // NOI18N
+        btnProfissional.setText("Profissional");
+        btnProfissional.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnProfissionalActionPerformed(evt);
+            }
+        });
+        jLayeredPane1.add(btnProfissional);
+        btnProfissional.setBounds(20, 30, 200, 50);
+
+        btnExcluirConsulta.setBackground(new java.awt.Color(211, 0, 0));
+        btnExcluirConsulta.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        btnExcluirConsulta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icons/trash.png"))); // NOI18N
+        btnExcluirConsulta.setText("Excluir Consulta");
+        btnExcluirConsulta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnExcluirConsultaActionPerformed(evt);
+            }
+        });
+        jLayeredPane1.add(btnExcluirConsulta);
+        btnExcluirConsulta.setBounds(20, 190, 200, 50);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jLayeredPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 961, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 19, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLayeredPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 968, Short.MAX_VALUE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -196,13 +205,6 @@ public class TelaAgenda extends javax.swing.JFrame {
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-
-    private void btnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarActionPerformed
-        this.dispose(); // fecha tela atual 
-        
-        TelaSelecionarMedico telaSelecao = new TelaSelecionarMedico();
-        telaSelecao.setVisible(true);
-    }//GEN-LAST:event_btnVoltarActionPerformed
 
     private void textNomeMedicoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textNomeMedicoActionPerformed
         // TODO add your handling code here:
@@ -220,6 +222,29 @@ public class TelaAgenda extends javax.swing.JFrame {
     private void calendarConsultaPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_calendarConsultaPropertyChange
         Listar();
     }//GEN-LAST:event_calendarConsultaPropertyChange
+
+    private void btnProfissionalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProfissionalActionPerformed
+        this.dispose(); // fecha tela atual 
+        
+        TelaSelecionarMedico telaSelecao = new TelaSelecionarMedico();
+        telaSelecao.setVisible(true);
+    }//GEN-LAST:event_btnProfissionalActionPerformed
+
+    private void btnExcluirConsultaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirConsultaActionPerformed
+        int confirma = JOptionPane.showConfirmDialog(null, "Tem certeza de que deseja excluir usuário?", "CONFIRMAÇÃO DE EXCLUSÃO", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+
+        if(confirma == JOptionPane.YES_OPTION){
+            if(tabelaConsultas.getSelectedRow() != -1){
+                Agenda agenda = new Agenda();
+                AgendaDAO dao = new AgendaDAO();
+
+                agenda.setId_Consulta((int) tabelaConsultas.getValueAt(tabelaConsultas.getSelectedRow(), 0));
+                dao.deletar(agenda);
+            }else{
+                JOptionPane.showMessageDialog(null, "Selecione um usuário para excluir!");
+            }
+        }
+    }//GEN-LAST:event_btnExcluirConsultaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -259,9 +284,9 @@ public class TelaAgenda extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAgendar;
-    private javax.swing.JButton btnVoltar;
+    private javax.swing.JButton btnExcluirConsulta;
+    private javax.swing.JButton btnProfissional;
     public static com.toedter.calendar.JCalendar calendarConsulta;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLayeredPane jLayeredPane1;
     private javax.swing.JLayeredPane jLayeredPane2;
     private javax.swing.JScrollPane jScrollPane1;
