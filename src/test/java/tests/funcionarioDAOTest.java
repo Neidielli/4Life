@@ -51,51 +51,31 @@ public class funcionarioDAOTest {
     /**
      * Test of cadastrar method, of class FuncionarioDAO.
      */
-//    @Test
-//    public void testAdicionarFunionario() throws SQLException {
-//        FuncionarioDAO funcionario = new FuncionarioDAO();
-//        
-////        int id = 1;
-//        String nome = "maria";
-//        String cpf = "12345678912";
-//        String tipo_Func = "test@.com";
-//        String telefone = "35422124";
-//        String senha= "parana";
-//        
-//        
-//        Funcionario FuncionarioVerdadeiro1 = new Funcionario();
-//        
-//        FuncionarioVerdadeiro1.setNome(nome);
-//        FuncionarioVerdadeiro1.setCpf(cpf);
-//        FuncionarioVerdadeiro1.setEmail(email);
-//        FuncionarioVerdadeiro1.setTelefone(telefone);
-//        FuncionarioVerdadeiro1.setSenha(senha);
-//        
-//        /*executa cadastro com dados corretos*/
-//        assertEquals(true, funcionario.cadastrar(FuncionarioVerdadeiro1));
-//        
-//        /* cadastro efetuado*/
-//        String select = "select * from usuario where nome=? and cpf=? and email=? and telefone=? and senha=?";
-//        PreparedStatement stmt = connection.prepareStatement(select);
-//        
-//        stmt.setString(1, nome);
-//        stmt.setString(2, cpf);
-//        stmt.setString(3, email);
-//        stmt.setString(4, telefone);
-//        stmt.setString(5, senha);
-//       
-//        
-//        ResultSet rs = stmt.executeQuery();
-//        rs.next();
-//
-//        /*realiza asserções confirmando que os dados foram adicionados ao banco corretamente*/
-//        assertEquals(nome, rs.getString("nome"));
-//        assertEquals(cpf, rs.getString("cpf"));
-//        assertEquals(email, rs.getString("email"));
-//        assertEquals(telefone, rs.getString("telefone"));
-//        assertEquals(senha, rs.getString("senha"));
-//        
-//    }
+    @Test
+    public void testAdicionarFunionario() throws SQLException {
+        FuncionarioDAO funcionario = new FuncionarioDAO();
+        
+//        int id = 1;
+        String nome = "Mariana";
+        String CPF = "12345678912";
+        String tipo_func = "enfermeiro";
+        String telefone = "enfermeiramaria@test.com";
+        String email = "enfermeiramaria@test.com";
+        String especialidade = "gerente";
+        
+        
+        Funcionario FuncionarioVerdadeiro1 = new Funcionario();
+        
+        FuncionarioVerdadeiro1.setNome(nome);
+        FuncionarioVerdadeiro1.setCPF(CPF);
+        FuncionarioVerdadeiro1.setTipo_func(tipo_func);
+        FuncionarioVerdadeiro1.setTelefone(telefone);
+        FuncionarioVerdadeiro1.setEmail(email);
+        FuncionarioVerdadeiro1.setEspecialidade(especialidade);
+        
+        /*executa cadastro com dados corretos*/
+        assertEquals(true, funcionario.cadastrar(FuncionarioVerdadeiro1));
+    }
 
     /**
      * Test of listaFunc method, of class FuncionarioDAO.
@@ -178,8 +158,6 @@ public class funcionarioDAOTest {
         boolean expResult = false;
         boolean result = instance.deletar(func);
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-//        fail("The test case is a prototype.");
     }
     
 }

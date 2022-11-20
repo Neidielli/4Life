@@ -54,11 +54,11 @@ public class UsuarioDAOTest {
          UsuarioDAO usuario = new UsuarioDAO();
         
 //        int id="";
-        String nome = "Mariana";
-        String cpf ="000.000.000-18"; // cpf é um varchar(15)
-        String email = "mari@gmail.com"; 
-        String telefone = "(41)90000-0000";
-        String senha = "marimari"; 
+        String nome = "Neid";
+        String cpf ="010.020.030-04"; // cpf é um varchar(15)
+        String email = "mariNeid@gmail.com"; 
+        String telefone = "(41)90005-0000";
+        String senha = "marimari";
         
         Usuario usuarioVerdadeiro1 = new Usuario();
         
@@ -69,39 +69,18 @@ public class UsuarioDAOTest {
         usuarioVerdadeiro1.setSenha(senha);
                 
         /*executa cadastro com dados corretos*/
-        assertEquals(true, usuario.cadastrar(usuarioVerdadeiro1));
-        
-        /*consulta cadastro efetuado*/
-        String select = "select * from usuario where nome=? and numero=? and cpf=? and email=? and telefone=? and senha=?";
-        PreparedStatement stmt = connection.prepareStatement(select);
-        
-        stmt.setString(1, nome);
-        stmt.setString(2, cpf);
-        stmt.setString(3, email);
-        stmt.setString(4, telefone);
-        stmt.setString(5, senha);
-        
-        ResultSet rs = stmt.executeQuery();
-        rs.next();
-
-        /*realiza asserções confirmando que os dados foram adicionados ao banco corretamente*/
-        assertEquals(nome, rs.getString("nome"));
-        assertEquals(cpf, rs.getString("cpf"));
-        assertEquals(email, rs.getString("email"));
-        assertEquals(telefone, rs.getString("telefone"));
-        assertEquals(senha, rs.getString("senha"));
-        
+        assertEquals(true, usuario.cadastrar(usuarioVerdadeiro1));       
     }
     @Test
-    public void testAdicionarlFalso() throws SQLException {
+    public void testAdicionarExistente() throws SQLException {
         UsuarioDAO usuario = new UsuarioDAO();
         
 //        int id="";
-        String nome = "";
-        String cpf ="000.000.000.000-18"; // cpf é um varchar(15)
-        String email = ""; 
-        String telefone = "";
-        String senha = ""; 
+        String nome = "Neid";
+        String cpf ="010.020.030-04"; // cpf é um varchar(15)
+        String email = "mariNeid@gmail.com"; 
+        String telefone = "(41)90005-0000";
+        String senha = "marimari"; 
         
         Usuario usuarioFalso1 = new Usuario();
         
@@ -111,25 +90,9 @@ public class UsuarioDAOTest {
         usuarioFalso1.setTelefone(telefone);
         usuarioFalso1.setSenha(senha);
                 
-        /*executa cadastro com dados incorretos*/
-        assertEquals(false, usuario.cadastrar(usuarioFalso1));
-        
-        /*consulta cadastro efetuado*/
-        String select = "select * from usuario where nome=? and numero=? and cpf=? and email=? and telefone=? and senha=? ";
-        PreparedStatement stmt = connection.prepareStatement(select);
-        
-        stmt.setString(1, nome);
-        stmt.setString(2, cpf);
-        stmt.setString(3, email);
-        stmt.setString(4, telefone);
-        stmt.setString(5, senha);
-        
-        ResultSet rs = stmt.executeQuery();
-        rs.next();
-
-        /*realiza asserção confirmando que o resultset é vazio e o cadastro não foi efetuado*/
-        assertFalse(rs.next());
-        
+        /*executa cadastro com usuário existente - esperara que tenha usuario*/ 
+        assertEquals(true, usuario.cadastrar(usuarioFalso1));
+    
     }
     /**
      * Test of listarUsuarios method, of class UsuarioDAO.

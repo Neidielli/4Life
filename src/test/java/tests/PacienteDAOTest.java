@@ -5,8 +5,12 @@
 package tests;
 
 import DAO.PacienteDAO;
+import factory.ConnectionFactory;
+import java.sql.Connection;
+import java.util.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import model.Paciente;
@@ -23,6 +27,8 @@ import static org.junit.jupiter.api.Assertions.*;
  */
 public class PacienteDAOTest {
     
+    private Connection connection;
+    
     public PacienteDAOTest() {
     }
     
@@ -35,7 +41,8 @@ public class PacienteDAOTest {
     }
     
     @BeforeEach
-    public void setUp() {
+    public void bf() throws SQLException{
+        this.connection = new ConnectionFactory().getConnection();
     }
     
     @AfterEach
@@ -45,45 +52,87 @@ public class PacienteDAOTest {
     /**
      * Test of cadastrar method, of class PacienteDAO.
      */
-//    @Test
-//    public void testAdicionarPaciente1() throws SQLException {
-//        PacienteDAO pacienteDAO = new PacienteDAO();
-//        
-////        int id = 0; id no banco é incremental
-//        String nome = "maria";
-//        String cpf = "123.456.789-12";
-//        String email = "test@.com";
-//        String telefone = "(55)93542-2124";
-//        String senha= "parana";
-//        
-//        
-//        Paciente paciente = new Paciente(nome,cpf,email,telefone,senha);
-//        
-//        /*executa cadastro com dados corretos*/
-//        assertEquals(true, pacienteDAO.cadastrar(paciente));
-//        
-//        /* cadastro efetuado*/
-//        String select = "select * from paciente where nome=? and cpf=? and email=? and telefone=? and senha=?";
-//        PreparedStatement stmt = connection.prepareStatement(select);
-//        
-//        stmt.setString(1, nome);
-//        stmt.setString(2, cpf);
-//        stmt.setString(3, email);
-//        stmt.setString(4, telefone);
-//        stmt.setString(5, senha);
-//       
-//        
-//        ResultSet rs = stmt.executeQuery();
-//        rs.next();
-//
-//        /*realiza asserções confirmando que os dados foram adicionados ao banco corretamente*/
-//        assertEquals(nome, rs.getString("nome"));
-//        assertEquals(cpf, rs.getString("cpf"));
-//        assertEquals(email, rs.getString("email"));
-//        assertEquals(telefone, rs.getString("telefone"));
-//        assertEquals(senha, rs.getString("senha"));
-//        
-//    }
+    @Test
+    public void testAdicionarPaciente1() throws SQLException {
+        PacienteDAO pacienteDAO = new PacienteDAO();
+        Paciente paciente = new Paciente();
+        Date nascimento = new Date(1978-11-12); // atribui uma data para o obj date
+        
+//        int id = 0; id no banco é incremental
+        String nome = "maria";
+        String cpf = "123.456.789-12";
+        String email = "test@.com";
+        String telefone = "(55)93542-2124";
+        Date data_nascimento = nascimento;
+        String cep = "86300-000";
+        String rua = "Zero";
+        String bairro = "Centro";
+        String cidade = "Curitiba";
+        String estado = "Paraná";
+        int num_endereco = 98;
+        
+        
+        Paciente pacienteVerdadeiro1 = new Paciente();
+        
+        pacienteVerdadeiro1.setNome(nome);
+        pacienteVerdadeiro1.setCpf(cpf);
+        pacienteVerdadeiro1.setEmail(email);
+        pacienteVerdadeiro1.setTelefone(telefone);
+        pacienteVerdadeiro1.setData_nascimento(data_nascimento);
+        pacienteVerdadeiro1.setCep(cep);
+        pacienteVerdadeiro1.setRua(rua);
+        pacienteVerdadeiro1.setBairro(bairro);
+        pacienteVerdadeiro1.setCidade(cidade);
+        pacienteVerdadeiro1.setEstado(estado);
+        pacienteVerdadeiro1.setNum_endereco(num_endereco);
+        
+        
+        /*executa cadastro com dados corretos*/
+        assertEquals(true, pacienteDAO.cadastrar(pacienteVerdadeiro1));        
+    }
+    
+    /**
+     * Test of cadastrar method, of class PacienteDAO.
+     */
+    @Test
+    public void testAdicionarPacienteFalso() throws SQLException {
+        PacienteDAO pacienteDAO = new PacienteDAO();
+        Paciente paciente = new Paciente();
+        Date nascimento = new Date(1978-11-10); // atribui uma data para o obj date
+        
+//        int id = 0; id no banco é incremental
+        String nome = "maria";
+        String cpf = "123.456.789-12";
+        String email = null; // Email não pode ser nulo
+        String telefone = "(55)93542-2124";
+        Date data_nascimento = nascimento;
+        String cep = "86300-000";
+        String rua = "Zero";
+        String bairro = "Centro";
+        String cidade = "Curitiba";
+        String estado = "Paraná";
+        int num_endereco = 98;
+        
+        
+        Paciente pacienteFalso = new Paciente();
+        
+        pacienteFalso.setNome(nome);
+        pacienteFalso.setCpf(cpf);
+        pacienteFalso.setEmail(email);
+        pacienteFalso.setTelefone(telefone);
+        pacienteFalso.setData_nascimento(data_nascimento);
+        pacienteFalso.setCep(cep);
+        pacienteFalso.setRua(rua);
+        pacienteFalso.setBairro(bairro);
+        pacienteFalso.setCidade(cidade);
+        pacienteFalso.setEstado(estado);
+        pacienteFalso.setNum_endereco(num_endereco);
+        
+        
+        /*executa cadastro com dados corretos*/
+        assertEquals(false, pacienteDAO.cadastrar(pacienteFalso));
+        
+    }
 
     /**
      * Test of listaPac method, of class PacienteDAO.
@@ -95,8 +144,6 @@ public class PacienteDAOTest {
         List<Paciente> expResult = null;
         List<Paciente> result = instance.listaPac();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-//        fail("The test case is a prototype.");
     }
 
     /**
@@ -158,23 +205,5 @@ public class PacienteDAOTest {
             boolean expResult = false;
             boolean result = instance.deletar(paciente);
             assertEquals(expResult, result);
-            // TODO review the generated test code and remove the default call to fail.
-    //        fail("The test case is a prototype.");
         }
-   
-
-    /**
-     * Test of listaPaciente method, of class PacienteDAO.
-     */
-    @Test
-    public void testListaPaciente() {
-        PacienteDAO id = new PacienteDAO();
-        List<Paciente> lista = new ArrayList<Paciente>();
-        
-        
-        lista = id.listaPac();
-        
-        assertNotEquals(0, lista.size());
-    }
-    
 }
