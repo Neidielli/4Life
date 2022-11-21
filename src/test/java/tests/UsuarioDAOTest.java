@@ -4,14 +4,14 @@
  */
 package tests;
 
-import DAO.UsuarioDAO;
 import factory.ConnectionFactory;
 import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
+
 import model.Usuario;
+import DAO.UsuarioDAO;
+
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeEach;
@@ -41,6 +41,11 @@ public class UsuarioDAOTest {
     @BeforeEach
     public void bf() throws SQLException{
         this.connection = new ConnectionFactory().getConnection();
+
+/*======= Garante que o banco de dados estará limpo antes de realizar os testes =======*/         
+//        String delete = "delete from usuario";
+//        PreparedStatement stmt = connection.prepareStatement(delete);
+//        stmt.executeUpdate(delete); // DEPOIS QUE TIVER BANCO SOMENTE PRA TESTES
     }
     
     @AfterEach
@@ -216,57 +221,6 @@ public class UsuarioDAOTest {
 //        assertEquals(telefone, rs.getString("telefone"));
 //        assertEquals(senha, rs.getString("senha"));
 //        
-//    }
-//    /**
-//     * Test of excluir method, of class UsuarioDAO.
-//    */
-//        @Test
-//        public void testexcluir1Verdadeiro1() {
-//        
-//        // Com deletar usuario existente
-//        System.out.println("excluir existente 1");
-//        String email = "neidielli@teste.com";
-//        String senha = "senhateste";
-//        UsuarioDAO instance =new UsuarioDAO();
-//        boolean expResult = true;
-//        boolean result = instance.deletar(email, senha);
-//        assertEquals(expResult, result);
-//    }    
-//    @Test
-//    public void testexcluir1Verdadeiro2() {
-//        
-//        // Com deletar usuario existente
-//        System.out.println("excluir existente 2");
-//        String email = "neidielli@teste.com";
-//        String senha = "senhateste";
-//        UsuarioDAO instance =new UsuarioDAO();
-//        boolean expResult = true;
-//        boolean result = instance.deletar(email, senha);
-//        assertEquals(expResult, result);
-//    } 
-//    @Test
-//    public void testexcluir1falso1() {
-//        
-//        // Com deletar usuario falso
-//        System.out.println("excluir falso 1");
-//        String email = "neidielli@teste.com";
-//        String senha = "senhateste";
-//        UsuarioDAO instance =new UsuarioDAO();
-//        boolean expResult = false;
-//        boolean result = instance.deletar(email, senha);
-//        assertEquals(expResult, result);
-//    }    
-//    @Test
-//    public void testexcluir1Falso2() {
-//        
-//        // Com deletar usuario falso
-//        System.out.println("excluir falso 2");
-//        String email = "neidielli@teste.com";
-//        String senha = "senhateste";
-//        UsuarioDAO instance =new UsuarioDAO();
-//        boolean expResult = false;
-//        boolean result = instance.deletar(email, senha);
-//        assertEquals(expResult, result);
 //    }
     /**
      * Test of login method, of class UsuarioDAO.

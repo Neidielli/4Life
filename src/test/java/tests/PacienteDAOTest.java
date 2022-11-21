@@ -4,15 +4,15 @@
  */
 package tests;
 
-import DAO.PacienteDAO;
 import factory.ConnectionFactory;
 import java.sql.Connection;
 import java.util.Date;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
+
 import model.Paciente;
+import DAO.PacienteDAO;
+
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeEach;
@@ -42,6 +42,11 @@ public class PacienteDAOTest {
     @BeforeEach
     public void bf() throws SQLException{
         this.connection = new ConnectionFactory().getConnection();
+
+/*======= Garante que o banco de dados estará limpo antes de realizar os testes =======*/         
+//        String delete = "delete from paciente";
+//        PreparedStatement stmt = connection.prepareStatement(delete);
+//        stmt.executeUpdate(delete); // DEPOIS QUE TIVER BANCO SOMENTE PRA TESTES
     }
     
     @AfterEach
@@ -215,17 +220,4 @@ public class PacienteDAOTest {
         /*executa edição*/
 //        assertEquals(true, pacienteDAO.editar(pacienteEditado));
     }
-
-    /**
-     * Test of deletar method, of class PacienteDAO.
-     */
-//        @Test
-//        public void testDeletar() {
-//            System.out.println("deletar");
-//            Paciente paciente = null;
-//            PacienteDAO instance = new PacienteDAO();
-//            boolean expResult = false;
-//            boolean result = instance.deletar(paciente);
-//            assertEquals(expResult, result);
-//        }
 }

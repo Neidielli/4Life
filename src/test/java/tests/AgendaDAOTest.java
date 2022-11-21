@@ -43,6 +43,11 @@ public class AgendaDAOTest {
     @BeforeEach
     public void bf() throws SQLException{
         this.connection = new ConnectionFactory().getConnection();
+
+/*======= Garante que o banco de dados estará limpo antes de realizar os testes =======*/         
+//        String delete = "delete from consultas";
+//        PreparedStatement stmt = connection.prepareStatement(delete);
+//        stmt.executeUpdate(delete); // DEPOIS QUE TIVER BANCO SOMENTE PRA TESTES
     }
 
     /**
@@ -88,16 +93,5 @@ public class AgendaDAOTest {
         List<Agenda> result = instance.listarConsultas();
         assertNotNull(result);
     }
-
-    /**
-     * Test of deletar method, of class AgendaDAO.
-//     */
-//    @Test
-//    public void testDeletar() {
-//        System.out.println("deletar");
-//        Agenda agenda = null;
-//        AgendaDAO instance = new AgendaDAO();
-//        instance.deletar(agenda);
-//    }
     
 }

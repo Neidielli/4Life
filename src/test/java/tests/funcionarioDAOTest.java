@@ -4,15 +4,14 @@
  */
 package tests;
 
-import DAO.FuncionarioDAO;
 import factory.ConnectionFactory;
 import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.List;
+
 import model.Funcionario;
+import DAO.FuncionarioDAO;
+
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeEach;
@@ -42,6 +41,11 @@ public class funcionarioDAOTest {
     @BeforeEach
     public void bf() throws SQLException{
         this.connection = new ConnectionFactory().getConnection();
+
+/*======= Garante que o banco de dados estará limpo antes de realizar os testes =======*/        
+//        String delete = "delete from funcionario";
+//        PreparedStatement stmt = connection.prepareStatement(delete);
+//        stmt.executeUpdate(delete); // DEPOIS QUE TIVER BANCO SOMENTE PRA TESTES
     }
     
     @AfterEach
@@ -140,21 +144,5 @@ public class funcionarioDAOTest {
         FuncionarioDAO instance = new FuncionarioDAO();
         List<Funcionario> result = instance.listaFunc();
         assertNotNull(result);
-    }
-    
-   
-    
-    /**
-     * Test of deletar method, of class FuncionarioDAO.
-     */
-//    @Test
-//    public void testDeletar() {
-//        System.out.println("deletar");
-//        Funcionario func = null;
-//        FuncionarioDAO instance = new FuncionarioDAO();
-//        boolean expResult = false;
-//        boolean result = instance.deletar(func);
-//        assertEquals(expResult, result);
-//    }
-    
+    } 
 }
