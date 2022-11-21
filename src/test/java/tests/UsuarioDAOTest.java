@@ -10,6 +10,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.List;
 import model.Usuario;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.AfterAll;
@@ -97,52 +98,13 @@ public class UsuarioDAOTest {
     /**
      * Test of listarUsuarios method, of class UsuarioDAO.
     */
-//    @Test
-//    public void testListarUsuario1Verdadeiro() {
-//        
-//        // Com Listar usuario verdadeiro 1
-//        System.out.println("listar existente");
-//        String email = "neidielli@teste.com";
-//        String senha = "senhateste";
-//        UsuarioDAO instance = new UsuarioDAO();
-//        boolean expResult = true;
-//        boolean result = instance.listaUsuarios(email,senha);
-//        assertEquals(expResult, result);
-//    }    
-//         //Com Listar usuario verdadeiro 2
-//    @Test    
-//    public void testListarUsuario2Verdadeiro() {
-//        System.out.println("listar existente usuario 2");
-//        String email = "taynara@teste.com";
-//        String senha = "senhataynara";
-//        UsuarioDAO instance = new UsuarioDAO();
-//        boolean expResult = true;
-//        boolean result = instance.listaUsuarios(email, senha);
-//        assertEquals(expResult, result);
-//    }  
-//    @Test
-//    public void testListarUsuario1Falso() {
-//        
-//        // Com Listar usuario falso 1
-//        System.out.println("listar usuario existente");
-//        String email = "neidielli@teste.com";
-//        String senha = "senhateste";
-//        UsuarioDAO instance = new UsuarioDAO();
-//        boolean expResult = false;
-//        boolean result = instance.listaUsuarios(email, senha);
-//        assertEquals(expResult, result);
-//    }    
-//         //Com Listar usuario falso 2
-//    @Test    
-//    public void testListarUsuario2Falso() {
-//        System.out.println("listar usuario 2");
-//        String email = "taynara@teste.com";
-//        String senha = "senhataynara";
-//        UsuarioDAO instance = new UsuarioDAO();
-//        boolean expResult = false;
-//        boolean result = instance.listaUsuarios(email, senha);
-//        assertEquals(expResult, result);
-//    }
+    @Test
+    public void testListarUsuarioNotNull() {
+        System.out.println("Listar usuario");
+        UsuarioDAO instance = new UsuarioDAO();
+        List<Usuario> result = instance.listaUsuarios();
+        assertNotNull(result);
+    }    
 //    /**
 //     * Test of alterar method, of class UsuarioDAO.
 //     */

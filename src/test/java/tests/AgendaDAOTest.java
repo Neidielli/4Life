@@ -4,16 +4,17 @@
  */
 package tests;
 
-import DAO.AgendaDAO;
 import factory.ConnectionFactory;
 import java.sql.Connection;
-import java.sql.PreparedStatement;
 import java.sql.SQLException;
-import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
-import javax.swing.JOptionPane;
+
+import DAO.AgendaDAO;
 import model.Agenda;
+import model.Funcionario;
+import model.Paciente;
+
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.BeforeAll;
@@ -53,11 +54,12 @@ public class AgendaDAOTest {
         
         AgendaDAO dao = new AgendaDAO();
         Date agendamento = new Date(2022-11-10); // atribui uma data para o obj date
+        Paciente paciente = new Paciente(); // atribuir um paciente a ele
+        Funcionario funcionario = new Funcionario(); // atribuir um funcionario a ele
         
-//        int id = 0; id no banco é incremental
         String procedimento = "maria";
-        int idPaciente = 1;
-        int idProfissional = 1;
+        Paciente idPaciente = paciente;
+        Funcionario idProfissional = funcionario;
         Date data_hora = agendamento;
         String tipo_consulta = "retorno";
         String hora = "08:00";        
@@ -65,37 +67,37 @@ public class AgendaDAOTest {
         Agenda agendaValido = new Agenda();
         
         agendaValido.setProcedimento(procedimento);
-//        agendaValido.setIdPaciente(idPaciente);
-//        agendaValido.setIdProfissional(idProfissional);
+        agendaValido.setPaciente(idPaciente);
+        agendaValido.setFuncionario(idProfissional);
         agendaValido.setData_hora(data_hora);
         agendaValido.setTipo_consulta(tipo_consulta);
         agendaValido.setHora(hora);
        
         /*executa cadastro com dados corretos*/
-        assertEquals(true, dao.AgendarConsulta(agendaValido));     
+        assertEquals(true, dao.AgendarConsulta(agendaValido));   
     }
 
     /**
      * Test of listarConsultas method, of class AgendaDAO.
      */
     @Test
-    public void testListarConsultas() {
+    public void testListarConsultasNotNull() { // teste de visualizar consulta
         System.out.println("listarConsultas");
         AgendaDAO instance = new AgendaDAO();
-        List<Agenda> expResult = null;
+//        List<Agenda> expResult = null;
         List<Agenda> result = instance.listarConsultas();
-        assertEquals(expResult, result);
+        assertNotNull(result);
     }
 
     /**
      * Test of deletar method, of class AgendaDAO.
-     */
-    @Test
-    public void testDeletar() {
-        System.out.println("deletar");
-        Agenda agenda = null;
-        AgendaDAO instance = new AgendaDAO();
-        instance.deletar(agenda);
-    }
+//     */
+//    @Test
+//    public void testDeletar() {
+//        System.out.println("deletar");
+//        Agenda agenda = null;
+//        AgendaDAO instance = new AgendaDAO();
+//        instance.deletar(agenda);
+//    }
     
 }
