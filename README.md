@@ -21,3 +21,7 @@ Os objetivos específicos do sistema são:
 * Gerenciamento de projeto: Click Up e Discord;
 * Diagramas: Astah 6.6.4;
 * Frameworks: JUnit;
+
+# 📄 Arquitetura de alto nível
+
+![alt text](https://github.com/Neidielli/4Life/blob/main/src/main/resources/imagens/icons/button_entrar.png)
