@@ -77,16 +77,16 @@ public class UsuarioDAOTest {
         /*executa cadastro com dados corretos*/
         assertEquals(true, usuario.cadastrar(usuarioVerdadeiro1));       
     }
-    @Test
-    public void testAdicionarExistente() throws SQLException {
+        @Test
+    public void testAdicionarFalso() throws SQLException {
         UsuarioDAO usuario = new UsuarioDAO();
         
 //        int id="";
         String nome = "Neid";
         String cpf ="010.020.030-04"; // cpf é um varchar(15)
-        String email = "mariNeid@gmail.com"; 
+        String email = "emailfalso@hotmail.com"; 
         String telefone = "(41)90005-0000";
-        String senha = "marimari"; 
+        String senha = null; // senha não podem ser nulos, devido ao login
         
         Usuario usuarioFalso1 = new Usuario();
         
@@ -97,7 +97,30 @@ public class UsuarioDAOTest {
         usuarioFalso1.setSenha(senha);
                 
         /*executa cadastro com usuário existente - esperara que tenha usuario*/ 
-        assertEquals(true, usuario.cadastrar(usuarioFalso1));
+        assertEquals(false, usuario.cadastrar(usuarioFalso1));
+    
+    }
+        @Test
+    public void testAdicionarExistente() throws SQLException {
+        UsuarioDAO usuario = new UsuarioDAO();
+        
+//        int id="";
+        String nome = "Neid";
+        String cpf ="010.020.030-04"; 
+        String email = "mariNeid@gmail.com"; 
+        String telefone = "(41)90005-0000";
+        String senha = "marimari"; 
+        
+        Usuario usuarioExistente = new Usuario();
+        
+        usuarioExistente.setNome(nome);
+        usuarioExistente.setCpf(cpf);
+        usuarioExistente.setEmail(email);
+        usuarioExistente.setTelefone(telefone);
+        usuarioExistente.setSenha(senha);
+                
+        /*executa cadastro com usuário existente - esperara que tenha usuario*/ 
+        assertEquals(true, usuario.cadastrar(usuarioExistente));
     
     }
     /**
@@ -251,7 +274,7 @@ public class UsuarioDAOTest {
         @Test
         public void testLoginUsuario1Falso() {
         
-            // Com Login falso
+            // Com Login que não existe no banco
             System.out.println("login Falso usuario 2");
             String email = "neidielli@teste1.com";
             String senha = "senhateste1";
@@ -262,6 +285,7 @@ public class UsuarioDAOTest {
         }  
         @Test    
         public void testLoginUsuario2Falso() {
+            // Com Login que não existe no banco
             System.out.println("login falso usuario 2");
             String email = "taynara@teste.com";
             String senha = "";

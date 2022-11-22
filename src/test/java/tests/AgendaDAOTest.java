@@ -62,7 +62,7 @@ public class AgendaDAOTest {
         Paciente paciente = new Paciente(); // atribuir um paciente a ele
         Funcionario funcionario = new Funcionario(); // atribuir um funcionario a ele
         
-        String procedimento = "maria";
+        String procedimento = "Consulta";
         Paciente idPaciente = paciente;
         Funcionario idProfissional = funcionario;
         Date data_hora = agendamento;
@@ -80,6 +80,34 @@ public class AgendaDAOTest {
        
         /*executa cadastro com dados corretos*/
         assertEquals(true, dao.AgendarConsulta(agendaValido));   
+    }
+        @Test
+    public void testAgendarConsultaFalsa() {
+        System.out.println("AgendarConsulta");
+        
+        AgendaDAO dao = new AgendaDAO();
+        Date agendamento = new Date(2022-11-10); // atribui uma data para o obj date
+        Paciente paciente = new Paciente(); // atribuir um paciente a ele
+        Funcionario funcionario = new Funcionario(); // atribuir um funcionario a ele
+        
+        String procedimento = "Consulta";
+        Paciente idPaciente = paciente;
+        Funcionario idProfissional = funcionario;
+        Date data_hora = agendamento;
+        String tipo_consulta = "retorno";
+        String hora = null; // hora não pode ser nula        
+        
+        Agenda agendaFalso = new Agenda();
+        
+        agendaFalso.setProcedimento(procedimento);
+        agendaFalso.setPaciente(idPaciente);
+        agendaFalso.setFuncionario(idProfissional);
+        agendaFalso.setData_hora(data_hora);
+        agendaFalso.setTipo_consulta(tipo_consulta);
+        agendaFalso.setHora(hora);
+       
+        /*executa cadastro com dados corretos*/
+        assertEquals(false, dao.AgendarConsulta(agendaFalso));   
     }
 
     /**

@@ -80,6 +80,31 @@ public class funcionarioDAOTest {
         /*executa cadastro com dados corretos*/
         assertEquals(true, funcionario.cadastrar(FuncionarioVerdadeiro1));
     }
+        @Test
+    public void testAdicionarFunionarioFalso() throws SQLException {
+        FuncionarioDAO funcionario = new FuncionarioDAO();
+        
+//        int id = 1;
+        String nome = "Mariana Falsa";
+        String CPF = "123.456.789-12";
+        String tipo_func = "enfermeiro";
+        String telefone = "(41)99563-5689";
+        String email = null;
+        String especialidade = "gerente";
+        
+        
+        Funcionario FuncionarioFalso = new Funcionario();
+        
+        FuncionarioFalso.setNome(nome);
+        FuncionarioFalso.setCPF(CPF);
+        FuncionarioFalso.setTipo_func(tipo_func);
+        FuncionarioFalso.setTelefone(telefone);
+        FuncionarioFalso.setEmail(email);
+        FuncionarioFalso.setEspecialidade(especialidade);
+        
+        /*executa cadastro com dados corretos*/
+        assertEquals(false, funcionario.cadastrar(FuncionarioFalso));
+    }
 
     /**
      * Test of EditarFuncionario method, of class FuncionarioDAO.

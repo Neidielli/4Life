@@ -57,8 +57,8 @@ public class TelaHome extends javax.swing.JFrame {
         ItemMenuCadastrarPaciente = new javax.swing.JMenuItem();
         ItemMenuEditarPaciente = new javax.swing.JMenuItem();
         ItemMenuBuscarPaciente = new javax.swing.JMenuItem();
-        ItemMenuRegistrarProntPaciente = new javax.swing.JMenuItem();
-        ItemMenuVisualizarProntPaciente = new javax.swing.JMenuItem();
+        ItemMenuRegistrarProntuario = new javax.swing.JMenuItem();
+        ItemMenuVisualizarProntuario = new javax.swing.JMenuItem();
         jMenu7 = new javax.swing.JMenu();
         ItemMenuAgendarConsulta = new javax.swing.JMenuItem();
         MenuSair = new javax.swing.JMenu();
@@ -86,16 +86,16 @@ public class TelaHome extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(328, 328, 328)
+                .addGap(693, 693, 693)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 696, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(1650, Short.MAX_VALUE))
+                .addContainerGap(1285, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(184, 184, 184)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(400, Short.MAX_VALUE)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 223, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(586, Short.MAX_VALUE))
+                .addGap(370, 370, 370))
         );
 
         jMenuBar2.setPreferredSize(new java.awt.Dimension(793, 80));
@@ -206,25 +206,25 @@ public class TelaHome extends javax.swing.JFrame {
         });
         jMenu6.add(ItemMenuBuscarPaciente);
 
-        ItemMenuRegistrarProntPaciente.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        ItemMenuRegistrarProntPaciente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icons/new24.png"))); // NOI18N
-        ItemMenuRegistrarProntPaciente.setText("Registrar Prontuário");
-        ItemMenuRegistrarProntPaciente.addActionListener(new java.awt.event.ActionListener() {
+        ItemMenuRegistrarProntuario.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        ItemMenuRegistrarProntuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icons/new24.png"))); // NOI18N
+        ItemMenuRegistrarProntuario.setText("Registrar Prontuário");
+        ItemMenuRegistrarProntuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ItemMenuRegistrarProntPacienteActionPerformed(evt);
+                ItemMenuRegistrarProntuarioActionPerformed(evt);
             }
         });
-        jMenu6.add(ItemMenuRegistrarProntPaciente);
+        jMenu6.add(ItemMenuRegistrarProntuario);
 
-        ItemMenuVisualizarProntPaciente.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        ItemMenuVisualizarProntPaciente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icons/check-form.png"))); // NOI18N
-        ItemMenuVisualizarProntPaciente.setText("Visualizar Prontuário");
-        ItemMenuVisualizarProntPaciente.addActionListener(new java.awt.event.ActionListener() {
+        ItemMenuVisualizarProntuario.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        ItemMenuVisualizarProntuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icons/check-form.png"))); // NOI18N
+        ItemMenuVisualizarProntuario.setText("Visualizar Prontuário");
+        ItemMenuVisualizarProntuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ItemMenuVisualizarProntPacienteActionPerformed(evt);
+                ItemMenuVisualizarProntuarioActionPerformed(evt);
             }
         });
-        jMenu6.add(ItemMenuVisualizarProntPaciente);
+        jMenu6.add(ItemMenuVisualizarProntuario);
 
         jMenuBar2.add(jMenu6);
 
@@ -355,9 +355,13 @@ public class TelaHome extends javax.swing.JFrame {
         telaedita.setVisible(true);
     }//GEN-LAST:event_ItemMenuEditarPacienteActionPerformed
 
-    private void ItemMenuRegistrarProntPacienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ItemMenuRegistrarProntPacienteActionPerformed
+    private void ItemMenuRegistrarProntuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ItemMenuRegistrarProntuarioActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_ItemMenuRegistrarProntPacienteActionPerformed
+    }//GEN-LAST:event_ItemMenuRegistrarProntuarioActionPerformed
+
+    private void ItemMenuVisualizarProntuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ItemMenuVisualizarProntuarioActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ItemMenuVisualizarProntuarioActionPerformed
      private void ItemMenuVisualizarProntPacienteActionPerformed(java.awt.event.ActionEvent evt) {                                                               
         // TODO add your handling code here:
     } 
@@ -409,10 +413,10 @@ public class TelaHome extends javax.swing.JFrame {
     private javax.swing.JMenuItem ItemMenuEditarFuncionario;
     private javax.swing.JMenuItem ItemMenuEditarPaciente;
     private javax.swing.JMenuItem ItemMenuEditarUsuario;
-    private javax.swing.JMenuItem ItemMenuRegistrarProntPaciente;
+    private javax.swing.JMenuItem ItemMenuRegistrarProntuario;
     private javax.swing.JMenuItem ItemMenuSairEntrar;
     private javax.swing.JMenuItem ItemMenuSairFechar;
-    private javax.swing.JMenuItem ItemMenuVisualizarProntPaciente;
+    private javax.swing.JMenuItem ItemMenuVisualizarProntuario;
     private javax.swing.JMenu MenuSair;
     private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem1;
     private javax.swing.JLabel jLabel1;
