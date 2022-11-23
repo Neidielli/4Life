@@ -24,4 +24,4 @@ Os objetivos específicos do sistema são:
 
 # 📄 Arquitetura de alto nível
 
-![alt text](https://github.com/Neidielli/4Life/blob/main/src/main/resources/imagens/icons/button_entrar.png)
+![alt text](https://github.com/Neidielli/4Life/blob/main/src/main/resources/imagens/WhatsApp%20Image%202022-11-22%20at%2020.27.58.jpeg)
