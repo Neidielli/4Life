@@ -9,5 +9,13 @@ package model;
  * @author tayna
  */
 public class Prontuario {
-    
+    private Paciente paciente;
+
+    public Paciente getPaciente() {
+        return paciente;
+    }
+
+    public void setPaciente(Paciente paciente) {
+        this.paciente = paciente;
+    }    
 }

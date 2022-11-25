@@ -6,7 +6,9 @@ package telas.Prontuario;
 
 import DAO.PacienteDAO;
 import java.util.List;
+import javax.swing.JOptionPane;
 import model.Paciente;
+import model.Prontuario;
 
 /**
  *
@@ -31,6 +33,8 @@ public class TelaNovoProntuario extends javax.swing.JFrame {
     private void initComponents() {
 
         jCheckBoxMenuItem1 = new javax.swing.JCheckBoxMenuItem();
+        buttonGroup1 = new javax.swing.ButtonGroup();
+        buttonGroup2 = new javax.swing.ButtonGroup();
         registrodeprontuario = new javax.swing.JLabel();
         btnSair = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
@@ -38,7 +42,7 @@ public class TelaNovoProntuario extends javax.swing.JFrame {
         txtCodProntuario = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        cBoxNomepac = new javax.swing.JComboBox<>();
+        cBoxNomepac = new javax.swing.JComboBox();
         jLabel4 = new javax.swing.JLabel();
         dataPaciente = new com.toedter.calendar.JDateChooser();
         jLabel5 = new javax.swing.JLabel();
@@ -126,12 +130,17 @@ public class TelaNovoProntuario extends javax.swing.JFrame {
         jLabel3.setText("Nome do Paciente:");
 
         cBoxNomepac.addAncestorListener(new javax.swing.event.AncestorListener() {
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
+            }
             public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
                 cBoxNomepacAncestorAdded(evt);
             }
-            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
-            }
             public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
+            }
+        });
+        cBoxNomepac.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cBoxNomepacActionPerformed(evt);
             }
         });
 
@@ -298,8 +307,8 @@ public class TelaNovoProntuario extends javax.swing.JFrame {
                                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                             .addGroup(jPanel1Layout.createSequentialGroup()
                                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                                    .addComponent(dataPaciente, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                    .addComponent(cBoxGenero, 0, 171, Short.MAX_VALUE))
+                                                    .addComponent(dataPaciente, javax.swing.GroupLayout.DEFAULT_SIZE, 171, Short.MAX_VALUE)
+                                                    .addComponent(cBoxGenero, 0, 1, Short.MAX_VALUE))
                                                 .addGap(18, 18, 18)
                                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                                     .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -316,7 +325,7 @@ public class TelaNovoProntuario extends javax.swing.JFrame {
                                                     .addComponent(jLabel13, javax.swing.GroupLayout.Alignment.TRAILING)))
                                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                                                 .addComponent(txtConvenio, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 41, Short.MAX_VALUE)
                                                 .addComponent(jLabel18)))
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -374,7 +383,7 @@ public class TelaNovoProntuario extends javax.swing.JFrame {
                                         .addComponent(txtAlergia, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addComponent(txtObservacao)
                                     .addComponent(jLabel25, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addContainerGap(254, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -409,7 +418,7 @@ public class TelaNovoProntuario extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(dataPaciente, javax.swing.GroupLayout.DEFAULT_SIZE, 29, Short.MAX_VALUE))))
+                            .addComponent(dataPaciente, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -466,8 +475,7 @@ public class TelaNovoProntuario extends javax.swing.JFrame {
                 .addGap(80, 80, 80)
                 .addComponent(jLabel25, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtObservacao, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(16, 16, 16))
+                .addComponent(txtObservacao, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -475,12 +483,14 @@ public class TelaNovoProntuario extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(registrodeprontuario)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 318, Short.MAX_VALUE)
-                .addComponent(btnSair, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(registrodeprontuario)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 693, Short.MAX_VALUE)
+                        .addComponent(btnSair, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(35, 35, 35))
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -492,7 +502,7 @@ public class TelaNovoProntuario extends javax.swing.JFrame {
                 .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        setSize(new java.awt.Dimension(890, 731));
+        setSize(new java.awt.Dimension(1268, 810));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
@@ -517,7 +527,16 @@ public class TelaNovoProntuario extends javax.swing.JFrame {
     }//GEN-LAST:event_txtIdadeActionPerformed
 
     private void cBoxNomepacAncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_cBoxNomepacAncestorAdded
-
+        PacienteDAO dao = new PacienteDAO();
+        List<Paciente> lista = dao.listaPac();
+        
+        // primeiro remove todos os dados da combobox para n duplicados os dados
+        cBoxNomepac.removeAll();
+        
+        //Para cada item da lista, monta um obj do tipo Funcionario e add na comboBox 
+        for(Paciente p:lista) {
+            cBoxNomepac.addItem(p);
+        }
     }//GEN-LAST:event_cBoxNomepacAncestorAdded
 
     private void txtCodProntuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCodProntuarioActionPerformed
@@ -535,6 +554,32 @@ public class TelaNovoProntuario extends javax.swing.JFrame {
     private void medicaSIMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_medicaSIMActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_medicaSIMActionPerformed
+
+    private void cBoxNomepacActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cBoxNomepacActionPerformed
+        Prontuario prontuario = new Prontuario();
+        Paciente paciente = new Paciente();
+        
+        if(cBoxNomepac.isPopupVisible()) {
+            paciente = (Paciente) cBoxNomepac.getSelectedItem();
+            prontuario.setPaciente(paciente);
+            
+            try{
+                dataPaciente.setDate(paciente.getData_nascimento());
+                txtCPF.setText(paciente.getCpf());
+//                txtGenero.setText(paciente.getGenero());
+//                txtProfissao.setText(paciente.getProfissao());
+//                txtTelefone.setText(paciente.getTelefone());
+//                txtEmail.setText(paciente.getEmail());  
+//                txtCidade.setText(paciente.getCidade());
+//                txtCEP.setText(paciente.getCep());
+//                txtEstado.setText(paciente.getEstado());          
+              
+            }catch(Exception exc){
+                JOptionPane.showMessageDialog(null, "Erro ao pesquisar usuário!" +exc);
+            }
+            
+        }    
+    }//GEN-LAST:event_cBoxNomepacActionPerformed
 
     /**
      * @param args the command line arguments
@@ -573,9 +618,11 @@ public class TelaNovoProntuario extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnSair;
+    private javax.swing.ButtonGroup buttonGroup1;
+    private javax.swing.ButtonGroup buttonGroup2;
     private javax.swing.JComboBox<String> cBoxEstado;
     private javax.swing.JComboBox<String> cBoxGenero;
-    private javax.swing.JComboBox<String> cBoxNomepac;
+    private javax.swing.JComboBox cBoxNomepac;
     private com.toedter.calendar.JDateChooser dataPaciente;
     private javax.swing.JCheckBox jCheckBox1;
     private javax.swing.JCheckBox jCheckBox2;
