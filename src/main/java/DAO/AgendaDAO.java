@@ -39,11 +39,11 @@ public class AgendaDAO {
         this.connection = new ConnectionFactory().getConnection();
     }
     
-    public boolean AgendarConsulta(Agenda agenda){ 
+    public boolean AgendarConsulta(Agenda agenda, java.util.Date utilDate1){ 
  
         try { 
             
-            java.util.Date utilDate1 = TelaNovoAgendamento.campoData.getDate(); // DATE
+//            java.util.Date utilDate1 = TelaNovoAgendamento.campoData.getDate(); // DATE
             java.sql.Date sqlDate1 = new java.sql.Date(utilDate1.getTime()); // DATE
             
             // seleciona os campos da tabela
