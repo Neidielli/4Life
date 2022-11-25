@@ -50,39 +50,38 @@ public class AgendaDAO {
             String sqlSelect = "select * from consultas where idProfissional='" + agenda.getFuncionario().getId() +"'" +
                     "and data_hora = '" + sqlDate1 + "'" +
                     "and hora = '" + TelaNovoAgendamento.campoHora.getSelectedItem() + "'"; 
-//            select * from consultas where idProfissional = 2 and data_hora = '2022-11-15' and hora = "08:30";
             PreparedStatement stmtSelect = connection.prepareStatement(sqlSelect);
             
             // o resultado do select será guardado dentro do obj resultSet
             ResultSet rs = stmtSelect.executeQuery();
-            
-                // condição para verificar se o obj resultSet já existe
-                if(rs.next()) {
-                    JOptionPane.showMessageDialog(null, "Horário Indisponível",
-                        "ERRO!", JOptionPane.ERROR_MESSAGE);
-                    return false;
-                } else {
-                    String sql = "INSERT INTO consultas(procedimento,idPaciente,idProfissional,data_hora,tipo_consulta,hora) VALUES(?,?,?,?,?,?)";
-                    PreparedStatement pdstmt = connection.prepareStatement(sql);
 
-                    java.util.Date utilDate = agenda.getData_hora(); // DATE
-                    java.sql.Date sqlDate = new java.sql.Date(utilDate.getTime()); // DATE
+            // condição para verificar se o obj resultSet já existe
+            if(rs.next()) {
+                JOptionPane.showMessageDialog(null, "Horário Indisponível",
+                    "ERRO!", JOptionPane.ERROR_MESSAGE);
+                return false;
+            } else {
+                String sql = "INSERT INTO consultas(procedimento,idPaciente,idProfissional,data_hora,tipo_consulta,hora) VALUES(?,?,?,?,?,?)";
+                PreparedStatement pdstmt = connection.prepareStatement(sql);
 
-                    pdstmt.setString(1, agenda.getProcedimento());
+                java.util.Date utilDate = agenda.getData_hora(); // DATE
+                java.sql.Date sqlDate = new java.sql.Date(utilDate.getTime()); // DATE
 
-                    pdstmt.setInt(2, agenda.getPaciente().getId()); //precisa captar o objeto
-                    pdstmt.setInt(3, agenda.getFuncionario().getId()); // idem
+                pdstmt.setString(1, agenda.getProcedimento());
 
-                    pdstmt.setDate(4, sqlDate); // DATE
-                    pdstmt.setString(5, agenda.getTipo_consulta());
-                    pdstmt.setString(6, agenda.getHora());
+                pdstmt.setInt(2, agenda.getPaciente().getId()); //precisa captar o objeto
+                pdstmt.setInt(3, agenda.getFuncionario().getId()); // idem
 
-                    JOptionPane.showMessageDialog(null, "Consulta cadastrado com sucesso!! ");
-                    pdstmt.execute();
-                    pdstmt.close();
+                pdstmt.setDate(4, sqlDate); // DATE
+                pdstmt.setString(5, agenda.getTipo_consulta());
+                pdstmt.setString(6, agenda.getHora());
 
-                    return true;
-                }
+                JOptionPane.showMessageDialog(null, "Consulta cadastrado com sucesso!! ");
+                pdstmt.execute();
+                pdstmt.close();
+
+                return true;
+            }
             
         } catch (SQLException exc) { 
             System.out.println("Erro ao agendar consulta: " + exc); 
