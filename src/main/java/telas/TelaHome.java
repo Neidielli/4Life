@@ -11,6 +11,8 @@ import telas.Funcionario.TelaEditarFuncionario;
 import telas.Paciente.TelaBuscarPaciente;
 import telas.Paciente.TelaCadastrarPaciente;
 import telas.Paciente.TelaEditarPaciente;
+import telas.Prontuario.TelaNovoProntuario;
+import telas.Prontuario.TelaSelecionarPaciente;
 import telas.Usuario.TelaBuscarUsuario;
 import telas.Usuario.TelaCadastrarUsuario;
 import telas.Usuario.TelaEditarUsuario;
@@ -356,11 +358,13 @@ public class TelaHome extends javax.swing.JFrame {
     }//GEN-LAST:event_ItemMenuEditarPacienteActionPerformed
 
     private void ItemMenuRegistrarProntuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ItemMenuRegistrarProntuarioActionPerformed
-        // TODO add your handling code here:
+        TelaNovoProntuario telaprontuario = new TelaNovoProntuario();
+        telaprontuario.setVisible(true);
     }//GEN-LAST:event_ItemMenuRegistrarProntuarioActionPerformed
 
     private void ItemMenuVisualizarProntuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ItemMenuVisualizarProntuarioActionPerformed
-        // TODO add your handling code here:
+        TelaSelecionarPaciente selecionarPaciente = new TelaSelecionarPaciente();
+        selecionarPaciente.setVisible(true);
     }//GEN-LAST:event_ItemMenuVisualizarProntuarioActionPerformed
      private void ItemMenuVisualizarProntPacienteActionPerformed(java.awt.event.ActionEvent evt) {                                                               
         // TODO add your handling code here:
