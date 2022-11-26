@@ -307,8 +307,13 @@ public class TelaNovoProntuario extends javax.swing.JFrame {
                                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                             .addGroup(jPanel1Layout.createSequentialGroup()
                                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+<<<<<<< HEAD
                                                     .addComponent(dataPaciente, javax.swing.GroupLayout.DEFAULT_SIZE, 171, Short.MAX_VALUE)
                                                     .addComponent(cBoxGenero, 0, 1, Short.MAX_VALUE))
+=======
+                                                    .addComponent(dataPaciente, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                    .addComponent(cBoxGenero, 0, 171, Short.MAX_VALUE))
+>>>>>>> parent of 57e8e8c (atualização da tela de registro de prontuário)
                                                 .addGap(18, 18, 18)
                                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                                     .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -325,7 +330,11 @@ public class TelaNovoProntuario extends javax.swing.JFrame {
                                                     .addComponent(jLabel13, javax.swing.GroupLayout.Alignment.TRAILING)))
                                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                                                 .addComponent(txtConvenio, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
+<<<<<<< HEAD
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 41, Short.MAX_VALUE)
+=======
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+>>>>>>> parent of 57e8e8c (atualização da tela de registro de prontuário)
                                                 .addComponent(jLabel18)))
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -383,7 +392,11 @@ public class TelaNovoProntuario extends javax.swing.JFrame {
                                         .addComponent(txtAlergia, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addComponent(txtObservacao)
                                     .addComponent(jLabel25, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE))))
+<<<<<<< HEAD
                         .addContainerGap(254, Short.MAX_VALUE))
+=======
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+>>>>>>> parent of 57e8e8c (atualização da tela de registro de prontuário)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -475,7 +488,12 @@ public class TelaNovoProntuario extends javax.swing.JFrame {
                 .addGap(80, 80, 80)
                 .addComponent(jLabel25, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+<<<<<<< HEAD
                 .addComponent(txtObservacao, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE))
+=======
+                .addComponent(txtObservacao, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(16, 16, 16))
+>>>>>>> parent of 57e8e8c (atualização da tela de registro de prontuário)
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -483,6 +501,7 @@ public class TelaNovoProntuario extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+<<<<<<< HEAD
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
@@ -490,6 +509,12 @@ public class TelaNovoProntuario extends javax.swing.JFrame {
                         .addComponent(registrodeprontuario)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 693, Short.MAX_VALUE)
                         .addComponent(btnSair, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)))
+=======
+                .addContainerGap()
+                .addComponent(registrodeprontuario)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 318, Short.MAX_VALUE)
+                .addComponent(btnSair, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
+>>>>>>> parent of 57e8e8c (atualização da tela de registro de prontuário)
                 .addGap(35, 35, 35))
         );
         layout.setVerticalGroup(
@@ -502,7 +527,11 @@ public class TelaNovoProntuario extends javax.swing.JFrame {
                 .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+<<<<<<< HEAD
         setSize(new java.awt.Dimension(1268, 810));
+=======
+        setSize(new java.awt.Dimension(890, 731));
+>>>>>>> parent of 57e8e8c (atualização da tela de registro de prontuário)
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
@@ -521,6 +550,15 @@ public class TelaNovoProntuario extends javax.swing.JFrame {
     private void txtNaturalidadeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNaturalidadeActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtNaturalidadeActionPerformed
+<<<<<<< HEAD
+=======
+
+    private void txtIdadeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtIdadeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtIdadeActionPerformed
+
+    private void cBoxNomepacAncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_cBoxNomepacAncestorAdded
+>>>>>>> parent of 57e8e8c (atualização da tela de registro de prontuário)
 
     private void txtIdadeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtIdadeActionPerformed
         // TODO add your handling code here:
@@ -555,6 +593,7 @@ public class TelaNovoProntuario extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_medicaSIMActionPerformed
 
+<<<<<<< HEAD
     private void cBoxNomepacActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cBoxNomepacActionPerformed
         Prontuario prontuario = new Prontuario();
         Paciente paciente = new Paciente();
@@ -581,6 +620,8 @@ public class TelaNovoProntuario extends javax.swing.JFrame {
         }    
     }//GEN-LAST:event_cBoxNomepacActionPerformed
 
+=======
+>>>>>>> parent of 57e8e8c (atualização da tela de registro de prontuário)
     /**
      * @param args the command line arguments
      */
@@ -618,11 +659,17 @@ public class TelaNovoProntuario extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnSair;
+<<<<<<< HEAD
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.ButtonGroup buttonGroup2;
     private javax.swing.JComboBox<String> cBoxEstado;
     private javax.swing.JComboBox<String> cBoxGenero;
     private javax.swing.JComboBox cBoxNomepac;
+=======
+    private javax.swing.JComboBox<String> cBoxEstado;
+    private javax.swing.JComboBox<String> cBoxGenero;
+    private javax.swing.JComboBox<String> cBoxNomepac;
+>>>>>>> parent of 57e8e8c (atualização da tela de registro de prontuário)
     private com.toedter.calendar.JDateChooser dataPaciente;
     private javax.swing.JCheckBox jCheckBox1;
     private javax.swing.JCheckBox jCheckBox2;
