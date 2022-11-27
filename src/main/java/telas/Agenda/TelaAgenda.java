@@ -27,7 +27,10 @@ public class TelaAgenda extends javax.swing.JFrame {
         try {
             AgendaDAO dao = new AgendaDAO();
             
-            List<Agenda> listaconsultas = dao.listarConsultas(); // chama da classe agendadao // retorna uma lista de usuarios
+            java.util.Date utilDate = calendarConsulta.getDate();
+            String nomeMedico = textNomeMedico.getText();
+            
+            List<Agenda> listaconsultas = dao.listarConsultas(utilDate, nomeMedico); // chama da classe agendadao // retorna uma lista de usuarios
             // pega a lista e coloca na tabela
             DefaultTableModel model = (DefaultTableModel)tabelaConsultas.getModel();
             model.setNumRows(0); // garante que o obj model n tenha nada

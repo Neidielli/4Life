@@ -39,17 +39,19 @@ public class AgendaDAO {
         this.connection = new ConnectionFactory().getConnection();
     }
     
-    public boolean AgendarConsulta(Agenda agenda, java.util.Date utilDate1){ 
+    public boolean AgendarConsulta(Agenda agenda){ 
  
         try { 
             
-//            java.util.Date utilDate1 = TelaNovoAgendamento.campoData.getDate(); // DATE
+            java.util.Date utilDate1 = agenda.getData_hora(); // DATE
+            
             java.sql.Date sqlDate1 = new java.sql.Date(utilDate1.getTime()); // DATE
             
             // seleciona os campos da tabela
             String sqlSelect = "select * from consultas where idProfissional='" + agenda.getFuncionario().getId() +"'" +
                     "and data_hora = '" + sqlDate1 + "'" +
-                    "and hora = '" + TelaNovoAgendamento.campoHora.getSelectedItem() + "'"; 
+                    "and hora = '" + String.valueOf(agenda.getHora()) + "'"; 
+
             PreparedStatement stmtSelect = connection.prepareStatement(sqlSelect);
             
             // o resultado do select será guardado dentro do obj resultSet
@@ -75,6 +77,7 @@ public class AgendaDAO {
                 pdstmt.setDate(4, sqlDate); // DATE
                 pdstmt.setString(5, agenda.getTipo_consulta());
                 pdstmt.setString(6, agenda.getHora());
+                System.out.println(pdstmt);
 
                 JOptionPane.showMessageDialog(null, "Consulta cadastrado com sucesso!! ");
                 pdstmt.execute();
@@ -88,19 +91,19 @@ public class AgendaDAO {
             throw new RuntimeException(exc);
         }
     }
-    public List<Agenda> listarConsultas(){
+    public List<Agenda> listarConsultas(java.util.Date utilDate, String nomeMedico){
         try{
             // vetor que armazena os registro do bd
             List<Agenda> lista = new ArrayList<Agenda>();
             // comando sql que lista os dados
-            java.util.Date utilDate = TelaAgenda.calendarConsulta.getDate(); // DATE
+//            java.util.Date utilDate = TelaAgenda.calendarConsulta.getDate(); // DATE
             java.sql.Date sqlDate = new java.sql.Date(utilDate.getTime()); // DATE
             
             String sql = "SELECT c.id_Consulta, c.procedimento, p.nome, f.nome, c.data_hora, c.tipo_consulta,c.hora " +
             "FROM consultas as c " +
             "JOIN paciente as p on (c.idPaciente = p.id) " +
             "JOIN funcionario as f on (c.idProfissional = f.id)" +
-            "WHERE f.nome ='" + TelaAgenda.textNomeMedico.getText() + "'" +
+            "WHERE f.nome ='" + nomeMedico + "'" +
                     "and c.data_hora = '" + sqlDate + "'";
             
 //            System.out.println(sql);

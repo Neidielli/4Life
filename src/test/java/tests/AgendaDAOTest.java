@@ -45,9 +45,9 @@ public class AgendaDAOTest {
     public void bf() throws SQLException{
         this.connection = new ConnectionFactory().getConnection();
          
-        String delete = "delete from consultas where procedimento = 'Consulta do AgendaTest'";
-        PreparedStatement stmt = connection.prepareStatement(delete);
-        stmt.executeUpdate(delete); 
+//        String delete = "delete * from consultas";
+//        PreparedStatement stmt = connection.prepareStatement(delete);
+//        stmt.executeUpdate(delete); 
     }
 
     /**
@@ -60,8 +60,12 @@ public class AgendaDAOTest {
         AgendaDAO dao = new AgendaDAO();
      
         /*================= Paciente ===========================*/
-        Date nascimento = new Date(1978-11-12); // atribui uma data para o obj date
+        int yearPac = 1989-1900;
+        int monthPac = 5;
+        int dayPac = 5;
+        Date nascimento = new Date(yearPac - 1900,monthPac,dayPac); // atribui uma data para o obj date
         
+        int idPac = 13;
         String nome = "Maria Consulta";
         String cpf = "123.456.789-12";
         String email = "test@.com";
@@ -76,6 +80,7 @@ public class AgendaDAOTest {
         
         Paciente paciente = new Paciente(); // atribuir um paciente a ele
         
+        paciente.setId(idPac);
         paciente.setNome(nome);
         paciente.setCpf(cpf);
         paciente.setEmail(email);
@@ -90,6 +95,7 @@ public class AgendaDAOTest {
         
         /*================= Funcionario ===========================*/
         
+        int idFunc = 9;
         String nome2 = "Mariana Consulta";
         String CPF = "123.456.789-12";
         String tipo_func = "Médica";
@@ -100,6 +106,7 @@ public class AgendaDAOTest {
         
         Funcionario funcionario = new Funcionario();
         
+        funcionario.setId(idFunc);
         funcionario.setNome(nome2);
         funcionario.setCPF(CPF);
         funcionario.setTipo_func(tipo_func);
@@ -108,14 +115,18 @@ public class AgendaDAOTest {
         funcionario.setEspecialidade(especialidade);
         
         /*================= Consulta ===========================*/
-        Date agendamento = new Date(2022-11-10); // atribui uma data para o obj date
+        int year = 2021;
+        int month = 10;
+        int day = 5;
         
-        String procedimento = "Consulta do Age11ndaTest";
+        Date agendamento = new Date(year - 1900,month,day); // atribui uma data para o obj date
+        
+        String procedimento = "Consulta do AgendaTest";
         Paciente idPaciente = paciente;
         Funcionario idProfissional = funcionario;
         Date data_hora = agendamento;
         String tipo_consulta = "retorno";
-        String hora = "08:00";        
+        String hora = "10:30";        
         
         Agenda agendaValido = new Agenda();
         
@@ -127,24 +138,85 @@ public class AgendaDAOTest {
         agendaValido.setHora(hora);
        
         /*executa cadastro com dados corretos*/
-//        assertEquals(true, dao.AgendarConsulta(agendaValido));   
+        assertEquals(true, dao.AgendarConsulta(agendaValido));   
     }
     
-        @Test
-    public void testAgendarConsultaFalsa() {
+    @Test
+    public void testAgendarConsultaCadastrada() {
 //        System.out.println("AgendarConsulta");
         
         AgendaDAO dao = new AgendaDAO();
-        Date agendamento = new Date(2022-11-10); // atribui uma data para o obj date
-        Paciente paciente = new Paciente(); // atribuir um paciente a ele
-        Funcionario funcionario = new Funcionario(); // atribuir um funcionario a ele
+     
+        /*================= Paciente ===========================*/
+        int yearPac = 1989-1900;
+        int monthPac = 5;
+        int dayPac = 5;
+        Date nascimento = new Date(yearPac - 1900,monthPac,dayPac); // atribui uma data para o obj date
         
-        String procedimento = "Consulta";
+        int idPac = 14; 
+        String nome = "Maria Consulta";
+        String cpf = "123.456.789-12";
+        String email = "test@.com";
+        String telefone = "(55)93542-2124";
+        Date data_nascimento = nascimento;
+        String cep = "86300-000";
+        String rua = "Zero";
+        String bairro = "Centro";
+        String cidade = "Curitiba";
+        String estado = "Paraná";
+        int num_endereco = 98;
+        
+        Paciente paciente = new Paciente(); // atribuir um paciente a ele
+        
+        paciente.setId(idPac);
+        paciente.setNome(nome);
+        paciente.setCpf(cpf);
+        paciente.setEmail(email);
+        paciente.setTelefone(telefone);
+        paciente.setData_nascimento(data_nascimento);
+        paciente.setCep(cep);
+        paciente.setRua(rua);
+        paciente.setBairro(bairro);
+        paciente.setCidade(cidade);
+        paciente.setEstado(estado);
+        paciente.setNum_endereco(num_endereco);
+        
+        /*================= Funcionario ===========================*/
+        
+        int idFunc = 9;
+        String nome2 = "Mariana Consulta";
+        String CPF = "123.456.789-12";
+        String tipo_func = "Médica";
+        String telefone2 = "(41)99563-5689";
+        String email2 = "marianna@test.com";
+        String especialidade = "gerente";
+        
+        
+        Funcionario funcionario = new Funcionario();
+        
+        funcionario.setId(idFunc);
+        funcionario.setNome(nome2);
+        funcionario.setCPF(CPF);
+        funcionario.setTipo_func(tipo_func);
+        funcionario.setTelefone(telefone2);
+        funcionario.setEmail(email2);
+        funcionario.setEspecialidade(especialidade);
+        
+        /*================= Consulta ===========================*/
+        int year = 2021;
+        int month = 10;
+        int day = 5; 
+        
+        /*======== CONSULTA JÁ EXISTENTE ===============*/
+        
+        Date agendamento = new Date(year - 1900,month,day); // atribui uma data para o obj date
+        
+        String procedimento = "Consulta do AgendaTest";
         Paciente idPaciente = paciente;
         Funcionario idProfissional = funcionario;
         Date data_hora = agendamento;
         String tipo_consulta = "retorno";
-        String hora = null; // hora não pode ser nula        
+        String hora = "10:30";        
         
         Agenda agendaFalso = new Agenda();
         
@@ -155,20 +227,23 @@ public class AgendaDAOTest {
         agendaFalso.setTipo_consulta(tipo_consulta);
         agendaFalso.setHora(hora);
        
-        /*executa cadastro com dados corretos*/
-//        assertEquals(false, dao.AgendarConsulta(agendaFalso));   
+        
+        assertEquals(false, dao.AgendarConsulta(agendaFalso));   
     }
 
     /**
      * Test of listarConsultas method, of class AgendaDAO.
      */
     @Test
-    public void testListarConsultasNotNull() { // teste de visualizar consulta
-//        System.out.println("listarConsultas");
+    public void testListarConsultasNotNull() { // teste de visualizar consulta cadastrada
+        int year = 2021;
+        int month = 10;
+        int day = 5; 
+        Date agendamento = new Date(year - 1900,month,day);
+        String nomeMedico = "Pablo Ferreira";
         AgendaDAO instance = new AgendaDAO();
 //        List<Agenda> expResult = null;
-        List<Agenda> result = instance.listarConsultas();
+        List<Agenda> result = instance.listarConsultas(agendamento, nomeMedico);
         assertNotNull(result);
     }
-    
 }

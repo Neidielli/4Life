@@ -313,7 +313,7 @@ public class TelaNovoAgendamento extends javax.swing.JFrame {
         agenda.setHora(String.valueOf(campoHora.getSelectedItem()));
         
         AgendaDAO dao = new AgendaDAO();
-//        dao.AgendarConsulta(agenda, TelaNovoAgendamento.campoData.getDate(), TelaNovoAgendamento.campoHora.getString());
+        dao.AgendarConsulta(agenda);
     }//GEN-LAST:event_btnAgendarActionPerformed
 
     private void btnLimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimparActionPerformed
