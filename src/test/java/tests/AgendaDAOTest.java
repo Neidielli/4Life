@@ -121,7 +121,7 @@ public class AgendaDAOTest {
         
         Date agendamento = new Date(year - 1900,month,day); // atribui uma data para o obj date
         
-        String procedimento = "Consulta do AgendaTest";
+        String procedimento = "Consulta Teste";
         Paciente idPaciente = paciente;
         Funcionario idProfissional = funcionario;
         Date data_hora = agendamento;

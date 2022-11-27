@@ -60,7 +60,7 @@ public class funcionarioDAOTest {
         FuncionarioDAO funcionario = new FuncionarioDAO();
         
 //        int id = 1;
-        String nome = "Mariana";
+        String nome = "Mariana Testes";
         String CPF = "123.456.789-12";
         String tipo_func = "enfermeiro";
         String telefone = "(41)99563-5689";
