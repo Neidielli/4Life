@@ -63,7 +63,7 @@ public class PacienteDAOTest {
         Date nascimento = new Date(1978-11-12); // atribui uma data para o obj date
         
 //        int id = 0; id no banco é incremental
-        String nome = "maria";
+        String nome = "Mara Testes";
         String cpf = "123.456.789-12";
         String email = "test@.com";
         String telefone = "(55)93542-2124";
@@ -152,72 +152,72 @@ public class PacienteDAOTest {
     /**
      * Test of editar method, of class PacienteDAO.
      */
-    @Test
-    public void testEditarPaciente() throws SQLException {
-        PacienteDAO pacienteDAO = new PacienteDAO();
-        Paciente paciente = new Paciente();
-        Date nascimento = new Date(1988-11-20); // atribui uma data para o obj date
-        
-//        int id = 0; id no banco é incremental
-        String nome = "Paciente Novo";
-        String cpf = "123.456.000-12";
-        String email = "paciente@novo.com"; 
-        String telefone = "(55)93542-0000";
-        Date data_nascimento = nascimento;
-        String cep = "86300-000";
-        String rua = "Nova";
-        String bairro = "Centro";
-        String cidade = "Curitiba";
-        String estado = "Paraná";
-        int num_endereco = 294;
-        
-        Paciente pacienteNovo = new Paciente();
-        
-        pacienteNovo.setNome(nome);
-        pacienteNovo.setCpf(cpf);
-        pacienteNovo.setEmail(email);
-        pacienteNovo.setTelefone(telefone);
-        pacienteNovo.setData_nascimento(data_nascimento);
-        pacienteNovo.setCep(cep);
-        pacienteNovo.setRua(rua);
-        pacienteNovo.setBairro(bairro);
-        pacienteNovo.setCidade(cidade);
-        pacienteNovo.setEstado(estado);
-        pacienteNovo.setNum_endereco(num_endereco);
-        
-        /*executa cadastro*/
-        assertEquals(true, pacienteDAO.cadastrar(pacienteNovo));
-        
-        /*---------------------------*/
-        Date nascimentoEditado = new Date(1988-11-23);
-//        int id = 0; id no banco é incremental
-        nome = "Paciente Editado";
-        cpf = "123.456.000-12";
-        email = "paciente@editado.com"; 
-        telefone = "(55)93542-0000";
-        data_nascimento = nascimentoEditado;
-        cep = "86300-000";
-        rua = "Rua editada";
-        bairro = "Centro";
-        cidade = "Curitiba";
-        estado = "Paraná";
-        num_endereco = 294;
-        
-        Paciente pacienteEditado = new Paciente();
-        
-        pacienteEditado.setNome(nome);
-        pacienteEditado.setCpf(cpf);
-        pacienteEditado.setEmail(email);
-        pacienteEditado.setTelefone(telefone);
-        pacienteEditado.setData_nascimento(data_nascimento);
-        pacienteEditado.setCep(cep);
-        pacienteEditado.setRua(rua);
-        pacienteEditado.setBairro(bairro);
-        pacienteEditado.setCidade(cidade);
-        pacienteEditado.setEstado(estado);
-        pacienteEditado.setNum_endereco(num_endereco);
-        
-        /*executa edição*/
-//        assertEquals(true, pacienteDAO.editar(pacienteEditado));
-    }
+//    @Test
+//    public void testEditarPaciente() throws SQLException {
+//        PacienteDAO pacienteDAO = new PacienteDAO();
+//        Paciente paciente = new Paciente();
+//        Date nascimento = new Date(1988-11-20); // atribui uma data para o obj date
+//        
+////        int id = 0; id no banco é incremental
+//        String nome = "Paciente Novo";
+//        String cpf = "123.456.000-12";
+//        String email = "paciente@novo.com"; 
+//        String telefone = "(55)93542-0000";
+//        Date data_nascimento = nascimento;
+//        String cep = "86300-000";
+//        String rua = "Nova";
+//        String bairro = "Centro";
+//        String cidade = "Curitiba";
+//        String estado = "Paraná";
+//        int num_endereco = 294;
+//        
+//        Paciente pacienteNovo = new Paciente();
+//        
+//        pacienteNovo.setNome(nome);
+//        pacienteNovo.setCpf(cpf);
+//        pacienteNovo.setEmail(email);
+//        pacienteNovo.setTelefone(telefone);
+//        pacienteNovo.setData_nascimento(data_nascimento);
+//        pacienteNovo.setCep(cep);
+//        pacienteNovo.setRua(rua);
+//        pacienteNovo.setBairro(bairro);
+//        pacienteNovo.setCidade(cidade);
+//        pacienteNovo.setEstado(estado);
+//        pacienteNovo.setNum_endereco(num_endereco);
+//        
+//        /*executa cadastro*/
+//        assertEquals(true, pacienteDAO.cadastrar(pacienteNovo));
+//        
+//        /*---------------------------*/
+//        Date nascimentoEditado = new Date(1988-11-23);
+////        int id = 0; id no banco é incremental
+//        nome = "Paciente Editado";
+//        cpf = "123.456.000-12";
+//        email = "paciente@editado.com"; 
+//        telefone = "(55)93542-0000";
+//        data_nascimento = nascimentoEditado;
+//        cep = "86300-000";
+//        rua = "Rua editada";
+//        bairro = "Centro";
+//        cidade = "Curitiba";
+//        estado = "Paraná";
+//        num_endereco = 294;
+//        
+//        Paciente pacienteEditado = new Paciente();
+//        
+//        pacienteEditado.setNome(nome);
+//        pacienteEditado.setCpf(cpf);
+//        pacienteEditado.setEmail(email);
+//        pacienteEditado.setTelefone(telefone);
+//        pacienteEditado.setData_nascimento(data_nascimento);
+//        pacienteEditado.setCep(cep);
+//        pacienteEditado.setRua(rua);
+//        pacienteEditado.setBairro(bairro);
+//        pacienteEditado.setCidade(cidade);
+//        pacienteEditado.setEstado(estado);
+//        pacienteEditado.setNum_endereco(num_endereco);
+//        
+//        /*executa edição*/
+////        assertEquals(true, pacienteDAO.editar(pacienteEditado));
+//    }
 }
