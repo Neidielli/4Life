@@ -21,6 +21,9 @@ public class Paciente {
     Date data_nascimento;
     String cep, rua, bairro, cidade, estado;
     int num_endereco;
+    String genero;
+    String profissao;
+    String convenio, plano, numero;
 
     public int getId() {
         return id;
@@ -117,6 +120,47 @@ public class Paciente {
     public void setNum_endereco(int num_endereco) {
         this.num_endereco = num_endereco;
     }
+
+    public String getGenero() {
+        return genero;
+    }
+
+    public void setGenero(String genero) {
+        this.genero = genero;
+    }
+
+    public String getProfissao() {
+        return profissao;
+    }
+
+    public void setProfissao(String profissao) {
+        this.profissao = profissao;
+    }
+
+    public String getConvenio() {
+        return convenio;
+    }
+
+    public void setConvenio(String convenio) {
+        this.convenio = convenio;
+    }
+
+    public String getPlano() {
+        return plano;
+    }
+
+    public void setPlano(String plano) {
+        this.plano = plano;
+    }
+
+    public String getNumero() {
+        return numero;
+    }
+
+    public void setNumero(String numero) {
+        this.numero = numero;
+    }
+    
     
     
     // Na classe NovoAgendamento.java é mandado um obj, é preciso dizer qual atributo,

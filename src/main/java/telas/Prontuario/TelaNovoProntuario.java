@@ -42,7 +42,6 @@ public class TelaNovoProntuario extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         dataPaciente = new com.toedter.calendar.JDateChooser();
         jLabel6 = new javax.swing.JLabel();
-        cBoxGenero = new javax.swing.JComboBox<>();
         jLabel8 = new javax.swing.JLabel();
         txtProfissao = new javax.swing.JTextField();
         jLabel12 = new javax.swing.JLabel();
@@ -57,7 +56,6 @@ public class TelaNovoProntuario extends javax.swing.JFrame {
         jLabel15 = new javax.swing.JLabel();
         txtCPF = new javax.swing.JFormattedTextField();
         jLabel9 = new javax.swing.JLabel();
-        txtConvenio = new javax.swing.JTextField();
         jLabel18 = new javax.swing.JLabel();
         txtPlano = new javax.swing.JTextField();
         jLabel19 = new javax.swing.JLabel();
@@ -105,11 +103,13 @@ public class TelaNovoProntuario extends javax.swing.JFrame {
         SIMdiabete = new javax.swing.JCheckBox();
         NAOdiabete = new javax.swing.JCheckBox();
         jLabel36 = new javax.swing.JLabel();
-        txtDiabete = new javax.swing.JTextField();
         jLabel37 = new javax.swing.JLabel();
         SIMinfarto = new javax.swing.JCheckBox();
         NAOinfarto = new javax.swing.JCheckBox();
         txtEstado = new javax.swing.JTextField();
+        txtConvenio = new javax.swing.JTextField();
+        txtDiabete = new javax.swing.JTextField();
+        txtGenero = new javax.swing.JTextField();
 
         jCheckBoxMenuItem1.setSelected(true);
         jCheckBoxMenuItem1.setText("jCheckBoxMenuItem1");
@@ -162,8 +162,6 @@ public class TelaNovoProntuario extends javax.swing.JFrame {
         jLabel4.setText("Data de Nascimento:");
 
         jLabel6.setText("Gênero:");
-
-        cBoxGenero.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione um gênero", "Feminino", "Masculino", "Outro" }));
 
         jLabel8.setText("Profissão:");
 
@@ -338,6 +336,12 @@ public class TelaNovoProntuario extends javax.swing.JFrame {
 
         NAOinfarto.setText("NÃO");
 
+        txtGenero.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtGeneroActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -456,21 +460,25 @@ public class TelaNovoProntuario extends javax.swing.JFrame {
                                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addGroup(jPanel1Layout.createSequentialGroup()
                                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                                    .addComponent(dataPaciente, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                    .addComponent(cBoxGenero, 0, 171, Short.MAX_VALUE))
+                                                    .addComponent(dataPaciente, javax.swing.GroupLayout.DEFAULT_SIZE, 171, Short.MAX_VALUE)
+                                                    .addComponent(txtGenero))
                                                 .addGap(18, 18, 18)
                                                 .addComponent(jLabel8))
                                             .addGroup(jPanel1Layout.createSequentialGroup()
                                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                    .addComponent(txtTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                     .addComponent(txtCidade, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                    .addComponent(txtTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                                .addGap(36, 36, 36)
+                                                    .addComponent(txtConvenio, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE))
                                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                    .addComponent(jLabel13)
-                                                    .addComponent(jLabel17)))
-                                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                                .addComponent(jLabel18)
-                                                .addGap(9, 9, 9)))
+                                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                                        .addGap(36, 36, 36)
+                                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                            .addComponent(jLabel13)
+                                                            .addComponent(jLabel17)))
+                                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                                        .addGap(27, 27, 27)
+                                                        .addComponent(jLabel18)
+                                                        .addGap(9, 9, 9)))))
                                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                                                 .addGap(0, 0, Short.MAX_VALUE)
@@ -503,10 +511,10 @@ public class TelaNovoProntuario extends javax.swing.JFrame {
                                 .addComponent(SIMdiabete)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(NAOdiabete)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGap(18, 18, 18)
                                 .addComponent(jLabel36)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txtDiabete, javax.swing.GroupLayout.PREFERRED_SIZE, 355, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(txtDiabete, javax.swing.GroupLayout.PREFERRED_SIZE, 343, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(119, 119, 119)
                                 .addComponent(SIMinfarto)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -515,8 +523,6 @@ public class TelaNovoProntuario extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(94, 94, 94)
                 .addComponent(jLabel9)
-                .addGap(18, 18, 18)
-                .addComponent(txtConvenio, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -545,9 +551,9 @@ public class TelaNovoProntuario extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(cBoxGenero, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtProfissao, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtProfissao, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtGenero, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -565,12 +571,12 @@ public class TelaNovoProntuario extends javax.swing.JFrame {
                     .addComponent(txtEstado))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtConvenio, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtPlano, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtNumConvenio, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtConvenio, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -710,6 +716,10 @@ public class TelaNovoProntuario extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_NAOdiabeteActionPerformed
 
+    private void txtGeneroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtGeneroActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtGeneroActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -761,7 +771,6 @@ public class TelaNovoProntuario extends javax.swing.JFrame {
     private javax.swing.JCheckBox SIMgestante;
     private javax.swing.JCheckBox SIMinfarto;
     private javax.swing.JButton btnSair;
-    private javax.swing.JComboBox<String> cBoxGenero;
     private javax.swing.JComboBox<String> cBoxNomepac;
     private javax.swing.JCheckBox cbNAOalergia;
     private javax.swing.JCheckBox cbNAOtratamento;
@@ -819,6 +828,7 @@ public class TelaNovoProntuario extends javax.swing.JFrame {
     private javax.swing.JTextField txtEmail;
     private javax.swing.JTextField txtEstado;
     private javax.swing.JTextField txtFaltaAr;
+    private javax.swing.JTextField txtGenero;
     private javax.swing.JTextField txtMedicamento;
     private javax.swing.JTextField txtNumConvenio;
     private javax.swing.JTextField txtObservacao;
