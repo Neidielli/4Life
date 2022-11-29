@@ -65,7 +65,7 @@ public class AgendaDAOTest {
         int dayPac = 5;
         Date nascimento = new Date(yearPac - 1900,monthPac,dayPac); // atribui uma data para o obj date
         
-        int idPac = 13;
+        int idPac = 1;
         String nome = "Maria Consulta";
         String cpf = "123.456.789-12";
         String email = "test@.com";
@@ -93,9 +93,9 @@ public class AgendaDAOTest {
         paciente.setEstado(estado);
         paciente.setNum_endereco(num_endereco);
         
-        /*================= Funcionario ===========================*/
-        
-        int idFunc = 9;
+//        /*================= Funcionario ===========================*/
+       
+        int idFunc = 1;
         String nome2 = "Mariana Consulta";
         String CPF = "123.456.789-12";
         String tipo_func = "Médica";
@@ -105,7 +105,7 @@ public class AgendaDAOTest {
         
         
         Funcionario funcionario = new Funcionario();
-        
+       
         funcionario.setId(idFunc);
         funcionario.setNome(nome2);
         funcionario.setCPF(CPF);
@@ -153,7 +153,7 @@ public class AgendaDAOTest {
         int dayPac = 5;
         Date nascimento = new Date(yearPac - 1900,monthPac,dayPac); // atribui uma data para o obj date
         
-        int idPac = 14; 
+        int idPac = 1; 
         String nome = "Maria Consulta";
         String cpf = "123.456.789-12";
         String email = "test@.com";
@@ -183,7 +183,7 @@ public class AgendaDAOTest {
         
         /*================= Funcionario ===========================*/
         
-        int idFunc = 9;
+        int idFunc = 1;
         String nome2 = "Mariana Consulta";
         String CPF = "123.456.789-12";
         String tipo_func = "Médica";
@@ -240,7 +240,7 @@ public class AgendaDAOTest {
         int month = 10;
         int day = 5; 
         Date agendamento = new Date(year - 1900,month,day);
-        String nomeMedico = "Pablo Ferreira";
+        String nomeMedico = "Joao";
         AgendaDAO instance = new AgendaDAO();
 //        List<Agenda> expResult = null;
         List<Agenda> result = instance.listarConsultas(agendamento, nomeMedico);
