@@ -78,27 +78,26 @@ public class UsuarioDAOTest {
         assertEquals(true, usuario.cadastrar(usuarioVerdadeiro1));       
     }
     @Test
-    public void testAdicionarExistente() throws SQLException {
-        UsuarioDAO usuario = new UsuarioDAO();
-        
+    public void testAdicionarEmailNull() throws SQLException {
+         UsuarioDAO usuario = new UsuarioDAO();
+
 //        int id="";
         String nome = "Neid Testes";
-        String cpf ="010.020.030-04"; 
-        String email = "neidTestes@gmail.com"; 
+        String cpf ="010.020.030-04"; // cpf é um varchar(15)
+
         String telefone = "(41)90005-0000";
-        String senha = "marimari"; 
-        
-        Usuario usuarioExistente = new Usuario();
-        
-        usuarioExistente.setNome(nome);
-        usuarioExistente.setCpf(cpf);
-        usuarioExistente.setEmail(email);
-        usuarioExistente.setTelefone(telefone);
-        usuarioExistente.setSenha(senha);
-                
-        /*executa cadastro com usuário existente - esperara que tenha usuario*/ 
-        assertEquals(true, usuario.cadastrar(usuarioExistente));
-    
+        String senha = "marimari";
+
+        Usuario usuarioVerdadeiro1 = new Usuario();
+
+        usuarioVerdadeiro1.setNome(nome);
+        usuarioVerdadeiro1.setCpf(cpf);
+
+        usuarioVerdadeiro1.setTelefone(telefone);
+        usuarioVerdadeiro1.setSenha(senha);
+
+
+        assertThrows(RuntimeException.class, () -> usuario.cadastrar(usuarioVerdadeiro1));
     }
     /**
      * Test of listarUsuarios method, of class UsuarioDAO.
