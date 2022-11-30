@@ -23,7 +23,7 @@ public class Paciente {
     int num_endereco;
     String genero;
     String profissao;
-    String convenio, plano, numero;
+    String convenio, plano, numero_conv;
 
     public int getId() {
         return id;
@@ -153,12 +153,12 @@ public class Paciente {
         this.plano = plano;
     }
 
-    public String getNumero() {
-        return numero;
+    public String getNumero_conv() {
+        return numero_conv;
     }
 
-    public void setNumero(String numero) {
-        this.numero = numero;
+    public void setNumero_conv(String numero_conv) {
+        this.numero_conv = numero_conv;
     }
     
     

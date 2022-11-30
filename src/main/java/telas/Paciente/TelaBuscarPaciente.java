@@ -31,8 +31,10 @@ public class TelaBuscarPaciente extends javax.swing.JFrame {
                 p.getId(),
                 p.getNome(),
                 p.getCpf(),
+                p.getGenero(),
                 p.getData_nascimento(),
                 p.getTelefone(),
+                p.getConvenio(),
                 p.getCidade(),
                 p.getEstado()
             });
@@ -57,7 +59,6 @@ public class TelaBuscarPaciente extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         tituloPag = new javax.swing.JLabel();
-        buttonSairPac = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         CBoxTipoPac = new javax.swing.JComboBox<>();
@@ -66,6 +67,7 @@ public class TelaBuscarPaciente extends javax.swing.JFrame {
         tabelaBuscaPac = new javax.swing.JTable();
         buttonEditarPac = new javax.swing.JButton();
         buttonExcluirPac = new javax.swing.JButton();
+        buttonSairPac = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Paciente - Tela de Busca");
@@ -80,16 +82,6 @@ public class TelaBuscarPaciente extends javax.swing.JFrame {
         tituloPag.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icons/team.png"))); // NOI18N
         tituloPag.setText("BUSCAR PACIENTE");
         tituloPag.setIconTextGap(5);
-
-        buttonSairPac.setBackground(new java.awt.Color(0, 51, 51));
-        buttonSairPac.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
-        buttonSairPac.setForeground(new java.awt.Color(255, 255, 255));
-        buttonSairPac.setText("Sair");
-        buttonSairPac.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonSairPacActionPerformed(evt);
-            }
-        });
 
         jPanel2.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(0, 51, 0), null));
 
@@ -108,19 +100,19 @@ public class TelaBuscarPaciente extends javax.swing.JFrame {
 
         tabelaBuscaPac.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null}
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "CÓDIGO", "NOME DO PACIENTE", "CPF", "DATA DE NASC.", "TELEFONE", "CIDADE", "ESTADO"
+                "CÓDIGO", "NOME DO PACIENTE", "CPF", "GÊNERO", "DATA DE NASC.", "TELEFONE", "CONVÊNIO", "CIDADE", "ESTADO"
             }
         ));
         tabelaBuscaPac.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -130,8 +122,16 @@ public class TelaBuscarPaciente extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(tabelaBuscaPac);
         if (tabelaBuscaPac.getColumnModel().getColumnCount() > 0) {
-            tabelaBuscaPac.getColumnModel().getColumn(0).setMaxWidth(170);
-            tabelaBuscaPac.getColumnModel().getColumn(1).setPreferredWidth(150);
+            tabelaBuscaPac.getColumnModel().getColumn(0).setPreferredWidth(65);
+            tabelaBuscaPac.getColumnModel().getColumn(0).setMaxWidth(100);
+            tabelaBuscaPac.getColumnModel().getColumn(1).setPreferredWidth(105);
+            tabelaBuscaPac.getColumnModel().getColumn(3).setPreferredWidth(50);
+            tabelaBuscaPac.getColumnModel().getColumn(5).setPreferredWidth(100);
+            tabelaBuscaPac.getColumnModel().getColumn(5).setMaxWidth(100);
+            tabelaBuscaPac.getColumnModel().getColumn(6).setPreferredWidth(50);
+            tabelaBuscaPac.getColumnModel().getColumn(7).setPreferredWidth(60);
+            tabelaBuscaPac.getColumnModel().getColumn(8).setPreferredWidth(110);
+            tabelaBuscaPac.getColumnModel().getColumn(8).setMaxWidth(170);
         }
 
         buttonEditarPac.setBackground(new java.awt.Color(0, 102, 52));
@@ -158,6 +158,12 @@ public class TelaBuscarPaciente extends javax.swing.JFrame {
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(buttonEditarPac, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(buttonExcluirPac, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(38, 38, 38))
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
@@ -169,15 +175,9 @@ public class TelaBuscarPaciente extends javax.swing.JFrame {
                                 .addComponent(txtBuscaPac, javax.swing.GroupLayout.PREFERRED_SIZE, 425, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(jLabel1)))
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(15, 15, 15)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 785, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(14, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(buttonEditarPac, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(buttonExcluirPac, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(38, 38, 38))
+                        .addGap(14, 14, 14)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 944, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(15, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -197,6 +197,16 @@ public class TelaBuscarPaciente extends javax.swing.JFrame {
                 .addContainerGap(72, Short.MAX_VALUE))
         );
 
+        buttonSairPac.setBackground(new java.awt.Color(0, 51, 51));
+        buttonSairPac.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
+        buttonSairPac.setForeground(new java.awt.Color(255, 255, 255));
+        buttonSairPac.setText("Sair");
+        buttonSairPac.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonSairPacActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -205,8 +215,8 @@ public class TelaBuscarPaciente extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(tituloPag, javax.swing.GroupLayout.PREFERRED_SIZE, 370, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(buttonSairPac, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(29, 29, 29))
+                .addComponent(buttonSairPac, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(33, 33, 33))
             .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
@@ -232,13 +242,9 @@ public class TelaBuscarPaciente extends javax.swing.JFrame {
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
-        setSize(new java.awt.Dimension(834, 510));
+        setSize(new java.awt.Dimension(993, 510));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-
-    private void buttonSairPacActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonSairPacActionPerformed
-        this.dispose();
-    }//GEN-LAST:event_buttonSairPacActionPerformed
 
     private void buttonExcluirPacActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonExcluirPacActionPerformed
         int confirma = JOptionPane.showConfirmDialog(null, "Tem certeza de que deseja excluir paciente?", "CONFIRMAÇÃO DE EXCLUSÃO", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
@@ -303,12 +309,14 @@ public class TelaBuscarPaciente extends javax.swing.JFrame {
                 String Coluna0=rs.getString("id");
                 String Coluna1=rs.getString("nome");
                 String Coluna2=rs.getString("cpf");
-                String Coluna3=rs.getString("data_nascimento");
-                String Coluna4=rs.getString("telefone");
-                String Coluna5=rs.getString("cidade");
-                String Coluna6=rs.getString("estado");
+                String Coluna3=rs.getString("genero");
+                String Coluna4=rs.getString("data_nascimento");
+                String Coluna5=rs.getString("telefone");
+                String Coluna6=rs.getString("convenio");
+                String Coluna7=rs.getString("cidade");
+                String Coluna8=rs.getString("estado");
                 
-                dtm.addRow(new String[]{Coluna0,Coluna1,Coluna2,Coluna3,Coluna4,Coluna5,Coluna6});
+                dtm.addRow(new String[]{Coluna0,Coluna1,Coluna2,Coluna3,Coluna4,Coluna5,Coluna6,Coluna7,Coluna8});
             }           
         }
         catch(SQLException erro){
@@ -316,6 +324,10 @@ public class TelaBuscarPaciente extends javax.swing.JFrame {
         }
         tabelaBuscaPac.setAutoCreateRowSorter(true);
     }//GEN-LAST:event_txtBuscaPacKeyReleased
+
+    private void buttonSairPacActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonSairPacActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_buttonSairPacActionPerformed
 
     /**
      * @param args the command line arguments

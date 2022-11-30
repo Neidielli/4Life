@@ -12,14 +12,10 @@ public class ProntuarioDAO {
 //    int idProntuario;
 //    int idPaciente;
 //    Date dataNacimento;
-//    int idade;
-//    String naturalidade;
 //    String genero;
 //    String profissão;
 //    String cpfPaciente;
-//    String rgPaciente;
-//    String emissorRg;
-//    String cidadeAtual;
+//    String cidadePaciente;
 //    String cep;
 //    String estado;
 //    String telefone;

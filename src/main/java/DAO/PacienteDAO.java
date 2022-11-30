@@ -29,13 +29,16 @@ public class PacienteDAO {
     Date data_nascimento;
     String cep, rua, bairro, cidade, estado;
     int num_endereco;
+    String genero;
+    String profissao;
+    String convenio, plano, numero_conv;
     
     public PacienteDAO(){
         this.connection = new ConnectionFactory().getConnection();
     }
     
     public boolean cadastrar(Paciente paciente){
-        String sql = "INSERT INTO paciente(nome,cpf,email,telefone,data_nascimento,cep,rua,bairro,cidade,estado,num_endereco) VALUES(?,?,?,?,?,?,?,?,?,?,?)";
+        String sql = "INSERT INTO paciente(nome,cpf,email,telefone,data_nascimento,cep,rua,bairro,cidade,estado,num_endereco,genero,profissao,convenio,plano,num_convenio) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
         
         try{
             PreparedStatement pds = connection.prepareStatement(sql);
@@ -53,6 +56,11 @@ public class PacienteDAO {
             pds.setString(9, paciente.getCidade());
             pds.setString(10, paciente.getEstado());
             pds.setInt(11, paciente.getNum_endereco());
+            pds.setString(12, paciente.getGenero());
+            pds.setString(13, paciente.getProfissao());
+            pds.setString(14, paciente.getConvenio());
+            pds.setString(15, paciente.getPlano());
+            pds.setString(16, paciente.getNumero_conv());
             
             JOptionPane.showMessageDialog(null, "Paciente " + paciente.getNome()+ " cadastrado com sucesso!! ");
             pds.executeUpdate();
@@ -93,6 +101,11 @@ public class PacienteDAO {
                 paciente.setCidade(rs.getString("cidade"));
                 paciente.setEstado(rs.getString("estado"));
                 paciente.setNum_endereco(rs.getInt("num_endereco"));
+                paciente.setGenero(rs.getString("genero"));
+                paciente.setProfissao(rs.getString("profissao"));
+                paciente.setConvenio(rs.getString("convenio"));
+                paciente.setPlano(rs.getString("plano"));
+                paciente.setNumero_conv(rs.getString("num_convenio"));
                 
                 lista.add(paciente);
             }
@@ -103,7 +116,7 @@ public class PacienteDAO {
         }
     }
     public void editar(Paciente paciente){
-        String sql = "UPDATE paciente set nome=?, cpf=?, email=?, telefone=?, data_nascimento=?, cep=?, rua=?, bairro=?, cidade=?, estado=?, num_endereco=? WHERE id=?";
+        String sql = "UPDATE paciente set nome=?, cpf=?, email=?, telefone=?, data_nascimento=?, cep=?, rua=?, bairro=?, cidade=?, estado=?, num_endereco=?, genero=?, profissao=?, convenio=?, plano=?, num_convenio=? WHERE id=?";
         
         try { 
             PreparedStatement pds = connection.prepareStatement(sql);
@@ -121,7 +134,12 @@ public class PacienteDAO {
             pds.setString(9, paciente.getCidade());
             pds.setString(10, paciente.getEstado());
             pds.setInt(11, paciente.getNum_endereco());
-            pds.setInt(12, paciente.getId());
+            pds.setString(12, paciente.getGenero());
+            pds.setString(13, paciente.getProfissao());
+            pds.setString(14, paciente.getConvenio());
+            pds.setString(15, paciente.getPlano());
+            pds.setString(16, paciente.getNumero_conv());
+            pds.setInt(17, paciente.getId());
             
             pds.executeUpdate();
             pds.close();
@@ -170,6 +188,11 @@ public class PacienteDAO {
                 pac.setCidade(rs.getString("cidade"));
                 pac.setEstado(rs.getString("estado"));
                 pac.setNum_endereco(rs.getInt("num_endereco"));
+                pac.setGenero(rs.getString("genero"));
+                pac.setProfissao(rs.getString("profissao"));
+                pac.setConvenio(rs.getString("convenio"));
+                pac.setPlano(rs.getString("plano"));
+                pac.setNumero_conv(rs.getString("num_convenio"));
             }
             return true;
         }
@@ -178,7 +201,7 @@ public class PacienteDAO {
         }
     }
     public ResultSet carregaTabela(){ //carrega a tabela com as informações do bd.
-        String sql = "SELECT id,nome,cpf,data_nascimento,telefone,cidade,estado from paciente";
+        String sql = "SELECT id,nome,cpf,genero,data_nascimento,telefone,convenio,cidade,estado from paciente";
         
         try{
             PreparedStatement pstmt = connection.prepareStatement(sql);
@@ -191,7 +214,7 @@ public class PacienteDAO {
     }
     public static ResultSet carregaTabela(String tipo,String arg){
         String argumento = tipo+" "+"like '"+arg+"%'"; 
-        String sqlt = "SELECT id,nome,cpf,data_nascimento,telefone,cidade,estado from paciente WHERE "+argumento+" "; 
+        String sqlt = "SELECT id,nome,cpf,genero,data_nascimento,telefone,convenio,cidade,estado from paciente WHERE "+argumento+" "; 
         
         try{
             ConnectionFactory conexao = new ConnectionFactory();

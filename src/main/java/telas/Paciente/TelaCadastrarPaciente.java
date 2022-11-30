@@ -159,7 +159,7 @@ public class TelaCadastrarPaciente extends javax.swing.JFrame {
 
         jLabel2.setText("Profissão:");
 
-        jLabel3.setText("Convênio");
+        jLabel3.setText("Convênio:");
 
         jLabel4.setText("Plano:");
 
@@ -190,23 +190,11 @@ public class TelaCadastrarPaciente extends javax.swing.JFrame {
                         .addComponent(buttonCancelarPac, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanelCadastrarLayout.createSequentialGroup()
                         .addGap(44, 44, 44)
-                        .addGroup(jPanelCadastrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelCadastrarLayout.createSequentialGroup()
-                                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(txtConvenio, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(31, 31, 31)
-                                .addComponent(jLabel4)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(txtPlano, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(24, 24, 24)
-                                .addComponent(jLabel5)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(txtNumConvenio, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(jPanelCadastrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanelCadastrarLayout.createSequentialGroup()
                                 .addComponent(labelNomePac, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(txtNomePac, javax.swing.GroupLayout.PREFERRED_SIZE, 628, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(txtNomePac))
                             .addGroup(jPanelCadastrarLayout.createSequentialGroup()
                                 .addGroup(jPanelCadastrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addGroup(jPanelCadastrarLayout.createSequentialGroup()
@@ -245,13 +233,12 @@ public class TelaCadastrarPaciente extends javax.swing.JFrame {
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                                 .addGroup(jPanelCadastrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                                     .addComponent(txtBairroPac)
-                                                    .addComponent(comboBoxEstado, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                    .addComponent(txtRuaPac)))
+                                                    .addComponent(txtRuaPac)
+                                                    .addComponent(comboBoxEstado, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                                             .addGroup(jPanelCadastrarLayout.createSequentialGroup()
                                                 .addComponent(LabelEmailPac, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                                .addComponent(txtEmailPac, javax.swing.GroupLayout.PREFERRED_SIZE, 328, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addGap(0, 0, Short.MAX_VALUE))))
+                                                .addComponent(txtEmailPac))))
                                     .addGroup(jPanelCadastrarLayout.createSequentialGroup()
                                         .addGap(138, 138, 138)
                                         .addGroup(jPanelCadastrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -259,13 +246,28 @@ public class TelaCadastrarPaciente extends javax.swing.JFrame {
                                             .addComponent(labelDataPac, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE))
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                         .addGroup(jPanelCadastrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addComponent(dateNasCadPac, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addComponent(cBoxGenero, 0, 189, Short.MAX_VALUE)))))
+                                            .addComponent(cBoxGenero, 0, 189, Short.MAX_VALUE)
+                                            .addComponent(dateNasCadPac, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanelCadastrarLayout.createSequentialGroup()
+                        .addGap(40, 40, 40)
+                        .addGroup(jPanelCadastrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelCadastrarLayout.createSequentialGroup()
+                                .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, 58, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(txtConvenio, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(31, 31, 31)
+                                .addComponent(jLabel4)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(txtPlano, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(24, 24, 24)
+                                .addComponent(jLabel5)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(txtNumConvenio, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanelCadastrarLayout.createSequentialGroup()
-                                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(txtProfissao)))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(54, Short.MAX_VALUE))
         );
         jPanelCadastrarLayout.setVerticalGroup(
             jPanelCadastrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -359,8 +361,8 @@ public class TelaCadastrarPaciente extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(edicaoPac, javax.swing.GroupLayout.PREFERRED_SIZE, 406, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 279, Short.MAX_VALUE)
-                .addComponent(ButtonSairPac, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 278, Short.MAX_VALUE)
+                .addComponent(ButtonSairPac, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(42, 42, 42))
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
@@ -397,9 +399,14 @@ public class TelaCadastrarPaciente extends javax.swing.JFrame {
             paciente.setCidade(txtCidade.getText());
             paciente.setEstado(String.valueOf(comboBoxEstado.getSelectedItem()));
             paciente.setNum_endereco(Integer.parseInt(txtNumPac.getText()));
+            paciente.setGenero(String.valueOf(cBoxGenero.getSelectedItem()));
+            paciente.setProfissao(txtProfissao.getText());
+            paciente.setConvenio(txtConvenio.getText());
+            paciente.setPlano(txtPlano.getText());
+            paciente.setNumero_conv(txtNumConvenio.getText());
 
             //validação dos campos
-            if((txtNomePac.getText().isEmpty()) || (txtCpfPac.getText().isEmpty()) || (txtEmailPac.getText().isEmpty()) || (txtTelefonePac.getText().isEmpty()) || (txtCepPac.getText().isEmpty()) || (txtRuaPac.getText().isEmpty()) || (txtBairroPac.getText().isEmpty()) || (txtCidade.getText().isEmpty()) || (txtNumPac.getText().isEmpty()) ){
+            if((txtNomePac.getText().isEmpty()) || (txtCpfPac.getText().isEmpty()) || (txtEmailPac.getText().isEmpty()) || (txtTelefonePac.getText().isEmpty()) || (txtCepPac.getText().isEmpty()) || (txtRuaPac.getText().isEmpty()) || (txtBairroPac.getText().isEmpty()) || (txtCidade.getText().isEmpty()) || (txtNumPac.getText().isEmpty()) || (txtProfissao.getText().isEmpty()) || (txtConvenio.getText().isEmpty()) || (txtPlano.getText().isEmpty()) || (txtNumConvenio.getText().isEmpty()) ){
                 JOptionPane.showMessageDialog(null, "Os campos não podem retornar vazios!");
             }else{
                 PacienteDAO dao = new PacienteDAO();
@@ -419,6 +426,11 @@ public class TelaCadastrarPaciente extends javax.swing.JFrame {
             txtCidade.setText("");
             comboBoxEstado.setSelectedItem("Selecione um estado");
             txtNumPac.setText("");
+            cBoxGenero.setSelectedItem("Selecione um gênero");
+            txtProfissao.setText("");
+            txtConvenio.setText("");
+            txtPlano.setText("");
+            txtNumConvenio.setText("");
 
         }catch(Exception exc){
             JOptionPane.showMessageDialog(null, "ERRO AO SALVAR PACIENTE!" +exc);
@@ -438,6 +450,11 @@ public class TelaCadastrarPaciente extends javax.swing.JFrame {
         txtCidade.setText("");
         comboBoxEstado.setSelectedItem("Selecione um estado");
         txtNumPac.setText("");
+        cBoxGenero.setSelectedItem("Selecione um gênero");
+        txtProfissao.setText("");
+        txtConvenio.setText("");
+        txtPlano.setText("");
+        txtNumConvenio.setText("");
     }//GEN-LAST:event_buttonCancelarPacActionPerformed
 
     private void txtNumConvenioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNumConvenioActionPerformed
