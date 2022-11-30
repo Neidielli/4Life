@@ -7,6 +7,7 @@ package DAO;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import javax.swing.JOptionPane;
 import model.Prontuario;
 
@@ -33,52 +34,52 @@ public class ProntuarioDAO {
     
     
     
-//    public boolean cadastrar(Prontuario prontuario){ 
-// 
-//        try { 
-//            
-//            
-//            // seleciona os campos da tabela
-//            String sqlSelect = "select * from prontuario where id_paciente='" + prontuario.getPaciente().getId() +"'";
-//            
-//            PreparedStatement stmtSelect = connection.prepareStatement(sqlSelect);
-//            
-//            // o resultado do select será guardado dentro do obj resultSet
-//            ResultSet rs = stmtSelect.executeQuery();
-//
-//            // condição para verificar se o obj resultSet já existe
-//            if(rs.next()) {
-//                JOptionPane.showMessageDialog(null, "Prontuario de Paciente já cadastrado",
-//                    "ERRO!", JOptionPane.ERROR_MESSAGE);
-//                return false;
-//            } else {
-//                String sql = "INSERT INTO prontuario(id_paciente,cirurgia,gestante,fumante,infarto,medicacao,alergia,tratamento,falta_ar,doenca,diabetico,observacao) VALUES(?,?,?,?,?,?,?,?,?,?,?,?)";
-//                PreparedStatement pdstmt = connection.prepareStatement(sql);
-//
-////                pdstmt.setInt(1, prontuario.getPaciente().getId()); //precisa captar o objeto
-////                pdstmt.setString(2, prontuario.get); 
-////                pdstmt.setString(3, prontuario.getTipo_consulta());
-////                pdstmt.setString(4, prontuario.getHora());
-////                pdstmt.setString(5, prontuario.getHora());
-////                pdstmt.setString(6, prontuario.getHora());
-////                pdstmt.setString(7, prontuario.getHora());
-////                pdstmt.setString(8, prontuario.getHora());
-////                pdstmt.setString(9, prontuario.getHora());
-////                pdstmt.setString(10, prontuario.getHora());
-////                pdstmt.setString(11, prontuario.getHora());
-////                pdstmt.setString(12, prontuario.getHora());
-//
-//                JOptionPane.showMessageDialog(null, "Consulta cadastrado com sucesso!! ");
-//                pdstmt.execute();
-//                pdstmt.close();
-//
-//                return true;
-//            }
-////            
-////        } catch (SQLException exc) { 
-////            System.out.println("Erro ao agendar consulta: " + exc); 
-////            throw new RuntimeException(exc);
-////        }
-//    }
+    public boolean cadastrar(Prontuario prontuario){ 
+ 
+        try { 
+            
+            
+            // seleciona os campos da tabela
+            String sqlSelect = "select * from prontuario where id_paciente='" + prontuario.getPaciente().getId() +"'";
+            
+            PreparedStatement stmtSelect = connection.prepareStatement(sqlSelect);
+            
+            // o resultado do select será guardado dentro do obj resultSet
+            ResultSet rs = stmtSelect.executeQuery();
+
+            // condição para verificar se o obj resultSet já existe
+            if(rs.next()) {
+                JOptionPane.showMessageDialog(null, "Prontuario de Paciente já cadastrado",
+                    "ERRO!", JOptionPane.ERROR_MESSAGE);
+                return false;
+            } else {
+                String sql = "INSERT INTO prontuario(id_paciente,cirurgia,gestante,fumante,infarto,medicacao,alergia,tratamento,falta_ar,doenca,diabetico,observacao) VALUES(?,?,?,?,?,?,?,?,?,?,?,?)";
+                PreparedStatement pdstmt = connection.prepareStatement(sql);
+
+                pdstmt.setInt(1, prontuario.getPaciente().getId()); //precisa captar o objeto
+                pdstmt.setString(2, prontuario.getCirurgia()); 
+                pdstmt.setString(3, prontuario.getGestante());
+                pdstmt.setString(4, prontuario.getFumante());
+                pdstmt.setString(5, prontuario.getInfarto());
+                pdstmt.setString(6, prontuario.getMedicacao());
+                pdstmt.setString(7, prontuario.getAlergia());
+                pdstmt.setString(8, prontuario.getTratamento());
+                pdstmt.setString(9, prontuario.getFalta_ar());
+                pdstmt.setString(10, prontuario.getDoenca());
+                pdstmt.setString(11, prontuario.getDiabetico());
+                pdstmt.setString(12, prontuario.getObservacao());
+
+                JOptionPane.showMessageDialog(null, "Prontuario cadastrado com sucesso!! ");
+                pdstmt.execute();
+                pdstmt.close();
+
+                return true;
+            }
+            
+        } catch (SQLException exc) { 
+            System.out.println("Erro ao agendar prontuario: " + exc); 
+            throw new RuntimeException(exc);
+        }
+    }
     
 }
