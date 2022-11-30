@@ -22,3 +22,10 @@ create table paciente (
     num_endereco int NOT NULL,
     PRIMARY KEY(id, nome)
 );
+ALTER TABLE `projetojava`.`paciente` 
+ADD COLUMN `genero` VARCHAR(50) NOT NULL AFTER `num_endereco`,
+ADD COLUMN `profissao` VARCHAR(80) NOT NULL AFTER `genero`,
+ADD COLUMN `convenio` VARCHAR(80) NOT NULL AFTER `profissao`,
+ADD COLUMN `plano` VARCHAR(50) NOT NULL AFTER `convenio`,
+ADD COLUMN `num_convenio` VARCHAR(50) NOT NULL AFTER `plano`;
+
