@@ -9,7 +9,10 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.swing.JOptionPane;
+import model.Paciente;
 import model.Prontuario;
 
 /**
@@ -82,5 +85,45 @@ public class ProntuarioDAO {
             throw new RuntimeException(exc);
         }
     }
-    
+    public List<Prontuario> listaProntuario(){
+        try {
+            List<Prontuario> lista = new ArrayList<Prontuario>();
+            String sql = "SELECT p.id_prontuario, pac.nome, p.cirurgia, p.gestante, p.fumante, p.infarto, p.medicacao, "
+                    + "p.alergia, p.tratamento, p.falta_ar, p.doenca, p.diabetico, p.observacao  FROM prontuario as p "
+                    + "JOIN paciente as pac on (p.id_paciente = pac.id)";
+            
+            PreparedStatement pds = connection.prepareStatement(sql);
+            ResultSet rs = pds.executeQuery();
+            
+            while(rs.next()){
+                
+                Prontuario p = new Prontuario();
+                Paciente pac = new Paciente();
+                
+                p.setId(rs.getInt("p.id_prontuario"));
+                
+                pac.setNome(rs.getString("pac.nome")); // irá retornar o nome do paciente
+                
+                p.setCirurgia(rs.getString("p.cirurgia"));
+                p.setGestante(rs.getString("p.gestante"));
+                p.setFumante(rs.getString("p.fumante"));
+                p.setInfarto(rs.getString("p.infarto"));  
+                p.setMedicacao(rs.getString("p.medicacao"));
+                p.setAlergia(rs.getString("p.alergia"));
+                p.setTratamento(rs.getString("p.tratamento"));
+                p.setFalta_ar(rs.getString("p.falta_ar"));
+                p.setDoenca(rs.getString("p.doenca"));
+                p.setDiabetico(rs.getString("p.diabetico"));
+                p.setObservacao(rs.getString("p.observacao"));
+                
+                p.setPaciente(pac);
+                
+                lista.add(p);
+            }
+            return lista;
+        }
+        catch (SQLException exc) {
+            throw new RuntimeException(exc);
+        }
+    }
 }

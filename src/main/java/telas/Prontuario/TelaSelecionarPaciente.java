@@ -168,14 +168,14 @@ public class TelaSelecionarPaciente extends javax.swing.JFrame {
     }//GEN-LAST:event_boxPacienteActionPerformed
 
     private void btnVisualizarProntuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVisualizarProntuarioActionPerformed
-        Paciente pacienteSelecionado = new Paciente();
-        pacienteSelecionado.setNome(String.valueOf(boxPaciente.getSelectedItem()));
+        Paciente pacienteSelecionado = new Paciente(); // vai ter
+        pacienteSelecionado.setNome(String.valueOf(boxPaciente.getSelectedItem())); // cbNomePac
 
-        TelaProntuario prontuarioGUI = new TelaProntuario();
-        prontuarioGUI.setVisible(true);
+        TelaProntuario prontuarioGUI = new TelaProntuario(); // NAO VAI TER
+        prontuarioGUI.setVisible(true); // NAO VAI TER
 
-        TelaProntuario.recebeNomePaciente(pacienteSelecionado); // tela de Prontuario recebe o nome do paciente
-        this.dispose();
+        TelaProntuario.recebeNomePaciente(pacienteSelecionado); // tela de Prontuario N VAI TER, RECEBE TEM
+        this.dispose(); // N VAI TER
     }//GEN-LAST:event_btnVisualizarProntuarioActionPerformed
 
     private void btnHomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHomeActionPerformed

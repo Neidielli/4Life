@@ -12,6 +12,7 @@ import telas.Paciente.TelaBuscarPaciente;
 import telas.Paciente.TelaCadastrarPaciente;
 import telas.Paciente.TelaEditarPaciente;
 import telas.Prontuario.TelaNovoProntuario;
+import telas.Prontuario.TelaProntuario;
 import telas.Prontuario.TelaSelecionarPaciente;
 import telas.Usuario.TelaBuscarUsuario;
 import telas.Usuario.TelaCadastrarUsuario;
@@ -363,8 +364,11 @@ public class TelaHome extends javax.swing.JFrame {
     }//GEN-LAST:event_ItemMenuRegistrarProntuarioActionPerformed
 
     private void ItemMenuVisualizarProntuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ItemMenuVisualizarProntuarioActionPerformed
-        TelaSelecionarPaciente selecionarPaciente = new TelaSelecionarPaciente();
-        selecionarPaciente.setVisible(true);
+//        TelaSelecionarPaciente selecionarPaciente = new TelaSelecionarPaciente();
+//        selecionarPaciente.setVisible(true);
+        
+        TelaProntuario visualizarProntuario = new TelaProntuario();
+        visualizarProntuario.setVisible(true);
     }//GEN-LAST:event_ItemMenuVisualizarProntuarioActionPerformed
      private void ItemMenuVisualizarProntPacienteActionPerformed(java.awt.event.ActionEvent evt) {                                                               
         // TODO add your handling code here:
