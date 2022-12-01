@@ -89,12 +89,10 @@ public class PacienteDAO {
                 
                 paciente.setId(rs.getInt("id"));
                 paciente.setNome(rs.getString("nome"));
-                System.out.println(rs.getString("nome"));
                 paciente.setCpf(rs.getString("cpf"));
                 paciente.setEmail(rs.getString("email"));
                 paciente.setTelefone(rs.getString("telefone"));
                 paciente.setData_nascimento(rs.getDate("data_nascimento"));  
-                System.out.println(rs.getDate("data_nascimento"));
                 paciente.setCep(rs.getString("cep"));
                 paciente.setRua(rs.getString("rua"));
                 paciente.setBairro(rs.getString("bairro"));
