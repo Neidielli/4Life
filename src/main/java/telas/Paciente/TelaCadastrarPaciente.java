@@ -419,7 +419,7 @@ public class TelaCadastrarPaciente extends javax.swing.JFrame {
             txtCpfPac.setText("");
             txtEmailPac.setText("");
             txtTelefonePac.setText("");
-            //dateNasCadPac.setDate("");
+            dateNasCadPac.setDate(null);
             txtCepPac.setText("");
             txtRuaPac.setText("");
             txtBairroPac.setText("");
@@ -443,7 +443,7 @@ public class TelaCadastrarPaciente extends javax.swing.JFrame {
         txtCpfPac.setText("");
         txtEmailPac.setText("");
         txtTelefonePac.setText("");
-        //txtDateNasPac.setText("");
+        dateNasCadPac.setDate(null);
         txtCepPac.setText("");
         txtRuaPac.setText("");
         txtBairroPac.setText("");
