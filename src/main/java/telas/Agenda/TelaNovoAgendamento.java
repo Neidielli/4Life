@@ -316,6 +316,7 @@ public class TelaNovoAgendamento extends javax.swing.JFrame {
     private void btnLimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimparActionPerformed
         campoIdConsulta.setText("");
         campoProcedimento.setText("");
+        campoData.setDate(null);
         campoHora.setSelectedItem("");
     }//GEN-LAST:event_btnLimparActionPerformed
 
