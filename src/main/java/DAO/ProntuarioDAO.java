@@ -4,6 +4,7 @@
  */
 package DAO;
 
+import factory.ConnectionFactory;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -32,21 +33,21 @@ public class ProntuarioDAO {
     String diabetico;
     String observação;
     
-    
+    public ProntuarioDAO(){
+        this.connection = new ConnectionFactory().getConnection();
+    }
     
     public boolean cadastrar(Prontuario prontuario){ 
  
         try { 
-            
-            
-            // seleciona os campos da tabela
+             // seleciona os campos da tabela
             String sqlSelect = "select * from prontuario where id_paciente='" + prontuario.getPaciente().getId() +"'";
             
             PreparedStatement stmtSelect = connection.prepareStatement(sqlSelect);
             
             // o resultado do select será guardado dentro do obj resultSet
             ResultSet rs = stmtSelect.executeQuery();
-
+            
             // condição para verificar se o obj resultSet já existe
             if(rs.next()) {
                 JOptionPane.showMessageDialog(null, "Prontuario de Paciente já cadastrado",

@@ -5,8 +5,11 @@
 package telas.Prontuario;
 
 import DAO.PacienteDAO;
+import DAO.ProntuarioDAO;
 import java.util.List;
+import javax.swing.JOptionPane;
 import model.Paciente;
+import model.Prontuario;
 
 /**
  *
@@ -31,14 +34,10 @@ public class TelaNovoProntuario extends javax.swing.JFrame {
     private void initComponents() {
 
         jCheckBoxMenuItem1 = new javax.swing.JCheckBoxMenuItem();
-        registrodeprontuario = new javax.swing.JLabel();
-        btnSair = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        txtCodProntuario = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        cBoxNomepac = new javax.swing.JComboBox<>();
+        cBoxNomepac = new javax.swing.JComboBox();
         jLabel4 = new javax.swing.JLabel();
         dataPaciente = new com.toedter.calendar.JDateChooser();
         jLabel6 = new javax.swing.JLabel();
@@ -71,7 +70,7 @@ public class TelaNovoProntuario extends javax.swing.JFrame {
         cbNAOalergia = new javax.swing.JCheckBox();
         jLabel24 = new javax.swing.JLabel();
         txtAlergia = new javax.swing.JTextField();
-        jToggleButton1 = new javax.swing.JToggleButton();
+        btnSalvar = new javax.swing.JToggleButton();
         jToggleButton2 = new javax.swing.JToggleButton();
         txtObservacao = new javax.swing.JTextField();
         jLabel25 = new javax.swing.JLabel();
@@ -106,37 +105,14 @@ public class TelaNovoProntuario extends javax.swing.JFrame {
         cbGestante = new javax.swing.JComboBox<>();
         cbFumante = new javax.swing.JComboBox<>();
         cbInfarto = new javax.swing.JComboBox<>();
+        registrodeprontuario = new javax.swing.JLabel();
+        btnSair = new javax.swing.JButton();
 
         jCheckBoxMenuItem1.setSelected(true);
         jCheckBoxMenuItem1.setText("jCheckBoxMenuItem1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Registro de Prontuário");
-
-        registrodeprontuario.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 36)); // NOI18N
-        registrodeprontuario.setForeground(new java.awt.Color(51, 51, 51));
-        registrodeprontuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icons/check-form.png"))); // NOI18N
-        registrodeprontuario.setText("REGISTRO DE PRONTUÁRIO");
-        registrodeprontuario.setIconTextGap(5);
-
-        btnSair.setBackground(new java.awt.Color(0, 51, 51));
-        btnSair.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
-        btnSair.setForeground(new java.awt.Color(255, 255, 255));
-        btnSair.setText("Sair");
-        btnSair.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSairActionPerformed(evt);
-            }
-        });
-
-        jLabel1.setText("Código do Prontuário:");
-
-        txtCodProntuario.setEditable(false);
-        txtCodProntuario.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtCodProntuarioActionPerformed(evt);
-            }
-        });
 
         jLabel2.setBackground(new java.awt.Color(0, 102, 52));
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
@@ -146,23 +122,35 @@ public class TelaNovoProntuario extends javax.swing.JFrame {
         jLabel3.setText("Nome do Paciente:");
 
         cBoxNomepac.addAncestorListener(new javax.swing.event.AncestorListener() {
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
+            }
             public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
                 cBoxNomepacAncestorAdded(evt);
             }
             public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
             }
-            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
+        });
+        cBoxNomepac.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cBoxNomepacActionPerformed(evt);
             }
         });
 
         jLabel4.setText("Data de Nascimento:");
 
+        dataPaciente.setBackground(new java.awt.Color(255, 255, 255));
+
         jLabel6.setText("Gênero:");
 
         jLabel8.setText("Profissão:");
 
+        txtProfissao.setEditable(false);
+        txtProfissao.setBackground(new java.awt.Color(255, 255, 255));
+
         jLabel12.setText("Cidade:");
 
+        txtCidade.setEditable(false);
+        txtCidade.setBackground(new java.awt.Color(255, 255, 255));
         txtCidade.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtCidadeActionPerformed(evt);
@@ -171,6 +159,8 @@ public class TelaNovoProntuario extends javax.swing.JFrame {
 
         jLabel13.setText("CEP:");
 
+        txtCEP.setEditable(false);
+        txtCEP.setBackground(new java.awt.Color(255, 255, 255));
         try {
             txtCEP.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("#####-###")));
         } catch (java.text.ParseException ex) {
@@ -181,6 +171,8 @@ public class TelaNovoProntuario extends javax.swing.JFrame {
 
         jLabel16.setText("Telefone:");
 
+        txtTelefone.setEditable(false);
+        txtTelefone.setBackground(new java.awt.Color(255, 255, 255));
         try {
             txtTelefone.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("(##)#####-####")));
         } catch (java.text.ParseException ex) {
@@ -194,8 +186,13 @@ public class TelaNovoProntuario extends javax.swing.JFrame {
 
         jLabel17.setText("Email:");
 
+        txtEmail.setEditable(false);
+        txtEmail.setBackground(new java.awt.Color(255, 255, 255));
+
         jLabel15.setText("CPF:");
 
+        txtCPF.setEditable(false);
+        txtCPF.setBackground(new java.awt.Color(255, 255, 255));
         try {
             txtCPF.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("###.###.###-##")));
         } catch (java.text.ParseException ex) {
@@ -206,7 +203,13 @@ public class TelaNovoProntuario extends javax.swing.JFrame {
 
         jLabel18.setText("Plano:");
 
+        txtPlano.setEditable(false);
+        txtPlano.setBackground(new java.awt.Color(255, 255, 255));
+
         jLabel19.setText("Número:");
+
+        txtNumConvenio.setEditable(false);
+        txtNumConvenio.setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel20.setBackground(new java.awt.Color(0, 102, 52));
         jLabel20.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
@@ -255,13 +258,13 @@ public class TelaNovoProntuario extends javax.swing.JFrame {
 
         jLabel24.setText("Qual:");
 
-        jToggleButton1.setBackground(new java.awt.Color(0, 102, 52));
-        jToggleButton1.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
-        jToggleButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jToggleButton1.setText("Salvar");
-        jToggleButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnSalvar.setBackground(new java.awt.Color(0, 102, 52));
+        btnSalvar.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
+        btnSalvar.setForeground(new java.awt.Color(255, 255, 255));
+        btnSalvar.setText("Salvar");
+        btnSalvar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jToggleButton1ActionPerformed(evt);
+                btnSalvarActionPerformed(evt);
             }
         });
 
@@ -271,6 +274,7 @@ public class TelaNovoProntuario extends javax.swing.JFrame {
         jToggleButton2.setText("Cancelar");
 
         txtObservacao.setHorizontalAlignment(javax.swing.JTextField.LEFT);
+        txtObservacao.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
 
         jLabel25.setText("Observação:");
 
@@ -284,6 +288,11 @@ public class TelaNovoProntuario extends javax.swing.JFrame {
         });
 
         cbNAOtratamento.setText("NÃO");
+        cbNAOtratamento.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbNAOtratamentoActionPerformed(evt);
+            }
+        });
 
         jLabel27.setText("Qual:");
 
@@ -299,14 +308,29 @@ public class TelaNovoProntuario extends javax.swing.JFrame {
         });
 
         NAOfaltaAr.setText("NÃO");
+        NAOfaltaAr.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                NAOfaltaArActionPerformed(evt);
+            }
+        });
 
         jLabel30.setText("Frequência:");
 
         jLabel31.setText("Tem alguma doença:");
 
         SIMdoenca.setText("SIM");
+        SIMdoenca.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SIMdoencaActionPerformed(evt);
+            }
+        });
 
         NAOdoenca.setText("NÃO");
+        NAOdoenca.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                NAOdoencaActionPerformed(evt);
+            }
+        });
 
         jLabel32.setText("Qual:");
 
@@ -317,6 +341,11 @@ public class TelaNovoProntuario extends javax.swing.JFrame {
         jLabel35.setText("É diabético:");
 
         SIMdiabete.setText("SIM");
+        SIMdiabete.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SIMdiabeteActionPerformed(evt);
+            }
+        });
 
         NAOdiabete.setText("NÃO");
         NAOdiabete.addActionListener(new java.awt.event.ActionListener() {
@@ -329,6 +358,14 @@ public class TelaNovoProntuario extends javax.swing.JFrame {
 
         jLabel37.setText("Já teve infarto:");
 
+        txtEstado.setEditable(false);
+        txtEstado.setBackground(new java.awt.Color(255, 255, 255));
+
+        txtConvenio.setEditable(false);
+        txtConvenio.setBackground(new java.awt.Color(255, 255, 255));
+
+        txtGenero.setEditable(false);
+        txtGenero.setBackground(new java.awt.Color(255, 255, 255));
         txtGenero.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtGeneroActionPerformed(evt);
@@ -343,6 +380,22 @@ public class TelaNovoProntuario extends javax.swing.JFrame {
 
         cbInfarto.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Não", "Sim" }));
 
+        registrodeprontuario.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 36)); // NOI18N
+        registrodeprontuario.setForeground(new java.awt.Color(51, 51, 51));
+        registrodeprontuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icons/check-form.png"))); // NOI18N
+        registrodeprontuario.setText("REGISTRO DE PRONTUÁRIO");
+        registrodeprontuario.setIconTextGap(5);
+
+        btnSair.setBackground(new java.awt.Color(0, 51, 51));
+        btnSair.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
+        btnSair.setForeground(new java.awt.Color(255, 255, 255));
+        btnSair.setText("Sair");
+        btnSair.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSairActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -351,14 +404,15 @@ public class TelaNovoProntuario extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(txtCodProntuario, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(9, 9, 9)
+                        .addComponent(registrodeprontuario)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jToggleButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jToggleButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(33, 33, 33))
+                        .addComponent(btnSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(34, 34, 34)
+                        .addComponent(jToggleButton2)
+                        .addGap(34, 34, 34)
+                        .addComponent(btnSair, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(22, 22, 22))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(jPanel1Layout.createSequentialGroup()
@@ -411,18 +465,21 @@ public class TelaNovoProntuario extends javax.swing.JFrame {
                                     .addComponent(cbFumante, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel12, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                            .addGap(3, 3, 3)
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jLabel12, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.TRAILING)
-                                                .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                        .addGroup(jPanel1Layout.createSequentialGroup()
-                                            .addGap(19, 19, 19)
-                                            .addComponent(jLabel4)))
-                                    .addComponent(jLabel16, javax.swing.GroupLayout.Alignment.TRAILING))
-                                .addGap(18, 18, 18)
+                                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                                    .addGap(3, 3, 3)
+                                                    .addComponent(jLabel3))
+                                                .addGroup(jPanel1Layout.createSequentialGroup()
+                                                    .addGap(19, 19, 19)
+                                                    .addComponent(jLabel4)))
+                                            .addComponent(jLabel16, javax.swing.GroupLayout.Alignment.TRAILING))
+                                        .addGap(18, 18, 18))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                        .addComponent(jLabel6)
+                                        .addGap(17, 17, 17)))
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(cBoxNomepac, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -464,23 +521,22 @@ public class TelaNovoProntuario extends javax.swing.JFrame {
                                                 .addComponent(jLabel15)
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                                 .addComponent(txtCPF, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE))))))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel25, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txtObservacao))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(jLabel25, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGap(18, 18, 18)
+                                .addComponent(txtObservacao, javax.swing.GroupLayout.PREFERRED_SIZE, 845, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                     .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addGap(6, 6, 6)
                                         .addComponent(jLabel35)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                         .addComponent(SIMdiabete)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(NAOdiabete)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addGap(24, 24, 24)
                                         .addComponent(jLabel36)
-                                        .addGap(12, 12, 12)
-                                        .addComponent(txtDiabete, javax.swing.GroupLayout.PREFERRED_SIZE, 337, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(txtDiabete, javax.swing.GroupLayout.PREFERRED_SIZE, 331, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(12, 12, 12))
                                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
                                         .addComponent(jLabel21)
@@ -506,7 +562,7 @@ public class TelaNovoProntuario extends javax.swing.JFrame {
                                     .addGroup(jPanel1Layout.createSequentialGroup()
                                         .addGap(162, 162, 162)
                                         .addComponent(cbInfarto, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
-                        .addContainerGap(82, Short.MAX_VALUE))))
+                        .addContainerGap(41, Short.MAX_VALUE))))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(94, 94, 94)
                 .addComponent(jLabel9)
@@ -520,12 +576,17 @@ public class TelaNovoProntuario extends javax.swing.JFrame {
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtCodProntuario, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jToggleButton1)
-                    .addComponent(jToggleButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(14, 14, 14)
+                        .addComponent(registrodeprontuario, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(25, 25, 25)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(btnSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jToggleButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnSair, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(39, 39, 39)
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -542,10 +603,9 @@ public class TelaNovoProntuario extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(txtGenero, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(txtProfissao, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtProfissao, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -624,39 +684,142 @@ public class TelaNovoProntuario extends javax.swing.JFrame {
                 .addGap(17, 17, 17)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel25, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtObservacao, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(47, Short.MAX_VALUE))
+                    .addComponent(txtObservacao, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(54, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(registrodeprontuario)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnSair, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(35, 35, 35))
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(registrodeprontuario, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnSair))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
-        setSize(new java.awt.Dimension(1055, 762));
+        setSize(new java.awt.Dimension(1014, 810));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSairActionPerformed
         this.dispose();
     }//GEN-LAST:event_btnSairActionPerformed
+
+    private void txtGeneroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtGeneroActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtGeneroActionPerformed
+
+    private void NAOdiabeteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NAOdiabeteActionPerformed
+        SIMdiabete.setSelected(false);
+    }//GEN-LAST:event_NAOdiabeteActionPerformed
+
+    private void SIMdiabeteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SIMdiabeteActionPerformed
+        NAOdiabete.setSelected(false);
+    }//GEN-LAST:event_SIMdiabeteActionPerformed
+
+    private void NAOdoencaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NAOdoencaActionPerformed
+        SIMdoenca.setSelected(false);
+    }//GEN-LAST:event_NAOdoencaActionPerformed
+
+    private void SIMdoencaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SIMdoencaActionPerformed
+        NAOdoenca.setSelected(false);
+    }//GEN-LAST:event_SIMdoencaActionPerformed
+
+    private void NAOfaltaArActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NAOfaltaArActionPerformed
+        SIMfaltaAr.setSelected(false);
+    }//GEN-LAST:event_NAOfaltaArActionPerformed
+
+    private void SIMfaltaArActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SIMfaltaArActionPerformed
+        NAOfaltaAr.setSelected(false);
+    }//GEN-LAST:event_SIMfaltaArActionPerformed
+
+    private void cbNAOtratamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbNAOtratamentoActionPerformed
+        cbSIMtratamento.setSelected(false);
+    }//GEN-LAST:event_cbNAOtratamentoActionPerformed
+
+    private void cbSIMtratamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbSIMtratamentoActionPerformed
+        cbNAOtratamento.setSelected(false);
+    }//GEN-LAST:event_cbSIMtratamentoActionPerformed
+
+    private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
+        try{
+            Prontuario prontuario = new Prontuario();
+            Paciente paciente = new Paciente();
+
+            paciente = (Paciente) cBoxNomepac.getSelectedItem();
+            prontuario.setPaciente(paciente);
+
+            prontuario.setCirurgia(String.valueOf(cbCirurgia.getSelectedItem()));
+            prontuario.setGestante(String.valueOf(cbGestante.getSelectedItem()));
+            prontuario.setFumante(String.valueOf(cbFumante.getSelectedItem()));
+            prontuario.setInfarto(String.valueOf(cbInfarto.getSelectedItem()));
+
+            if (medicaSIM.isSelected()) {
+                prontuario.setMedicacao(txtMedicamento.getText());
+            } else {
+                prontuario.setMedicacao("Nao");
+            }
+            if (cbSIMalergia.isSelected()) {
+                prontuario.setAlergia(txtAlergia.getText());
+            } else {
+                prontuario.setAlergia("Nao");
+            }
+            if (cbSIMtratamento.isSelected()) {
+                prontuario.setTratamento(txtTratamento.getText());
+            } else {
+                prontuario.setTratamento("Nao");
+            }
+            if (SIMfaltaAr.isSelected()) {
+                prontuario.setFalta_ar(txtFaltaAr.getText());
+            }else {
+                prontuario.setFalta_ar("Nao");
+            }
+            if (SIMdoenca.isSelected()) {
+                prontuario.setDoenca(txtDoenca.getText());
+            } else {
+                prontuario.setDoenca("Nao");
+            }
+            if (SIMdiabete.isSelected()) {
+                prontuario.setDiabetico(txtDiabete.getText());
+            } else {
+                prontuario.setDiabetico("Nao");
+            }
+
+            prontuario.setObservacao(txtObservacao.getText());
+
+            ProntuarioDAO dao = new ProntuarioDAO();
+            dao.cadastrar(prontuario);
+
+        }catch(Exception exc){
+            JOptionPane.showMessageDialog(null, "ERRO AO SALVAR PRONTUARIO!" +exc);
+            System.out.println(exc);
+        }
+    }//GEN-LAST:event_btnSalvarActionPerformed
+
+    private void cbNAOalergiaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbNAOalergiaActionPerformed
+        cbSIMalergia.setSelected(false);
+    }//GEN-LAST:event_cbNAOalergiaActionPerformed
+
+    private void cbSIMalergiaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbSIMalergiaActionPerformed
+        cbNAOalergia.setSelected(false);
+    }//GEN-LAST:event_cbSIMalergiaActionPerformed
+
+    private void txtMedicamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtMedicamentoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtMedicamentoActionPerformed
+
+    private void medicaNAOActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_medicaNAOActionPerformed
+        medicaSIM.setSelected(false);
+
+    }//GEN-LAST:event_medicaNAOActionPerformed
+
+    private void medicaSIMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_medicaSIMActionPerformed
+        medicaNAO.setSelected(false);
+    }//GEN-LAST:event_medicaSIMActionPerformed
 
     private void txtTelefoneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTelefoneActionPerformed
         // TODO add your handling code here:
@@ -666,55 +829,47 @@ public class TelaNovoProntuario extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtCidadeActionPerformed
 
+    private void cBoxNomepacActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cBoxNomepacActionPerformed
+        Prontuario prontuario = new Prontuario();
+        Paciente paciente = new Paciente();
+
+        if(cBoxNomepac.isPopupVisible()) {
+            paciente = (Paciente) cBoxNomepac.getSelectedItem();
+            prontuario.setPaciente(paciente);
+
+            try{
+                dataPaciente.setDate(paciente.getData_nascimento());
+                txtCPF.setText(paciente.getCpf());
+                txtGenero.setText(paciente.getGenero());
+                txtProfissao.setText(paciente.getProfissao());
+                txtTelefone.setText(paciente.getTelefone());
+                txtEmail.setText(paciente.getEmail());
+                txtCidade.setText(paciente.getCidade());
+                txtCEP.setText(paciente.getCep());
+                txtEstado.setText(paciente.getEstado());
+                txtConvenio.setText(paciente.getConvenio());
+                txtPlano.setText(paciente.getPlano());
+                txtNumConvenio.setText(paciente.getNumero_conv());
+
+            }catch(Exception exc){
+                JOptionPane.showMessageDialog(null, "Erro ao pesquisar paciente!" +exc);
+            }
+
+        }
+    }//GEN-LAST:event_cBoxNomepacActionPerformed
+
     private void cBoxNomepacAncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_cBoxNomepacAncestorAdded
-        
+        PacienteDAO dao = new PacienteDAO();
+        List<Paciente> lista = dao.listaPac();
+
+        // primeiro remove todos os dados da combobox para n duplicados os dados
+        cBoxNomepac.removeAll();
+
+        //Para cada item da lista, monta um obj do tipo Funcionario e add na comboBox
+        for(Paciente p:lista) {
+            cBoxNomepac.addItem(p);
+        }
     }//GEN-LAST:event_cBoxNomepacAncestorAdded
-
-    private void txtCodProntuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCodProntuarioActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtCodProntuarioActionPerformed
-
-    private void cbSIMalergiaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbSIMalergiaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_cbSIMalergiaActionPerformed
-
-    private void cbNAOalergiaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbNAOalergiaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_cbNAOalergiaActionPerformed
-
-    private void medicaSIMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_medicaSIMActionPerformed
-        medicaNAO.setSelected(false);
-        
-    }//GEN-LAST:event_medicaSIMActionPerformed
-
-    private void cbSIMtratamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbSIMtratamentoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_cbSIMtratamentoActionPerformed
-
-    private void SIMfaltaArActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SIMfaltaArActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_SIMfaltaArActionPerformed
-
-    private void NAOdiabeteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NAOdiabeteActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_NAOdiabeteActionPerformed
-
-    private void txtGeneroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtGeneroActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtGeneroActionPerformed
-
-    private void medicaNAOActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_medicaNAOActionPerformed
-        medicaSIM.setSelected(false);
-        
-    }//GEN-LAST:event_medicaNAOActionPerformed
-
-    private void jToggleButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jToggleButton1ActionPerformed
-
-    private void txtMedicamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtMedicamentoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtMedicamentoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -759,7 +914,8 @@ public class TelaNovoProntuario extends javax.swing.JFrame {
     private javax.swing.JCheckBox SIMdoenca;
     private javax.swing.JCheckBox SIMfaltaAr;
     private javax.swing.JButton btnSair;
-    private javax.swing.JComboBox<String> cBoxNomepac;
+    private javax.swing.JToggleButton btnSalvar;
+    private javax.swing.JComboBox cBoxNomepac;
     private javax.swing.JComboBox<String> cbCirurgia;
     private javax.swing.JComboBox<String> cbFumante;
     private javax.swing.JComboBox<String> cbGestante;
@@ -770,7 +926,6 @@ public class TelaNovoProntuario extends javax.swing.JFrame {
     private javax.swing.JCheckBox cbSIMtratamento;
     private com.toedter.calendar.JDateChooser dataPaciente;
     private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem1;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
@@ -804,7 +959,6 @@ public class TelaNovoProntuario extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JToggleButton jToggleButton1;
     private javax.swing.JToggleButton jToggleButton2;
     private javax.swing.JCheckBox medicaNAO;
     private javax.swing.JCheckBox medicaSIM;
@@ -813,7 +967,6 @@ public class TelaNovoProntuario extends javax.swing.JFrame {
     private javax.swing.JFormattedTextField txtCEP;
     private javax.swing.JFormattedTextField txtCPF;
     private javax.swing.JTextField txtCidade;
-    private javax.swing.JTextField txtCodProntuario;
     private javax.swing.JTextField txtConvenio;
     private javax.swing.JTextField txtDiabete;
     private javax.swing.JTextField txtDoenca;
