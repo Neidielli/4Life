@@ -169,4 +169,7 @@ public class Paciente {
     public String toString(){
         return this.getNome();
     }
+    public int toInt(){
+        return this.getId();
+    }
 }

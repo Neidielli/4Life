@@ -13,7 +13,6 @@ import telas.Paciente.TelaCadastrarPaciente;
 import telas.Paciente.TelaEditarPaciente;
 import telas.Prontuario.TelaNovoProntuario;
 import telas.Prontuario.TelaProntuario;
-import telas.Prontuario.TelaSelecionarPaciente;
 import telas.Usuario.TelaBuscarUsuario;
 import telas.Usuario.TelaCadastrarUsuario;
 import telas.Usuario.TelaEditarUsuario;

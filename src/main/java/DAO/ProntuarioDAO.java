@@ -85,12 +85,13 @@ public class ProntuarioDAO {
             throw new RuntimeException(exc);
         }
     }
-    public List<Prontuario> listaProntuario(){
+    public List<Prontuario> listaProntuario(int id_paciente){
         try {
             List<Prontuario> lista = new ArrayList<Prontuario>();
             String sql = "SELECT p.id_prontuario, pac.nome, p.cirurgia, p.gestante, p.fumante, p.infarto, p.medicacao, "
                     + "p.alergia, p.tratamento, p.falta_ar, p.doenca, p.diabetico, p.observacao  FROM prontuario as p "
-                    + "JOIN paciente as pac on (p.id_paciente = pac.id)";
+                    + "JOIN paciente as pac on (p.id_paciente = pac.id)" +
+                    "WHERE pac.id = " + String.valueOf(id_paciente);
             
             PreparedStatement pds = connection.prepareStatement(sql);
             ResultSet rs = pds.executeQuery();

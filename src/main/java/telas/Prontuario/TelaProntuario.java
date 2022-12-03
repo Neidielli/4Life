@@ -18,15 +18,18 @@ import model.Prontuario;
  */
 public class TelaProntuario extends javax.swing.JFrame {
 
-    public static void recebeNomePaciente(Paciente pac) {
-       txtNomepac.setText(String.valueOf((pac)));
-       txtNomepac.requestFocus();
-    }
+//    public static void recebeNomePaciente(Paciente pac) {
+//       txtNomepac.setText(String.valueOf((pac)));
+//       txtNomepac.requestFocus();
+//    }
     
-    public void Listar(){
-        try{
-            ProntuarioDAO dao = new ProntuarioDAO();  
-            List<Prontuario> listaprontuario = dao.listaProntuario();
+    public void Listar(int id_paciente){
+        try{           
+            ProntuarioDAO dao = new ProntuarioDAO(); 
+            
+            
+            
+            List<Prontuario> listaprontuario = dao.listaProntuario(id_paciente);
             
             DefaultTableModel model = (DefaultTableModel)tabelaProntuario.getModel();
             model.setNumRows(0);
@@ -69,7 +72,6 @@ public class TelaProntuario extends javax.swing.JFrame {
 
         registrodeprontuario = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         dataPaciente = new com.toedter.calendar.JDateChooser();
@@ -92,7 +94,6 @@ public class TelaProntuario extends javax.swing.JFrame {
         jLabel20 = new javax.swing.JLabel();
         txtConvenio = new javax.swing.JTextField();
         txtGenero = new javax.swing.JTextField();
-        txtNomepac = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
@@ -117,9 +118,6 @@ public class TelaProntuario extends javax.swing.JFrame {
         registrodeprontuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icons/check-form.png"))); // NOI18N
         registrodeprontuario.setText("PRONTUÁRIO DO PACIENTE");
         registrodeprontuario.setIconTextGap(5);
-
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jLabel1.setText("Paciente:");
 
         jLabel2.setBackground(new java.awt.Color(0, 102, 52));
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
@@ -210,14 +208,6 @@ public class TelaProntuario extends javax.swing.JFrame {
             }
         });
 
-        txtNomepac.setEditable(false);
-        txtNomepac.setBorder(null);
-        txtNomepac.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtNomepacActionPerformed(evt);
-            }
-        });
-
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icons/fotoPaciente.png"))); // NOI18N
         jLabel3.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
@@ -239,9 +229,9 @@ public class TelaProntuario extends javax.swing.JFrame {
             public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
                 cbNomePacAncestorAdded(evt);
             }
-            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
-            }
             public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
+            }
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
             }
         });
         cbNomePac.addActionListener(new java.awt.event.ActionListener() {
@@ -278,7 +268,7 @@ public class TelaProntuario extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addGap(0, 28, Short.MAX_VALUE)
+                        .addGap(0, 26, Short.MAX_VALUE)
                         .addComponent(jLabel3)
                         .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -328,11 +318,6 @@ public class TelaProntuario extends javax.swing.JFrame {
                                     .addComponent(jLabel17))
                                 .addGap(0, 0, Short.MAX_VALUE)))
                         .addGap(75, 75, 75))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(txtNomepac, javax.swing.GroupLayout.PREFERRED_SIZE, 232, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING)
@@ -343,10 +328,7 @@ public class TelaProntuario extends javax.swing.JFrame {
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtNomepac, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(35, 35, 35)
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -470,10 +452,6 @@ public class TelaProntuario extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtCidadeActionPerformed
 
-    private void txtNomepacActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNomepacActionPerformed
-
-    }//GEN-LAST:event_txtNomepacActionPerformed
-
     private void cbNomePacAncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_cbNomePacAncestorAdded
         PacienteDAO dao = new PacienteDAO();
         List<Paciente> lista = dao.listaPac();
@@ -481,7 +459,7 @@ public class TelaProntuario extends javax.swing.JFrame {
         // primeiro remove todos os dados da combobox para n duplicados os dados
         cbNomePac.removeAll();
 
-        //Para cada item da lista, monta um obj do tipo Funcionario e add na comboBox
+        //Para cada item da lista, monta um obj do tipo Paciente e add na comboBox
         for(Paciente p:lista) {
             cbNomePac.addItem(p);
         }
@@ -497,6 +475,7 @@ public class TelaProntuario extends javax.swing.JFrame {
 
             try{
                 /*=========== Dados do paciente ===================*/
+                
                 dataPaciente.setDate(paciente.getData_nascimento());
                 txtCPF.setText(paciente.getCpf());
                 txtGenero.setText(paciente.getGenero());
@@ -508,7 +487,7 @@ public class TelaProntuario extends javax.swing.JFrame {
                 txtEstado.setText(paciente.getEstado());
                 txtConvenio.setText(paciente.getConvenio());
                 txtPlano.setText(paciente.getPlano());
-                txtNumConvenio.setText(paciente.getNumero_conv());
+                txtNumConvenio.setText(paciente.getNumero_conv());               
                 /*=========== Histórico médico ===================*/
 //                txtMedicacao.setText(prontuario.getMedicacao());
 //                txtTratamento.setText(prontuario.getTratamento());
@@ -521,27 +500,17 @@ public class TelaProntuario extends javax.swing.JFrame {
 //                txtFumante.setText(prontuario.getFumante());
 //                txtInfarto.setText(prontuario.getInfarto());
 //                txtObservacao.setText(prontuario.getObservacao());
-                
-                System.out.println(prontuario.getAlergia());
+                Listar(paciente.getId());
                         
             }catch(Exception exc){
                 JOptionPane.showMessageDialog(null, "Erro ao pesquisar paciente!" +exc);
             }
 
         }
-        // PASSAR A LÓGICA DO VISUALIZAR PRONTUARIO
-        PacienteDAO dao = new PacienteDAO();
-        List<Paciente> lista = dao.listaPac();
-        
-        cbNomePac.removeAll();
-
-        for(Paciente p:lista) {
-        cbNomePac.addItem(p);
-        }
     }//GEN-LAST:event_cbNomePacActionPerformed
 
     private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
-        Listar();
+//        Listar();
     }//GEN-LAST:event_formWindowActivated
 
     /**
@@ -583,7 +552,6 @@ public class TelaProntuario extends javax.swing.JFrame {
     private javax.swing.JButton btnSair;
     public static javax.swing.JComboBox cbNomePac;
     private com.toedter.calendar.JDateChooser dataPaciente;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
@@ -611,7 +579,6 @@ public class TelaProntuario extends javax.swing.JFrame {
     private javax.swing.JTextField txtEmail;
     private javax.swing.JTextField txtEstado;
     private javax.swing.JTextField txtGenero;
-    public static javax.swing.JTextField txtNomepac;
     private javax.swing.JTextField txtNumConvenio;
     private javax.swing.JTextField txtPlano;
     private javax.swing.JTextField txtProfissao;
