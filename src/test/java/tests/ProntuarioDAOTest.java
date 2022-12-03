@@ -60,9 +60,7 @@ public class ProntuarioDAOTest {
      */
     
     @Test
-    public void testVisualizarProntuario() {
-//        System.out.println("VisualizarProntuario");
-        
+    public void testCadastrarProntuarioExistente() {        
         ProntuarioDAO dao = new ProntuarioDAO();
      
         /*================= Paciente ===========================*/        
@@ -109,6 +107,14 @@ public class ProntuarioDAOTest {
        
         /*executa cadastro com dados corretos*/
         assertEquals(false, dao.cadastrar(prontuarioValido));   
+    }
+    @Test
+    public void testListarProntuarioNotNull() { // teste de visualizar consulta cadastrada
+        int id_paciente = 1;
+        ProntuarioDAO instance = new ProntuarioDAO();
+//        List<Agenda> expResult = null;
+        List<Prontuario> result = instance.listaProntuario(id_paciente);
+        assertNotNull(result);
     }
 
 }
