@@ -17,12 +17,7 @@ import model.Prontuario;
  * @author tayna
  */
 public class TelaProntuario extends javax.swing.JFrame {
-
-//    public static void recebeNomePaciente(Paciente pac) {
-//       txtNomepac.setText(String.valueOf((pac)));
-//       txtNomepac.requestFocus();
-//    }
-    
+   
     public void Listar(int id_paciente){
         try{           
             ProntuarioDAO dao = new ProntuarioDAO(); 
@@ -489,17 +484,6 @@ public class TelaProntuario extends javax.swing.JFrame {
                 txtPlano.setText(paciente.getPlano());
                 txtNumConvenio.setText(paciente.getNumero_conv());               
                 /*=========== Histórico médico ===================*/
-//                txtMedicacao.setText(prontuario.getMedicacao());
-//                txtTratamento.setText(prontuario.getTratamento());
-//                txtFaltaAr.setText(prontuario.getFalta_ar());
-//                txtDoenca.setText(prontuario.getDoenca());
-//                txtDiabete.setText(prontuario.getDiabetico());
-//                txtAlergia.setText(prontuario.getAlergia());
-//                txtCirurgia.setText(prontuario.getCirurgia());
-//                txtGestante.setText(prontuario.getGestante());
-//                txtFumante.setText(prontuario.getFumante());
-//                txtInfarto.setText(prontuario.getInfarto());
-//                txtObservacao.setText(prontuario.getObservacao());
                 Listar(paciente.getId());
                         
             }catch(Exception exc){
@@ -510,7 +494,7 @@ public class TelaProntuario extends javax.swing.JFrame {
     }//GEN-LAST:event_cbNomePacActionPerformed
 
     private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
-//        Listar();
+
     }//GEN-LAST:event_formWindowActivated
 
     /**
